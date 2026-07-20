@@ -1,0 +1,87 @@
+% !TEX program = xelatex
+% ============================================
+% 李久阳 · 个人简历（最小可编译版）
+% ============================================
+% 【重要】Overleaf 操作步骤：
+% 1. 全选并删除 Overleaf 左侧编辑器里所有旧代码
+% 2. 把本文件完整粘贴进去
+% 3. 点左上角 Menu → Compiler 下拉 → 选 XeLaTeX
+% 4. 点 Recompile
+% 5. 如果还报错，把报错原样贴给我
+% ============================================
+
+\documentclass[12pt,a4paper]{ctexart}
+
+% ---- 页面 ----
+\usepackage[top=2cm, bottom=2cm, left=2.2cm, right=2.2cm]{geometry}
+
+% ---- 颜色 ----
+\usepackage{xcolor}
+\definecolor{primary}{HTML}{2c3e50}
+\definecolor{accent}{HTML}{2980b9}
+\definecolor{gray}{HTML}{7f8c8d}
+
+% ---- 超链接 ----
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true, urlcolor=accent}
+
+% ---- 自定义命令 ----
+\newcommand{\cvsection}[1]{
+  \vspace{0.8em}
+  \noindent
+  {\color{primary}\large\textbf{#1}}
+  \vspace{0.15em}
+  \hrule
+  \vspace{0.5em}
+}
+
+\begin{document}
+
+\begin{center}
+  {\color{primary}\huge\textbf{李久阳}} \\[0.3em]
+  {\large 应用物理学本科生} \\[0.4em]
+  {\color{gray}\small jiuyang@example.com \quad github.com/jiuyang \quad 中国·北京}
+\end{center}
+
+\cvsection{教育背景}
+\textbf{XX大学 · 应用物理学} \hfill 2023--2027（预计）
+
+主修：量子力学、统计物理、电动力学、固体物理、数学物理方法
+
+自学：信息论、认知科学、决策论、复杂系统
+
+\cvsection{研究兴趣}
+\begin{itemize}
+  \item 信息论与社会系统：将 Shannon 框架推广至注意力分配与认知熵
+  \item 认知协作系统：LLM 时代下人-AI 协作的架构设计
+  \item 复杂系统建模：从物理学出发，为社会学、认知科学建立形式模型
+\end{itemize}
+
+\cvsection{项目经验}
+\textbf{笔默 —— AI for Reading} \hfill 2026.03--至今
+
+纸质阅读的"第二层智能"——AI 贴附在阅读行为链路上，不替代，只增强。独立完成商业计划书（十三章），设计硬件形态、AI 交互范式与社区生态。
+
+\textbf{忆阻器时间展宽微弱电流测量} \hfill 2026
+
+利用忆阻器非易失性电荷积分特性，将 pA 级微弱电流测量转化为阻值/时间测量。
+
+\cvsection{技能}
+系统化分析 · 跨域建模 · 协议设计 · 信息论 · 认知科学 · 边界条件穷举
+
+Python · Markdown · Git · LaTeX(学习中) · 物理实验设计 · 数学推导
+
+\cvsection{方法论工具箱}
+\textbf{分析}：公理化驱动 · 边界条件穷举 · 比较矩阵 · 元层次追问
+
+\textbf{建构}：协议化思维 · 迭代式精炼 · 递归式自我应用 · 反玄学五步法
+
+\cvsection{语言}
+中文（母语）\hfill 英文（学术阅读与写作）\hfill 德语（入门）
+
+\vspace{1em}
+\begin{center}
+  {\color{gray}\footnotesize 「我相信，人类的好奇心可以延向多远的地方。」}
+\end{center}
+
+\end{document}

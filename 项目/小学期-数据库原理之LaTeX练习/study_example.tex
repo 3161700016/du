@@ -1,0 +1,275 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  study_example.tex —— 含注释的 LaTeX 报告模板
+%%  由 渡 基于 Report_Template/main.tex 添加逐区注释
+%%  2026-07-13
+%%
+%%  使用方式：
+%%    1. 在 texpage/Overleaf 中选 XeLaTeX 编译器
+%%    2. 修改「模板变量」区的 \reportname / \reportclass / \Information
+%%    3. 在 content/Main.tex 等文件中写正文
+%%    4. 编译四次：XeLaTeX → BibTeX → XeLaTeX → XeLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%===========================================================
+% 一、引擎声明
+%===========================================================
+
+\documentclass[10pt, a4paper]{article}      % 基础文档类：10pt 字体，A4 纸
+                                            % 备选：report（有 \chapter）/ book（双面印刷）
+%-- coding: UTF-8 --                         % 文件编码声明（注释行，对 XeTeX 无效但保留习惯）
+
+\usepackage[UTF8]{ctex}                     % 中文支持（包模式）
+                                            % vs ctexart（文档类模式）：包模式更灵活，
+                                            % 可以挂载在任意文档类上，换 report/book 不用换中文方案
+
+%-- 数学核心（三件套，几乎每个模板都要） --
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+                                            % amsmath  : 公式扩展（align, matrix, \text 等）
+                                            % amsthm   : 定理环境（\newtheorem）
+                                            % amsfonts : 黑板粗体（\mathbb）
+                                            % amssymb  : 额外符号（\blacktriangleright 等）
+                                            % amscd    : 交换图（CD 环境）
+
+\usepackage{mathrsfs}                       % 花体字母 \mathscr{...}
+
+%-- 数学字体（仅 XeTeX/LuaTeX！pdfLaTeX 直接报错） --
+\usepackage[math-style=ISO]{unicode-math}   % math-style=ISO：遵循 ISO 标准，大写希腊字母直立体
+\setmathfont{TeX Gyre Termes Math}          % 配套数学字体，需系统安装或 TeX Live 自带
+
+%===========================================================
+% 二、页面布局
+%===========================================================
+
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+                                            % 页边距：[上 下 左 右]
+                                            % bottom 比 top 大 1cm，给页脚留空间
+
+\usepackage{indentfirst}                    % 中文习惯：每段首行缩进（包括首段）
+
+\usepackage{setspace}                       % 精细行距控制
+\renewcommand{\baselinestretch}{1.25}       % 行距 1.25 倍（更粗暴的方式，但对中文友好）
+
+%===========================================================
+% 三、页眉页脚（fancyhdr 套件）
+%===========================================================
+
+\usepackage{fancyhdr}                       % 自定义页眉页脚
+\pagestyle{fancy}                           % 激活 fancy 风格
+\headheight 35pt                            % 加大页眉高度——因为放了 logo 图片
+\lhead{\today}                              % 左页眉：编译日期（会自动更新）
+\rhead{\includegraphics[width=2.5cm]{picture/ustb.png}}
+                                            % 右页眉：校徽图片（需要 picture/ustb.png 存在）
+\lfoot{}                                    % 左页脚：空
+\cfoot{\small\thepage}                      % 页脚居中：页码（\thepage 是 LaTeX 内置计数器）
+\rfoot{}                                    % 右页脚：空
+\headsep 3em                                % 页眉与正文间距
+
+\usepackage{lastpage}                       % 提供 \pageref{LastPage}，
+                                            % 配合 fancyhdr 使用时可用于 "第 X/共 Y 页"
+
+%===========================================================
+% 四、颜色与视觉
+%===========================================================
+
+\usepackage[dvipsnames]{xcolor}             % dvipsnames 扩展了更多预定义颜色名
+\usepackage{graphicx}                       % \includegraphics 插图命令
+\usepackage{float}                          % 提供 [H] 参数：强制浮动体"钉在此处"
+
+%===========================================================
+% 五、定理/证明环境（mdframed + thmtools 套件）
+%===========================================================
+
+\usepackage[framemethod=TikZ]{mdframed}     % 可跨页的带框环境
+                                            % framemethod=TikZ：用 TikZ 画框（功能最强，稍慢）
+                                            % 备选：framemethod=default（PSTricks，更快但限制多）
+
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+                                            % 框的上下间距设为标准行距
+
+\mdfdefinestyle{theoremstyle}{%              % 定义一个叫 theoremstyle 的框样式
+  linecolor=black,linewidth=1pt,%            % 边框：黑色，1pt 粗
+  frametitlerule=true,%                      % 标题下方画横线
+  frametitlebackgroundcolor=gray!20,%        % 标题栏底色：20% 灰
+  innertopmargin=\topskip,%                  % 框内顶部间距
+}
+
+\mdtheorem[style=theoremstyle]{Problem}{Problem}
+                                            % 创建 Problem 环境，套用 theoremstyle 样式
+                                            % 用法：\begin{Problem}...\end{Problem}
+
+\newenvironment{Solution}{\textbf{Solution.}}
+                                            % 创建 Solution 环境（无框，仅加粗标题）
+                                            % 用法：\begin{Solution}...\end{Solution}
+
+\usepackage{thmtools}                       % 定理环境的增强管理（与 amsthm 配合）
+\usepackage{shadethm}                       % 带阴影的定理框（备选方案）
+
+%===========================================================
+% 六、代码高亮（listings 套件）
+%===========================================================
+
+\usepackage{listings}                       % 代码排版（不依赖外部工具）
+                                            % 备选：minted（依赖 Python + Pygments，高亮更准但更重）
+
+%-- 定义代码配色的色板 --
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%-- 定义代码风格（你可以在这里改配色和字体大小） --
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},     % 背景色
+    commentstyle=\color{codegreen},         % 注释的颜色
+    keywordstyle=\color{magenta},           % 关键字的颜色
+    numberstyle=\tiny\color{codegray},      % 行号的字号和颜色
+    stringstyle=\color{codepurple},         % 字符串的颜色
+    basicstyle=\ttfamily\footnotesize,      % 代码基础字体：等宽 + 小一号
+    breakatwhitespace=false,                % 只在空格处断行（false = 任意位置可断）
+    breaklines=true,                        % 长行自动换行
+    captionpos=b,                           % 标题位置：bottom
+    keepspaces=true,                        % 保留代码中的空格
+    numbers=left,                           % 行号在左边
+    numbersep=5pt,                          % 行号与代码间距
+    showspaces=false,                       % 不显示空格符号
+    showstringspaces=false,                 % 字符串内部不显示空格符号
+    showtabs=false,                         % 不显示 tab 符号
+    tabsize=2                               % tab = 2 个空格宽度
+}
+
+\lstset{style=mystyle}                      % 全局应用 mystyle
+
+%===========================================================
+% 七、超链接（通常最后加载，避免覆盖其它包的设置）
+%===========================================================
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,                        % 链接用彩色文字而非方框
+    linkcolor=blue,                         % 内部链接（目录跳转、交叉引用）：蓝色
+    filecolor=magenta,                      % 文件链接：品红
+    urlcolor=blue,                          % URL 链接：蓝色
+}
+
+%===========================================================
+% 八、列表与章节样式
+%===========================================================
+
+\usepackage{enumerate}                      % 基础列表增强
+\usepackage[shortlabels]{enumitem}           % 列表的完全控制（\setlist, \begin{enumerate}[label=...]）
+
+\usepackage{sectsty}                        % 修改章节标题的字体/颜色/大小
+
+%===========================================================
+% 九、模板变量 —— 改这三行决定封面内容
+%===========================================================
+
+\newcommand\reportname{报告名称}             % <-- 改这里：报告标题
+\newcommand\reportclass{报告类别}             % <-- 改这里：课程名称/报告类型
+\newcommand\Information{学号姓名}            % <-- 改这里：你的姓名和学号
+
+%===========================================================
+% 十、数学快捷命令 —— 高频符号的缩写
+%===========================================================
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+                                            % \norm{x} → ‖x‖，括号大小自动缩放
+                                            % #1 是参数占位符，使用时替换为传入的参数
+
+%-- 黑板粗体快捷方式（来自 amsfonts） --
+\newcommand{\Z}{\mathbb Z}                  % \Z → ℤ（整数集）
+\newcommand{\R}{\mathbb R}                  % \R → ℝ（实数集）
+\newcommand{\Q}{\mathbb Q}                  % \Q → ℚ（有理数集）
+\newcommand{\NN}{\mathbb N}                 % \NN → ℕ（自然数集）
+\newcommand{\PP}{\mathbb P}                 % \PP → ℙ（概率空间）
+
+%-- 算子声明（\DeclareMathOperator 保证直立体渲染，区别于斜体变量） --
+\DeclareMathOperator{\Mod}{Mod}             % \Mod → Mod（取模运算，直立体）
+
+%-- 重命名 listings 的标题 --
+\renewcommand\lstlistingname{Algorithm}     % 代码块标题显示"Algorithm"而非"Listing"
+\renewcommand\lstlistlistingname{Algorithms}% 代码目录标题
+\def\lstlistingautorefname{Alg.}            % \autoref 引用时的缩写
+
+%-- 定理/引理（* = 不自动编号） --
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}                     % case 有编号，按 1, 2, 3... 递增
+
+%-- 其它快捷方式 --
+\newcommand{\assign}{:=}                    % \assign → :=（定义赋值符号）
+\newcommand{\infixiff}{\text{ iff }}        % \infixiff → "iff"（当且仅当）
+\newcommand{\backassign}{=:}               % \backassign → =:（反向赋值）
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}  % 加粗（数学模式内自动切换）
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}    % 直立体算子
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}        % 文本内加粗
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}         % 文本内斜体
+
+%-- 自定义 itemize（全部用实心圆点） --
+\newenvironment{itemizedot}{%
+  \begin{itemize}
+  \renewcommand{\labelitemi}{$\bullet$}     % 一级 = 实心圆
+  \renewcommand{\labelitemii}{$\bullet$}    % 二级 = 实心圆
+  \renewcommand{\labelitemiii}{$\bullet$}   % 三级 = 实心圆
+  \renewcommand{\labelitemiv}{$\bullet$}    % 四级 = 实心圆
+}{\end{itemize}}
+
+%-- hacker 区：尖括号字体修复（特定字体下 < > 渲染异常时启用） --
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+
+%===========================================================
+% 十一、文档开始
+%===========================================================
+
+\begin{document}
+
+%-- 封面（独立文件，由 \input 引入） --
+\input{content/frontpage}                   % 封面内容见 content/frontpage.tex
+                                            % \input = 把目标文件内容原样插入此处
+
+%-- 正文页码设为阿拉伯数字 --
+\pagenumbering{arabic}
+
+%-- 正文 --
+\newpage
+\section{报告内容} \label{ch1}               % \label{ch1} 定义锚点，后续 \ref{ch1} 引用
+\input{content/Main}                        % 引入正文文件
+123\cite{G1904}                             % 引用 document.bib 中 key=G1904 的条目
+                                            % 此处 "123" 是模板原作者留下的示例文本，删掉即可
+
+\begin{equation}
+    \sum_0^1                                % 示例公式（模板占位，改为你自己的公式）
+\end{equation}
+
+%-- 总结 --
+\newpage
+\section{总结} \label{ch2}
+\input{content/Conclusion}
+\cite{G1904}
+
+%-- 参考文献（需要 document.bib 存在，且其中包含 key=G1904 的条目） --
+\newpage
+\addcontentsline{toc}{section}{References}  % 手动把 References 加入目录
+\bibliography{document.bib}                 % 指向参考文献库文件
+\bibliographystyle{ieeetr}                  % IEEE 格式（数字编号，[1], [2], ...）
+
+%-- 附录 --
+\newpage
+\section{附录} \label{ch3}
+\input{content/Appendix}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  编译流程（必须严格按顺序执行四次）：
+%%    1. XeLaTeX  → 收集所有 \cite 和 \label 引用
+%%    2. BibTeX   → 从 document.bib 生成参考文献列表
+%%    3. XeLaTeX  → 将参考文献编号写入正文
+%%    4. XeLaTeX  → 解决所有交叉引用（\ref, \cite 变为正确编号）
+%%
+%%  如果你的模板没有参考文献（不用 \cite 和 \bibliography）：
+%%    只需编译 1~2 次 XeLaTeX 即可
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
