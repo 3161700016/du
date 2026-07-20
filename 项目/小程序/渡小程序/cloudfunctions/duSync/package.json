@@ -1,0 +1,9 @@
+{
+  "name": "duSync",
+  "version": "1.0.0",
+  "description": "渡 · 对话同步 HTTP 端点 — 供本地脚本拉取新消息",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

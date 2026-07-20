@@ -72,9 +72,13 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 28rpx;
+  width: 100%;
+}
+.msg-left {
+  justify-content: flex-start;
 }
 .msg-right {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 /* 头像 */
@@ -87,7 +91,6 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin: 0 16rpx;
 }
 .avatar text {
   font-size: 22rpx;
@@ -103,15 +106,20 @@
   max-width: 72%;
   padding: 20rpx 28rpx;
   border-radius: 20rpx;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex-shrink: 1;
+  box-sizing: border-box;
 }
 .bubble-du {
   background: rgba(255, 255, 255, 0.06);
   border-top-left-radius: 4rpx;
+  margin-left: 16rpx;
 }
 .bubble-user {
   background: rgba(100, 160, 220, 0.18);
   border-top-right-radius: 4rpx;
+  margin-right: 16rpx;
 }
 .bubble-text {
   font-size: 28rpx;

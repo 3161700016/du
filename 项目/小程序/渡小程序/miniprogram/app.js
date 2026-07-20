@@ -9,7 +9,7 @@ App({
       return;
     }
     wx.cloud.init({
-      env: 'prod-xxxxxxxx',  // ← 替换为你的云环境 ID
+      env: 'cloudbase-d9grcodt1cf294c04',  // ← 替换为你的云环境 ID
       traceUser: true,
     });
   },
