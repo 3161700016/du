@@ -1,0 +1,12 @@
+{
+  "triggers": [
+    {
+      "name": "httpTrigger",
+      "type": "http",
+      "config": {
+        "path": "/",
+        "method": ["GET", "POST"]
+      }
+    }
+  ]
+}
