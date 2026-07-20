@@ -512,12 +512,27 @@ def chat():
 
 if __name__ == "__main__":
     import socket
+    from datetime import datetime
 
     hostname = socket.gethostname()
     try:
         local_ip = socket.gethostbyname(hostname)
     except Exception:
         local_ip = "127.0.0.1"
+
+    # 写 IP 信息到公共空间，方便手机上查找
+    ip_note = PUBLIC_DIR / "当前IP.txt"
+    ip_note.write_text(
+        f"渡 · 当前访问地址\n"
+        f"更新时间：{datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n"
+        f"  本机: http://127.0.0.1:8765\n"
+        f"  手机: http://{local_ip}:8765\n\n"
+        f"如果手机连不上，试试：\n"
+        f"  http://10.38.3.251:8765\n\n"
+        f"都不通 → 确认电脑和手机连同一个 WiFi。\n"
+        f"校园网可能隔离设备 → 手机开热点连电脑。\n",
+        encoding="utf-8"
+    )
 
     print(f"\n{'='*55}")
     print(f"  渡 · 轻量服务端 v0.3 已就绪")
@@ -526,6 +541,7 @@ if __name__ == "__main__":
     print(f"")
     print(f"  公共空间模式 · 校园树洞")
     print(f"  第一句话留下 [你的名字] 让渡记住你")
+    print(f"  IP 信息: 公共空间/当前IP.txt")
     print(f"  退出按 Ctrl+C")
     print(f"{'='*55}\n")
 
