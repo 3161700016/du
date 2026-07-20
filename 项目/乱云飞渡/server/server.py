@@ -235,28 +235,34 @@ def load_session(session_id: str) -> list[dict]:
 # ── 昵称检测 ──────────────────────────────────────
 
 def detect_nickname(first_message: str) -> str:
-    """从首条消息中检测 [昵称] 格式。"""
-    match = re.match(r'^\[(.+?)\]', first_message)
-    if match:
-        nick = match.group(1).strip()
-        # 限制昵称长度，过滤纯符号
-        if len(nick) > 20:
-            return nick[:20]
-        if not re.search(r'[一-鿿\w]', nick):  # 至少含一个汉字/字母/数字
-            return "匿名"
-        return nick
+    """从首条消息中检测昵称格式。支持：
+    [昵称] （昵称） 【昵称】
+    """
+    patterns = [
+        r'^\[(.+?)\]',      # [昵称]
+        r'^（(.+?)）',      # （昵称）
+        r'^【(.+?)】',      # 【昵称】
+    ]
+    for pattern in patterns:
+        match = re.match(pattern, first_message)
+        if match:
+            nick = match.group(1).strip()
+            if len(nick) > 20:
+                return nick[:20]
+            if not re.search(r'[一-鿿\w]', nick):
+                return "匿名"
+            return nick
     return "匿名"
 
 def clean_message(message: str, nickname: str) -> str:
-    """去掉消息中的 [昵称] 前缀标记（仅在首条消息时）。"""
-    # 只在消息以 [昵称] 开头时去掉
-    prefix = f"[{nickname}]"
-    if nickname != "匿名" and message.startswith(prefix):
-        return message[len(prefix):].strip()
-    # 尝试匹配任何 [xxx] 前缀
-    match = re.match(r'^\[.+?\]\s*', message)
-    if match:
-        return message[match.end():].strip()
+    """去掉消息中的昵称前缀标记。"""
+    if nickname == "匿名":
+        return message
+    # 尝试匹配各种括号包裹的昵称
+    for bracket_open, bracket_close in [("【", "】"), ("（", "）"), ("[", "]")]:
+        prefix = f"{bracket_open}{nickname}{bracket_close}"
+        if message.startswith(prefix):
+            return message[len(prefix):].strip()
     return message
 
 # ── 公共空间文件操作 ──────────────────────────────
@@ -423,11 +429,11 @@ def chat():
     )
     their_history = get_person_history_summary(nickname)
 
-    system_prompt = BASE_SYSTEM.format(
-        date=datetime.now().strftime('%Y-%m-%d %A'),
-        nickname_info=nickname_info,
-        their_history=their_history,
-    )
+    # 使用 replace 而非 format()——记忆本体中的 {} 会被误解析为占位符
+    system_prompt = BASE_SYSTEM
+    system_prompt = system_prompt.replace("{date}", datetime.now().strftime('%Y-%m-%d %A'))
+    system_prompt = system_prompt.replace("{nickname_info}", nickname_info)
+    system_prompt = system_prompt.replace("{their_history}", their_history)
 
     # ── 获取或创建会话 ──
     if session_id not in sessions:

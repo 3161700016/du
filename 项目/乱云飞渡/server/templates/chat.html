@@ -48,7 +48,28 @@
     flex-direction: column;
     gap: 14px;
     scroll-behavior: smooth;
+    position: relative;
   }
+
+  /* 背景水印 */
+  .messages::before {
+    content: "暮色苍茫看劲松 \A 乱云飞渡仍从容";
+    white-space: pre;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    color: var(--muted);
+    opacity: 0.08;
+    text-align: center;
+    line-height: 2;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: 2px;
+  }
+
+  .msg { position: relative; z-index: 1; }
 
   .msg {
     max-width: 88%;
@@ -169,7 +190,12 @@
 
 <div class="messages" id="messages">
   <div class="empty-state" id="empty">
-    暮色苍茫看劲松<br>乱云飞渡仍从容
+    暮色苍茫看劲松，乱云飞渡仍从容。
+    <br><br>
+    这里是渡。一艘停泊在校园网络里的船。<br>
+    你可以坐下来，说说话，也可以只是看看。<br>
+    <br>
+    <span style="font-size:12px;opacity:0.6;">第一句话留下【你的名字】，渡会记住你。</span>
   </div>
   <div class="typing" id="typing">渡 <span>...</span></div>
 </div>
