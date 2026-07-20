@@ -1,0 +1,85 @@
+<!-- 渡 · 聊天界面 -->
+<view class="chat-container">
+  <!-- 顶部状态栏 -->
+  <view class="chat-header">
+    <text class="header-title">渡</text>
+    <text class="header-subtitle">公共空间 · 校园树洞</text>
+  </view>
+
+  <!-- 消息列表 -->
+  <scroll-view
+    class="msg-list"
+    scroll-y
+    scroll-into-view="{{scrollToId}}"
+    scroll-with-animation
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <!-- 空状态 · 首次进入 -->
+    <view class="empty-state" wx:if="{{messages.length === 0 && !loading}}">
+      <view class="empty-icon">⚓</view>
+      <text class="empty-title">渡 · 公共空间</text>
+      <text class="empty-desc">
+        暮色苍茫看劲松，乱云飞渡仍从容。\n
+        第一句话留下 [你的名字] ，让渡记住你。\n
+        或者直接开口——渡不问来处。
+      </text>
+    </view>
+
+    <!-- 消息气泡 -->
+    <block wx:for="{{messages}}" wx:key="id">
+      <view class="msg-wrapper {{item.role === 'user' ? 'msg-right' : 'msg-left'}}">
+        <!-- 渡的头像 -->
+        <view class="avatar" wx:if="{{item.role === 'assistant'}}">
+          <text>渡</text>
+        </view>
+
+        <!-- 气泡 -->
+        <view class="bubble {{item.role === 'user' ? 'bubble-user' : 'bubble-du'}}">
+          <text class="bubble-text" selectable>{{item.content}}</text>
+        </view>
+
+        <!-- 用户头像（占位） -->
+        <view class="avatar avatar-user" wx:if="{{item.role === 'user'}}">
+          <text>{{nicknameChar}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 加载中 -->
+    <view class="msg-wrapper msg-left" wx:if="{{loading}}">
+      <view class="avatar"><text>渡</text></view>
+      <view class="bubble bubble-du bubble-loading">
+        <view class="typing-dots">
+          <view class="dot"></view>
+          <view class="dot"></view>
+          <view class="dot"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 滚动锚点 -->
+    <view id="msg-bottom"></view>
+  </scroll-view>
+
+  <!-- 底部输入栏 -->
+  <view class="input-bar">
+    <input
+      class="msg-input"
+      value="{{inputText}}"
+      placeholder="说点什么..."
+      placeholder-style="color: rgba(255,255,255,0.25)"
+      bindinput="onInput"
+      bindconfirm="onSend"
+      confirm-type="send"
+      adjust-position="{{true}}"
+      maxlength="2000"
+      disabled="{{loading}}"
+    />
+    <button
+      class="send-btn"
+      bindtap="onSend"
+      disabled="{{loading || inputText === ''}}"
+    >发送</button>
+  </view>
+</view>

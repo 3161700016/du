@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/chat/chat"
+  ],
+  "window": {
+    "navigationBarTitleText": "渡",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0f0f1a",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "cloud": true,
+  "lazyCodeLoading": "requiredComponents"
+}

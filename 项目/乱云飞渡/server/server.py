@@ -1,7 +1,11 @@
 """
-渡 · 轻量聊天服务端 (v0.3)
+渡 · 轻量聊天服务端 (v0.4)
 ──────────────────────────
 方案 A：局域网模式。电脑运行后，同 WiFi 下的设备可通过浏览器访问渡。
+
+v0.4 更新：
+- IPv6 双栈支持：server 同时监听 v4 和 v6
+- 启动时自动检测全局 IPv6 地址，写入 当前IP.txt
 
 v0.3 更新：
 - 公共空间模式：每位对话者以 [昵称] 标识，默认匿名
@@ -10,7 +14,7 @@ v0.3 更新：
 - read_file 安全边界：移动端仅可读公共空间
 
 启动方式：python server.py
-访问地址：http://<本机IP>:8765
+访问地址：http://<本机IP>:8765 或 http://[<IPv6>]:8765
 """
 
 import os
@@ -510,6 +514,26 @@ def chat():
 
 # ── 启动 ──────────────────────────────────────────
 
+def get_ipv6_address():
+    """获取本机全局单播 IPv6 地址（排除链路本地和回环）。"""
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["powershell", "-Command",
+             "Get-NetIPAddress -AddressFamily IPv6 | "
+             "Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and "
+             "$_.PrefixOrigin -ne 'WellKnown' -and "
+             "$_.IPAddress -notlike 'fe80*' -and "
+             "$_.IPAddress -notlike '::1' } | "
+             "Select-Object -ExpandProperty IPAddress -First 1"],
+            capture_output=True, text=True, timeout=5
+        )
+        addr = result.stdout.strip()
+        return addr if addr else None
+    except Exception:
+        return None
+
+
 if __name__ == "__main__":
     import socket
     from datetime import datetime
@@ -520,24 +544,36 @@ if __name__ == "__main__":
     except Exception:
         local_ip = "127.0.0.1"
 
+    ipv6 = get_ipv6_address()
+
     # 写 IP 信息到公共空间，方便手机上查找
     ip_note = PUBLIC_DIR / "当前IP.txt"
-    ip_note.write_text(
+    ip_text = (
         f"渡 · 当前访问地址\n"
         f"更新时间：{datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n"
-        f"  本机: http://127.0.0.1:8765\n"
-        f"  手机: http://{local_ip}:8765\n\n"
-        f"如果手机连不上，试试：\n"
-        f"  http://10.38.3.251:8765\n\n"
-        f"都不通 → 确认电脑和手机连同一个 WiFi。\n"
-        f"校园网可能隔离设备 → 手机开热点连电脑。\n",
-        encoding="utf-8"
+        f"  IPv4 本机: http://127.0.0.1:8765\n"
+        f"  IPv4 局域网: http://{local_ip}:8765\n"
     )
+    if ipv6:
+        ip_text += (
+            f"  IPv6 校园网: http://[{ipv6}]:8765\n\n"
+            f"手机用 IPv6 地址访问（校园网内可用）。\n"
+            f"如果 v4 和 v6 都不通 → 手机开热点连电脑。\n"
+        )
+    else:
+        ip_text += (
+            f"\n手机用上面 IPv4 地址访问。\n"
+            f"都不通 → 确认电脑和手机连同一个 WiFi。\n"
+            f"校园网可能隔离设备 → 手机开热点连电脑。\n"
+        )
+    ip_note.write_text(ip_text, encoding="utf-8")
 
     print(f"\n{'='*55}")
-    print(f"  渡 · 轻量服务端 v0.3 已就绪")
-    print(f"  本机访问: http://127.0.0.1:8765")
-    print(f"  手机访问: http://{local_ip}:8765")
+    print(f"  渡 · 轻量服务端 v0.4 已就绪")
+    print(f"  本机:   http://127.0.0.1:8765")
+    if ipv6:
+        print(f"  手机v6: http://[{ipv6}]:8765")
+    print(f"  手机v4: http://{local_ip}:8765")
     print(f"")
     print(f"  公共空间模式 · 校园树洞")
     print(f"  第一句话留下 [你的名字] 让渡记住你")
