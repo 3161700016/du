@@ -159,6 +159,7 @@
   .empty-state {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--muted);
@@ -190,12 +191,10 @@
 
 <div class="messages" id="messages">
   <div class="empty-state" id="empty">
-    暮色苍茫看劲松，乱云飞渡仍从容。
-    <br><br>
-    这里是渡。一艘停泊在校园网络里的船。<br>
-    你可以坐下来，说说话，也可以只是看看。<br>
-    <br>
-    <span style="font-size:12px;opacity:0.6;">第一句话留下【你的名字】，渡会记住你。</span>
+    <div>暮色苍茫看劲松，乱云飞渡仍从容。</div>
+    <div style="margin-top:12px;">这里是渡。一艘停泊在校园网络里的船。</div>
+    <div>你可以坐下来，说说话，也可以只是看看。</div>
+    <div style="margin-top:16px;font-size:12px;opacity:0.6;">第一句话留下【你的名字】，渡会记住你。</div>
   </div>
   <div class="typing" id="typing">渡 <span>...</span></div>
 </div>
