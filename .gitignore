@@ -25,3 +25,4 @@ node_modules/
 # 未来可能出现的敏感文件
 *.log
 .env
+草稿纸.txt
