@@ -19,6 +19,9 @@ desktop.ini
 # 服务器运行时数据
 项目/乱云飞渡/server/sessions/
 
+# 依赖
+node_modules/
+
 # 未来可能出现的敏感文件
 *.log
 .env

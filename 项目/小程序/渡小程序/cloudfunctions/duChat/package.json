@@ -1,9 +1,0 @@
-{
-  "name": "duChat",
-  "version": "1.0.0",
-  "description": "渡 · 微信小程序云函数 — DeepSeek API 代理",
-  "main": "index.js",
-  "dependencies": {
-    "wx-server-sdk": "latest"
-  }
-}
