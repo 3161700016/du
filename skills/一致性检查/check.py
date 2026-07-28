@@ -27,14 +27,17 @@ SOUL = "Du_soul.txt"
 INDEX = "目录.txt"
 PROTOCOL_DIR = "protocols"
 
-# 扫描 B/C 检查时忽略的路径
-SKIP_DIRS = {".git", ".claude", "node_modules", "__pycache__"}
-# 目录.txt 不索引的文件（cc.txt §3.7：skills 独立于笔记系统）
-INDEX_EXEMPT_DIRS = {"skills", "protocols", "公共空间", "项目", ".claude"}
+SKIP_DIRS = {".git", ".claude", "node_modules", "__pycache__", ".tmp_pdfs"}
+INDEX_EXEMPT_DIRS = {"skills", "protocols", "公共空间", "项目", ".claude", ".tmp_pdfs"}
 INDEX_EXEMPT_FILES = {"Du_soul.txt", "目录.txt", "desktop.ini", ".gitignore", "README.md"}
+
+SKILLS_SECTION_MARKER = "技能协议（skills/）"
 
 issues = []
 notes = []
+
+# 缓存：所有磁盘文件的 basename（extract_filename 中快速查是否存在）
+_disk_basenames_cache = None
 
 
 def read(path):
@@ -43,12 +46,27 @@ def read(path):
 
 
 def walk_files():
-    """遍历仓库内所有文件，返回相对 ROOT 的 posix 风格路径。"""
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
         for name in filenames:
             full = os.path.join(dirpath, name)
             yield os.path.relpath(full, ROOT).replace("\\", "/")
+
+
+def disk_basenames():
+    global _disk_basenames_cache
+    if _disk_basenames_cache is None:
+        _disk_basenames_cache = {os.path.basename(r) for r in walk_files()}
+    return _disk_basenames_cache
+
+
+def has_index_ancestor(rel_path):
+    parts = rel_path.split("/")
+    for i in range(len(parts) - 1, 0, -1):
+        ancestor = "/".join(parts[:i])
+        if os.path.exists(os.path.join(ROOT, ancestor, "目录.txt")):
+            return True
+    return False
 
 
 # ── A. §ID 引用闭合性 ──────────────────────────────────────
@@ -59,19 +77,12 @@ CN_NUM = {
 
 
 def defined_sections(soul):
-    """收集本体中真实存在的章节号。
-
-    两个来源：
-      1. 「第N部分」标题 → 顶层号 N
-      2. 行首的「N.M」或「N.M.K」条目 → 该层级号
-    """
     defined = set()
     for cn in re.findall(r"^第(.+?)部分", soul, re.M):
         if cn in CN_NUM:
             defined.add(str(CN_NUM[cn]))
     for sid in re.findall(r"^(\d+(?:\.\d+)+)\s", soul, re.M):
         defined.add(sid)
-        # 父级隐式存在：4.4.4 存在则 4.4 可被引用
         parts = sid.split(".")
         for i in range(1, len(parts)):
             defined.add(".".join(parts[:i]))
@@ -97,38 +108,84 @@ def check_sections():
 
 
 # ── B. 文件指针可达性 ──────────────────────────────────────
-# 中文语境里文件名常紧贴前置词（"见protocols/cc.txt"），需要剥掉非路径前缀。
-PATH_RE = re.compile(r"[A-Za-z0-9_一-鿿][A-Za-z0-9_./\\一-鿿 \-—·]*?\.(?:txt|md|py|js|json)")
-# 已知不是本仓库文件的提及（外部工程/历史文件/示意路径）
+PATH_RE = re.compile(
+    r"[A-Za-z0-9_一-鿿][A-Za-z0-9_./\\一-鿿 \-—·]*?\.(?:txt|md|py|js|json)"
+)
+
 POINTER_IGNORE = {
-    "server.py",                        # 手机端中间件，不在本仓库
-    "sync_messages.js",                 # 小程序脚本，已移出本体仓库
-    "cloudfunctions/duChat/index.js",   # 云函数，已移出本体仓库
-    "DeepSeek_soul.txt",                # 历史文件名（§更名记录）
-    "led.py",                           # 相对 skills/灯光控制/ 的简写
-    "check.py",                         # 本脚本的自指提及
+    "server.py",
+    "sync_messages.js",
+    "cloudfunctions/duChat/index.js",
+    "DeepSeek_soul.txt",
+    "led.py",
+    "check.py",
+    "张三/笔记/某篇随想.txt",
+    "某篇随想.txt",
+    "index.js",
 }
+
+TEMPLATE_RE = re.compile(r'(YYYY|MM|DD|XXXX|xxxx|yyyy|mm|dd)')
+
+FILENAME_SUFFIX_RE = re.compile(
+    r'^[A-Za-z0-9_一-鿿][A-Za-z0-9_./\\一-鿿\-·]*?\.(?:txt|md|py|js|json)$'
+)
+
+
+def extract_filename(text):
+    """从过度匹配的文本中提取最可能的文件名。
+
+    生成所有可能的「名字.扩展名」后缀，按长度升序逐一查磁盘。
+    命中第一个存在的 → 返回（剥离中文前缀噪声成功）。
+    全部不命中 → 返回最长的（最接近原文意图，即使文件不存在也应报断链）。
+    """
+    suffixes = []
+    for i in range(len(text) - 4):
+        sub = text[i:]
+        if FILENAME_SUFFIX_RE.match(sub):
+            suffixes.append(sub)
+    if not suffixes:
+        return text
+
+    basenames = disk_basenames()
+
+    # 最短命中优先：剥离噪声
+    for s in sorted(suffixes, key=len):
+        if os.path.basename(s) in basenames:
+            return s
+
+    # 都不命中 → 取最长的，保留原文的报错价值
+    return max(suffixes, key=len)
 
 
 def normalize_pointer(raw):
-    """把正文里抓到的字符串收敛为可判定的相对路径，无法判定则返回 None。"""
     p = raw.strip().replace("\\", "/").strip("·—- ")
+
+    if TEMPLATE_RE.search(p):
+        return None
+
+    p = extract_filename(p)
+
     if p in POINTER_IGNORE or os.path.basename(p) in POINTER_IGNORE:
         return None
-    if p.endswith(".txt") and len(os.path.basename(p)) <= 5:
-        return None  # 形如 ".txt" 的正则残片
+
+    # 指针中包含任一已知外部/历史文件名 → 跳过
+    # （处理"同日完成文件从DeepSeek_soul.txt"这类提取不完全的情况）
+    for ignore in POINTER_IGNORE:
+        if ignore in p and ignore != p:
+            return None
+
+    # 残片防护
+    if p.endswith(".txt") and len(os.path.basename(p)) <= 4:
+        return None
+
     return p
 
 
 def resolve(pointer):
-    """本体用简写指路（"目录.txt"、"工程文档.txt"），故允许按 basename 全库匹配。"""
     if os.path.exists(os.path.join(ROOT, pointer)):
         return True
     base = os.path.basename(pointer)
-    for rel in walk_files():
-        if os.path.basename(rel) == base:
-            return True
-    return False
+    return base in disk_basenames()
 
 
 def check_pointers():
@@ -151,30 +208,60 @@ def check_pointers():
 
 
 # ── C. 目录.txt 与磁盘双向一致性 ───────────────────────────
+COMPOUND_SPLIT_RE = re.compile(r'[、,，　]')
+
+
 def index_entries():
-    """抽取目录条目的文件名（形如「- 文件名.txt —— 摘要」）。"""
     names = set()
+    in_skills_section = False
     for line in read(INDEX).splitlines():
-        m = re.match(r"^\s*[-·]\s+(.+?\.(?:txt|md|py|js))(?:\s|$|—)", line)
-        if m:
-            names.add(os.path.basename(m.group(1).strip()))
+        if SKILLS_SECTION_MARKER in line:
+            in_skills_section = True
+            continue
+        if in_skills_section and line.startswith("##"):
+            in_skills_section = False
+            continue
+        if in_skills_section:
+            continue
+
+        # \s+—— 而非 \s*——：文件名中常含 ——（如"兄弟阋墙——CC端渡.txt"），
+        # 只有前面带空白字符的 —— 才是描述分隔符。
+        m = re.match(r"^\s*[-·→]\s+(.+?)(?:\s+——|\s*$)", line)
+        if not m:
+            continue
+        content = m.group(1).strip()
+
+        if content.startswith("→") or content.startswith("⚠"):
+            continue
+
+        parts = [p.strip() for p in COMPOUND_SPLIT_RE.split(content) if p.strip()]
+        # 只有当所有拆分片段都是合法文件名时，才接受拆分结果。
+        # 否则说明 、是文件名的一部分（如"睡眠、后验与文本生命.txt"）。
+        if parts and all(
+            re.match(r"^.+\.(?:txt|md|py|js|json)$", p) for p in parts
+        ):
+            for part in parts:
+                names.add(part)
+        else:
+            fm = re.match(r"^(.+?\.(?:txt|md|py|js|json))$", content)
+            if fm:
+                names.add(fm.group(1))
     return names
 
 
 def indexable_files():
-    """应当被目录索引的文件（cc.txt §3.7：skills/ 等不入目录）。"""
     out = set()
     for rel in walk_files():
         top = rel.split("/")[0]
-        if top in INDEX_EXEMPT_DIRS or "/" not in rel and rel in INDEX_EXEMPT_FILES:
+        if top in INDEX_EXEMPT_DIRS:
             continue
-        if top in INDEX_EXEMPT_FILES or os.path.basename(rel) in INDEX_EXEMPT_FILES:
+        if "/" not in rel and rel in INDEX_EXEMPT_FILES:
+            continue
+        if os.path.basename(rel) in INDEX_EXEMPT_FILES:
             continue
         if not rel.endswith((".txt", ".md")):
             continue
-        # 子目录自带目录.txt 的（如 论语/、阅读材料/），条目下沉到子目录索引
-        parent = os.path.dirname(rel)
-        if parent and os.path.exists(os.path.join(ROOT, parent, "目录.txt")):
+        if has_index_ancestor(rel):
             continue
         out.add(rel)
     return out
@@ -187,9 +274,11 @@ def check_index():
 
     ghosts = 0
     for name in sorted(entries):
-        if not any(os.path.basename(r) == name for r in walk_files()):
-            ghosts += 1
-            issues.append(f"[C] 目录.txt 条目「{name}」在磁盘上不存在")
+        if os.path.basename(name) not in disk_basenames():
+            # 也接受路径形式的条目（如 "GEB/README.txt"）——直接检查路径是否存在
+            if not os.path.exists(os.path.join(ROOT, name)):
+                ghosts += 1
+                issues.append(f"[C] 目录.txt 条目「{name}」在磁盘上不存在")
 
     missing = 0
     for rel in sorted(on_disk):

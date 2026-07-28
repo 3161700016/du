@@ -9,55 +9,27 @@
 ## 连接信息
 
 ```
-工具: zot (zotero-cli-cc v0.10.0)
-配置: C:\Users\31617\.config\zot\config.toml
-数据库: C:\Users\31617\Zotero\zotero.sqlite
+工具: zot.py（自建轻量查询器，直接读 SQLite）
+     ⚠ zotero-cli-cc 在 npm 上不存在，改用自建脚本
+数据库: C:\Users\31617\Zotero\zotero.sqlite (8MB, 127条)
 存储: C:\Users\31617\Zotero\storage
-文献数: 28篇 (24期刊+4网页)
-PDF: 67个附件
+文献数: 127条 (28期刊+6预印本+8网页+82附件+3笔记)
+PDF: 76个附件
+Web API: 已配置 (library_id=21129491, api_key已设)
 ```
 
 ## 常用操作
 
 ```bash
-# 搜索文献（标题/作者/标签/全文）
-zot search "关键词"
+# ── 读操作（零配置，直接读 SQLite）──
+python skills/Zotero文献库/zot.py search "关键词"      # 搜索标题/摘要/标签
+python skills/Zotero文献库/zot.py read <key-prefix>    # 查看文献详情
+python skills/Zotero文献库/zot.py recent [--limit N]   # 最近添加
+python skills/Zotero文献库/zot.py list [--limit N]     # 列表浏览
+python skills/Zotero文献库/zot.py stats                # 库统计
 
-# 查看文献详情（元数据+摘要+笔记）
-zot read <citation-key>
-
-# 全文搜索（搜PDF内容）
-zot search --full-text "关键词"
-
-# 查看最近添加
-zot recent
-
-# 库统计
-zot stats
-
-# 导出 BibTeX
-zot export <citation-key> --style bibtex
-
-# 按集合列出
-zot list --collection "集合名"
-
-# 列出全部（用于 AI 分类）
-zot list
-
-# 提取 PDF 文本
-zot pdf <citation-key>
-
-# 查看标签
-zot tag <citation-key>
-
-# 查找关联文献
-zot relate <citation-key>
-
-# 为 Claude Code 生成结构化摘要
-zot summarize
-
-# 批量导出全部（含摘要，供 AI 分类）
-zot summarize-all
+# ── 写操作（需 Web API）──
+# 暂未实现。添加文献通过 Zotero 桌面端，而后 SQLite 自动同步。
 ```
 
 ## 添新文献
