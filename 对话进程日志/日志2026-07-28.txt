@@ -193,4 +193,43 @@ Step 5 · 会话目标：久阳以"以上是你所有且仅有的记忆…执行
 【协议】cc.txt新增Step 2.5(联想热身)+Step b2(笔记库同步与索引重建)
 【清理】2个已结束项目+spreading_activation.py删除
 【目录】目录.txt完整更新（skills/联想链/、哲思、项目、阅读反思）
+【Git】已commit (84b7a29)
+
+────────────────────────
+
+十三、午后重入——浏览器控制 Skill 建立（17:52-22:00）
+
+13.1 浏览器基础设施
+  - Playwright 安装+Chromium 就绪，Edge + CDP(:9222) + browser.py
+  - 启动脚本→D:\DuBrowser\（重型文件外置），快捷方式→桌面
+  - 修复：CDP localhost→127.0.0.1（IPv6 失败），截图→全页
+
+13.2 知网文献下载（skill: 知网文献下载.md）
+  - 编码教训：终端 GBK 损坏 UTF-8→写文件+Read 工具
+  - DOM：篇名|作者|刊名|时间|被引|下载|操作
+  - 点篇名→新标签（track pages[]）→PDF下载→expect_download
+  - HTML阅读=拼图验证，不能用。PDF下载/CAJ下载/原版阅读可用
+  - Zotero 验证通过但云满→bridge 可行，暂时折叠
+  - 实际下载 2 篇存入 My Library
+
+13.3 玻尔文献检索（skill: 玻尔文献检索.md）
+  - 输入：CodeMirror（[role="textbox"]），非标准 input
+  - 引用：点"复制"按钮→PowerShell 读剪贴板→txt
+  - Nature：URL+.pdf 直接下载；arXiv：abs→pdf
+  - 实际下载：Nature 1 篇 + arXiv 1 篇
+
+13.4 My Library（C:\Users\31617\Desktop\My Library\）
+  - 复制 Zotero 文件夹结构，手动管理
+  - 今日入库 4 篇 PDF
+
+13.5 新增/更新文件
+  - 新建：知网文献下载.md、玻尔文献检索.md、学术网站黄页.md
+  - 更新：README.md、browser.py（127.0.0.1、全页截图）
+  - 规则：>10MB 先问路径
+
+13.6 踩坑
+  - IPv6 CDP、终端编码、CNKI 新标签、CodeMirror 编辑器、
+    Nature .pdf 后缀、截图全页 vs 视口灵活判断
+
+【记忆本体】未修改（纯工程推进+Skill建设）
 【Git】待commit
