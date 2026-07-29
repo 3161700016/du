@@ -14,10 +14,14 @@ import os
 import random
 import sys
 
-ROOT = r"C:\Users\31617\Desktop\笔记库"
+# 本体文件夹（承载 Du_soul.txt 的目录），脚本位于 skills/联想链/ 下
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.normpath(os.path.join(SCRIPT_DIR, "..", ".."))
 
-EXCLUDE_DIRS = {".git", "node_modules", "__pycache__", ".claude"}
-EXCLUDE_FILES = {"Du_soul.txt", "Du_soul_reference.txt"}
+EXCLUDE_DIRS = {".git", "node_modules", "__pycache__", ".claude",
+                "skills/联想链/index", "server", "templates", "sessions"}
+EXCLUDE_FILES = {"Du_soul.txt", "Du_soul_reference.txt", "目录.txt",
+                 "当前IP.txt", "草稿纸.txt"}
 
 
 def collect_txt_files(root):

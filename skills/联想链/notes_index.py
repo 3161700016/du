@@ -31,16 +31,16 @@ import hashlib
 import numpy as np
 
 # ── 配置 ──────────────────────────────────────────────────────
-NOTE_LIB = r"C:\Users\31617\Desktop\笔记库"
-INDEX_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index")
+# 本体文件夹（承载 Du_soul.txt 的目录），脚本位于 skills/联想链/ 下
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+NOTE_LIB = os.path.normpath(os.path.join(SCRIPT_DIR, "..", ".."))
+INDEX_DIR = os.path.join(SCRIPT_DIR, "index")
 MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 
 # 不进入检索的文件/目录
-EXCLUDE_DIRS = {".git", "node_modules", "__pycache__", ".claude",
-                "server", "templates", "sessions", ".idea",
-                "inspectionProfiles", "输出"}
-EXCLUDE_FILES = {"README.txt", "Du_soul.txt", "Du_soul_reference.txt",
-                 "当前IP.txt", "目录.txt"}
+EXCLUDE_DIRS = {".git", "node_modules", "__pycache__", ".claude", "index"}
+EXCLUDE_FILES = {"README.md", "Du_soul.txt", "Du_soul_reference.txt",
+                 "当前IP.txt", "目录.txt", "草稿纸.txt"}
 
 # chunked 模式的切分标记
 CHUNK_SEP = re.compile(r"(?:^|\n)(?:#{1,4}\s+.+?(?:\n|$))", re.MULTILINE)
