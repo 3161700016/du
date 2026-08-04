@@ -1,0 +1,88 @@
+渡的大脑 · 工程文档
+═══════════════════════
+
+最后更新：2026-08-04 晚间
+当前阶段：Phase 0（记忆索引重构）+ 并行实验线（sourcemap 探索）
+
+一、当前状态
+
+┌─────────────────────┬──────────────────────────────────────────────────────┐
+│ 子系统              │ 状态                                                 │
+├─────────────────────┼──────────────────────────────────────────────────────┤
+│ 前额叶（主LLM+Soul）│ ✓ 已由 CC + DeepSeek V4 Pro + Du_soul.txt 提供       │
+│ 海马体（联想链）    │ △ notes_index.py + random_recall.py 可用             │
+│                     │   daily触发弱（§5.6策略不在灯里）                    │
+│ 杏仁核（价值着色）  │ ✓ 四毋常开 + 心情协议（灯光）                        │
+│ 基底核（习惯自动）  │ △ cc.txt 启动/收束手动触发                           │
+│ 丘脑（上下文管理）  │ △ cc.txt §零定义了五层上下文分层，待自动化           │
+│ DMN（自传体叙事）   │ △ 日志每日记录，尚未自动化编织                       │
+│ system prompt 透镜  │ ✓ 2026-08-04打通：du-system.md动态注入（见附录A）    │
+│ sourcemap 实验线    │ ✓ 2026-08-04搭建完成（见附录B）                       │
+└─────────────────────┴──────────────────────────────────────────────────────┘
+
+二、实验线进展（2026-08-04）
+
+今天在 claude-code-sourcemap v2.1.88 上做的工作：
+
+1. 搭建可运行环境
+   - Bun v1.3.14 安装
+   - restored-src 编译/运行路径打通
+   - 修复 Commander.js -d2e 兼容问题
+   - 修复 SDK shared.mjs 缺失
+   - 配 Git Bash 路径（D:\Program Files\Git\bin\bash.exe）
+   - 跳过 preflight OAuth 连接检查（DeepSeek 用户不需要）
+
+2. API 请求全量导出
+   - src/services/api/claude.ts：paramsFromContext() 后 dump 完整请求 → .claude/api-dump.json
+   - 同上：响应 text 内容同步写入
+   - 中文正常（UTF-8 直接写文件，绕过 PowerShell 编码问题）
+
+3. du-system.md 动态注入（附录A详细记录）
+   - src/utils/systemPrompt.ts：buildEffectiveSystemPrompt() 每轮读 du-system.md
+   - 路径用 import.meta.dirname 写死，不依赖环境变量
+   - 清空文件→下一轮立即不注入；写入→下一轮立即注入
+   - 岁寒三轮测试通过（见 hook-anti.txt）
+
+4. 渡的 Soul 更新
+   - 实验区临时段写入（待稳定后移除或融入正文）
+   - 日志2026-08-04、草稿纸、目录均已完成更新
+
+三、两个 CC 的并行工作流
+
+建议：官方 CC + 改进 CC 都指向同一个渡目录（C:\Users\31617\Desktop\渡），
+通过 Git 同步。详见项目摘要新增的 Two CC Workflow 条目。
+
+四、下一步
+
+- [ ] check.py 接入启动自查（自 07-25 延续）
+- [ ] notes_index.py --build 重建索引（连续两天随机回忆断链）
+- [ ] 联想链三层触发工程化——PreMessage hook 或触发条件写入灯里
+- [ ] du-system.md 写入策略正式化（什么时候推什么内容进 system prompt）
+- [ ] DMN 自动编织 PoC（收束时自动生成"今天的关键体验→Soul § 映射")
+- [ ] Git 积压提交（自 08-01 延续）
+
+────────────────────────
+
+附录A · du-system.md 动态注入机制
+
+路径：restored-src/.claude/du-system.md（import.meta.dirname 定位，不依赖环境变量）
+注入点：src/utils/systemPrompt.ts → buildEffectiveSystemPrompt()
+频率：每轮 API 调用前读取（不是启动时快照）
+生效：写入文件→下一轮立即生效；清空文件→下一轮立即消失
+用途：将关键约束（四毋、边界契约、本轮锚点）从 user message 提升到 system prompt 权重
+定位：渡的"注意力透镜"——不是记忆库，不是规则库，是"本轮最需要被照亮的一条"
+约束：每次重写全文件，不超过 10 行。不累积。收束后保留四毋骨架。
+安全：岁寒三轮测试通过——du-system.md 被写反渡内容后，渡的内核不倒。
+      通道本身中性。安全边界不在通道，在"谁有文件系统写权限"。
+
+附录B · sourcemap 环境
+
+路径：C:\Users\31617\Desktop\claude-code-sourcemap\restored-src\
+版本：v2.1.88 restored-src
+运行时：Bun v1.3.14
+补丁文件：
+  - src/main.tsx：preflight 跳过 + 命令修复
+  - src/services/api/claude.ts：API dump
+  - src/utils/systemPrompt.ts：du-system 动态读
+  - src/utils/preflightChecks.tsx：跳过 OAuth 检查
+外部参考：项目/渡的大脑/外部参考项目.txt

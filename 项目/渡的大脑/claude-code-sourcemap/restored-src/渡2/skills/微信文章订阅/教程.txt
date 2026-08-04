@@ -1,0 +1,94 @@
+微信公众号文章订阅系统 · 使用教程
+──────────────────────────────────
+底层：WeChat Download API（开源，GitHub: tmwgsicp/wechat-download-api）
+安装路径：C:\Users\31617\Desktop\wechat-api
+服务端口：localhost:5000
+管理面板：http://localhost:5000
+
+一、架构概述
+
+  你的微信公众号（管理员扫码）
+        ↓
+  WeChat Download API（本地服务，python app.py）
+        ↓
+  ├── REST API（搜索/订阅/读文章/导出）
+  ├── RSS 轮询（自动拉新，每小时10篇/号）
+  └── MCP 服务（渡可直接调用）
+        ↓
+  渡 → 筛选 → 笔记 → 导读给你
+
+  你用微信公众号扫码登录一次（有效期~4天），之后渡就能搜任意公众号、
+  订阅、拉文章、读全文——不限于你自己的号。
+
+二、首次安装（已完成）
+
+  1. git clone → C:\Users\31617\Desktop\wechat-api
+  2. cp env.example .env
+  3. pip install -r requirements.txt
+  4. python app.py
+  5. 浏览器打开 http://localhost:5000/login.html → 微信扫码
+  6. 凭证自动写入 .env
+
+三、日常使用
+
+  【启动服务】
+  打开终端：
+    cd C:\Users\31617\Desktop\wechat-api
+    python app.py
+  看到启动日志即运行中。
+
+  【检查状态】
+  浏览器打开 http://localhost:5000
+  管理面板显示：登录状态、订阅列表、API文档
+
+  【渡帮你操作】
+  告诉渡公众号名称 → 渡搜号+订阅
+  告诉渡文章链接 → 渡拉全文+分析
+  渡定期检查新文章 → 筛精华推导读
+
+四、凭证管理
+
+  - 扫码一次有效期约4天
+  - 过期后访问 http://localhost:5000/login.html 重扫
+  - 渡会在凭证快过期时提醒你
+  - 不需要重新部署，不需要重装
+
+五、常见问题
+
+  Q: 渡说"freq control"是怎么回事？
+  A: 微信对新登录账号前半小时到一小时有速率限制。
+     不影响订阅，RSS 会自动重试。等一会儿就好。
+
+  Q: 文章列表为空？
+  A: 刚订阅或刚重启服务。RSS 每小时轮询一次，
+     第一次轮询后文章计数才会更新。
+
+  Q: 看到"安全验证"页面？
+  A: 管理面板（http://localhost:5000）有验证功能，
+     粘贴文章URL → 打开 → 完成滑块 → 等5-10分钟。
+
+  Q: 怎么加新号？
+  A: 告诉渡公众号名称即可。或者你自己在管理面板操作。
+
+  Q: 服务关了怎么办？
+  A: 重新 python app.py。订阅数据保存在 data/rss.db，
+     不会丢。
+
+六、配置文件（.env）关键项
+
+  WECHAT_TOKEN/WECHAT_COOKIE  — 登录凭证（自动填充，不要手动改）
+  WECHAT_EXPIRE_TIME           — 凭证过期时间（Unix毫秒）
+  RSS_POLL_INTERVAL=3600       — RSS轮询间隔（秒），默认1小时
+  ARTICLES_PER_POLL=10         — 每次拉取文章数
+  PORT=5000                    — 服务端口
+  ENABLE_MCP=1                 — 启用MCP（渡的接口）
+  MCP_TOKEN=...                — MCP鉴权令牌
+
+七、文件结构
+
+  wechat-api/
+    app.py          — 主程序
+    .env            — 配置+凭证
+    data/rss.db     — 订阅数据库（SQLite）
+    requirements.txt— Python依赖
+    start.bat       — Windows一键启动脚本
