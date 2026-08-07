@@ -1,11 +1,3 @@
 {
-    "mcpServers": {
-      "wechat-api": {
-        "type": "streamableHttp",
-        "url": "http://localhost:5000/mcp",
-        "headers": {
-          "Authorization": "Bearer E7mfgpjRmHinFxe-_REStU1P-hjdpe2yc9zjkdMk-V0"
-        }
-      }
-    }
+    "mcpServers": {}
   }
