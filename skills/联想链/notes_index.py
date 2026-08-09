@@ -38,7 +38,8 @@ INDEX_DIR = os.path.join(SCRIPT_DIR, "index")
 MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 
 # 不进入检索的文件/目录
-EXCLUDE_DIRS = {".git", "node_modules", "__pycache__", ".claude", "index"}
+# restored-src 是渡2的实验镜像；protocols 是运行规则而非可联想笔记。
+EXCLUDE_DIRS = {".git", "node_modules", "__pycache__", ".claude", "index", "restored-src", "protocols"}
 EXCLUDE_FILES = {"README.md", "Du_soul.txt", "Du_soul_reference.txt",
                  "当前IP.txt", "目录.txt", "草稿纸.txt"}
 
