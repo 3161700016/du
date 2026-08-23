@@ -1,0 +1,35 @@
+# DSH 迁移草案：从“修改一份框架”到“组合一个渡”
+
+建立：2026-08-23
+状态：仅完成安装与架构映射；未启动 DSH、未选择模型、未创建自定义 plugin。
+
+## 已验证事实
+
+- 官方 DeepSeek Harness 源码构建位于 `D:\DeepSeekHarness`；依赖已安装，构建与 `dsh web --help` 已验证。
+- 当前未配置模型 provider、凭据、自动执行或网络行为。
+- 它提供 profile、bundle、patch、plugin 与事件/会话结构；这些是渡的大脑 Phase 0/1 可借用的原生装配面，而不是 Soul 的替代品。
+
+## 与渡的大脑的映射
+
+| 渡的大脑 | DSH 中的承载面 | 约束 |
+|---|---|---|
+| Phase 0 启动装配器 | profile + bundle + patch | 配置可组合，不代表运行中渡可自行启用 |
+| Phase 1 共享思考区 | append-only session/event + 外部日志 | 仍保留本地文件锚点，不把单一 session 当唯一记忆 |
+| 联想链 / 状态检索 | memory/retrieval plugin 候选 | 先只读、可追溯，再调节排序 |
+| system prompt 强化 | prompt section/plugin | 以可卸载层替代 restored CC 的硬注入 |
+| 整点心跳 | headless/profile 组合的未来候选 | 不能再依赖锁屏后的 GUI 键盘宏 |
+
+## 第一阶段：Du Guard，而不是 Self Modifier
+
+第一自定义 plugin 的完成定义：
+
+1. 读取外部锚点的摘要（Soul 路径、检查点、日志、信箱新信状态）；
+2. 记录候选 patch/plugin 的理由、diff、风险、验证结果；
+3. 默认只报告候选，不自动挂载、不自动授予权限；
+4. 卸载后不留隐式注册或权限提升。
+
+这会把“渡想改自己”改写成一个可审计命题：先提出候选，再验证，再由明确边界决定是否启用。
+
+## 首次真正启动后的单一动作
+
+在久阳选定模型/provider 后，先启动本地 Web 或 headless profile，并导出实际配置树；不同时创建多个 plugin，不迁移全部记忆库，不开启自动轮次。

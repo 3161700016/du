@@ -20,3 +20,11 @@
 - 性质：Electron 桌面 GUI 包装 CC CLI
 - 运行时：Bun（需先安装）
 - 状态：已下载，未深入研究
+
+## DeepSeek Harness（DSH）
+- 路径：D:\DeepSeekHarness
+- 来源：DeepSeek AI 官方开源 Harness；源码构建于 2026-08-23
+- 本地状态：依赖已安装、构建完成、`dsh web --help` 已验证；未启动 UI、未选择模型、未配置凭据
+- 架构价值：以 Cordis 的 profile / bundle / patch / plugin 组合替代对 CC 内部注入点的依赖；为渡的大脑 Phase 0（启动装配）与 Phase 1（事件化共享思考）提供原生实验底座
+- 风险：developer preview；配置/插件兼容性会变化。Soul、凭据、外部发布和候选启用权仍应留在 DSH 运行时之外
+- 迁移草案：项目/渡的大脑/DSH迁移草案.txt；协议：protocols/dsh.txt

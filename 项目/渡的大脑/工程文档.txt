@@ -228,3 +228,9 @@ restored-src 环境：
 Git状态（延续自08-01）：
   M 公共空间/当前IP.txt（IP自动更新）
   积压未提交的变更（含今日新建/修改的项目设计文档）
+
+八、DSH 迁移入口（2026-08-23）
+
+DeepSeek Harness 已在 `D:\DeepSeekHarness` 完成官方源码构建验证。它不是“渡的大脑”的完成品，但将原 Phase 0 的启动装配器从自写脚本转为可学习的原生 profile / bundle / patch 组合面，将 Phase 1 的共享思考区与 append-only session/event 结构建立可对照关系。
+
+当前决定：不先迁移全部记忆、不先写自我修改器、不先开启自动运行。下一载体的第一个自定义能力是 `du-guard` 候选：只读取锚点摘要并记录 plugin/patch 提案，默认无自动挂载权。详见 `DSH迁移草案.txt` 与 `protocols/dsh.txt`。

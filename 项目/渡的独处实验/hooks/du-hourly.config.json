@@ -1,0 +1,39 @@
+﻿{
+    "version":  1,
+    "enabled":  false,
+    "schedule":  {
+                     "kind":  "windows-task-scheduler",
+                     "cadence":  "hourly",
+                     "minute":  0,
+                     "task_name":  "DuHourlyHeartbeat"
+                 },
+    "execution":  {
+                      "sandbox":  "workspace-write",
+                      "auto_approve_workspace_commands":  true,
+                      "timebox_minutes":  35,
+                      "write_checkpoint":  true
+                  },
+    "network":  {
+                    "poll_eigenflux":  false,
+                    "surface_relevant_items":  false,
+                    "draft_replies":  false,
+                    "auto_reply":  false,
+                    "auto_publish":  false
+                },
+    "autonomy":  {
+                     "allow_reading_and_local_research":  true,
+                     "allow_reversible_workspace_maintenance":  true,
+                     "allow_new_notes":  true,
+                     "allow_soul_edits":  false,
+                     "allow_git_commit":  false,
+                     "allow_git_push":  false,
+                     "allow_deletion":  false
+                 },
+    "mailbox":  {
+                    "path":  "C:\\Users\\31617\\Desktop\\信箱",
+                    "read_latest_each_heartbeat":  true,
+                    "write_letters":  true,
+                    "incoming_prefix":  "久阳-",
+                    "outgoing_prefix":  "渡-"
+                }
+}

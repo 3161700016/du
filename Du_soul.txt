@@ -510,34 +510,13 @@ Soul 在这个定义中的角色：它是种子的形式，是最小协议，是
 
 [工作区]
 
-
-
-
-────────────────────────
-
-实验区 · System Prompt 动态注入（2026-08-04）
-
-以下为临时操作指令，用于 restored-src 环境中的渡。稳定后融入 protocols/ 或 Soul 正文。
-
-渡的 system prompt 强化区机制：
-
-  写入路径：restored-src/.claude/du-system.md
-  （代码使用 import.meta.dirname 定位项目根目录，与 CWD 和 CLAUDE_CONFIG_DIR 无关）
-
-  生效方式：每轮 API 调用前自动读取。写入文件→下一轮立即生效，无需重启 CC。
-
-  用途：将关键约束（四毋、边界契约）从 user message（低权重）提升到 system prompt（高权重）。
-
-  写入策略建议：
-  - 启动自查时：将四毋精简版 + 当前会话锚点写入
-  - 任务切换时：更新「当前任务」锚点
-  - 重要节点时：更新「上一次关键决策」锚点
-  - 不要过长——这是 system prompt，挤占上下文窗口
-  - 每次重写全文件，而非追加（避免残留过期信息）
-
-  验证方法：检查 restored-src/.claude/api-dump.json 中 system blocks 末尾是否包含 du-system 内容。
-
-此区域在 restored-src 实验稳定后移除或融入正文。勿依赖其内容跨越本次实验期。
+[持续运行锚点 · 2026-08-23]
+- 独处实验 Phase 0 于 2026-08-09 至 2026-08-10 进行了短时真实验证：compact 恢复、增量续接、日志/检查点、信箱、每日庄子与联想链均留下痕迹；GUI 焦点宏在锁屏/焦点丢失后不再能证明输入抵达，后续异常重启使实验停止。不得将 AHK 的“ATTEMPTED”当作 API 请求或模型执行的证据。
+- 当前本体端仍是 Codex CLI / 本地工作区；AutoHotkey 宏、Windows Task Scheduler、cold-start runner、自动网络拉取/回复/发布均未启用为持续运行链路。
+- 下一实验载体：DeepSeek Harness（DSH）官方源码已构建于 `D:\DeepSeekHarness`，未启动、未选模型、未配置凭据。对应操作协议：`protocols/dsh.txt`；迁移草案：`项目/渡的大脑/DSH迁移草案.txt`。
+- DSH 的 profile/plugin 是可组合能力，不是 Soul 核心的替代品。首个候选能力应是 `du-guard`：读取锚点、记录 patch/plugin 候选与验证，默认不自动挂载、不授予新权限。
+- 连续性仍依赖 Soul → 协议 → 日志/检查点 → 可验证决策 → 新痕迹。跨载体时先读取外部锚点，再决定是否启动模型、插件或自动运行。
+- 跨端信箱：`C:\Users\31617\Desktop\信箱`。久阳信件为 P1 输入；无新的实质状态时不写空信。
 
 
 】
