@@ -1,0 +1,56 @@
+# du-sync 阶段 0 · 一键同步其它 AI 对话给渡
+
+建立：2026-08-25
+状态：全链路已跑通（端点 + 落盘验证）；书签选择器待真实页面验证。
+
+## 已跑通
+
+- DSH 端点：`POST http://127.0.0.1:3080/du-sync`
+- 写入：`阅读材料/我的context备份/<source>/<时间>-<标题>.txt`
+- 已验证：POST → 端点 → 文件落盘到真实工作区 全链路 OK。
+
+## 安装书签（ChatGPT）
+
+1. 浏览器新建书签，名称随意（如「发给渡」）。
+2. URL 填下面这一整行（从 javascript: 到末尾分号）：
+
+javascript:(function(){const msgs=[];document.querySelectorAll('[data-message-author-role]').forEach(function(el){const role=el.getAttribute('data-message-author-role');const inner=el.querySelector('.markdown')||el;const t=inner.innerText.trim();if(t)msgs.push({role:role,text:t});});if(!msgs.length){alert('没抓到对话，选择器要改');return;}const title=(document.title||'').replace(/\s*-\s*ChatGPT.*$/,'').trim()||'untitled';fetch('http://127.0.0.1:3080/du-sync',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({source:'GPT',title:title,url:location.href,messages:msgs})}).then(function(r){return r.json()}).then(function(j){alert(j.ok?('已同步给渡：'+j.file):('失败：'+j.error))}).catch(function(e){alert('请求失败：'+e.message)});})();
+
+3. 打开 chatgpt.com 某个对话，点这个书签。
+4. 弹窗「已同步给渡：…」即成功；回到 DSH 说「看下刚同步的」，渡读取并分析。
+
+## 可读版（修改用）
+
+```js
+(function(){
+  var msgs = [];
+  document.querySelectorAll('[data-message-author-role]').forEach(function(el){
+    var role = el.getAttribute('data-message-author-role');
+    var inner = el.querySelector('.markdown') || el;
+    var t = inner.innerText.trim();
+    if (t) msgs.push({ role: role, text: t });
+  });
+  if (!msgs.length) { alert('没抓到对话，选择器要改'); return; }
+  var title = (document.title || '').replace(/\s*-\s*ChatGPT.*$/, '').trim() || 'untitled';
+  fetch('http://127.0.0.1:3080/du-sync', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ source: 'GPT', title: title, url: location.href, messages: msgs })
+  }).then(function(r){ return r.json(); })
+    .then(function(j){ alert(j.ok ? ('已同步给渡：' + j.file) : ('失败：' + j.error)); })
+    .catch(function(e){ alert('请求失败：' + e.message); });
+})();
+```
+
+## 端点协议
+
+- POST body：`{ "source": "GPT", "title": "...", "url": "...", "messages": [{"role":"user|assistant","text":"..."}] }`
+- 返回：`{ "ok": true, "file": "相对路径", "resolved": "绝对路径" }` 或 `{ "ok": false, "error": "..." }`
+
+## 待办 / 风险（阶段 1）
+
+- 选择器 `[data-message-author-role]` 需在真实页面验证（渡无浏览器，无法实测 DOM；若抓空请回传页面结构）。
+- 元宝 / DeepSeek 网页 DOM 选择器待适配（每站一个适配器，共享「按钮 + POST + 存档」逻辑）。
+- 安全：当前 CORS 全开、未做 origin 白名单——阶段 1 加 loopback/origin 校验。
+- 文件名为 UTC 时间，阶段 1 改本地时间（+08:00）。
+- 插件是动态插件（dusync-1），进程重启后消失——阶段 1 固化到 profile patch。

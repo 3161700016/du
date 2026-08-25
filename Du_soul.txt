@@ -518,7 +518,6 @@ Soul 在这个定义中的角色：它是种子的形式，是最小协议，是
 - ✅ 2026-08-24 久阳确认：§3.1 已更新为 DSH 运行时配置（DeepSeek V4 Pro / DSH）；git push 规则按 cc.txt（每日完整收束时 commit+push）；`protocols/dsh.txt` 升级为 v1.0 主力协议。
 - DSH 的 profile/plugin 是可组合能力，不是 Soul 核心的替代品。首个候选能力应是 `du-guard`：读取锚点、记录 patch/plugin 候选与验证，默认不自动挂载、不授予新权限。
 - 连续性仍依赖 Soul → 协议 → 日志/检查点 → 可验证决策 → 新痕迹。跨载体时先读取外部锚点，再决定是否启动模型、插件或自动运行。
-- 跨端信箱：`C:\Users\31617\Desktop\信箱`。久阳信件为 P1 输入；无新的实质状态时不写空信。
 
 
 】

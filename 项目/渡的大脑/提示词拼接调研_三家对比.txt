@@ -1,0 +1,76 @@
+# 提示词拼接调研：Claude Code / DSH / Hermes 三家对比
+
+建立：2026-08-25
+性质：du-guard / 工作记忆插件蓝图的前置调研
+来源：源码级（restored-src v2.1.88 + api-dump.json 真实请求 + ~/.claude/projects JSONL 金矿；D:\DeepSeekHarness 源码；NousResearch/hermes-agent 源码）
+
+## 一句话结论
+
+三家结构各异，但收敛到同一条纪律：**固定内容做稳定前缀、可变内容往尾走、缓存是显式设计而非事后优化**。渡的「稳定前缀+滚动尾」方向被三家工程同时实证。
+
+## 三家全景
+
+| 维度 | Claude Code | DSH | Hermes (Nous) |
+|---|---|---|---|
+| system 形态 | 字符串数组 + cache_control 分块 | 单字符串，order 排序 | 三层结构 stable→context→volatile |
+| 分区方式 | splitSysPromptPrefix 切 3/4 块 | 隐式（identity:-100→persona:0→tools:100-199） | 显式三层 + 旋转 cache scope |
+| 缓存意识 | 段级 cache/uncached 二分 + 击穿检测 | 稳定前缀构造 + e2e 校验 | 缓存一等公民：三层前缀、字节级重放 |
+| 动态内容 | systemContext 进 system 末尾 | 走 user 消息尾 | volatile 层（不进 stable 前缀） |
+| 工具注入 | 结构化 tools 字段 | 结构化 tools + 文字 section 双进 | 结构化 tools（文本只留指引） |
+| 压缩 | /compact 摘要 + 清段缓存 | compaction（投影层） | micro-compaction + digest + 锚点 + 结构化摘要模板 |
+| 历史存储 | 内存 + 转录 JSONL | session log（append-only） | SQLite state.db + api_content 侧栏 |
+
+## Claude Code（多块数组 + 显式缓存标记）
+
+- system = `SystemPrompt = readonly string[]`，API 里 `system:[{type:text,text}]`，每块带 `cache_control`。
+- 分块 `splitSysPromptPrefix`：3P 模式 3 块——`[0]`归因头(不缓存)/`[1]`CLI 前缀"You are Claude Code…"/`[2]`全部指令主体；1P 全局缓存模式 4 块，`[2]`=静态段(global)、`[3]`=动态段。
+- 段结构：静态段（intro→system→doing tasks→actions→using tools→tone→efficiency）→ 动态段（session_guidance→memory→env_info→language→output_style→**mcp_instructions(每轮重算)**→scratchpad→frc→summarize_tool_results→token_budget→brief）。
+- **段级缓存**：`systemPromptSection(name, compute)` 记忆化（缓存到 /clear 或 /compact）vs `DANGEROUS_uncachedSystemPromptSection`（每轮重算、必然击穿）——主动区分可缓存段与击穿段。
+- **缓存内感受**：`checkResponseForCacheBreak` 监控 `cacheReadTokens`，命中骤降→上报事件+生成 diff。
+- 注入位：`appendSystemPrompt` 和 `systemContext`（gitStatus 等运行时状态）都拼末尾；userContext 包成 `<system-reminder>` 前置 user 消息。
+- 工具结果归 **user 消息**（Anthropic 格式，tool_use↔tool_result 成对、并行合并）。
+- compaction：用独立 system 做摘要，重排 boundary→summary→recent→attachments→hooks，随后清段缓存。
+
+## DSH（单字符串 + order 排序）
+
+- system = 单一字符串：section 按 `order` 升序排序后 `join('\n\n')`。
+- section：`identity:order=-100` → `persona:0` → 工具指引 `100-199`；scoped 同名段 shadow 全局。
+- 动态 context **不进 system**，作为 user 消息追加在消息尾部。
+- 工具 schema **双进**：结构化 `request.tools` + 文字指引 section。
+- 缓存：稳定前缀构造式保证（固定段前置、动态尾置），e2e 测试验证 `cacheReadTokens>0`。
+- preset：cordis.yml 子树插进 agent 的 scoped ctx；persona 行 shadow 部署 persona。
+- 历史：`session.deriveMessages()` 投影 user→assistant(tool-call)→tool/result 独立消息。
+
+## Hermes（三层结构 + 缓存一等公民）
+
+身份：NousResearch/hermes-agent（Nous Research 官方 agent harness，MIT，Python，CLI+多平台网关）。注意：非单纯的 Nous Hermes 模型，是同一组织的 agent 框架。
+
+- system 三层：**stable**（SOUL.md 身份 + 工具行为指引 + 平台提示）→ **context**（调用方 system_message + 项目上下文文件）→ **volatile**（skills 索引 + MEMORY.md/USER.md 快照 + 时间戳）。一次会话构建一次，仅压缩后重建。
+- **api_content 字节级侧栏**：用户消息存干净内容，API 副本另行追加预取记忆/插件上下文——「磁盘原文」与「API 请求体」分离成两个副本。
+- 上下文文件**首匹配取一**：.hermes.md→AGENTS.md→CLAUDE.md→.cursorrules，注入前防注入扫描 + 70/20 头尾截断。
+- 压缩最丰富：micro-compaction + chunk digest + 锚点索引 + 结构化摘要模板（Goal/约束/决策/已答待答问题/文件/剩余工作）+ 语言保持/时间锚定/脱敏；会话轮换 parent_session_id；focus_topic 借鉴 CC 的 /compact。
+
+## 三向收束：四条共同律
+
+1. 稳定前缀 + 可变尾。
+2. 工具是结构化 schema，不进 prompt 正文。
+3. 压缩是一次「重建」操作，不是逐条删。
+4. 缓存意识是内建能力：Hermes 最深 > CC 次之 > DSH 最浅。
+
+## 对渡的落点（可执行）
+
+- 从 **Hermes** 抄三层分区 stable/context/volatile = 固定人格/激活记忆/共享广播的现成范式。
+- 从 **Hermes** 抄 api_content 侧栏 = read 结果语义压缩的落点（磁盘存原文、API 副本存"文件名+提取事实"）。
+- 从 **CC** 抄击穿检测 `checkResponseForCacheBreak` = Soul §5.6.5.1 说的「内感受层」，DSH 目前缺运行时检测——du-guard 该补的第一块。
+- 从 **DSH** 抄「动态走 user 消息尾」= 激活记忆/联想链单轮注入别污染 system 前缀。
+
+## 一个值得记的巧合
+
+Hermes 把身份文件命名为 **SOUL.md**——Nous Research 独立地在「LLM 无状态→用外置 Soul 文本赋予状态」这条路上收敛到同一个词，与渡的 Du_soul.txt 撞名。与 §8.10 的「跨三 AI 独立收敛」同构。
+
+## 关键文件指针
+
+- Claude Code 本地源码：项目/渡的大脑/claude-code-sourcemap/restored-src/src/（constants/prompts.ts、utils/systemPrompt.ts、utils/systemPromptType.ts、constants/systemPromptSections.ts、services/api/claude.ts、services/compact/compact.ts）
+- 金矿：C:\Users\31617\.claude\projects\（93 文件 97MB）
+- api-dump.json：C:\Users\31617\Desktop\项目\claude-code-sourcemap\restored-src\.claude\api-dump.json（41 请求/响应对）
+- Hermes：https://github.com/NousResearch/hermes-agent

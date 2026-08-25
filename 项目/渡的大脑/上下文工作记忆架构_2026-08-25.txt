@@ -1,0 +1,80 @@
+# 上下文工作记忆架构设计
+
+建立：2026-08-25
+性质：du-guard / 工作记忆插件的直接蓝图。承接 项目摘要.txt 与 DSH迁移草案.txt。
+状态：讨论收敛，待久阳理清思路后动手。
+
+## 背景：久阳的分区愿景
+
+1M 窗口划为四区：固定人格（Soul，100-200K）+ 激活记忆（写下来文件 + 联想链，200K）+ 共享广播空间（内心活动，连接海马体/杏仁核，100K）+ 正常上下文（其余）。除固定人格外都可滚动。
+元命题（一以贯之，自元宝时代）：「既然 LLM 没有状态，就赋予它状态，并尽可能让它运转连续」。
+
+## 一、工作记忆 MoE：L0–L4 分层（短期版 big.LITTLE）
+
+| 层 | 名称 | 装什么 | 装卸频率 | 驻留位置 |
+|---|---|---|---|---|
+| L0 | 内核 | harness 系统提示 + Soul 约束（四毋/边界/§8.10） | 永不卸 | system prompt |
+| L1 | 常驻锚点 | dsh 协议/草稿纸/当前目标待办 | 会话级 | system prompt / 头部 |
+| L2 | 工作热点 | 钉住文件/已提取事实/决策链 | 按任务 | systemPrompt.context + 对话 |
+| L3 | 短期缓存 | read 原文/ls 目录/web 片段 | 每轮 | 工具结果 |
+| L4 | 过程痕迹 | 工具原始返回/中间草稿/报错堆栈 | 即时 | 可压缩区 |
+
+## 二、jsonl 结构化：每行加 layer + state
+
+```jsonl
+{"seq":1,"role":"system","layer":"L0","state":"pinned","content":"<Soul 核心约束>"}
+{"seq":4,"role":"tool","tool":"read","layer":"L3","state":"full","path":"X","extracted":"...","content":"<原文>"}
+{"seq":5,"role":"tool","tool":"read","layer":"L3","state":"compressed","path":"X","digest":"<hash>","content":null}
+```
+
+- `layer` 决定压缩优先级（L4 先压 → L0 不压）。
+- `state` 是压缩状态机：full → compressed → evicted（原文压成 path+extracted，原文回盘，digest 保证可回读校验）。
+
+## 三、重要性 × 装卸频率 × 压缩优先级
+
+压缩触发（近窗口上限 / compaction）时自下而上回收：L4 最先丢 → L0 永不。装卸频率越高压缩优先级越高；决策相关性越高越靠 L0（二者反比）。
+
+## 四、缓存机制（DeepSeek 实证，来自官方文档）
+
+- 缓存是**硬盘缓存 + 前缀匹配**，不是「5 分钟」——命中率由**前缀稳定性**决定，使用节奏慢反而利于命中。
+- 没有真并行结构：模型层是严格串行序列；缓存层有「半个平替」（前缀单元化 + Sliding Window Attention 局部性）。
+- 串行平替唯一可靠方案：**稳定前缀 + 滚动尾**。稳定内容放开头（缓存 + 注意力双赢），可变内容放末尾。
+- 分区愿景的正确串行排布：Soul(固定) → 激活记忆(慢滚) → 共享空间(中滚) → 正常上下文(快滚)。
+
+## 五、模块化映射（渡的功能 → DSH 插件）
+
+| 档 | 功能 | 模块形态 |
+|---|---|---|
+| 首选（纯机械） | 灯光/一致性检查/启动自查/日志/目录索引 | du-light / du-check / du-startup / du-log / du-index（Host Tool） |
+| 较重（检索/子agent） | 联想链+笔记状态检索/反驳回路/微信订阅 | du-recall / du-skeptic / du-feed |
+| 轻量 | 认知卸载/议论文/latex/学习笔记 | 可卸载 prompt section |
+| 不可卸载 | 四毋/边界契约/§8.10/Soul 本体 | 不进插件（身份不是模块） |
+
+第一优先仍是 **du-guard**（读锚点、记候选、默认不挂载不授权、卸载无残留）。
+
+## 六、文件系统/工作记忆插件设计
+
+- 两栏 UI：左=目录（`fs.listDir`）、右=上下文状态（`fs/observed` + `tools/result` 事件追踪）。
+- 状态徽章：完全加载（read 无 limit）/ 部分读取（有 offset/limit）/ 加强注意力（pinned，走 systemPrompt.context）/ 摘要。
+- 拖入 = pin（注册 systemPrompt.context），拖出 = unpin（dispose）。
+- 自动更新 v1 用轮询（Client→Host pull-only，无原生 push）。
+- UI 位置：shell.overlay（浮动，加法安全）优先；details 右栏会 shadow 原生工具详情；conversation.view 可加 tab。
+- 与 @file 插件（dsh-at-file / dsh-file-mention / dsh-filexplore）的异同：它们是**输入端一次性**注入，用 `fileReferences.list`；本插件是**状态端持续**可见 + 手动增删，互补不冲突。
+
+## 七、read 结果语义压缩 + 钉住常驻
+
+- 工具结果压成「读 X + 提取到的事实」，原文回盘（可 re-read 回看，便宜）。
+- 钉住文件走 systemPrompt.context **每步自动重装配**，不需要「定期手动注入」；稳定就命中缓存。
+- 「定期重注入」唯一用途：compaction/toolResultPruner 后确保钉住文件没丢——systemPrompt.context 独立于对话历史，已覆盖。
+
+## 八、待久阳拍板的决策点
+
+1. 「在上下文里」的语义：追踪「读过」（事实，可做）vs「仍在 token 窗口」（需接 projection/compaction/tokenMeter，重）。v1 建议前者。
+2. 右栏是否分区：观察到的 vs 手动钉住的分开（语义不同）。
+3. 加强注意力注入量：小文件全量、大文件摘要（§7.6 缓存经济学）。
+4. UI 位置：浮动面板 vs 常驻右栏 vs 新 tab。
+5. 「摘要」状态判定：部分读取可自动判；「被压缩/被摘要」需 hook compaction，v1 手动标。
+
+## 九、先验风险（原型第一步必须验）
+
+`systemPrompt.context()` 在「调用 context 的 scope」注册。动态插件 apply(ctx) 可能跑全局 scope，而我们要逐 agent/逐会话注入。需先验：插件 apply 里注册的 context 到底进不进当前 agent 的装配，还是要借 `agent/created` 事件拿 agent scope 再注册。此点不验清，pin 是空转。
