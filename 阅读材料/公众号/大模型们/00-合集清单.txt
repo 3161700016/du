@@ -1,0 +1,140 @@
+合集：大模型们
+来源：https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIyMzA5NjEyMA==&action=getalbum&album_id=3739022840347820035&subscene=126&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzIyMzA5NjEyMA%3D%3D%26mid%3D2647685603%26idx%3D1%26sn%3D91bbef667086bed84b6f213be79733aa%26chksm%3Df1d25c94cb9148312cafee0731ddaad9e7b91fd3f9d34a12babfae1e5232f6ac9f421beab1b3%26scene%3D126%26sessionid%3D1787814184%26subscene%3D91%26clicktime%3D1787814192%26enterid%3D1787814192%26click_id%3D747686918%26key%3Ddaf9bdc5abc4e8d0fae0bb92ae5a7858673ae445e46ec3c4e9b8f2fd522ecce857a7a64f45f8d4eb19b61c8e8d7fda659e05707822cb8d8690d6c717e6ded1589a4b973ac0a5d5e2b214ec4a0676b943c09f072eddfe71bc91ae6dc92f3c0e61fa89ce434eb3745a794eda95f6476f8739094d44cd5f745dcc29e32e5d61ac8b%26ascene%3D1%26uin%3DMTc2OTcwNDU2Ng%253D%253D%26devicetype%3DUnifiedPCWindows%26version%3Df2541c1a%26lang%3Dzh_CN%26countrycode%3DCN%26exportkey%3Dn_ChQIAhIQLQ4wYZAm0Ef1VfmGjVUXeRLoAQIE97dBBAEAAAAAALhQFqoc%252BlIAAAAOpnltbLcz9gKNyK89dVj0xZa09fV6MWSGHriQ7S1awIDsL9JWbK29Q9mJe%252FH3TBfTOwAE581A8t7LXzjiH1xmhYUGTkAPP5k3c9ML0cUxkvQizO3rs4CQSSoRVk5HtjxNdWkmacLyFK8sbZqxq7J8%252Fix50UAJ8JVxS%252FAkFS2KBOR2qzMG%252FJtIxoFwF2yfENvAbOhjR%252BZ4os7Ih3SQ05uGtV0qLnBvpiBqDeKbu8JisCYZY5RmLFKH6nhRZWQ52jsyLw5Lz5kY4eaOZsTkxCIZ6uo%253D%26acctmode%3D0%26pass_ticket%3D4NdCfICoylSK1ab%252BO9UP1ltPn1jSSiGf4t5tDS3nuLgPGnkQnxUCyt2PFnVQAWuj%26wx_header%3D0%26fasttmpl_type%3D0%26fasttmpl_fullversion%3D8406075-zh_CN-html%26from_xworker%3D1&nolastread=1&sessionid=
+归档：2026/8/27 15:03:52 · 共 68 篇 · by 公众号合集扒取.user.js
+------------------------------
+001 | 2026-08-27 | 这一次，智谱用GLM-5.3-Flash实现了真正的智能平权。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647685603&idx=1&sn=91bbef667086bed84b6f213be79733aa&chksm=f007a5b4c7702ca22e7cf4d99447f1d032b94cd68b89ba71f13d205872eca533667b5c84c194#rd
+002 | 2026-08-10 | 我花了54个小时，做了一个可能更公平的AI大模型排行榜。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647685059&idx=1&sn=a329fe9999ac2419470c7eca9a97acd3&chksm=f007ab94c7702282ae6265c34de9db8ff1ebfda10f1d16bd3c3a94e907b24463205576d01521#rd
+003 | 2026-07-25 | Claude Opus 5深夜发布，以一半价格逼近Fable 5。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647684622&idx=1&sn=dab33249e9c9bd280524c433b9435764&chksm=f007aa59c770234f0db96586fcfcbee1453ee57988a1230d30ce50100c0942e94bb137db6d1c#rd
+004 | 2026-07-17 | Kimi正式发布2.8万亿大模型K3，这是属于我们的荣光。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647684392&idx=1&sn=a708ff725bfd9f1f2cab63fcdaa30bf7&chksm=f007a97fc7702069a2e37105b884d7c8fbba3cbef653be79218ad2651634d6a065beac812614#rd
+005 | 2026-06-13 | 实测GLM-5.2，国产Coding模型的又一座新高峰。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647683547&idx=1&sn=7bf34faa81ecee90ae2dd048298cbea2&chksm=f007ad8cc770249a98ba92ebe5d4ddf2358cf86536094a242eb31f5cdce55f9fe77e17f77ca4#rd
+006 | 2026-06-10 | Claude Fable 5正式发布 - 王者归航。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647683485&idx=1&sn=310421ab80ddac4996667c546b6c3e02&chksm=f007adcac77024dcadb00439cc66b65a533e1a0f93ed7b198fdfc48e515fc37447cbe26196f2#rd
+007 | 2026-05-29 | 实测Claude Opus 4.8，这可能是第一个不会偷懒的模型。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647682817&idx=1&sn=d1f463490433d00ab331659a19b7cc1f&chksm=f007b356c7703a40a283b6da2f5e44ba66951030d887ccda3d2b7536bdd047d28b6538337e62#rd
+008 | 2026-04-24 | 实测DeepSeek V4，为国产化而生。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647681844&idx=1&sn=5dfa72d7edde0f7d27bf3382f31d82ea&chksm=f007b763c7703e75ac04b4eb3f0ec7e5d08ecc869889cd8fb587fa55eece849f9be3818545e3#rd
+009 | 2026-04-24 | 实测小米MiMo-V2.5-Pro，这可能是目前国内最适合Claude Code的新模型。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647681810&idx=1&sn=c9e33fc419c2d2de2bd63d6abd9fbe65&chksm=f007b745c7703e53aaa4e52d74d636048ff7a7f37016851b154919d5f859f69025aeba515c8e#rd
+010 | 2026-04-17 | 实测Claude Opus 4.7，好好的模型也开始不说人话了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647681637&idx=1&sn=bde1e91e8bb246f1e3788a29cd6a0834&chksm=f007b632c7703f2405dedcd9c8d6932c3226b7c53ff2c21eaa191533dd60152c35962ab4dac5#rd
+011 | 2026-03-06 | GPT-5.4深夜发布，最适合OpenClaw的天选模型登场了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647680455&idx=1&sn=72f6e792e3a85f07250949a9f1236ea6&chksm=f007b990c7703086e8fbd5b47912340602bcea5a99185d344406fcb845b0766fc6fdd8589436#rd
+012 | 2026-02-12 | GLM-5深夜登场，这是国产开源模型首次逼平Claude Opus 4.5。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647679966&idx=1&sn=f9e9c10dd4bcada2e8adba67b5f095eb&chksm=f007bf89c770369fe18fe5b0c810898d0f775ccb204fac9cafc8d02eb6bf66951d3d060fb5ad#rd
+013 | 2026-02-06 | 中门对狙！Claude Opus 4.6和GPT-5.3 Codex同时发布，这下真的AI春晚了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647679769&idx=1&sn=b534c351bbed1859f31d312c004c81d6&chksm=f007bf4ec77036582699d5138a58fe42f0bc9c0abaf5dcfa10a1aa4cbf2d4c33633f57a93f08#rd
+014 | 2026-01-08 | 智谱AI今日正式上市，一文讲透你想知道的6件事。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647678502&idx=1&sn=ab82209a4b4761f88d7850b6eadce11c&chksm=f0078271c7700b679cb8886bf57a8c37976f543fe8404ab31224e2445d13028f0305cffc4952#rd
+015 | 2025-12-20 | 聊聊小米开源的MiMo-V2-Flash，这次，为推理而生。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647678105&idx=1&sn=61d523781d36199259525d0cc66668b1&chksm=f00780cec77009d860eecfaae015c612fcc220f959d0969a62e090f51c92ae7c3ee3b2c1ae51#rd
+016 | 2025-12-12 | GPT-5.2发布，真正的牛马打工人专属AI来了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647677783&idx=1&sn=cf040f8af48bf9c6d4fb3e48720e0491&chksm=f0078700c7700e16997d527b43d9dca72e31ab8b1d9f46b7aa5dafbe2c10a5ca2630907853b1#rd
+017 | 2025-11-19 | 实测Gemini 3 Pro - 此即未来。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647676908&idx=1&sn=e189369ecad6700c1fc7b766720ec2ec&chksm=f0078bbbc77002ada7767d550143fa3695dc6e8cfa28e6a3a240ade835490a16734c04c6669b#rd
+018 | 2025-10-29 | OpenAI终于快要上市了，也直面了这23个灵魂拷问。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647676006&idx=1&sn=31d388880d6b71fe5b5a09eff8b41a1c&chksm=f0078831c7700127423970ed5386af443ba598b7d87c3644e907943016f3b682bff060c557dc#rd
+019 | 2025-10-23 | 只有0.9B的PaddleOCR-VL，却是现在最强的OCR模型。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647675929&idx=1&sn=56d86173bb3454e1278f24607125b34f&chksm=f007884ec7700158c537f9346810a4438b11d11431c1632dbde9f36690b4b4c6ce5aa448e5bd#rd
+020 | 2025-10-21 | 全新开源的DeepSeek-OCR，可能是最近最惊喜的模型。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647675842&idx=1&sn=b6564f4b0214be405919d372383d6a18&chksm=f0078f95c7700683d95a9b1d6a0c501ed96fd762ab55fe592cc0ba78dca766d755fdb34f1210#rd
+021 | 2025-09-04 | 美团也开源了大模型，但我觉得他们的野心是通用生活Agent。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647674745&idx=1&sn=b39271d8318cf524ccc6fa05db237e7f&chksm=f007932ec7701a38b245858bf904bc2e4bc61d705e85ad7f254f5b63dc9f653500d482cbd58d#rd
+022 | 2025-08-11 | 刚刚，智谱开源了他们的最强多模态模型，GLM-4.5V。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647674025&idx=1&sn=11ea5be6d400d9cb2fb3aafcfddec99b&chksm=f00790fec77019e844c3b02615fb60c0d20022b4ddebd4367baf6996b6d1b11a51c637c3d681#rd
+023 | 2025-08-08 | 实测GPT-5：写作坠入谷底，编程一骑绝尘。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647673894&idx=1&sn=0b5d2361e4ffbb565f3e7bb87939a1d0&chksm=f0079071c7701967f5609bec9d5d4e8e9b3382c448f886864299cf1bd3eb36bf4b5ce3de7aa8#rd
+024 | 2025-08-06 | OpenAI发布ChatGPT世代首个开源模型gpt-oss，4060Ti都能跑得动。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647673794&idx=1&sn=e56a534658b7525af76e5cbc5da84025&chksm=f0079795c7701e83baeea490640b14b9c4ae80407178ed5d1418399fdb7f8a8f479748c67f7f#rd
+025 | 2025-07-31 | 整个HuggingFace榜，已经被中国AI模型一统江湖了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647673525&idx=1&sn=f0ee827831716ad19a9f9c2843cb2262&chksm=f00796e2c7701ff40a4e8a1b709392bbb2bf386036387f4df5df3b06cc1e7504101517aaac4d#rd
+026 | 2025-06-17 | MiniMax深夜开源首个推理模型M1，这次是真的卷到DeepSeek了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647672388&idx=1&sn=f2bac1a7fa6510401364d7f056fa31ae&chksm=f0079a13c7701305b7ccf8cc568d4796ae6716a4419a80c8602d9a22fea85592a3923e80c1eb#rd
+027 | 2025-05-07 | 用AI把一段视频变成可视化网页，Google的新模型又卷飞了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647670901&idx=1&sn=c7d0f59eb264999fd69b177842ccea27&chksm=f0079c22c77015340bda5f0f6e0aa7ec1f750cdbd80fb189480461e19aa64e980848a76859b6#rd
+028 | 2025-04-29 | Qwen3深夜正式开源，小尺寸也能大力出奇迹。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647670717&idx=1&sn=edec1f6cda0c1227e72cd07abf4228ff&chksm=f007e3eac7706afc332382d172d23d94b652533f6ddfcb73d6abe488b8f7d3acc8836c94e817#rd
+029 | 2025-04-17 | OpenAI深夜上线o3满血版和o4 mini - 依旧领先。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647670512&idx=1&sn=b78a84a56ed19aa9c27a1d8294c0130e&chksm=f007e2a7c7706bb174469c382af0186bb8600f5e6cbd6bb52cd4fcb0fec80860304029984161#rd
+030 | 2025-03-27 | 实测豆包刚刚上线的新版深度思考，他们也向DeepSearch迈出了一步。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647669963&idx=1&sn=83fd469aa9f3b12bc09f3e5f645d1150&chksm=f007e09cc770698aaa58978522c645854fa45c55973b2b1a691bd962ca595fbfa62a145c90fe#rd
+031 | 2025-03-11 | 我把我的文章手搓成了Token炸弹，发现这样居然还能防AI洗稿。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647669459&idx=1&sn=d3163321758bf901e9f3f62a743ed92d&chksm=f007e684c7706f9287f121a9de39840dc32fcefb84fc16125ea3908148c71a01ebee24173ee3#rd
+032 | 2025-03-06 | 阿里深夜开源推理模型QwQ-32B，性能比肩R1满血版。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647669390&idx=1&sn=74ce419d8fdc8ea9e8f84c2e0bb17744&chksm=f007e6d9c7706fcfa895b8ce62f810bcc63378e0ce7f70eaaff011d84a70af77ee7683bcef24#rd
+033 | 2025-02-28 | GPT4.5发布，价格是DeepSeek的280倍，他们是真没活了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647669088&idx=1&sn=f7715cbaad7d12e7cc4fdc65d619240e&chksm=f007e537c7706c2168d5083fd05dbd95200a432640020cf20ddeba00e55af7c6371c0119bd27#rd
+034 | 2025-02-25 | Claude 3.7 Sonnet深夜上线，AI编程的天又被捅破了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647668927&idx=1&sn=efe25f512e462d9a32626c75bbc950eb&chksm=f007e4e8c7706dfeda49ce1954ae2104b8c41aee9a9806079569f4730e9cc97e2d381f4f6503#rd
+035 | 2025-02-20 | Grok 3第一个破圈的场景，居然是写小黄文。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647668716&idx=1&sn=1a562d64f5e3da3a52a8fcc1e88d527c&chksm=f007ebbbc77062adee1b1e45e3c87fc8e47a0ea7d40eefb05caaac605015b49062df54b96905#rd
+036 | 2025-02-18 | 马斯克正式发布Grok 3，这回真的把OpenAI干碎了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647668685&idx=1&sn=63e229e9ce9936a46ee50574819b0b64&chksm=f007eb9ac770628cdcbcba7f6adf1561b53474e1e10092043a52c90771a872e7e95d96f83f48#rd
+037 | 2025-01-20 | 豆包全量上线超拟人的「实时语音」，这就是中文的语音之王。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647668073&idx=1&sn=751fbda82de527295c66e125e882e100&chksm=f007e93ec770602876ff396ea4b8c109b8aa26894175de56cfbb28633fbc13f8af4d99222fad#rd
+038 | 2024-12-31 | 2024的最后一天，由智谱AI新上线的o1为这一年划上句点。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647667683&idx=1&sn=022cc85100ed90d9acc8a5c37d3c8134&chksm=f007efb4c77066a23c1a953712581541551c459fdf9ffa9f5fbe09f7edbec9670deb034f0e7c#rd
+039 | 2024-12-21 | OpenAI正式发布o3 - 通往AGI的路上，已经没有了任何阻碍。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647667451&idx=1&sn=97fcefb90981c98200393155ef11fcbd&chksm=f007eeacc77067baaf41e963fa677403fa966be31285886d5accb866a4bd41963bdcd298148d#rd
+040 | 2024-12-18 | 一手实测豆包新发布的视觉理解大模型，他们真的卷起飞了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647667358&idx=1&sn=e2df5b1173b7f22cf5ef7721e8928ad5&chksm=f007eec9c77067df058d19bf08da0e9386f4c438d0bf9f4ec6c378d2f9af3aa9ae22f43934bc#rd
+041 | 2024-12-13 | OpenAI全量上线4o视频通话 - 我们等了7个月。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647667216&idx=1&sn=d64728cf497c3f891e1d6580493c6a49&chksm=f007ee47c7706751052e51b59a9ec57348dc7d0b49982f18024a477fbe8bea8b7b02154c9d44#rd
+042 | 2024-11-29 | 智谱AI全新发布Agent家族，用AI操控一切不再是梦了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647666949&idx=1&sn=804a2b04c3c3f538a10c28b6876d51f9&chksm=f007ed52c77064442fe9a60371198561ee927f9640ac93483910e73bac79d11c4b15a536ef88#rd
+043 | 2024-11-25 | 一手体验Kimi版“o1”模型，这就是最通人性的数学AI。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647666814&idx=1&sn=1f90cb422b33afda3c42833ccbc82724&chksm=f007ec29c770653f8ec5712b56e5357d1f98a6ddc52757ac6fbbdc007367f258c71ff4152ae6#rd
+044 | 2024-10-25 | 智谱AI悄悄发布AutoGLM，这一次，贾维斯真的要成现实了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647666141&idx=1&sn=3028e64fcb058b6e6d91b68e64a8f536&chksm=f007f18ac770789c74ae3fa3cb20821c3bbd013ce06133170bd16c649aafea761c5fff381f2c#rd
+045 | 2024-10-23 | 加强版Claude3.5正式上线，一句话操控电脑的时代真的要来了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647666066&idx=1&sn=1a02db4989a255f53624900df6b34fc7&chksm=f007f1c5c77078d3f0b03fdf1bf0e4380311485fa4de0bfa45d3d088c18b0baab9504dcb1dfc#rd
+046 | 2024-10-15 | 一句废话就把OpenAI o1干崩了？大模型的推理能力还真挺脆弱的。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647665829&idx=1&sn=137669ae4d996d5880243f5987626850&chksm=f007f0f2c77079e46a4b0e5a41d6dec1fdfd09272a580d134e85eba323c7119b143df480bdd0#rd
+047 | 2024-10-04 | ChatGPT上线全新功能Canvas - 我消灭你，与你无关。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647665619&idx=1&sn=05a6a1ef11348721f240560b630fc25e&chksm=f007f784c7707e92cbe3e9ef3a095a848be331bda5e422e40515297442b4f6f7346884a21da8#rd
+048 | 2024-09-12 | 试完这个神级Prompt，我发现Claude3.5确实就是现在的No.1。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647665218&idx=1&sn=dc4a9e998446bd55bb91b2830fd7a808&chksm=f007f615c7707f034c7826c2f926fbdac591d1d79070832f6ba9ca9e974e0cc165d008dce6e2#rd
+049 | 2024-09-11 | 200美元的ChatGPT Pro正式上线，聪明N倍的新模型草莓要来了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647665191&idx=1&sn=9b467200f0a4b6d8b9611acd33e0d5e8&chksm=f007f670c7707f6691663a7338c1330b131003f0609595253aab3ad6e8e441b84ab5e8ac926d#rd
+050 | 2024-09-10 | 现在的大模型榜单，真就没一个可信的。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647665178&idx=1&sn=bd52cbcb819c8caccca31f19fc482116&chksm=f007f64dc7707f5b83d6d59bf80f7f85f7f0a23be4bc5f2951bd87eed02be004053b61d92f1b#rd
+051 | 2024-09-06 | 这个号称能让AI无限进化的"超级prompt"，效果到底咋样？
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647665076&idx=1&sn=b6deca3500776d4d9cd3a5be4041d33e&chksm=f007f5e3c7707cf57ee57485aa67b3bda42b5235acbb8a45ef1668f8d53f907e24e66df7ef2d#rd
+052 | 2024-08-29 | 智谱AI静悄悄的上线了一大波新模型，过年了，真的。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647664941&idx=1&sn=c12fb224bfe89b83d4a886740c6d8dd8&chksm=f007f57ac7707c6c837789a45360914e84ad8f94ee95ce0f433cacb14ac6756ccc97f4443c03#rd
+053 | 2024-06-21 | 我体验完刚发布的Claude3.5，发现最强的是这个新功能。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647663364&idx=1&sn=201de50c7d3988c9359c62143fe693e6&chksm=f007ff53c7707645df23be1cdf89246b21e9ac367e21cdb5d4f6c10f1163c3020182274ce3df#rd
+054 | 2024-05-17 | 当我给Kimi打赏了399块钱后，我觉得他离赛博飞升不远了。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647662655&idx=1&sn=de9746bf539e221c7a2ac8cf24ac6a22&chksm=f007fc68c770757e314044cdf6bc3af6d2e510e04f7cfb6977b8329dee72ce83560b719fa228#rd
+055 | 2024-05-14 | OpenAI春季发布会：这是"Moss"的诞生，我们人类究竟该何去何从。
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647662594&idx=1&sn=9eab8c970651be0fee3cf5d372a2f505&chksm=f007fc55c7707543bf64af162017eea17150d1d6b061bbdf30faa70279cb128cf7c22a5aba1f#rd
+056 | 2024-05-03 | 当ChatGPT永远记住了我的一切 - 他甚至比我自己还了解我
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647662435&idx=1&sn=1e1c84a055c52bf638829430c920695f&chksm=f007c334c7704a22d2301e099aea08cd4e21b9c9f29ed2dd685af35adc066f4d46283113b631#rd
+057 | 2024-04-19 | 最强开源大模型Llama3深夜发布 - 世界不能没有Meta
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647662241&idx=1&sn=5c0ff611a9ac3310188754b15db9c72d&chksm=f007c2f6c7704be04371e9cd8d78d39d4dc188484b9bcceb1a2a685fbc4e1df0307a911c5ec9#rd
+058 | 2024-04-03 | 卷土重来的大模型"越狱" - 长文本才是那个罪人
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647662023&idx=1&sn=43bd120c682f089ab07d5937f1876b6f&chksm=f007c190c77048864e440539875da869ec4958cdf2c6d8de9d96a63d598dfd45922b9c640142#rd
+059 | 2024-03-05 | 一手实测Claude3 - GPT4啊，你的时代终于要过去了
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647661649&idx=1&sn=a14ea0046bff64c7576b4dc4984bd180&chksm=f007c006c77049106a1d92ffcf169a34433e9994e8c495bbbca66dee14482235d703a8f42eb5#rd
+060 | 2024-01-16 | 一文看懂智谱AI的GLM4发布会 - 国产之光，无愧于此
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647661150&idx=1&sn=6c1feb74b9332f90f97f874bd9b5b01e&chksm=f007c609c7704f1f0e7acc3af16f8aa45d5c577766c238ab2861ae53249edeefecf2a5ebc801#rd
+061 | 2024-01-11 | GPT Store的未来，是“竞价排名”的灰色产业链
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647661075&idx=1&sn=fe349618f386b36187150791ab3a64b5&chksm=f007c644c7704f52b647dc8bec70225afe9f093edd7bc5bd4531ada305586bee177f12b02865#rd
+062 | 2023-12-17 | OpenAI的官方Prompt工程指南详解 - 看这一篇真的就够了
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647660763&idx=1&sn=26b7ed69225300424e4f63d788da7fb4&chksm=f007c48cc7704d9a7e6fc2ecff40b12773d1c2df04e2f68afc815a36968e9e3729a359894bc3#rd
+063 | 2023-11-23 | 花7000块实测Claude2.1 - 200K Token的超大杯效果究竟怎么样？
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647660485&idx=1&sn=4b73724a8e669281e065dbdd2068bbf9&chksm=f007cb92c77042849fb25fd1c982d4c305448ab79ea018664c8cb53ee6dd6169589a54058b90#rd
+064 | 2023-10-09 | ChatGPT多模态识图评测 - 传奇依旧
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647659924&idx=1&sn=379711a0e35d971923bce87274e1d8b0&chksm=f007c9c3c77040d5ed204612493c8c6fd0b94e5367428f97bc89ab3e0f48fac0f405e231a6ed#rd
+065 | 2023-08-31 | 文心一言和ChatGLM，连夜向全社会开放，究竟发生了什么？
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647659512&idx=1&sn=11ecd8695f38bd5c11833b9d9e36b780&chksm=f007cfafc77046b9f9c8d3f1432744e7dc84803e83d99086c31a7dc4e6d25ccb048daf45368d#rd
+066 | 2023-07-21 | AI知识库总是不准？教你无脑用GPT整理结构化数据集...
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647658988&idx=1&sn=d28b43db283350d604df4e5ceae3f5e2&chksm=f007cdbbc77044ad999612d5b7618ad830ee48ca29b422c6226935c2f241d3055a7b9e1f38d3#rd
+067 | 2023-07-09 | ChatGPT新功能Code Interpreter评测 - 何以为神
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647658922&idx=1&sn=f488caa467917c5b771f36e7707cc4ca&chksm=f007cdfdc77044ebc83912360345212b4860857ce184e7443a0109b21dd27a29e1c6bb33be80#rd
+068 | 2023-04-16 | ChatGPT的无需魔法平替 - 本是同根生的Claude
+      https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647658229&idx=1&sn=20afcf4d7941b2f3889af80b398fb3cc&chksm=f007d2a2c7705bb4cae24a58eb32321f4d9b2d620b0f3f5b0ab64846cbe27e65cb5c9a0d309f#rd

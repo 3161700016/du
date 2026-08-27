@@ -1,0 +1,272 @@
+标题：不只是预测：动力学学习中「记忆」的五重境界
+公众号：集智俱乐部
+发布：2026-06-23
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733146&idx=1&sn=a5bde47375238e9670900cf663adab25&chksm=e8981517dfef9c017c2dc23cef9ec1137d9f539133f248c5b8ac4eb058891aef26b4371291e3#rd
+合集：复杂科学前沿2026 · 序号 043/157
+------------------------------
+[图]
+导语
+从Takens嵌入定理到Koopman算子，从RNN、Transformer到Neural ODE与TimeGPT，时间序列预测的发展史本质上是一部“机器学习记忆”的进化史。近日，集智学园张江老师系统梳理了动力学学习的发展脉络，揭示了一个贯穿半个世纪的核心问题：机器究竟该如何表示过去，才能预测未来？文章以“记忆”为主线，串联动力系统理论、深度学习与基础模型的发展历程，展示了人工智能如何从数据中自动发现复杂系统的演化规律，并逐步迈向跨领域、跨系统的通用预测能力。
+关键词：动力学学习、时间序列预测、RNN、Transformer、扩散模型、复杂系统
+[图][图][图][图][图]
+付雯欣丨作者
+引言：从“拍脑袋建模”到“数据驱动发现”，
+我们用记忆让机器学会预测复杂世界
+预测，是人类最古老也最前沿的智力活动。远古先民观察星象预测四季，牛顿用万有引力定律预测行星轨道，现代科学家用超级计算机预测气候变化，这些预测的本质是相同的：从推断出的已知模型推演未知的未来。
+然而，随着观测手段的爆炸式发展（如卫星遥感、脑电记录、物联网传感器），我们往往拥有海量时间序列数据，却对背后的动力学机制知之甚少。于是问题被颠倒过来：给定观测数据，能否自动推断出系统的演化规则？
+这就是动力学学习——让机器从观测数据中，自动发现系统演化的规则。
+2025年，这个方向迎来了两个标志性时刻。微软的 Aurora 模型用一个统一框架同时预测台风轨迹、空气污染和海浪高度，论文登上《Nature》。与此同时，TimeGPT 把千变万化的时间序列预测任务塞进一个预训练模型，实现了零样本预测。
+这些惊艳的模型是半个世纪以来一代代研究者反复追问同一个问题的结果：
+“现在”到底要被记成什么样子，“未来”才能从中自然地长出来？
+这个问题听起来抽象，但它就是整条演进路线的暗线。本文把它叫做“对记忆的追问”，即模型（或数学框架）用什么方式来表示过去和现在的状态（处理记忆），又用什么方式来预测未来（运用记忆），并把这个过程总结为以下五个阶段，对应文章的五个章节。
+[图]
+一、记忆有用吗？——Takens 定理：
+过去的观测里藏着完整的世界
+1.1 正问题与反问题
+要理解动力学学习在做什么，首先要分清两个方向相反的问题。
+正问题是传统的思路：已知系统的演化方程，给定初始状态，求未来的轨迹。比如天体物理中已知行星的运转规律，给定今天的位置和速度，就能算出明天在哪里。数学上写为：
+[图]
+其中 [图][图] 是系统在时刻 t 的状态向量（可能包含 n 个节点或变量的值），F 是已知的演化规则。把 s0 代入 F，得到 s1；再代入，得到 s2——如此递推，整条轨迹就出来了。
+反问题是现实世界里更常见的情形：F 是未知的。我们只能观测到系统运行产生的数据，任务是从这些数据中，把隐藏的 F 学出来。
+[图]
+学到的 [图][图] 就是原始系统的替代模型（surrogate model）。有了它，我们就能做预测（给定历史推未来）、模拟（在不同初始条件下看系统如何演化）、甚至优化和控制（找到最优的干预策略）。
+这里有一个关键的思维转换：我们的最终目标是学到 F，但实现手段是构造一个监督学习问题——预测下一个时间步。
+[图]
+训练一个参数为 θ 的模型 fθ，让它能够从上一时刻的状态预测下一时刻的状态。如果预测足够准确，那么 fθ 就是对真实动力学 F 的一个好的近似。
+[图]
+图1：正问题（从右向左）是从模型推数据，反问题（从左向右）是从数据推模型
+图1是对正反问题的一个图示，表面上我们在做预测，实际上我们在做的是建模，学到动力学规律才是目的。
+1.2 从一步到多步：隐变量与长程记忆
+前面的例子做的实际上是一步预测，而一步预测的假设是马尔可夫性：下一时刻只依赖于当前时刻。但真实系统往往不满足这个假设。原因在于隐变量（latent variables）。所观测到的变量可能只是系统状态的一部分——还有一些维度是看不见的，这些更可能是真实的原因或者影响力更强的变量，类似于我们能很容易地观察到其他人的外在行为表现，但不知道他脑子里在想什么，也不知道这是如何演化而来的。
+这些看不见的维度在暗中影响着系统的演化，体现在可观测数据上，就是长程记忆性：今天的状态不仅依赖于昨天，还可能依赖于一周前、一个月前。这时候一步预测就不够了，需要构造多步预测问题：
+[图]
+输入变为过去 T 步的历史，输出则是未来 τ 步的预测。这个框架更贴近真实场景，也是后续Transformer等架构大显身手的舞台。
+1.3 Takens定理：用历史重构相空间
+隐变量的存在看似让问题无解——观测不到完整状态，怎么可能学到真实动力学？Takens定理[1]（嵌入定理）给出了一个令人惊喜的理论：一个变量的历史包含了其他隐变量的信息。
+例如，今天的温度、昨天的温度、前天的温度——这些延迟值里隐含了气压、湿度等没直接测量的变量的信息。Takens定理保证了这种信息的充分性，如图2所示，Takens定理指出，即使只能观测到系统的一个标量输出 x(t)，只要把它的时延嵌入（delay embedding）排成向量：
+[图]
+只要观测函数足够“通用”，即当嵌入维度 d 足够大时（具体地，d > 2n，其中 n 是系统的真实维度），这个重构的相空间与原始相空间拓扑等价，或者通俗点说，虽然只盯着一个变量看，但如果你看得够久，这个变量留存的记忆足以让你重构出整个系统的动力学结构。
+[图]
+图2：Takens定理的核心思想：仅通过洛伦兹系统一个维度（如x(t）的时间序列，经过时间延迟嵌入，即可与完整三维系统（x(t), y(t), z(t）的吸引子建立微分同胚关系。
+*注：微分同胚是指两个光滑流形之间存在一个双射映射，使得该映射及其逆映射都是光滑（无限次可微）的，从而表明这两个流形具有相同的光滑结构。可以理解为，两个形状不仅能被像橡皮泥一样捏来捏去变成对方（拓扑同胚），而且整个变形过程平滑顺滑、没有任何尖角褶皱和撕裂——就像把甜甜圈柔顺地揉成咖啡杯，没有粗暴地折出棱角一样。
+这意味着：动力学信息并不神秘，它就藏在时间序列的时序关联之中。 这一思想为后来的所有时间序列预测方法奠定了哲学基础——过去包含着未来的种子。
+1.4 本节小结
+这一节回答了一个最基本的问题：仅凭观测数据，学习动力学规律这件事，在理论上到底可不可能？
+答案是肯定的，但是记忆的存在让事情看起来棘手了：我们观测到的可能只是冰山一角，真正驱动系统的变量藏在水面之下，今天的天气不只取决于昨天，可能还取决于一周前大洋上空的气压分布。
+Takens 定理在这个看似绝望的地方给出了希望：你不需要看到所有变量，只需要看一个变量看得足够久。 时间延迟本身就是一面镜子，能把隐藏的维度映射出来，过去的记忆是重构完整世界的原材料。
+但是，Takens 定理只保证了记忆有用，从有用到能用，中间还隔着一整套方法论。这就像有人告诉你“这座山里一定有金矿”，但没给你地图，也没给你铲子。
+下一节，我们就去找第一把提取记忆的铲子：Koopman 算子会告诉我们，存在一种特殊的“眼镜”，戴上它之后，整个非线性系统看起来就像线性的，而线性系统的预测，不过就是做矩阵乘法而已。
+二、怎么提取记忆？——Koopman 算子：
+换一副眼镜，让弯路变直路
+2.1 Koopman算子：把非线性变线性
+Takens告诉我们可以重构相空间，但重构之后，问题仍然棘手：真实系统几乎都是非线性的，这意味着线性方法不能直接用。
+但Koopman算子理论（1931年提出，近年被重新发现）[2]提供了一条绕行路线：在函数空间中，非线性动力学可以被一个线性算子描述。关于Koopman算子，兰岳恒老师在集智学园有更深入的介绍，感兴趣的小伙伴可以进一步了解：https://pattern.swarma.org/study_group_issue/747。
+Koopman算子提供了一个天才的迂回策略：非线性系统在有限维空间中难以处理，但如果把它提升到无限维的函数空间，它的演化可以变成线性的。具体来说，Koopman算子定义在系统的观测函数上。假设系统状态 x 按照非线性规则 xt+1 = F(xt) 演化。对于任意一个观测函数 g（比如“取温度值的平方”），Koopman算子 [图][图]定义为：
+[图]
+它把函数 g 在当前状态的值，映射为 g 在下一时刻状态的值。即使在有限维空间 F 是非线性的，[图][图] 作为函数空间上的算子是线性的。而线性问题其实就是矩阵问题，有成熟的数学工具（特征值分解、谱分析）可以用，这就是它的价值所在。
+然而，这个方法的代价是函数空间变为了无限维。在实际计算中，我们必须挑选一组有限的基函数来近似Koopman算子。这正是DMD及其变种做的事情。
+2.2 DMD与eDMD：从数据中近似Koopman
+理论上Koopman算子是无穷维的，实际计算中需要有限维近似。动态模态分解（Dynamic Mode Decomposition, DMD）就是做这件事的数值方法。如图3所示，它的思路极其简洁：给定时序数据矩阵 [图][图] 和 [图][图]，是前者在时间上一步的平移），然后寻找一个线性算子 A 使得 Y≈AX。最小二乘解 [图][图]（†表示伪逆）就是对Koopman算子的有限维近似[3]。
+通过数值方法求解 A 的特征值和特征向量，可以揭示了系统的主导动态模态——哪些模式在增长、哪些在衰减、振荡频率是多少。比如在流体力学中，DMD的模态恰好对应流场中的涡脱落频率；在脑电信号分析中，DMD模态对应不同脑区的节律活动。
+[图]
+图3：DMD从时间序列数据构建矩阵 X 和 X'，通过计算 A = X' X† 学习线性动力学算子，然后利用 xk+1= A xk 进行未来状态预测。
+后来的扩展DMD（eDMD，Extended DMD） 则引入非线性基函数 ψ(s)，不直接在原始状态上做DMD，而先把状态通过一组非线性基函数（如多项式、径向基函数、或神经网络）提升到高维特征空间，这本质上是在用“核技巧”的思路逼近Koopman算子[4]。
+2.3 储备池计算：固定随机网络的奇迹
+如果说Koopman方法是从“升维线性化”的数学路径逼近动力学，储备池计算（Reservoir Computing） 则从“高维随机表示”的工程路径给出了答案。如图4所示，它的核心思想也很简单：用一个固定的、随机初始化的递归神经网络作为“储备池”，只训练最后的输出层[5-7]。
+因为Koopman算子理论实际上是一种高维随机投影，所以直觉上来说，一个足够大的、具有适当耗散性质的随机递归网络，天然形成了一个“随机特征库”，输入信号在高维空间中被展开成多样化的瞬态响应模式，然后线性组合就能逼近任意的非线性函数[8]。
+[图]
+图4：储备池计算的基本架构：输入信号 xin 进入一个高维、随机连接且固定的循环储池（Reservoir），其内部状态 x1, x2, ..., xN 通过线性加权求和得到输出 [图][图]，只有输出层的权重 wi 需要训练。
+储备池的随机递归连接为输入信号提供了丰富的非线性变换和记忆能力。只要储备池足够大、连接足够丰富，它就能把输入信号“展开”到一个高维空间中，使得简单的线性输出层就能完成复杂的预测任务。同时，储备池方法因其训练极快（只优化输出层）、适合混沌系统（随机性质本身具备混沌系统的某些特性）而长盛不衰。Lorenz系统、Kuramoto-Sivashinsky方程等经典混沌系统上，储备池能以极低的计算成本实现超越许多深度模型的长期预测能力[9-10]。
+2.4 本节小结
+既然 Takens 定理保证了有用的记忆信息就藏在历史观测里，那我们怎么把它提取出来？答案是一个优雅的迂回策略：不要硬碰非线性，换一副眼镜，让弯路变成直路。
+Koopman算子的核心洞见就是这样：一个在有限维空间中扭曲翻转的非线性系统，如果你愿意跳到一个更高维（甚至无穷维）的函数空间中去观察它，它的演化就变成了线性的。
+DMD和eDMD是这套理论的数值实现，用有限维基函数近似无穷维 Koopman 算子，储备池计算则从一个完全不同的方向抵达了相似的目的地，即不必精心设计基函数，使用一个随机初始化的大规模递归网络来提供足够丰富的高维展开空间。
+但这条路有一个天花板：基函数需要人来选择。当系统足够复杂（几百个变量、高度非线性的耦合、多尺度的时间结构），没有人能保证哪组基函数是对的。
+下一节，我们将介绍如何让模型学会自主决定怎么记忆。
+三、让模型自己学会记忆：
+RNN、CNN与Transformer
+随着观测手段的爆炸式发展，我们可以拥有的数据越来越多，卫星图像、脑电信号、传感器读数，就算是最顶尖的科学家，也根本来不及为每一个新系统重新设计观测函数。这引出了一个大胆的问题：能不能让模型自己学怎么记忆？
+这其实就是反向传播所做的事情，梯度下降让模型能够“自主”学习如何压缩信息、如何遗忘噪声、如何提取规律。最朴素的方法是用前馈神经网络直接拟合映射 [图][图]，把过去时刻的值作为输入，直接回归下一个时刻。只要神经元足够多，它可以逼近任意函数。但问题在于，该方法没有时序结构的先验知识，它对 t-1 和 t-10 时刻的输入一视同仁，参数量随着历史窗口长度急剧膨胀。
+3.1 RNN：从隐式记忆中学习
+循环神经网络（RNN）的出现，让动力学学习第一次“有了记忆”。如图5所示，不同于前馈网络，RNN 隐层单元之间存在递归连接，使得网络能够保存历史信息。对于时间序列预测，RNN 可以像微分方程一样递归地更新状态[11]：
+[图]
+[图]
+图5：RNN结构（示例）：编码部分隐藏状态 h0 到 h4 沿时间步递归传递，每个时刻接收输入 x1 到 x4，并通过共享参数实现序列信息的记忆与传递。
+隐状态就像一个记忆单元，理论上可以把过去所有时间步的信息积累起来。但RNN有一个根本的结构性瓶颈：它是顺序计算的——必须先算 h1，才能算 h2，再算 h3。这使得训练无法并行化，在长序列上效率低下[12]。
+另一个问题是记忆的衰减。早期RNN在反向传播时，梯度会指数级消失或爆炸。1997年，Hochreiter和Schmidhuber提出了LSTM，用门控机制（输入门、遗忘门、输出门）让网络自己决定什么时候记、什么时候忘[13–14]，后来有学者提出其简化版，即GRU[15]，这些变体让RNN能记住上百步之前的依赖。
+RNN家族的最新成员，比如RWKV和Mamba，正在挑战Transformer的统治地位。RWKV用注意力机制的形式配合RNN的结构，设计了一种可以像RNN一样递归推理（线性复杂度）、同时可以像Transformer一样并行训练（通过时间维度的前缀和计算）的模型，这是对“记忆”的又一次重新定义[16-19]。
+3.2 CNN：把时间当空间处理
+卷积神经网络（CNN）对记忆的理解是局部的信息对于判断该局部的模式更有帮助，乍看之下，CNN是图像数据的专属。
+一维卷积的操作很直观：一个长度为 k 的卷积核 w，在时间序列上滑动，每一步计算内积：
+[图]
+通过堆叠多层卷积，感受野指数级增长。第 L 层的每个神经元，理论上能看到 kL 个原始时间步——既能保持局部性，又能覆盖长程依赖。
+这种trick在周期性数据上很适用，可以把周期的规律升维处理，如图6所示。比如电力负荷数据，它一般以24小时为周期，把多个周期“上下堆叠”成一张二维图像：横轴是时间（小时），纵轴是周期（天数），然后直接用二维CNN处理，就可以很直观地处理不同周期内同一时间段的模式（如每天傍晚），这本质上是把时间周期性转化成了空间周期性[21]。
+[图]
+图6：CNN对时间序列建模的两种方式：左边为一维CNN直接处理原始序列，右边展通过Reshape将一维序列转化为二维数组，从而用二维CNN同时捕捉周期内模式与周期间的依赖关系。
+CNN和RNN的选择，本质上是并行性与记忆长度的权衡。CNN可以完全并行训练（每个时间步的卷积计算独立），但感受也受层数限制；RNN理论上能记住无限远，但必须顺序计算。这个权衡，直到Transformer才被打破。
+3.3 Transformer：让所有位置直接对话
+Transformer的自注意力机制从根本上改变了序列建模的方式，它让序列中任意两个时间步之间直接建立联系[17]：
+[图]
+每个时刻都能“看到”所有其他时刻，长程依赖不再需要通过中间状态间接传递。
+但Transformer在时间序列预测上会有几个问题。
+第一个问题是复杂度。 标准自注意力的计算量是序列长度的平方，如输入一千步，就需要百万级的注意力分数。Informer论文发现，这些分数呈现“长尾分布”：极少数几对位置贡献了绝大部分注意力，绝大多数接近于零，白白浪费算力。
+Informer使用ProbSparse自注意力来降低计算量[22]，通过一个采样策略，只保留最重要的少数键值对，将复杂度从 O(L2） 降到 O(L log L）。配合生成式解码器一次输出长序列，Informer让长序列预测成为可能。
+[图]
+图7：Informer模型中的嵌入与注意力模块：输入序列在时间步 t 和 t + Dx 处经过嵌入（Embedding）和一维卷积处理，随后通过多头注意力机制以及多个注意力块（如Attention Block 2）来捕捉长序列中的依赖关系，实现对长时间序列的高效预测。
+第二个问题则更隐蔽。标准Transformer处理多变量时间序列时，默认的做法是把每个时间步的所有变量拼成一个token，即第t秒的“温度、湿度、风速”和第t+1秒的“温度、湿度、风速”互相关注。温度和湿度在每一秒都被重新打包成同一个向量，模型不知道哪一维是温度、哪一维是湿度，变量之间的因果关系（例如温度上升导致湿度下降）只能通过时间步之间的注意力间接传递。
+iTransformer方法做了一个看似“大逆不道”的改进：把Transformer的传统用法倒过来[23]。如图8所示，原来的方法是把“每个时间步的所有变量”当作一个token，iTransformer改为把“每个变量的整个时间序列”当作一个token。于是注意力从时间维转移了变量维，模型直接学习温度序列和湿度序列之间的关系，而不是第3秒和第4秒之间的关系。每个变量的时序模式，在嵌入空间中保留完整，由另一个分支（前馈网络）处理。这个反转让iTransformer能够更好地建模多变量时序中的变量间相关性和变量内时序模式，在多个长序列预测基准上取得了显著提升。
+[图]
+图8：标准Transformer与iTransformer在处理多变量时间序列时的核心架构差异：传统Transformer按时间步切分Token，iTransformer按变量切分Token，将注意力从“时间依赖”转向“变量依赖”。
+3.4 本节小结
+从Koopman到RNN、CNN、Transformer，深度学习终于让记忆从数学构造变成了可学习的对象，梯度下降赋予了模型一种能力：通过反复试错，自主学会什么该记、什么该忘、怎么组织。
+对于如何在有限的计算资源下，让记忆覆盖尽可能远的过去，这三种深度学习方法给出了不同的权衡方案。RNN 选择了深度（时间步越多，传递越深），CNN 选择了宽度（层越多，视野越大），Transformer 选择了直接连接（牺牲计算量换取更少的信息衰减）。
+而 Informer 和 iTransformer 的出现，说明即使在 Transformer 内部，优化也远未结束。Informer 问的是“注意力里有多少是浪费的”，iTransformer 问的是“注意力应该施加在哪个维度上”。这些追问的本质仍然是同一件事：如何让记忆更高效、更精准。
+但无论 RNN、CNN 还是 Transformer，它们有两个共同的隐含假设：第一，时间是离散的格子；第二，同一段记忆只指向一个确定的未来。
+下一节，我们将同时挑战这两个假设：扩散模型让预测从一个点变成一片概率云，Neural ODE 让时间从离散变成连续。
+四、让记忆拥抱真实：
+扩散模型的不确定性与Neural ODE的连续性
+4.1 扩散模型：把预测变为概率分布
+确定性预测只给一个点估计，但真实世界充满不确定性，气象台预测明天的温度时，我们在手机上看到的也只是一个分布。扩散模型（Diffusion Models）将概率生成的框架引入时间序列预测，输出可能轨迹的分布。
+扩散模型（Diffusion Model）并非为时间序列而生，但它天然契合条件生成任务。例如经典的DDPM（Denoising Diffusion Probabilistic Model，去噪扩散概率模型）中，其正向过程逐步向数据注入噪声，最终将其转化为纯随机噪声；而逆向过程则是一个“去噪生成”过程——从纯噪声出发，一步步还原出原始数据。DDPM的训练目标是，预测每一步添加的噪声，从而还原出从噪声生成数据的过程[24]。
+以TimeGrad为例，它将DDPM与自回归时间序列模型结合，在每个预测时间步，通过逐步去噪的过程生成预测值的分布，量化了预测的不确定性，对风险决策（金融、气象）尤为重要[25]。
+4.2 残差网络：一种增加帧数的方法
+在进入Neural ODE之前，我们先来重新解读一下残差网络所做的工作。残差网络是当年一个突破性的方法，将神经网络的层数大幅度提升，残差网络（ResNet）的每一层做的事情是[26]：
+[图]
+网络不从头学习下一层的表示，转为学习当前层应该改变多少，即 “残差”[图][图]，然后加到当前状态上。这个设计让梯度可以通过恒等捷径（identity shortcut）无损地回传，解决了深层网络的梯度消失问题，使网络可以深达数百层。
+把ResNet的递推式重写为以下形式：
+[图]
+左边是变化量，右边是一个关于当前状态的函数，可以发现这个公式很像微分方程。
+事实上，从数学的角度，连续微分方程 [图][图] 的欧拉离散化正是：
+[图]
+当步长 Δt = 1 时，就是ResNet的形式。
+这意味着：ResNet本质上是某个连续动力系统的欧拉离散化。 层数 t 对应时间，f 对应速度场，ht 对应时刻 t 的系统状态。从这个角度来说，现在大家耳熟能详的深度网络绝不是在一味地堆叠抽象层次，是在模拟一个连续时间的演化过程。
+这样自然地引出了一个问题：如果ResNet是离散化的微分方程，为什么不直接解连续方程？
+4.3 Neural ODE：把“层”变成“时间”
+2018年，陈天琦（Tian Qi Chen）等人发表了《Neural Ordinary Differential Equations》，即著名的Neural ODE（神经微分方程）方法[27]，它迅速获得了大量引用，至今仍是将数学与深度学习融合得最优美的工作之一。如图9所示，其核心思想极其简洁：不要离散的层，直接让隐藏状态按照一个由神经网络参数化的微分方程连续演化：
+[图]
+其中 fθ 是一个神经网络，参数 θ 与时间 t 无关，即每一时刻参数共享。给定初始状态 h(0）（即网络的输入），通过求解这个微分方程，得到任意时刻的状态。网络的输出就是 h(T），其中 T 是所选择的终止时间。该积分过程可以用任意数值ODE求解器（如欧拉法、龙格-库塔法等）来计算：
+[图]
+这个看似只是把离散层变成连续积分的操作，一举解决了ResNet遗留的全部三个问题：
+第一，无穷深度，有限参数。 因为 fθ 的参数 θ 在所有层（时刻）之间共享，参数量不随深度增长，可以被当作常数看待。如果把时间区间 [0, T] 分得任意细，相当于拥有任意多层，而存储开销并没有增加。
+第二，深度自适应。 ODE求解器（如自适应步长的Dormand-Prince方法）会根据动力学变化的剧烈程度自动调整步长——变化平缓时大步跳过（层数少），变化剧烈时小步精细积分（层数多）。网络的有效深度从需要预先指定超参数，转为数据驱动式。
+第三，连续时间建模。 层这个离散概念消失了，取而代之的是连续的时间 t。有了这个建模方式，就可以在任意时刻查询系统状态——不只是整数时间点，也包括 t = 1.2345 这样的中间时刻。
+[图]
+图9：残差网络与 ODE 网络的核心差异：左侧残差网络通过有限层离散变换逐步映射状态，层数 n 有限，输入为 x0，输出为 y，前向计算产生一系列离散激活值，损失为 L(y)，通过反向传播调整每层参数 Wi；右侧 ODE 网络则定义了一个连续向量场 dz/dt = f(z, θ)，状态随时间连续演化，理论上对应无限层，输入为初始条件 z=z0，输出为 T 时刻的解 z(T)，前向计算产生连续轨迹 z(t)，损失为 L(z(T)，通过伴随方程（Adjoint equation）调整参数 θ，而非逐层反向传播。
+4.4 伴随方法：用微分方程替代反向传播
+传统深度网络的反向传播需要存储所有中间层的激活值：网络越深，内存越大。一个1000层的ResNet，就需要存1000层的中间结果。Neural ODE是将层数拓展到了无穷，那内存也要无穷大吗？
+伴随灵敏度方法（Adjoint Sensitivity Method）解决了这个问题。它不存储前向传播的中间状态，只通过求解一个“伴随方程”，即另一个ODE，来逆向计算梯度[28]。
+具体地，定义伴随状态（adjoint state）：
+[图]
+即损失函数 L 对时刻 t 隐状态的梯度。可以证明，a(t) 满足另一个微分方程：
+[图]
+训练过程变成：
+前向：用ODE求解器从 h(0) 积分到 h(T)，计算损失 [图][图]。
+反向：从终止条件 [图][图] 出发，逆向积分伴随方程（从 t = T 到 t = 0），同时累积参数梯度 [图][图]。
+整个过程不需要存储前向计算的中间状态，内存开销也变为常数级，不随深度增加。
+[图]
+图10：伴随方法的求解过程
+这其实代表着，反向传播本身就是一个动力学过程。 伴随变量 a(t) 的逆向演化，与前向的隐状态演化形成一对耦合的正向-反向微分方程。整个训练完全脱离了层的概念，变为解数学方程。
+4.5 Neural ODE做时间序列预测
+Neural ODE天然适合时间序列预测，因为时间序列本身就是动力学系统在时间上留下的轨迹。
+回到我们全文的核心任务：给定观测序列 {s0, s1, …, sn}，对应时刻 {t0, t1, …, tn}（可以不均匀采样），学习驱动系统演化的动力学。用Neural ODE来做，步骤异常自然：
+构建方程：[图][图]
+初始条件：s(t0) = s0（观测的初始状态）
+前向积分：用ODE求解器从 s0 出发，积分到所有观测时刻，得到预测值 [图][图]
+训练：最小化 [图][图]
+训练完成后，fθ 就是学到的动力学法则。
+这与前面章节的离散方法有一个本质区别：Neural ODE在连续时间上定义动力学，可以在任意时刻给出预测——包括观测时刻之间的位置。传统的RNN或Transformer要求等间隔采样，遇到缺失值需要额外处理；Neural ODE天然适配不等间距数据，因为ODE求解器本来就可以在任意时刻停下来读取状态。这对医疗数据（病人不同时间回访）、天文观测（非均匀采样）等真实场景尤为重要。
+更深层地看，fθ 不只是一个预测器——它是一个可积分的动力学方程。有了它，你不仅能预测未来（给任意新的初始条件 [图][图] 积分得到完整轨迹），还能做传统动力系统分析：寻找不动点、分析稳定性、研究分岔行为。这些工具过去只能用在人类手写的方程上，现在可以用在数据驱动学到的模型上了。
+原论文中有一个经典的验证实验：用Neural ODE学习洛伦兹系统——混沌理论中最著名的“蝴蝶效应”模型[27]：
+[图]
+参数取 [图][图] 时，系统呈现混沌行为。实验只给Neural ODE看部分维度的观测值，让它学习完整的三维动力学——结果成功重构了洛伦兹吸引子的形态。这与动力系统理论中的Takens嵌入定理相呼应：部分维度的时间延迟序列足以重构整个系统的拓扑结构。Neural ODE不仅学会了这种重构，还学到了连续时间的演化规律。
+后续工作进一步拓展了这条路线：ODE-RNN将RNN的离散状态更新替换为ODE连续演化，在观测时刻之间用ODE插值，在观测时刻用RNN式的跳跃更新；Latent ODE则结合变分自编码器，将时序数据编码到连续潜空间中执行ODE演化，能够处理不规则采样和缺失值严重的数据[29-30]。
+4.6 Neural ODE的问题
+Neural ODE发表后，学界的反应两极分化：理论家赞美其优雅，实践者抱怨其难用，它反映出连续与离散之间存在一道真实的鸿沟。
+痛点一：训练不稳定。 伴随方法的数值误差需要极其谨慎地控制——ODE求解器的容忍度（tolerance）设得太松，梯度会失真甚至发散；设得太紧，计算成本飙升。低阶求解器（如欧拉法、中点法）可能导致不收敛，高阶求解器（如Dormand-Prince 5阶方法）效果更好，但每步需要多次评估 fθ（四阶龙格-库塔每步要算4次），远比ResNet的单次前向传播昂贵。
+痛点二：表现不总是更好。 在CIFAR-10等标准图像分类任务上，调好的ResNet反而优于Neural ODE。
+ResNet不是Neural ODE的拙劣近似；恰恰相反，Neural ODE是ResNet的一个特殊极限。 当ResNet的层数趋近无穷、同时每层的改变趋近于零，才得到Neural ODE。
+ResNet每层有自己独立的参数，可以自由适应不同深度的特征提取需求；Neural ODE所有层共享参数 θ，意味着速度场 fθ 不随时间改变——这是一个很强的假设。更根本地，ODE的解是同胚映射（homeomorphism），轨迹不会交叉，这意味着Neural ODE不能改变数据的拓扑结构，比如把两个分离的点簇合并到同一区域，但很多分类任务恰恰需要这种操作。
+后续改进从多个方向缩小了这道鸿沟：
+Augmented Neural ODE（2019）：把隐状态 h(t) 扩展到更高维空间，加入额外的虚拟维度作为缓冲区，打破了拓扑限制——轨迹在高维空间中可以绕行而不必交叉[28]。
+GRU-ODE（2019）：将ODE与门控循环单元结合，在观测时刻之间用ODE连续演化，在观测时刻用GRU式的离散跳跃更新——兼得连续建模和离散修正的优势[31]。
+Stable Neural ODE（2021）：通过约束 fθ 的雅可比矩阵特征值，保证系统稳定性，避免长时间积分中的梯度爆炸[32]。
+本节小结
+真实系统经常是不可完全预知的，相同的大气初始状态可能演化出晴天也可能演化出暴雨，相同的市场信号可能导向涨也可能导向跌。扩散模型把预测的输出变为了整个可能轨迹的分布。
+真实的系统往往也是连续变化的，前面所有方法都把时间切成等间隔的帧：t=1, 2, 3, …，模型实际上学到的是帧与帧之间的跳跃规则。Neural ODE 把离散的层替换成连续的微分方程，学习到的是速度场本身。
+更深层地看，连续和离散不是非此即彼的对立面，它们是同一条光谱的两端。ResNet 是 Neural ODE 的离散极限，Neural ODE 是 ResNet 的连续极限；扩散模型的去噪过程本身就是一个离散化的随机微分方程。最好的实践往往在两端之间取得平衡：ODE-RNN 在观测时刻之间用连续流，在观测时刻用离散跳跃；Augmented Neural ODE 用高维空间绕开连续流的拓扑限制。
+但还有一个问题没有解决——成本。
+每一个新系统，都需要从头收集数据、从头训练模型。气象要训气象的，金融要训金融的，脑电要训脑电的。有没有可能，一个模型见过足够多的动力学系统之后，面对全新的系统，不需要任何训练就能给出靠谱的预测？
+这就是第五阶段要回答的问题：让记忆跨越系统的边界。
+五、让记忆跨越系统：
+当一个范式能表示一切
+上述所有方法都有一个共同的局限：它们是为特定系统训练的，每换一个场景，就需要重新收集数据、设计架构、训练模型。而基础模型的思路则完全不同：先在海量异质数据上预训练一个通用模型，再针对具体任务做少量微调甚至零样本推理。这正是大语言模型验证过的路径，GPT不是为某一个文本任务训练的，它在所有文本上完成预训练，然后能做翻译、摘要、问答等各种任务。
+2024-2025年，大模型的风终于吹到了时间序列与动力学预测的阵营。
+Time GPT 率先提出了时间序列领域的零样本预训练范式。不同领域的时序数据（天气、股市、电力负荷、心率等）在模式层面存在类似的结构，例如趋势、季节性、周期、突发扰动等，这其实就是一种通用的范式。Time GPT在大规模跨领域时序数据上进行预训练，学习通用的时序模式，以实现需微调或仅需极少样本即可完成新的预测任务上。初步实验显示，Time GPT在多个未见过的预测任务上的零样本性能，已经达到甚至超过了传统模型的全监督训练水平[33]。
+LASS-ODE（Large-Scale Small ODE）的做法则不同，它认为时序大模型应当显式建模连续时间动力学，但全神经网络实现的Neural ODE在极大规模上训练困难。LASS-ODE的设计思想是，将时间域分段，每段上用线性的、可闭式求解的小型ODE系统来近似局部动力学，并用专家混合（MoE）架构让不同段用不同的ODE系数，整体由一个大模型的路由网络协调。这种方法兼具Neural ODE的连续时间表达能力和Transformer的可扩展训练优势[34]。
+而Aurora则代表了地球系统基础模型的愿景，它用一个统一的模型同时处理：
+气象预报（温度、气压、风速）
+空气质量（PM2.5、臭氧、NO2浓度）
+海洋动力（海浪高度、有效波周期）
+极端事件（台风轨迹、强度）
+Aurora的架构融合了多模态输入编码（卫星图像、地面站点时序、再分析数据）、时空Transformer主干、以及物理约束的输出头层。在微软的内部评估中，Aurora在多个任务上超越专门训练的单一模型，展示了“单一模型学好地球系统”的可行性[35]。
+虽然这些研究尚在早期，但它指向一个诱人的可能性：未来，我们可能不再为每个复杂系统单独建模，向一个时间序列大模型提问，它便自动推理出演化轨迹。
+结语：记忆的下一站在哪？
+回到开头的问题：如何从复杂系统的观测数据中，自动学习其演化规律？
+经典方法和早期深度学习本质上都在做快照预测，给定前几帧，猜下一帧是什么。Neural ODE之后，思路变了：我们开始学习帧与帧之间的连续运动规律，预测只是这个规律在时间上的自然展开。
+但这也暴露了一个更根本的问题：真实世界到底是连续的还是离散的？
+物理学家说，时空在普朗克尺度下可能是离散的。计算机科学家说，我们只能用离散的算法模拟连续。而Neural ODE的自适应步长求解器似乎暗示了一种折中的答案：不必执着于彻底连续或彻底离散，可以在两者之间自由切换——在问题需要的地方精细积分，在问题简单的地方大步跳过。
+如果真实世界的动力学是随机的——股票市场的波动、湍流中的涡旋——确定性的ODE还适用吗？更远地来说，是否能构建一个模型，自动决定何时该离散跳跃、何时该连续流动、何时该引入随机性？这已经超越了任何单一框架，进入了元学习与通用智能的领域。
+或许，答案不在模型里，在对世界的理解里。
+参考文献
+[1]Takens, F. (1981). Detecting strange attractors in turbulence. In D. Rand & L. S. Young (Eds.), Dynamical Systems and Turbulence, Warwick 1980 (Vol. 898, pp. 366–381). Springer.
+[2]Koopman, B. O. (1931). Hamiltonian systems and transformation in Hilbert space. Proceedings of the National Academy of Sciences, 17(5), 315–318.
+[3]Schmid, P. J. (2010). Dynamic mode decomposition of numerical and experimental data. Journal of fluid mechanics, 656, 5-28.
+[4]Williams, M. O., Kevrekidis, I. G., & Rowley, C. W. (2015). A data–driven approximation of the Koopman operator: Extending dynamic mode decomposition. Journal of Nonlinear Science, 25(6), 1307–1346.
+[5]Jaeger, H. (2001). The “echo state” approach to analysing and training recurrent neural networks-with an erratum note. Bonn, Germany: German national research center for information technology gmd technical report, 148(34), 13.
+[6]Maass, W., Natschläger, T., & Markram, H. (2002). Real-time computing without stable states: A new framework for neural computation based on perturbations. Neural computation, 14(11), 2531-2560.
+[7]Lukoševičius, M., & Jaeger, H. (2009). Reservoir computing approaches to recurrent neural network training. Computer science review, 3(3), 127-149.
+[8]Gonon, L., & Ortega, J. P. (2019). Reservoir computing universality with stochastic inputs. IEEE transactions on neural networks and learning systems, 31(1), 100-112.
+[9]Jaeger, H., & Haas, H. (2004). Harnessing nonlinearity: Predicting chaotic systems and saving energy in wireless communication. Science, 304(5667), 78-80.
+[10]Pathak, J., Lu, Z., Hunt, B. R., Girvan, M., & Ott, E. (2017). Using machine learning to replicate chaotic attractors and calculate Lyapunov exponents from data. Chaos: An Interdisciplinary Journal of Nonlinear Science, 27(12).
+[11]Elman, J. L. (1990). Finding structure in time. Cognitive Science, 14(2), 179–211.
+[12]Bengio, Y., Simard, P., & Frasconi, P. (1994). Learning long-term dependencies with gradient descent is difficult. IEEE Transactions on Neural Networks, 5(2), 157–166.
+[13]Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural Computation, 9(8), 1735–1780.
+[14]Gers, F. A., Schmidhuber, J., & Cummins, F. (2000). Learning to forget: Continual prediction with LSTM. Neural Computation, 12(10), 2451–2471.
+[15]Cho, K., van Merriënboer, B., Gulcehre, C., Bahdanau, D., Bougares, F., Schwenk, H., & Bengio, Y. (2014). Learning phrase representations using RNN encoder–decoder for statistical machine translation. In Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP) (pp. 1724–1734). Association for Computational Linguistics.
+[16]Pascanu, R., Mikolov, T., & Bengio, Y. (2013). On the difficulty of training recurrent neural networks. In Proceedings of the 30th International Conference on Machine Learning (ICML) (pp. 1310–1318). PMLR.
+[17]Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention is all you need. In Advances in Neural Information Processing Systems 30 (NIPS 2017) (pp. 5998–6008).
+[18]Peng, B., Alcaide, E., Anthony, Q., Albalak, A., Arcadinho, S., Biderman, S., ... & Wang, C. (2023). RWKV: Reinventing RNNs for the Transformer era. In Findings of the Association for Computational Linguistics: EMNLP 2023 (pp. 14048–14077). Association for Computational Linguistics.
+[19]Gu, A., & Dao, T. (2023). Mamba: Linear-time sequence modeling with selective state spaces. (arXiv:2312.00752). arXiv.
+[20]Oord, A. van den, Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., ... & Kavukcuoglu, K. (2016). WaveNet: A generative model for raw audio. (arXiv:1609.03499). arXiv.
+[21]Wang, Y., Chen, Q., Sun, M., Kang, C., & Xia, Q. (2019). A deep ensemble learning method for short-term load forecasting. IEEE Transactions on Power Systems, 34(6), 4757–4767.
+[22]Zhou, H., Zhang, S., Peng, J., Zhang, S., Li, J., Xiong, H., & Zhang, W. (2021). Informer: Beyond efficient transformer for long sequence time-series forecasting. In Proceedings of the 35th AAAI Conference on Artificial Intelligence (Vol. 35, No. 12, pp. 11106–11115). AAAI Press.
+[23]Liu, Y., Hu, T., Zhang, H., Wu, H., Wang, S., Ma, L., & Long, M. (2024). iTransformer: Inverted transformers are effective for time series forecasting. In The Twelfth International Conference on Learning Representations (ICLR 2024).
+[24]Ho, J., Jain, A., & Abbeel, P. (2020). Denoising diffusion probabilistic models. In Advances in Neural Information Processing Systems 33 (NeurIPS 2020) (pp. 6840–6851).
+[25]Rasul, K., Seward, C., Schuster, I., & Vollgraf, R. (2021). Autoregressive denoising diffusion models for multivariate probabilistic time series forecasting. In Proceedings of the 38th International Conference on Machine Learning (ICML 2021) (pp. 8857–8868). PMLR.
+[26]He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).
+[27]Chen, T. Q., Rubanova, Y., Bettencourt, J., & Duvenaud, D. K. (2018). Neural ordinary differential equations. In Advances in Neural Information Processing Systems 31 (NeurIPS 2018) (pp. 6571–6583).
+[28]Pontryagin, L. S., Boltyanskii, V. G., Gamkrelidze, R. V., & Mishchenko, E. F. (1962). The mathematical theory of optimal processes. Interscience Publishers.
+[29]Dupont, E., Doucet, A., & Teh, Y. W. (2019). Augmented neural ODEs. In Advances in Neural Information Processing Systems 32 (NeurIPS 2019) (pp. 3140–3150).
+[30]Rubanova, Y., Chen, R. T. Q., & Duvenaud, D. K. (2019). Latent ordinary differential equations for irregularly-sampled time series. In Advances in Neural Information Processing Systems 32 (NeurIPS 2019) (pp. 5320–5330)
+[31]De Brouwer, E., Simm, J., Arany, A., & Moreau, Y. (2019). GRU-ODE-Bayes: Continuous modeling of sporadically-observed time series. In Advances in Neural Information Processing Systems 32 (NeurIPS 2019) (pp. 7377–7388).
+[32]Massaroli, S., Poli, M., Park, J., Yamashita, A., & Asama, H. (2020). Dissecting neural ODEs. In Advances in Neural Information Processing Systems 33 (NeurIPS 2020) (pp. 3952–3963).
+[33]Garza, A., & Mergenthaler-Canseco, M. (2023). TimeGPT-1. arXiv preprint, arXiv:2310.03589.
+[34]Li, H., Xiao, C., Mai, L., Weng, Y., & Blasch, E. (2025). LASS-ODE: Scaling ODE computations to connect foundation models with dynamical physical systems. arXiv preprint, arXiv:2602.01009.
+[35]Bodnar, C., Bruinsma, W. P., Lucic, A., Stanley, M., Allen, A., Brandstetter, J., Garvan, P., Riechert, M., Weyn, J. A., Dong, H., Gupta, J. K., Thambiratnam, K., Archibald, A. T., Wu, C.-C., Heider, E., Welling, M., Turner, R. E., & Perdikaris, P. (2025). A foundation model for the Earth system. Nature.
+参考文献可上下滑动查看
+「面向复杂系统的人工智能」课程
+从数据到规律的距离，正在被人工智能方法一步步缩短，而这个距离最终能缩短到什么程度，仍然是一个开放的、激动人心的问题：是否能从数据中自动发现牛顿定律级别的简洁规律，而不只是一个黑箱的预测器？理解”黑箱“、发现简洁之美，需要一些系统性、跨学科、解释本质的视角和观点。
+集智俱乐部、集智学园创始人，北京师范大学张江教授开设了「面向复杂系统的人工智能」课程，致力于打破学科壁垒，将复杂系统与人工智能深度融合。从神经网络到因果推断，从世界模型到多尺度建模，甚至包含最前沿的“氛围编程（Vibe Coding）”实战，带你亲手落地AI项目。学完这门课，你将有能力读懂论文、理解思想、选对工具、动手实践。
+[图]
+详情请见：张江主讲：面向复杂系统的人工智能
+[图]
+推荐阅读
+1. 山谷中的脑力激荡——六位重磅嘉宾揭秘AI时代下的复杂科学
+2. AI时代的复杂系统科学：为科学研究提供普适范式
+3. 2028全球智能危机：AI冲击下的复杂系统演化
+4. 9900分可兑换“涌现”文化衫，报名任意读书会送299积分！
+5. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+6. 高考分数只是张入场券，你的科研冒险在这里启航！
+7. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+点击“阅读原文”，报名课程

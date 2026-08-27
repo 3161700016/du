@@ -1,0 +1,143 @@
+标题：科学·前沿：噪声诱导的稳定性
+公众号：集智俱乐部
+发布：2026-04-15
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729587&idx=1&sn=dc7c60a66a1f9090ea26b8fcea8f26ee&chksm=e8981b3edfef922867461c06b40068ba07ce75c432558a14236d825e597956f6122380640905#rd
+合集：复杂科学前沿2026 · 序号 088/157
+------------------------------
+[图]
+导语
+在通常的认知中，对于需要精确同步的系统而言，我们通常会认为噪声是有害的，因为它会导致系统中各组件之间丧失同步关联。然而，这篇2025年8月发表于Science Advances上的论文通过理论与实验的相互验证，展示了适当强度的噪声不仅不会削弱存在偏差的系统的同步性，甚至能够使这些产生偏差的系统重新恢复到同步状态。其实，这一现象的历史也较为久远，而且在我们的日常生活中也能够看到类似现象，例如剧院里有节奏的鼓掌，或鸟群和鱼群的群体动力学。在这些案例中，噪声能够起到稳定群体整体行为的作用。这种现象不仅十分常见，而且在数学上也早已得到严格证明。这表明随机系统与对应的确定性系统在动力学性质上存在显著差异。因此，对随机动力学的研究，并不仅仅是确定性动力学加上噪声那么简单。
+关键词：噪声调控、同步增强、稀释效应(dilution effect)、拍频抑制、非单调响应、抗扰动能力、随机动力学
+[图][图][图][图][图][图]
+诸葛昌靖丨作者
+赵思怡丨审校
+[图]
+论文标题：Noise-enhanced stability in synchronized systems
+论文链接：https://www.science.org/doi/10.1126/sciadv.adx1338发表时间：2025年8月1日
+发表期刊：Science Advances
+引言
+在通常认知中，“噪声”几乎总是同步系统的敌人：它会扰乱相位、放大误差，并最终破坏系统的稳定运行。然而，越来越多来自复杂系统研究的结果表明，这种直觉并不总是成立。在特定条件下，噪声不仅不会削弱同步，反而可能成为维持甚至增强系统稳定性的关键因素。这一现象与经典的随机共振和相位同步等理论一脉相承，揭示了随机性在动力学系统中的“功能性角色”。
+同步现象广泛存在于自然科学和工程系统中，从生物节律[1-7]到物理振荡器[8-13]，再到电网与通信网络[14-19]，其核心机制是通过弱相互作用使系统各组成单元在相位与频率上实现协调[20-30]。这种集体行为能够带来多重优势，例如提高运行效率、增强稳定性以及抑制局部波动。然而，同步系统的这种“相位灵活性”也使其对外部扰动高度敏感：当系统受到强干扰时，原本协调的振荡会转变为拍频振荡（beat），引发大幅振幅波动和相位漂移，进而导致同步丧失、恢复变慢以及整体性能下降[36-40]。这类问题在工程实践中尤为突出，例如风湍流可能导致飞机发动机同步失稳[41]，强信号干扰也会破坏微机电系统（Micro-Electro-Mechanical Systems, MEMS）振子的锁相状态[42-43]。
+因此，提高同步系统在强干扰下的鲁棒性一直是核心问题。传统方法主要包括增强耦合强度、引入非线性反馈控制或优化网络结构等，但这些策略依赖更复杂的硬件设计和更高的系统成本，例如高精度传感器和实时控制电路。此外，一些替代方法（如模态耦合）虽在特定系统中展现出潜力，但在大规模或高度同步网络中的实现仍面临挑战。
+与压低随机性的思路不同，该论文提出了一种反直觉但十分有效的策略，即利用可控噪声来增强同步稳定性。这一策略的核心机制思路是利用噪声“打散”集中于拍频响应中的能量，从而削弱外部干扰的破坏作用。该论文在全文中使用术语稀释效应 (dilution effect)来描述噪声能够削弱干扰导致的不良响应这一现象。
+具体而言，该论文通过两个不同尺度系统验证了这一机制：一是静电耦合的微尺度振子系统，二是机械耦合的宏观转子系统。实验与数值模拟一致表明，在适度噪声强度下，系统不仅能够更快实现同步，还表现出更强的抗干扰能力以及更优的长期频率稳定性。同时，研究也揭示了噪声效应的非单调特征：过低的噪声不足以产生显著影响，而过高的噪声则会重新破坏同步，从而存在一个最优噪声窗口。
+类似的“噪声有益”现象此前已在非同步系统中被观察到，例如在模式识别、量子信息处理以及群体行为中，噪声可以提高系统性能。这些研究共同指向一个更一般性的结论：随机扰动并非只是需要被抑制的误差来源，而可能是可以被利用的动力学资源。在同步系统中，这一点尤为微妙——尽管噪声本身会引入频率波动，但由于相位锁定和集体振荡机制的存在，其负面影响可以被部分抵消，从而使其正面效应占据主导。
+综上，该论文表明：在适当调控下，噪声可以从“破坏因素”转变为“稳定机制”。这一发现不仅拓展了我们对随机动力学的理解，也为在工程系统中以更低成本实现高鲁棒同步提供了新的思路，并在计时、通信、微机电系统乃至生物启发计算等领域具有潜在应用价值。
+噪声如何“帮忙”：从拍频破坏到稀释效应
+要理解这一现象，关键在于拍频（beat frequency）机制。当两个振子的频率存在微小差异时，系统会出现振幅周期性增强与减弱的拍频现象，同时伴随着持续的相位漂移。这种拍频响应会显著放大系统的振幅波动，使同步状态变得不稳定，甚至导致完全失同步。因此，在许多实际系统中，拍频是同步被破坏的主要途径。图1A和图1B给出了这一过程的整体示意。系统从稳定自振荡进入拍频状态，在外部干扰作用下偏离同步，而在引入噪声后则能够更快地恢复到同步状态。这一现象在该论文中称为噪声稀释效应，其核心机制是噪声将原本集中在拍频响应中的能量分散开，从而削弱外部干扰对系统的破坏作用。从频域角度来看，噪声的引入会导致系统谱线展宽(图1C)，使得原本集中在特定频率附近的能量分布到更宽的频率范围内，从而降低干扰对系统的“精准作用”。而在时域上，这一过程则表现为振幅涨落的减弱以及系统恢复过程的加速。换句话说，噪声并非简单地增加随机性，而是改变了系统对外界扰动的响应方式。图1D展示了在不同噪声强度下，两个振子的频率、振幅以及相位差随时间的演化过程。可以直观地看到：随着噪声的引入，系统的同步行为发生了显著变化——在适度噪声下，相位差更快收敛，而当噪声过强时，同步反而被破坏。这一结果已经初步暗示：噪声对同步的影响并非单调，而是存在最优区间。
+[图]
+图1：同步系统中噪声稀释效应的概念示意图。(A) 受白噪声作用的耦合振子同步的简化物理模型。下方面板显示了频域中噪声稀释效应 (粉色虚线曲线) 对外部干扰引起的响应的影响，而稀释效应在同步频率处被压缩。(B) 同步系统在不同阶段 (自振荡、干扰下的拍频响应、干扰和噪声下的再同步) 时域振幅 (无量纲) 的仿真。(C) 具有噪声稀释效应的同步时间 (无量纲) 的仿真，其中蓝线是无噪声的仿真同步时间，粉色区域表示有噪声稀释时的同步时间。(D) 耦合振子频率响应的图示，包含多个阶段：拍频阶段、同步过程阶段、干扰引起的失同步阶段、噪声调制引起的同步过程加速阶段以及能够抵抗相同水平干扰的噪声调制增强稳定性阶段。
+作为理解理解噪声为何能够增强同步具体的实例，最简单也是最具代表性的的是二耦合振子系统模型。尽管现实中的同步现象可能涉及复杂网络，但大量研究表明，其核心动力学往往可以归结为这一基本单元。这一过程可以通过在振子动力学方程中引入随机项来描述。在这些系统中加入噪声调制后，振子运动的广义控制方程如下。
+[图]
+其中 [图] 为阻尼系数，[图]是两个振子的固有频率。系数 [图] 和[图] 分别表示二次和三次非线性。Ei 表示维持振荡的外部驱动振子的振幅，Φi(t) 是两个振子的瞬时相位。Gi 表示振子之间的线性相互作用，这在平行板静电力耦合结构中占主导地位[55]。项ξi(t) 表示独立的白高斯噪声，其相关函数为 [图]，其中D是噪声强度。通常加性噪声来源于机械热涨落，而乘性噪声与驱动信号和检测信号中的涨落有关[56]。
+系统在包含阻尼、非线性和耦合等基本动力学结构的同时，还受到加性噪声和乘性噪声的共同作用。其中，加性噪声通常来源于热涨落等外部扰动，而乘性噪声则反映了驱动和测量过程中的不稳定性。这些噪声并不是简单叠加在系统之上，而是通过改变系统的响应结构，影响其整体动力学行为。图2展示了噪声在不同系统中的差异作用。在未耦合的单个振子中，噪声仅仅表现为扰动源，会直接降低系统的稳定性；然而在耦合振子系统中，噪声却能够抑制由拍频引起的大幅振荡，使系统在干扰存在的情况下仍然保持接近同步的状态。这表明，同步结构本身具有一定的“噪声过滤”能力，使得噪声的负面影响被部分抵消，而其对干扰的削弱作用则得以保留。该论文通过对具有固定初始频率失配的振子系统进行大量数值模拟，定量刻画了这一效应，统计了不同噪声强度下的同步时间。通过突然增加30%的振幅和频率引入干扰，模拟了系统的快速能量注入 (例如，脉冲或共振激励)。同步的噪声抑制效应有效地抑制了同步频率处的随机涨落，保持了同步性能 (图2B)。
+[图]
+图2：扰动前后噪声对谐振器和同步振子影响的模拟. (A) 和 (B) 分别为未耦合谐振器和同步振子在扰动前后的模拟。
+噪声诱导的稀释效应有效减少了拍频阶段的振幅涨落，使系统能够更快、更鲁棒地抵御外部干扰，并且进一步地研究表明，随着噪声强度的增加，同步时间呈现出典型的非单调变化：在低噪声水平下，拍频效应显著，同步过程较慢；当噪声增加到适当范围时，拍频被有效抑制，同步时间显著缩短；而当噪声进一步增强时，系统的随机波动过大，反而阻碍了同步的实现。这一“先减小后增大”的趋势清楚地表明，系统中存在一个最优噪声窗口，使同步效率达到最大。这说明适当强度的白噪声能有效抑制干扰引起的振幅涨落并加速同步，展示了其增强同步效率和韧性的潜力。
+从更直观的角度来看，可以将外部干扰理解为一种“集中且具有针对性”的作用，而噪声则是一种“分散且无方向”的扰动。当系统中仅存在干扰时，这种集中作用容易破坏同步；而当适度噪声存在时，它会削弱这种集中性，使干扰的影响被“稀释”，从而有利于系统维持整体协调。正是在这一意义上，噪声不再只是传统意义上的不利因素，而成为一种可以调控系统行为的有效机制。
+综合而言，这一部分结果表明，噪声通过稀释拍频响应，不仅能够降低振幅涨落，还可以加快同步过程并增强系统对外部干扰的鲁棒性。基于这一机制，该论文进一步在微观的微机电振子系统和宏观的机械转子系统中进行了实验验证，证明该效应具有跨尺度的普适性，并为后续的工程应用提供了基础。
+实验验证：从微观到宏观
+为了直接验证“噪声稀释效应”在真实系统中的作用，该论文分别在微观尺度的静电耦合微机电振子和宏观尺度的机械耦合转子上进行了实验，验证了适度白噪声对同步系统的影响 (图3和图4)。静电耦合微机电振子实验利用锁相环使两个单晶硅微谐振器建立自激振荡以实现初始同步，并通过波形发生器向系统引入超宽带噪声。机械耦合转子实验室将两个电机转子安装在铝合金板两翼以产生机械耦合，随后利用机械振动台注入宽带噪声并用测力锤施加物理冲击来模拟外部干扰。
+[图]
+图3: 微机械振子的器件特性与噪声效应. (A) 微机械直梁谐振器的光学图像, 放大视图突出显示了谐振器 (R1和R2). (B) 在不同激励幅度 (50至500 mV) 下测得的R1和R2的幅频响应, 显示出随驱动水平增加而出现的软化非线性行为. (C) 噪声的时域响应和频谱. 噪声的频率带宽为10 MHz, 电压为0.1 VPP . (D) 无噪声调制 (蓝色阴影区域) 和有噪声调制 (粉色阴影区域) 下R1 (蓝色) 和R2 (红色) 的时域振幅. 插图描述了两个振子之间的振幅关系：左插图显示了无噪声时干扰前 (灰色) 和干扰后 (粉色) 的关系, 右插图显示了有白噪声 (0.1 VPP ) 时干扰前 (黄色) 和干扰后 (蓝色) 的关系. 在这些情况下, VDC = 20 VPP , VAC = 300 mV. (E) 在不同噪声水平 (0.1、0.5、1和2 VPP ) 下, R1在无噪声扰动状态 (δA1) 和有噪声扰动状态 (δA2) 的振幅涨落比 (δA1/δA2). (F) 有和无噪声调制下R1的振幅衰减. 实验数据 (点) 用指数衰减曲线 exp (−λt) (实线) 拟合, 拟合得到 λ0 = 20, λ1 = 36, 表明噪声增强了衰减率. (G) 噪声对两个振子振幅衰减的影响. 不同噪声强度 (0.1、0.5、1和2 VPP ) 下无噪声与有噪声的振幅衰减比. 所有实验中的直流电压均设为 VDC = 20 VPP .
+在耦合微机电振子实验中，通过向两个振子同时引入频率 Ωp 接近但略有不同于同步频率Ωs 的外部信号来引入干扰。这种频率失配 ΔΩ=Ωp-Ωs 导致两个振子之间产生拍频现象，有效地模拟了扰动状态(外部信号幅度和频率失谐对两个振子振幅涨落影响的详细刻画见原文附件)。如图4D所示，当两个振子同步时，它们振幅之间的关系呈现为离散点 (状态1，灰色点)，表明振幅涨落相对较小 (δA1<0.2mV，δA2<0.012mV)。在拍频阶段，施加频率接近振荡频率的外部信号(30mV, ΔΩ=40Hz)引起了较大的振幅涨落 (δA1>1mV, δA2>0.13mV)，产生拍频并形成较大的外圈 (状态2，粉色点)。当白噪声频率提高到10MHz (0.1VPP)时，先前未受扰动的状态变得略有噪声 (状态3，黄色点，δA1～0.36mV, δA2～0.024mV). 此时重新引入相同水平的干扰信号时，两个振子的振幅都显示出明显较小的涨落 (δA1<0.5mV, δA2<0.07mV), 与无噪声稀释效应条件相比，使扰动状态(状态4, 蓝色点) 相比无噪声情况更接近未扰动状态。
+在无干扰时，系统处于稳定同步状态，两个振子的振幅波动较小，表现为集中分布的离散点。然而，一旦施加外部干扰，拍频效应迅速出现，振幅涨落显著增加，系统进入明显的不稳定状态。这一变化反映出拍频是破坏同步稳定性的关键机制。
+关键结果出现在引入噪声之后。当向系统注入适度白噪声时，即使在没有外部干扰的情况下，振幅波动略有增加，但整体仍保持可控范围。当重新施加同样的干扰信号时，系统的响应发生了显著变化：振幅涨落明显减小，相比无噪声情况更接近原始同步状态。这一结果表明，噪声并没有简单地叠加扰动，而是削弱了干扰所引发的拍频响应，从而验证了“稀释效应”的存在。进一步地，从 0 到 2VPP 改变噪声强度来刻画噪声稀释效应，并通过计算有无噪声的振幅涨落比率来量化其影响(图4E)。结果表明，在特定强度 (0.1, 0.5 和 1VPP) 下，引入的噪声有效抑制了振幅涨落。当噪声强度达到 2VPP 时，两个振子的振幅涨落比阶段2更加明显。这一结果再次说明噪声的作用具有明显的最优区间，而非单调影响。
+此外，该论文展示了引入的噪声增加了从拍频响应阶段恢复到自振荡阶段的振幅衰减率，如图4F所示。移除干扰信号 (30mV, ΔΩ=40Hz) 后，两个振子的振幅在无噪声和有噪声情况下都衰减到稳定值。有噪声时的衰减率(λ1), 通过指数拟合提取，是无噪声时衰减率 (λ0)的1.8倍。该论文进一步量化了在噪声强度为 0.1, 0.5, 1 和2VPP 时 λ1/λ0 的比率(图5G)。对于 0.1 到1VPP, λ1/λ0>1，表明噪声加速了从扰动状态的恢复。然而，在 2VPP 时，由于过量噪声引起的大振幅涨落，衰减变慢。
+最后，作者通过引入强脉冲干扰，直接测试了系统的抗冲击能力。在无噪声条件下，脉冲会导致显著的频率失配，并引发持续的拍频振荡，使系统难以恢复同步。而在加入适度噪声后，拍频幅度明显减小，系统能够重新进入同步状态，甚至在后续扰动中实现自主再同步。这一结果进一步证明：噪声不仅可以加速同步，还能够显著增强系统对强干扰的鲁棒性。
+[图]
+图4: 耦合宏观转子上噪声效应的实验方案与结果. (A) 实验装置：两个转子安装在飞机形铝合金板的机翼上；加速度计固定在每个转子的顶部. 宽带噪声通过激振器引入；机械冲击施加在板中心. (B) 三个驱动水平 (级别1至3) 下的时域加速度信号及对应的频谱, 红色和蓝色迹线分别代表转子1和转子2. (C) 输入噪声的时域和频域刻画 (0.1 V, 限于10 kHz). (D和E) 无噪声时转子启动过程中的同步动力学和实时频率演化. (F和G) 与 (D) 和 (E) 相同, 但存在噪声 (0.1 V, 限于10 kHz). (H) 无噪声及噪声强度为0.1、0.3和0.5VPP 时的同步时间. (I) 无噪声和有噪声情况下冲击对转子的影响. 左上：仪器化锤产生的时域冲击信号. 左下：冲击后的转子加速度响应. 右上和右下：分别对应无噪声和有噪声情况下冲击前后的功率谱密度 (功率谱密度). (J) 在级别3, 无噪声和有 0.3 VPP 噪声情况下, 冲击扰动后的时域加速度轨迹. 恢复时间定义为扰动信号恢复到稳定振幅所需的时间, 使用加速度轨迹的包络量化. (K) 在相同冲击条件下, 无噪声及不同噪声强度 (0.1、0.3和0.5VPP ) 下的恢复时间.
+类似地，机械耦合转子系统的实验结果也展示了适度噪声对系统稳定性的积极增强作用。在引入适度强度的宽带机械噪声后，转子在不同驱动档位下的启动同步过程均得到了显著加速，从而大幅缩短了系统达成机械同步所需的时间。此外，当系统遭遇强烈外部机械冲击干扰时，适度的噪声有效抑制了冲击引发的剧烈频谱偏移，使系统的频谱展宽更加均匀，并成功维持了同步频率的核心峰值不受破坏，展现出强大的物理韧性。不过，实验也发现，这种增益效果存在物理极限。当引入的噪声强度过大时，过度的机械扰动反而会破坏系统内部刚刚建立的脆弱耦合平衡，阻碍能量的有效传递，导致同步时间再次延长。总体而言，该结果确凿地证实了适度白噪声产生的稀释效应同样适用于宏观的机械耦合系统，说明了利用噪声增强抗干扰能力的策略在实际大型工程结构中具备普适性与落地可行性。
+总结来说，耦合微机电振子实验表明了噪声作用具有非单调特征。其对同步振子具有抑制扰动振幅涨落和加速振幅趋于稳定状态的两种效应。一方面，它抑制了拍频引起的振幅涨落；另一方面，它加快了系统从扰动状态恢复的速度。正是这两种效应的共同作用，使得噪声从传统意义上的“干扰源”，转变为一种可以提升同步性能的调制机制。
+讨论：当噪声不再是“敌人”
+传统认知中，噪声往往被视为需要尽可能抑制的干扰源。然而，该论文的研究提供了一种不同的视角：在特定条件下，噪声不仅不是负担，反而可以成为提升系统性能的关键因素。通过在微尺度静电耦合微机械振子与宏观机械耦合转子上的实验验证，我们发现，当白噪声强度处于适当范围内时，系统能够实现更快速的同步过程、更强的抗外部干扰能力，并在较长时间尺度上保持更优的频率稳定性。
+从理论层面看，该论文基于受随机扰动的耦合振子模型，对噪声的作用机制进行了系统分析。结果表明，适度噪声可以通过“稀释效应”分散干扰能量，从而加速同步建立；但当噪声过强时，其自身引入的不稳定性将反过来抑制同步性能。这种“适度最优”的非单调行为，为理解复杂系统中随机性与有序性的关系提供了新的物理图景。
+这一发现也为未来研究打开了多个方向。例如，窄带噪声与宽带噪声等不同类型噪声是否会带来差异化影响？在更大规模或更复杂拓扑的振子网络中，这种噪声诱导效应是否依然成立？这些问题都有待进一步探索。
+更重要的是，这一机制具备清晰的应用潜力。在计时与频率参考系统中，引入受控噪声有望在无需额外复杂电路的前提下提升长期稳定性；在通信系统中，噪声增强的同步机制可用于降低相位抖动、提升信号相干性。而在微机电系统与惯性传感领域，环境噪声通常难以避免，该论文结果则提示：与其“对抗噪声”，不如“利用噪声”，通过受控注入来稳定系统整体性能。
+从工程实现角度来看，本研究在微观与宏观两个尺度上的实验均采用了常规白噪声源与标准测量手段，证明该方法并非局限于理想化模型，而是具有良好的现实可行性。此外，由于耦合机制与噪声调制策略具有较强的普适性，这一思路还有望拓展至更多领域，例如神经形态计算、生物起搏系统以及多机器人协同控制等，这些系统普遍需要在复杂波动环境中实现稳定协同。
+总体而言，该论文揭示了噪声在同步系统中的“建设性角色”，为理解随机性如何促进有序行为提供了新的视角，也为未来在科学研究与工程实践中主动利用噪声提供了一条切实可行的路径。
+参考文献
+L. Glass, Synchronization and rhythmic processes in physiology. Nature 410, 277–284 (2001).
+S. Shahal, A. Wurzberg, I. Sibony, H. Duadi, E. Shniderman, D. Weymouth, N. Davidson, M. Fridman, Synchronization of complex human networks. Nat. Commun. 11, 3854 (2020).
+I. Nitsan, S. Drori, Y. E. Lewis, S. Cohen, S. Tzlil, Mechanical communication in cardiac cell synchronized beating. Nat. Phys. 12, 472–477 (2016).
+R. E. Goldstein, M. Polin, I. Tuval, Noise and synchronization in pairs of beating eukaryotic flagella. Phys. Rev. Lett. 103, 168103 (2009).
+C. Chen, S. Liu, X.-Q. Shi, H. Chaté, Y. Wu, Weak synchronization and large-scale collective oscillation in dense bacterial suspensions. Nature 542, 210–214 (2017).
+A. Japaridze, V. Struijk, K. Swamy, I. Rosłoń, O. Shoshani, C. Dekker, F. Alijani, Synchronization of E. coli bacteria moving in coupled microwells. Small 21, e2407832 (2025).
+Y. Ito, T. I. Shiramatsu, N. Ishida, K. Oshima, K. Magami, H. Takahashi, Spontaneous beat synchronization in rats: Neural dynamics and motor entrainment. Sci. Adv. 8, eabo7019 (2022).
+V. M. Vinokur, T. I. Baturina, M. V. Fistul, A. Y. Mironov, M. R. Baklanov, C. Strunk, Superinsulator and quantum synchronization. Nature 452, 613–615 (2008).
+D. Antonio, D. A. Czaplewski, J. R. Guest, D. López, S. I. Arroyo, D. H. Zanette, Nonlinearity-induced synchronization enhancement in micromechanical oscillators. Phys. Rev. Lett. 114, 034103 (2015).
+J. L. Wilson, A. A. Pahlavan, M. A. Erinin, C. Duprat, L. Deike, H. A. Stone, Aerodynamic interactions of drops on parallel fibres. Nat. Phys. 19, 1667–1672 (2023).
+E. Um, M. Kim, H. Kim, J. H. Kang, H. A. Stone, J. Jeong, Phase synchronization of fluid-fluid interfaces as hydrodynamically coupled oscillators. Nat. Commun. 11, 5221 (2020).
+M. H. Matheny, J. Emenheiser, W. Fon, A. Chapman, A. Salova, M. Rohden, J. Li, M. H. de Badyn, M. Pósfai, L. Duenas-Osorio, M. Mesbahi, J. P. Crutchfield, M. C. Cross, R. M. D’Souza, M. L. Roukes, Exotic states in a simple network of nanoelectromechanical oscillators. Science 363, eaav7932 (2019).
+D. Shenhav Feigin, O. Shoshani, Synchronization of non-weakly coupled aeroelastic oscillators. Commun. Phys. 7, 211 (2024).
+S. B. Shim, M. Imboden, P. Mohanty, Synchronized oscillation in coupled nanomechanical oscillators. Science 316, 95–99 (2007).
+M. H. Matheny, M. Grau, L. G. Villanueva, R. B. Karabalin, M. C. Cross, M. L. Roukes, Phase synchronization of two anharmonic nanomechanical oscillators. Phys. Rev. Lett. 112, 014101 (2014).
+C. Spiess, S. Töpfer, S. Sharma, A. Kržič, M. Cabrejo-Ponce, U. Chandrashekara, N. L. Döll, D. Rieländer, F. Steinlechner, Clock synchronization with correlated photons. Phys. Rev. Appl. 19, 054082 (2023).
+X. Cui, V. Mylnikov, P. Johansson, M. Käll, Synchronization of optically self-assembled nanorotors. Sci. Adv. 10, eadn3485 (2024).
+A. Greilich, N. E. Kopteva, V. L. Korenev, P. A. Haude, M. Bayer, Exploring nonlinear dynamics in periodically driven time crystal from synchronization to chaotic motion. Nat. Commun. 16, 2936 (2025).
+H. Y. Luan, Y. H. Ouyang, Z. W. Zhao, W. Z. Mao, R. M. Ma, Reconfigurable moiré nanolaser arrays with phase synchronization. Nature 624, 282–288 (2023).
+X. Xiong, C. Wu, F. Blaabjerg, An improved synchronization stability method of virtual synchronous generators based on frequency feedforward on reactive power control loop. IEEE Trans. Power Electron. 36, 9136–9148 (2021).
+M. Zou, P. Fang, Y. Hou, H. Peng, Investigation on multiple-frequency synchronization experiment of vibration system with dual-rotor actuation. Mech. Syst. Signal Process. 164, 108261 (2022).
+M. Sueda, H. Mori, T. Kondou, Analytical study of self-synchronization in two unbalanced rotors based on energetic conditions. J. Sound Vib. 521, 116618 (2022).
+L. Beltramelli, A. Mahmood, P. Österberg, M. Gidlund, P. Ferrari, E. Sisinni, Energy efficiency of slotted LoRaWAN communication with out-of-band synchronization. IEEE Trans. Instrum. Meas. 70, 5501211 (2021).
+S. Watt, M. Kostylev, A. B. Ustinov, Enhancing computational performance of a spin-wave reservoir computer with input synchronization. J. Appl. Phys. 129, 044501 (2021).
+O. Shoshani, D. Heywood, Y. Yang, T. W. Kenny, S. W. Shaw, Phase noise reduction in an 微机电系统 oscillator using a nonlinearly enhanced synchronization domain. J. Microelectromech. Syst. 25, 870–876 (2016).
+B. Hu, L. Zhan, S. Sahoo, L. Chen, H. Nian, F. Blaabjerg, Synchronization stability analysis under ultra-weak grid considering reactive current dynamics. IEEE Trans. Ind. Electron. 71, 15220–15223 (2024).
+D. Pu, R. Huan, X. Wei, Frequency stability improvement for piezoresistive micromechanical oscillators via synchronization. AIP Adv. 7, 035119 (2017).
+Z. Shi, D. Pu, X. Wang, R. Huan, Z. Jiang, X. Wei, Phase-delay induced variation of synchronization bandwidth and frequency stability in a micromechanical oscillator. Nonlinear Dyn. 105, 2981–2994 (2021).
+M. C. Cross, Improving the frequency precision of oscillators by synchronization. Phys. Rev. E 85, 046214 (2012).
+D. K. Agrawal, A. A. Seshia, An analytical formulation for phase noise in 微机电系统 oscillators. IEEE Trans. Ultrason. Ferroelectr. Freq. Control 61, 1938–1952 (2014).
+S. Walter, A. Nunnenkamp, C. Bruder, Quantum synchronization of a driven self-sustained oscillator. Phys. Rev. Lett. 112, 094102 (2014).
+F. Schmolke, E. Lutz, Measurement-induced quantum synchronization and multiplexing. Phys. Rev. Lett. 132, 010402 (2024).
+A. Roulet, C. Bruder, Quantum synchronization and entanglement generation. Phys. Rev. Lett. 121, 063601 (2018).
+H. Xiao, H. He, L. Zhang, T. Liu, Adaptive grid-synchronization based grid-forming control for voltage source converters. IEEE Trans. Power Syst. 39, 4763–4766 (2023).
+M. Rohden, A. Sorge, M. Timme, D. Witthaut, Self-organized synchronization in decentralized power grids. Phys. Rev. Lett. 109, 064101 (2012).
+A. Pikovsky, M. Rosenblum, J. Kurths, Synchronization: A Universal Concept in Nonlinear Sciences (Cambridge Univ. Press, 2010).
+M. Tyloo, R. Delabays, P. Jacquod, Noise-induced desynchronization and stochastic escape from equilibrium in complex networks. Phys. Rev. E 99, 062213 (2019).
+D. S. Goldobin, A. Pikovsky, Synchronization and desynchronization of self-sustained oscillators by common noise. Phys. Rev. E 71, 045201 (2005).
+R. Adler, A study of locking phenomena in oscillators. Proc. IRE 34, 351–357 (1946).
+H.-C. Chang, X. Cao, U. K. Mishra, R. A. York, Phase noise in coupled oscillators: Theory and experiment. IEEE Trans. Microw. Theory Tech. 45, 604–615 (1997).
+N. Patin, L. Vido, E. Monmasson, J.-P. Louis, M. Gabsi, M. Lecrivain, Control of a hybrid excitation synchronous generator for aircraft applications. IEEE Trans Ind Electron 55, 3772–3783 (2008).
+A. Hajimiri, T. H. Lee, A general theory of phase noise in electrical oscillators. IEEE J. Solid-State Circuits 33, 179–194 (1998).
+T. H. Lee, A. Hajimiri, Oscillator phase noise: A tutorial. IEEE J. Solid-State Circuits 35, 326–336 (2000).
+J. Hindes, P. Jacquod, I. B. Schwartz, Network desynchronization by non-Gaussian fluctuations. Phys. Rev. E 100, 052314 (2019).
+C. Zhou, J. Kurths, Noise-induced phase synchronization and synchronization transitions in chaotic oscillators. Phys. Rev. Lett. 88, 230602 (2002).
+T. Manzaneque, M. K. Ghatkesar, F. Alijani, M. Xu, R. A. Norte, P. G. Steeneken, Resolution limits of resonant sensors. Phys. Rev. Appl. 19, 054074 (2023).
+Y. Xu, L. Wang, C. Wang, J. Ren, J. Lv, G. Shao, X. Wei, Frequency stabilization in a pseudo-linear micromechanical parametric oscillator. Int. J. Mech. Sci. 280, 109610 (2024).
+O. Shoshani, S. Strachan, D. Czaplewski, D. Lopez, S. W. Shaw, Extraordinary frequency stabilization by resonant nonlinear mode coupling. Phys. Rev. Appl. 22, 054055 (2024).
+X. Li, Positive-incentive noise. IEEE Trans. Neural Netw. Learn. Syst. 35, 6 (2024).
+Y. S. Teo, S. Shin, H. Kwon, S.-H. Lee, H. Jeong, Virtual distillation with noise dilution. Phys. Rev. A 107, 022608 (2023).
+J. Jhawar, R. G. Morris, U. R. Amith-Kumar, M. D. Raj, T. Rogers, H. Rajendran, V. Guttal, Noise-induced schooling of fish. Nat. Phys. 16, 488–493 (2020).
+C. A. Yates, R. Erban, C. Escudero, I. D. Couzin, C. Buhl, I. G. Kevrekidis, P. K. Maini, D. J. T. Sumpter, Inherent noise can facilitate coherence in collective swarm motion. Proc. Natl. Acad. Sci. U.S.A. 106, 5464–5469 (2009).
+C. C. Ioannou, V. Guttal, I. D. Couzin, Predatory fish select for coordinated collective motion in virtual prey. Science 337, 1212–1215 (2012).
+I. Kovacic, M. J. Brennan, The Duffing Equation: Nonlinear Oscillators and Their Behaviour (Wiley, 2011).
+D. K. Agrawal, J. Woodhouse, A. A. Seshia, Observation of locked phase dynamics and enhanced frequency stability in synchronized micromechanical oscillators. Phys. Rev. Lett. 111, 084101 (2013).
+Y. Qiao, A. Elhady, M. Arabi, E. Abdel-Rahman, W. Zhang, Thermal noise-driven resonant sensors. Microsyst. Nanoeng. 10, 90 (2024).
+G. Marghoti, T. L. Prado, M. A. F. Sanjuán, S. R. Lopes, Beat frequency induced transitions in synchronization dynamics. Commun. Nonlinear Sci. Numer. Simul. 138, 108243 (2024).
+Z. Shi, D. Pu, Q. Lv, R. Huan, X. Wang, Z. Xiao, Z. Jiang, X. Wei, Enhancement of synchronization bandwidth in an arch beam. J. Sound Vib. 545, 117415 (2023).
+J. A. Barnes, A. R. Chi, L. S. Cutler, D. J. Healey, D. B. Leeson, T. E. McGunigal, J. A. Mullen, W. L. Smith, R. L. Sydnor, R. F. C. Vessot, G. M. R. Winkler, Characterization of frequency stability. IEEE Trans. Instrum. Meas. 20, 105–120 (1971).
+M. L. Deng, W. Q. Zhu, Stochastic averaging of MDOF quasi integrable Hamiltonian systems under wide-band random excitation. J. Sound Vib. 305, 783–794 (2007).
+Z. L. Huang, W. Q. Zhu, Stochastic averaging of quasi-integrable Hamiltonian systems under combined harmonic and white noise excitations. Int. J. Nonlinear Mech. 39, 1421–1434 (2004).
+R. L. Stratonovich, Topics in the Theory of Random Noise (Gordon and Breach, 1963).
+R. Z. Khasminskii, A limit theorem for the solutions of differential equations with random right-hand sides. Theory Probab. Appl. 11, 390–406 (1966).
+A. H. Nayfeh, D. T. Mook, Nonlinear Oscillations (Wiley, 2008).
+Z. Xiao, Z. Shi, X. Wang, X. Wei, R. Huan, Dual-jump amplification in an electric-thermal adjusted arch beam micro-resonator. Sens. Actuators A Phys. 365, 114925 (2024).
+M. Amabili, P. Balasubramanian, G. Ferrari, Nonlinear vibrations and damping of fractional viscoelastic rectangular plates. Nonlinear Dyn. 103, 3581–3609 (2021).
+M. Amabili, Nonlinear damping in nonlinear vibrations of rectangular plates: Derivation from viscoelasticity and experimental validation. J. Mech. Phys. Solids 118, 275–292 (2018).
+参考文献可上下滑动查看
+随机动力学读书会
+集智俱乐部联合北京工业大学诸葛昌靖老师和北京化工大学王利老师共同发起「随机动力学」读书会。采用“一主一辅”的阅读模式，带领大家系统研读随机过程领域的两部经典著作，主读文献《Handbook of Stochastic Methods for Physics, Chemistry and the Natural Sciences》 ，辅助文献《Stochastic Processes in Physics and Chemistry》，通过物理直觉启发与数学理论推导的交织，助力参与者构建完整的随机动力学逻辑结构和知识体系。
+本读书会通过师生领读，系统化地梳理书中的重要概念，读完这两本书，我们将掌握随机过程的物理意义、基础理论与实用方法，在随机性的统一视角下，为跨学科建模应用铺路架桥。
+[图]
+详情请见：随机动力学读书会启动：大模型背后那只“看不见的手”
+[图][图][图][图][图]
+推荐阅读
+1. Sci. Adv. 速递：模块化结构促进噪声驱动下神经网络同步的控制
+2. Nat. Commun. 速递：河流网络噪声的时空模式
+3. Nat. Commun.速递：注入噪声的模拟 Ising 机实现超快统计采样与机器学习
+4. 诚招系统科学/AI/物理背景的内容创作者
+5. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+6. 高考分数只是张入场券，你的科研冒险在这里启航！
+7. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+点击“阅读原文”，报名读书会

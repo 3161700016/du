@@ -1,0 +1,111 @@
+﻿r/AskPhilosophy · 1分 · 1评(档案内 7) · 2026-08-27
+标题：Question about common reply to Kant on lying
+URL：https://reddit.com/comments/1vz50sa
+==============================================
+I often hear a response to Kant's claim that it is never permissible to lie. The response is that the maxim that "It is not permissible to lie unless to do so would save someone's life" is a coherent maxim, and that it should be adopted instead of Kant's more stringent "It is never permissible to lie." 
+
+It seems like Kantians are usually comfortable with this modification of the maxim regarding lying. And I understand it's much more agreeable to us than Kant's ban on lying in general. But I feel that a reasonable reply Kant could make to this is that to adopt as your maxim "It is not permissible to lie unless to do so would save someone's life" would be to adopt a hypothetical imperative as an ethical maxim. But ethical maxims are categorical.
+
+If this is right, that that modified maxim is a hypothetical imperative, then perhaps Kant is just wrong that ethics is concerned exclusively with categorical imperatives. But if Kant is wrong about that, then Kantian ethics would have to fundamentally change. 
+
+So my question is twofold: 1. Do you know of any sources that deal with this response to Kant along these lines? 2. Given the prevalence of responding to Kant by modifying the lying rule, I fear I've misunderstood something important about Kant; so, is this a plausible criticism of this common reply to Kant?
+
+Also, I have read Kant's essay on lying for "humanitarian" purposes, and from what I remember he does not make this argument. Instead he makes this weird argument about the logistics of escaping the house that I find totally unconvincing and irrelevant to the moral issue.
+
+[评论 1] u/Quidfacis_：
+> Given the prevalence of responding to Kant by modifying the lying rule, I fear I've misunderstood something important about Kant; so, is this a plausible criticism of this common reply to Kant?
+
+Part of the problem is that folks misunderstand Kant's position on lying, so twist themselves into knots trying to carve out situations where lying is permissible.
+
+One can solve the apparent problem by recognizing that Kant *is* opposed to lying and what constitutes a "lie", in Kant's system, is narrow in scope.  The essay [On a Supposed Right to Lie Because of Philanthropic Concerns](http://bgillette.com/wp-content/uploads/2011/08/KANTsupposedRightToLie.pdf) seems to indicate that one can never lie:
+
+> To be truthful (honest) in all declarations is, therefore, a sacred and unconditionally commanding law of reason that admits of no expediency whatsoever.
+
+What most folks skip over is the fact that the rule hinges on the word "declarations", as explained in [this Allen Wood essay](https://www.researchgate.net/publication/262457237_Kant_and_the_right_to_lie_reviewed_essay_On_a_supposed_right_to_lie_from_philanthropy_by_Inmanuel_Kant_1797).  According to Wood's interpretation:
+
+* A lie is "an intentionally untruthful statement that is contrary to duty, especially contrary to a duty of right."
+
+* A falsification is "an intentional untruth, when it violates no duty of right."
+
+Sometimes a duplicitous statement is a *falsification* and not a *lie*.
+
+> **Not every intentionally false statement is a lie, in the sense of a violation of a duty of right. Many such statements are merely falsifications.** In order to understand how a falsification can become a “lie” (in the technical sense that it is a violation of a duty of right), we need to understand yet another crucial piece of technical terminology –the term ‘declaration’ (Aussage, Deklaration, Latin declaratio). All these terms, in Kant’s vocabulary, refer to statements that occur in a context where others are warranted or authorized (befugt) in relying on the truthfulness of what is said, and makes the speaker liable by right, and thus typically subject to criminal penalties or civil damages, if what is said is knowingly false.
+
+...
+
+> In the context of right, a declaration is a statement made by another on whose truthfulness I am authorized to rely. If a declaration made to me is knowingly false, my freedom is wrongfully restricted.
+
+According to Wood, it is not the case, for Kant, that every linguistic utterance is a *declaration*.  This because not every linguistic utterance occurs in a context in which one's interlocutor is warranted or authorized to rely upon the truthfulness of what is said.  So long as you do not make *declarations*, so long as you only make *falsifications*, you can say whatever you want and not violate a duty of right.  Wood explains:
+
+> Once we appreciate all these points, we should begin to see how extreme, artificial (or even dubious) is the kind of case in which Kant’s principles require him to say that it would be wrong to lie to the murderer at the door. **If our statement to the would-be murderer is not a declaration, then we need not speak truthfully, because that would be a mere falsification, not a lie.**  If he extorts a declaration from us, intending to use it unjustly, then that would be a case of a “necessary lie” and would again be permissible.  **It is only where a declaration is unavoidable, yet not extorted, that lying to the murderer at the door would violate the right of humanity.** Most people who read Kant’s essay seem bedazzled by the thought that Kant is willing to say about any case of the murderer at the door that you may not rightfully lie to him. The glare prevents them from seeing anything else about the case, including any of the more specific principles involved.
+
+To the follow-up "What is a declaration, then?" question:
+
+> The fact that (in juridical contexts) Aussage and Deklaration are technical terms for Kant is usually missed by readers of the essay on the right to lie. But this is quite clear from his consistent use of the term throughout his writings, and especially in the Metaphysics of Morals (KpV 5:44, MS 6:254, 258, 304 366). Sometimes Kant appends the adjective “solemn” (feierlich) to “declaration,” to emphasize the special significance of the term (R 6:159, MS 6:272, 304). **One paradigm case of a declaration would be a statement made under oath in a court of law, where it is to be taken as probative** (KpV 5:44, MVT 8:268, MS 6:272). **Another clear case of a declaration would be a promise or warranty contained in the terms of a contract** (MS 6:254, 272). However, because in Kantian ethics right is the larger rational system of morals (Sitten) that grounds mere positive legislation and the enforceable rights it secures, **declarations are not limited only to statements with specific legal consequences**. For example, **Kant thinks that a person’s solemn avowal of religious faith counts as a declaration** (R 6:159, MVT 8:268).
+
+...
+
+> Kant also puts this point in the following way: that when I make a lying declaration, “I bring it about, as far as I can, that declarations (Aussagen [Declarationen]) in general are not believed, and so too that all rights which are based on contracts come to nothing and lose their force” (VRL 8:426). The claim here is not that some particular lie might in fact shake people’s confidence in trials or contracts (as if it by itself would cause them no longer to believe anyone). It is rather that the system of right is constituted by a set of laws that are universally valid – actions are right only if they can coexist with everyone’s freedom under this system according to a universal law. **A statement counts as a declaration whenever reliance on its truthfulness is required to secure people’s rightful freedom under universal laws.** Hence it is contrary to the very concept of right that it could be right to make an untruthful declaration when the truthfulness of that declaration is required by rational laws of right. By making such a declaration, I am in that sense acting in such a way as to deprive declarations made the system of right of their validity, whether or not that result is intended or actually occurs. Kant also puts it this way: “It cannot hold with universality of a law of nature that statements should be allowed as proof and yet be intentionally untrue” (KpV 5:44).
+
+If you need to protect someone by means of linguistic utterances, then just make *falsifications* and you're good to go.  Your linguistic utterances do not violate a duty of right.  If you are in a court of law, and you speak, then you must speak truthfully, for Kant, according to Wood.  This because in that context your linguistic utterance is a *declaration* upon which the person questioning you is authorized to rely.
+
+For Kant, it is your duty to be truthful when it is your duty to be truthful, which is a much cleaner universal rule than "It is not permissible to lie unless to do so would save someone's life."
+
+[评论 1] u/rejectednocomments：
+Why do you think that new maxim is hypothetical? 
+
+[评论 1] u/AutoModerator：
+Welcome to /r/askphilosophy! **Please read [our updated rules and guidelines](https://www.reddit.com/r/askphilosophy/comments/14o2p7n/welcome_to_raskphilosophy_check_out_our_rules_and/) before commenting**.
+
+**Currently, answers are only accepted by [panelists](https://old.reddit.com/r/askphilosophy/wiki/panelists) (mod-approved flaired users)**, whether those answers are posted as top-level comments or replies to other comments. Non-panelists can participate in subsequent discussion, but are not allowed to answer question(s).
+
+Want to become a panelist? Check out [this post](https://reddit.com/r/askphilosophy/comments/14o2p7n/welcome_to_raskphilosophy_check_out_our_rules_and/).
+
+**Please note:** this is a highly moderated academic Q&A subreddit and not an open discussion, debate, change-my-view, or test-my-theory subreddit.
+
+ **Answers from users who are not panelists will be automatically removed.**
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/askphilosophy) if you have any questions or concerns.*
+
+[评论 1] u/Quidfacis_：
+Part 2:
+
+That first post is about duties of right.  In Kant's ethics a lie is an "intentional untruth in the expression of one's thoughts." See the [Doctrine of Virtue](https://ld.circuitdebater.org/w/archive_files/%5BImmanuel_Kant%5D_Kant_The_Metaphysics_of_Morals.pdf/507955836/%5BImmanuel_Kant%5D_Kant_The_Metaphysics_of_Morals.pdf):
+
+> The greatest violation of man's duty to himself regarded merely as a moral being (the humanity in his own person) is the contrary of truthfulness, lying (aliud lingua promptum, aliud pectore inclusum gerere)." In the doctrine of Right an intentional untruth is called a lie only if it violates another's right; but in ethics, where no authorization is derived from harmlessness, it is clear of itself that **no intentional untruth in the expression of one's thoughts can refuse this harsh name**. For the dishonor (being an object of moral contempt) that accompanies a lie also accompanies a liar like his shadow. A lie can be an external lie (mendacium externum) or also an internal lie. By an external lie a man makes himself an object of contempt in the eyes of others; by an internal lie he does what is still worse: He makes himself contemptible in his own eyes and violates the dignity of humanity in his own person. And so, since the harm that can come to other men from lying is not what distinguishes this vice (for if it were, the vice would consist only in violating one's duty to others), this harm is not taken into account here. Neither is the harm that a liar brings on himself; for then a lie, as a mere error in prudence , would conflict with the pragmatic maxim, not the moral maxim, and it could not be considered a violation of duty at all. By a lie a man throws away and, as it were, annihilates his dignity as a man. A man who does not himself believe what he tells another (even if the other is a merely ideal person) has even less worth than if he were a mere thing; for a thing, because it is something real and given, has the property of being serviceable so that another can put it to some use. **But communication of one's thoughts to someone through words that yet (intentionally) contain the contrary of what the speaker thinks on the subject** is an end that is directly opposed to the natural purposiveness of the speaker's capacity to communicate his thoughts, and is thus a renunciation by the speaker of his personality, and such a speaker is a mere deceptive appearance of a man, not a man himself. Truthfulness in one's **declarations** is also called honesty and, if the **declarations** are promises, sincerity; but, more generally, truthfulness is called rectitude.
+
+To be a lie in an ethical sense the linguistic utterance must be
+
+* intentional untruth
+* expression of one's thoughts
+
+**Not every linguistic utterance is an expression of one's thoughts.**  Nor is every linguistic utterance framed as an expression of one's thoughts, as presenting what the speaker thinks on the subject.  Even when Kant links man as a moral being to his natural being Kant employs the technical language of declarations which is the basis of the distinction made in the Wood essay.
+
+> Man as a moral being (homo noumenon) cannot use himself as a natural being (homophaenomenon) as a mere means (a speaking machine), as if his natural being were not bound to the inner end (of communicating thoughts), but is bound to the condition of using himself as a natural being in agreement with the declaration (declaratio) of his moral being and is under obligation to himself to truthfulness. Someone tells an inner lie, for example, if he professes belief in a future judge of the world, although he really finds no such belief within himself but persuades himself that it could do no harm and might even be useful to profess in his thoughts to one who scrutinizes hearts a belief in such a judge , in order to win His favor in case He should exist. Someone also lies if, having no doubt about the existence of this future judge , he still flatters himself that he inwardly reveres His law, though the only incentive he feels is fear of punishment.
+>
+> Insincerity is mere lack of conscientiousness, that is, of purity in one's professions before one's inner judge, who is thought of as another person when conscientiousness is taken quite strictly; then if someone, from self-love, takes a wish for the deed because he has a really good end in mind, his inner lie, although it is indeed contrary to man's duty to himself, gets the name of a frailty, as when a lover's wish to find only good qualities in his beloved blinds him to her obvious faults. But **such insincerity in his declarations, which man perpetrates upon himself, still deserves the strongest censure**, since it is from such a rotten spot (falsity, which seems to be rooted in human nature itself) that the evil of untruthfulness spreads into man's relations with other men as well, once the highest principle of truthfulness has been violated.
+
+Even a lie in the sense of a violation of a duty of virtue only occurs when the linguistic utterance is a declaration.
+
+So far as I can tell, for Kant, a person can say whatever they want so long as they avoid making declarations.  Lying, in the Kantian sense, only occurs in a declaration.  That's a point Wood makes in his essay:
+
+> The fact that (in juridical contexts) Aussage and Deklaration are technical terms for Kant is usually missed by readers of the essay on the right to lie. But this is quite clear from his consistent use of the term throughout his writings, and especially in the Metaphysics of Morals (KpV 5:44, MS 6:254, 258, 304 366). Sometimes Kant appends the adjective “solemn” (feierlich) to “declaration,” to emphasize the special significance of the term (R 6:159, MS 6:272, 304). One paradigm case of a declaration would be a statement made under oath in a court of law, where it is to be taken as probative (KpV 5:44, MVT 8:268, MS 6:272). Another clear case of a declaration would be a promise or warranty contained in the terms of a contract (MS 6:254, 272). However, because in Kantian ethics right is the larger rational system of morals (Sitten) that grounds mere positive legislation and the enforceable rights it secures, declarations are not limited only to statements with specific legal consequences. For example, Kant thinks that a person’s solemn avowal of religious faith counts as a declaration (R 6:159, MVT 8:268).
+
+Again, for Kant, it is your duty to be truthful when it is your duty to be truthful.  Not every linguistic utterance is a declaration, so etc.
+
+[评论 1] u/Maleficent-Finish694：
+The Allen Wood interpretation is clearly wrong, because it contradicts what Kant is saying about lying in the Metaphysik of Morals: 
+
+§9 "...Daß eine jede vorsätzliche Unwahrheit in Äußerung seiner Gedanken diesen harten Name \[Lüge\] (den sie in der Rechtslehre nur dann führt, wenn sie anderer Recht verletzt) in der Ethik, die aus der Unschädlichkeit kein Befugns hernimmt, nicht ablehnen könne, ist für sich selbst klar..." (It is clear of itself that no intentional untruth in the expression of one's thoughts can refuse this harsh name \[a lie\] in ethics...) Wood is just confused about Kant's specific use of "Lie" in his theory of law...
+
+For Kant a lie is a lie in the very ordinary sense of the word, and there cannot be any doubt that his considered ethical opinion is that lying is wrong under any circumstances (the justification is, that lying contradicts itself, the act of lying presupposes that you believe p and not p...)
+
+[评论 1] u/SpookyVegan1：
+Thank you!! This is really fascinating. I’ve downloaded the article and I look forward to reading it. 
+
+[评论 1] u/SpookyVegan1：
+Kant says, "\[hypothetical imperatives\] represent the practical necessity of a possible action as a means to achieving something else that one wills (or that it is at least possible for one to will).... Now, if the action would be good merely as a means *to something else* the imperative is *hypothetical;* if the action is represented as *in itself good,* hence as necessary in a will in itself conforming to reason, as its principle, *then it is* *categorical" (Groundwork 4:14).* 
+
+The rule "It is permissible to lie in order to save a life" uses lying to achieve something else that one wills (saving a life). Also, lying would be good merely as a means to something else (saving a life). Lying in this rule, on the other hand, is *not* represented as "in itself good," and so "It is permissible to lie in order to save a life" is not a categorical imperative. 
+

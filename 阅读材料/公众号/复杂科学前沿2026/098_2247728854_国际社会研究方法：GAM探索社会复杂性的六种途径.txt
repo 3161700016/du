@@ -1,0 +1,176 @@
+标题：国际社会研究方法：GAM探索社会复杂性的六种途径
+公众号：集智俱乐部
+发布：2026-03-31
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728854&idx=1&sn=194ecac446931995f5e50ecd398105e9&chksm=e898245bdfefad4d0dca19424e9c38d0a4ff1af22f49890259f79591dfa9e72964a7699f76a9#rd
+合集：复杂科学前沿2026 · 序号 098/157
+------------------------------
+[图]
+导语
+当用游戏与智能体模型（Games and agent-based models，GAM）探索社会复杂性时，单一的研究思路或许难以发挥其全部潜力。自然资源管理中的决策模拟、人类社会行为的规律探索、跨学科领域的复杂问题破解，这些场景都离不开GAM方法的灵活运用。然而，当前GAM研究仍面临标准化缺失、方法论不完善、跨学科协作不足等瓶颈，制约着其研究价值的充分释放。究竟如何精准选择适配的GAM研究设计类型，如何突破现有局限、推动该领域规范化发展？该研究基于2001至2020年52篇相关文献的系统性综述，识别六种核心研究设计类型，提出针对性发展建议与结论，为GAM研究的实践与推进提供清晰指引。
+关键词：意识智能体建模（Agent-based modelling），游戏，游戏设计，研究设计，系统性文献综述
+[图][图][图][图]
+王璇丨作者
+赵思怡丨审校
+[图]
+论文题目：GAM on! Six ways to explore social complexity by combining games and agent-based models
+论文链接：https://www.tandfonline.com/doi/full/10.1080/13645579.2022.2050119
+发表时间：2022年5月27日
+论文来源：International Journal of Social Research Methodology
+1. 引言
+游戏产业已发展成规模庞大的行业。据估算，全球活跃游戏玩家约有24亿人（Clement，2021），约占全球人口的三分之一，且这部分人群保持着常规的游戏行为。游戏能够打造沉浸式互动环境，让人们在其中交流、探索并共同应对挑战，其这一潜力早已得到学界认可（Ampatzidou & Gugerell，2019）。“计算机辅助游戏已被应用于社会研究、城市与土地利用管理、生态教育、国际关系、医疗健康以及自然资源管理等领域”（Klabbers，2006），且通常用于支持公众参与研究，或向更广泛的受众传播研究成果（Pfirman 等，2021）。近年来，将游戏与智能体模型等社会复杂性探索方法相结合的研究应用日益普及，这类融合形式体现在混合复合模拟（Le Page 等，2014）、智能体参与式模拟（Guyot & Honiden，2006）以及各类实验设计中（Ren 等，2018）。本文将这一融合游戏与智能体模型的新兴研究领域命名为游戏化智能体建模（GAM），但该领域的体系化发展因缺乏关于“如何结合、何时结合”的方法论指导而受阻，导致其推广、可复制性和系统化进程缓慢。该问题对初次涉足该领域的研究者影响尤为显著，因为他们无法像领域内的先驱研究者那样，依托直觉和隐性知识开展研究。缺乏系统的方法论描述，也导致研究设计出现本土化创新和重复开发的现象。本文旨在通过对游戏化智能体建模的现有应用实践（如何应用、何时应用）进行结构化梳理与分析，并提出标准化的文档记录框架，为该领域奠定方法论基础，为未来的方法论探讨提供初步依据。具体而言，该研究将实现以下目标：
+（1）梳理游戏化智能体建模相关文献的整体特征（如发表时间分布、应用领域、发表期刊、作者合作模式等）；
+（2）归纳融合游戏与智能体模型的现有研究设计类型；
+（3）阐述各类设计类型的应用场景（包括时间演变、研究目的、所属领域及合作模式）；
+（4）提出游戏化智能体建模研究的文档记录框架。
+为明确游戏化智能体建模的方法论特征，本文从四个维度对每种研究设计类型进行界定：
+（1）研究要素的时序安排；
+（2）各要素间的对应关系；
+（3）与研究对象（目标系统，即现实世界中的研究现象）的关联；
+（4）融合游戏与智能体模型的研究目的。
+因此，本文能够为新手和资深研究者在应用研究中选择适配的研究设计、优化现有研究实践提供参考与启发。该研究通过提供有效融合游戏与智能体模型的实证依据、研究洞见和方法指导，为游戏领域和社会模拟领域的从业者提供支持；同时，研究结果也对致力于整合定性与定量证据的研究者具有参考价值——而整合两类证据正是游戏和智能体模型的共同优势。尽管本文聚焦于研究应用层面的梳理，但游戏与智能体模型的融合也可应用于其他场景，其中最主要的是作为基于学习的干预手段，推动并促进社会变革（如Rodela 等，2019）。
+本文接下来将先阐述游戏与智能体模型的内涵，分析二者融合的优势。随后界定用于描述过往实证研究中各类研究设计的判定标准。第三部分介绍该研究的综述方法与研究局限。第四部分呈现研究结果，重点分析识别出的各类研究设计类型。第五部分提出游戏化智能体建模方法的应用与报告规范建议。最后对研究进行总结，并为该领域的未来发展提出建议。
+2. 概念基础
+2.1 游戏与智能体模型
+对游戏进行通用定义并非易事，学界的各类定义均侧重游戏的某一特征。部分学者认为游戏的核心是趣味性或娱乐性（Caillois，2001），也有学者将游戏定义为玩家参与人工设定的冲突的系统（Salen & Zimmerman，2003）。该研究采用游戏设计师麦戈尼格尔（2011，第21页）提出的包容性游戏定义，该定义具有显著的分析优势：“抛开游戏的类型差异和技术复杂性，所有游戏都具备四个核心特征：明确的目标、既定的规则、完善的反馈系统以及自愿的参与行为。”
+游戏的诸多独特特征对科研工作具有重要价值。例如，游戏能够构建虚拟场景，让玩家在特定情境中扮演特定角色（Barreteau，2003）。这种虚拟场景使玩家能够在无需承担现实后果的前提下，进行探索、合作或竞争。游戏行为也可被视作一种沟通方式，玩家通过基于规则的“语言”传递和接收信息（Duke，1974）。在科研领域，游戏已被用于支持社会学习、沟通交流和集体决策，提升利益相关者在参与式研究中的整体参与度（Bakhanova 等，2020）。此外，游戏还被用作数据收集工具，成功吸引志愿者参与公民科学项目（如蛋白质折叠游戏平台：[www.fold.it]）。
+[图]
+蛋白质折叠游戏平台：[www.fold.it]
+智能体模型（ABMs）是对复杂系统的抽象表征，它从系统组成要素及要素间相互关系的视角出发，通过计算机程序实现对复杂系统的模拟。在智能体模型中，具有多种属性的异质性智能体依据既定的形式化规则，与其他智能体及环境进行互动（Miller & Page，2009）。研究者通过分析程序输出结果，能够将系统涌现的宏观现象与模型中软件智能体的个体特征和行为进行严谨的关联分析。尤为重要的是，智能体建模技术允许研究者在虚拟计算环境中，对反事实场景进行系统性探索。
+在单一研究中融合游戏与智能体模型（即采用游戏化智能体建模方法），研究者既能发挥二者各自的优势，又能借助二者的协同效应提升研究效果。这一研究潜力最早在自然资源管理领域得到应用，Barreteau (1998) 和 Bousquet 等 (1999)首次提出将游戏与智能体模型相结合，为自然资源的综合管理提供支持。Barreteau 等 (2002) 指出，智能体模型与游戏的特征存在高度对应性：智能体对应玩家、模型规则对应游戏规则、模型时间步对应游戏回合、模拟运行对应游戏场次、模型界面对应游戏世界，诸如此类。在游戏化智能体建模框架中，智能体模型的价值体现在：
+（1）构建反事实的假设场景，例如通过修改参数或属性，对游戏过程进行数字化复现；
+（2）实现游戏研究的规模化拓展，例如扩大研究的空间和时间维度；
+（3）随着游戏的推进，根据玩家行为动态更新环境和智能体的特征；
+（4）具备生成性特征（即从局部互动中涌现出群体层面的现象）和动态建模能力。
+与此同时，游戏的价值体现在：为玩家（如利益相关者）提供交流平台，使其共同探讨并确定应对现实挑战的最优策略(Salvini 等, 2016)，或联合制定发展场景(Voinov & Bousquet, 2010)；此外，游戏还能帮助研究者理解玩家的异质性行为策略和玩家间的互动关系，这一优势既可用于开发贴合具体场景的、具有现实合理性的行为智能体模型，也可用于模型验证（例如对比游戏中玩家的行为与模型中计算智能体的行为）。游戏与智能体模型的一个重要共性是，二者均能处理和输出定性与定量数据，根据研究设计的时序安排，数据可从游戏流向智能体模型，也可从智能体模型流向游戏。
+已有研究探讨了游戏与智能体模型在参与式研究中的应用（Voinov & Bousquet, 2010; Voinov 等, 2018, 2016）。这三项研究中所使用的游戏均为面向利益相关者的角色扮演游戏（RPG），且分为两类：
+（1）协同建模，该方法通常与利益相关者参与过程相结合，融合智能体模型与角色扮演游戏，旨在联合设计系统模型；
+（2）参与式模拟，在该方法中，利益相关者在游戏场景中操控动态系统，其每一项决策和每一次互动都会被记录下来用于后续分析，而模型的底层设置和规则不可由玩家修改。
+Farias等（2019）通过系统性文献综述，识别出自然资源管理领域中融合多智能体系统（MAS）与角色扮演游戏的四种方式：
+（1）角色扮演游戏向多智能体系统转化，即利用模拟角色扮演游戏收集问题相关信息和利益相关者的决策过程信息，并基于这些信息构建多智能体系统；
+（2）多智能体系统向角色扮演游戏转化，即先开发多智能体系统，再通过开展模拟角色扮演游戏对系统进行验证；
+（3）角色扮演游戏与多智能体系统结合，即模拟角色扮演游戏借助多智能体系统完成游戏过程的计算；
+（4）角色扮演游戏与多智能体系统深度融合，即开发集成多智能体系统计算功能的数字化角色扮演游戏软件。
+上述研究成果具有重要价值，但受限于样本量较小和研究范围较窄，其适用性存在局限。该研究将突破这些局限，通过分析海量文献数据，覆盖游戏化智能体建模的全学科应用领域。
+2.2 游戏与智能体模型研究设计的判定标准
+为识别并分类游戏化智能体建模中的研究设计类型，本文确定了三项判定标准并应用于研究分析：时序安排、目标系统、游戏-智能体模型对应关系。其中，时序安排和游戏-智能体模型对应关系这两项标准借鉴自混合方法研究领域（Cresswell & Clark，2017），而目标系统标准的设定，是为了明确智能体模型和游戏模型的研究边界。
+时序安排指研究要素在时间维度上的相互关系（Morgan，2017）。在该研究中，时序安排描述的是在特定研究中，游戏和智能体模型要素的设计（有时包括实施）顺序，该顺序会影响要素间的信息流向，通常信息从先设计的要素流向后设计的要素。从时序安排角度来看，游戏与智能体模型的融合主要有三种形式：先设计游戏，后构建智能体模型；先构建智能体模型，后设计游戏；将二者融合为一个统一的研究应用体系。
+目标系统指研究所关注的现实世界现象（Elliott-Graves，2020）。游戏和智能体模型都是对研究现象的简化建模，研究者会突出与特定研究问题相关的要素，对其他要素则进行高度简化或忽略。因此，该研究将分析游戏与智能体模型在多大程度上聚焦于研究现象的同一方面。
+游戏-智能体模型对应关系指研究设计中后出现的要素是否依赖于先出现的要素所包含的过程（Schoonenboom & Johnson，2017），也包括二者完全或部分不可分割的情况。
+3. 研究方法
+为解答研究问题，该研究首先采用系统性文献综述法，对相关文献进行结构化的收集、梳理和分析，随后运用内容分析法对文献进行深度解析。在新兴研究领域，系统性文献综述能够揭示研究实践的共性特征、构建研究框架，并识别出需要进一步体系化的研究方向；在研究后期，可通过重复开展系统性文献综述，重新评估研究成果，观察领域的长期发展趋势。该方法已被广泛应用于多个领域的发展评估研究，包括自然资源管理（Weber等，2019）、商业研究（González等，2010）、软件工程（Šmite等，2010）以及社会模拟（Farias等，2019；Gu & Blackmore，2015）。该研究遵循Bearman等（2012）提出的系统性文献综述步骤，以及Krippendorff（2012）提出的内容分析方法，图1概括了本次系统性文献综述的实施步骤。
+[图]
+图1. 系统性文献综述各阶段的信息流程。检索日期：2020年2月25日。
+该研究收集了文献的作者、发表年份、摘要、发表期刊、关键词、出版机构等元数据，并将其作为文献筛选的依据。本文的八位合著者参与了文献相关性评估，最终确定纳入和排除的文献。对于通过标题、关键词和摘要筛选后仍无法确定是否纳入的文献，由两位合著者进行全文评估。为保证评审者间文献纳入判定的一致性，两位合著者对随机抽取的5%文献的最终纳入决策进行了交叉核查。
+随后，该研究对纳入分析的文献摘要和全文进行内容分析，通过定性编码识别游戏与智能体模型的融合模式。研究采用演绎编码与归纳编码相结合的方式，开发并检验编码手册；编码手册定稿后，合著者通过三轮编码校准，统一编码标准；在编码信度达到要求后，使用NVivo软件对全部质性数据进行分析，并使用SPSS [26.0.0.0](26.0.0.0)软件绘制图表。编码完成后，该研究运用2.2节提出的分类标准，识别出反复出现的研究设计类型。
+为分析作者合作模式，该研究根据欧盟玛丽·斯科尔多夫斯卡-居里行动计划的学科描述符列表，将作者所属机构与对应研究领域进行匹配；同时统计了每篇文献的作者数量，将作者分为学术领域和非学术领域两类，并根据作者所属机构确定其地理分布。
+系统性文献综述法的主要局限体现在文献筛选过程和分析的文献样本上：未收录于该研究选定的两个在线数据库，或未包含该研究检索词的文献均被排除在外（表1），这意味着部分重要文献可能未被纳入分析。但相较于通过追溯参考文献进行的“质性”文献分析，自动化检索能够获取规模大得多的样本，上述局限是必然的代价。该研究的数据库检索于2021年2月25日结束，此后发表的文献均未纳入分析。
+该研究的所有结论均基于所选的分析样本，因此外部效度有限。此外，研究者对判定标准的主观解读可能影响研究设计的分类结果，这也是该研究的局限之一。但该研究是首次对游戏化智能体建模的研究设计类型进行系统性梳理，其研究结果有待进一步验证和完善。
+表1. 该研究采用的系统性文献综述检索策略。
+[图]
+4. 研究结果与分析
+4.1 整体特征
+将游戏与智能体模型融合用于研究目的（即游戏化智能体建模方法）是一个相对新兴的研究领域。该研究分析的52篇文献发表于2001-2020年间（图2），相关研究成果主要发表于三本期刊：《环境建模与软件》（6篇）、《人工社会与社会模拟期刊》（6篇）和《环境管理期刊》（5篇），其余35篇文献发表于35个不同的出版物，包括16种会议论文集、12种同行评审期刊和7部著作/系列丛书。近三分之一的文献发表于计算机科学领域的会议论文集，出版物的多样性表明，尽管游戏化智能体建模的研究项目数量相对较少，但应用领域分布广泛，该研究领域目前呈现出分散化的特征。不过，该研究中有11篇文献发表于环境管理领域的核心期刊，这凸显了该方法在解决跨领域复杂问题中的重要价值。
+游戏与智能体模型融合的研究应用呈逐年增长趋势（图2）。在研究考察的第一个十年（2001-2010年），样本中仅有14篇相关文献；而在第二个十年（2011-2020年），相关文献数量增长了近两倍，达到38篇。2010年成为文献发表的峰值年份，原因是某一研究团队围绕协同建模发表了一系列研究成果，且均刊载于《环境建模与软件》期刊；而2019-2020年文献数量略有下降，这大概率是该研究于2020年2月开展数据收集所致的样本偏差。
+游戏与智能体模型的融合应用于14个不同领域，体现出该方法高度的灵活性。其中，最主要的应用领域是自然资源管理（占比54%），其次是群体动力学（14%）、公共卫生（6%）和城市物流（4%）。这一应用分布特征也反映出智能体模型在环境科学、农业科学和生物科学领域的广泛应用（图D1），这很可能是因为过去30年间，复杂性研究方法在这些领域得到普及，进而推动了混合研究方法的应用。
+[图]
+图2. 出版物随时间及应用领域的分布情况。
+近半数（48%）的研究采用数字游戏，三分之一（31%）的研究采用模拟游戏，五分之一（21%）的研究采用融合实体与数字要素的混合游戏。数字游戏的广泛应用源于多方面优势：其搭建流程简便，数据追踪效率高；此外，网络游戏能够突破地域限制，让玩家随时随地参与研究。该研究中，几乎所有的模拟游戏均为角色扮演游戏，该类游戏的普及源于一个核心假设——角色扮演游戏可被视作以人类替代人工智能体的智能体模型。该研究仅有一项研究（表A1，第44篇）使用了商用现成游戏，其余研究均使用为研究定制的游戏，或借鉴以往研究中设计并使用的游戏。
+从作者合作结构来看，该领域不存在独著文献，且以中小规模的合作研究为主：70%的文献由2-4位学者合著，规模最大的一项合作研究有19位作者。
+该领域的合作研究以国际合作为主（67%），且有57%的合作研究由高校与非学术机构联合开展。非学术机构主要包括科研院所和私营企业，也有少量政府机构和医院参与。这一特征反映出游戏化智能体建模方法的跨学科潜力，实现了科学家、利益相关者以及（通常位于农村和偏远地区的）一线领域专家的合作。
+此外，该研究样本中的文献作者拥有多元的研究背景：40%的作者隶属于环境与地球科学领域（该领域具有高度的跨学科性），39%的作者隶属于信息科学与工程领域（计算机模型和游戏在该领域应用广泛）；而隶属于社会科学与人文领域（8%）、经济科学领域（4.5%）、生命科学领域（4.5%）、物理学领域（2.3%）、数学领域（1%）和化学领域（0.5%）的作者占比则显著较低。
+该研究识别出两类合作研究模式：（1）实地研究，即领域专家与一线从业者合作开展研究，这类研究通常为科研机构与非科研机构的国际合作；（2）科研机构主导的研究，即合作研究者来自不同的科学背景。由此可见，在单一研究设计中融合游戏与智能体模型的复杂性，推动了跨领域、跨机构的合作研究。但纳入分析的文献均未明确说明开展合作研究的具体原因，推测原因主要有两点：一是单一学者难以掌握研究所需的全部知识和技能，例如同时掌握研究方法和应用领域知识，或同时掌握研究方法和案例研究地的相关情况；二是游戏化智能体建模研究的组织和实施过程复杂，需要多名学者共同参与。
+4.2 研究设计类型：特征与规律
+该研究将2.2节提出的三项判定标准应用于52篇纳入内容分析的文献，识别出六种研究设计类型，其可视化展示和特征总结见表2，各类设计类型的详细数据说明见附录B。该研究识别的研究设计类型，与Farias等（2019）在系统性文献综述中提出的类型存在一定相似性。Farias等的研究分析了10篇自然资源管理领域中融合多智能体系统与角色扮演游戏的文献，以时序安排和角色扮演游戏的数字化程度为分类标准。从时序安排角度来看，该研究的1、3、5类设计类型与该研究的a、b、c类融合方式相近。该研究进一步识别出另外三类设计类型：基于目标系统这一判定标准，识别出2、4类设计类型（该标准的设定受Barreteau（2003）分析角色扮演游戏与模型联合应用时提出的“底层概念模型相同/不同”分类的启发）；基于同步时序安排特征，识别出6类设计类型。而Farias等（2019）以游戏的数字化程度为分类标准，识别出d类融合方式，该研究未将该指标纳入分类标准。
+[图]
+表2. 本系统性文献综述确定的六种结合游戏与ABM的研究设计类型描述。
+游戏化智能体建模领域不仅文献发表数量持续增长，应用的研究设计类型也日趋多样化（见图D2）。3、5、6类设计类型在研究观察期的前1/3阶段就已出现，而另外三类设计类型则出现得相对较晚。1类设计类型的研究于2010年首次出现，当年发表4篇相关文献，此后该类型研究逐渐减少，近四年无新文献发表。3类设计类型的研究分布于整个观察期，且在观察期的最后1/4阶段略有增长。由于1、3类设计类型的研究目的相近，将二者结合分析可见，其文献发表量呈平稳分布，且在2010年和2015年出现两个峰值。6类设计类型的研究虽在该研究样本中出现较早，但直到观察期的第二个十年才成为最主流的设计类型。4类设计类型的研究是该领域的最新发展成果。4、6类设计类型的研究应用日益普及，原因主要是（视频）游戏的受众不断扩大，且操作便捷的开发平台逐渐增多。
+尽管游戏与智能体模型的融合应用于多个领域，但各类研究设计类型的应用分布并不均衡（见图D3）。除2类外，几乎所有研究设计类型均被应用于自然资源管理领域。6类设计类型的通用性最强，应用于14个领域中的10个。1类设计类型仅应用于自然资源管理领域，而其他设计类型均至少应用于14个领域中的两个。2类设计类型仅应用于两个聚焦人类社会行为的领域（群体动力学、态度-行为关系），而其他领域的研究对象多为社会-生态系统或社会-技术系统。这一现象的原因可能是：通过游戏挖掘人们的决策和态度相关信息，再通过智能体模型验证这些发现，这一研究思路特别适用于人类社会行为研究领域。
+5. 未来发展建议
+基于本次系统性文献综述的核心研究结论，针对GAM领域现存的核心短板与现实需求，本文从标准化建设、方法论完善、跨学科协作、跨群体联动四个维度提出四项发展建议，助力该领域实现体系化、可持续发展。
+第一，推行GAM研究标准化文档记录框架。该研究分析显示，当前该领域缺乏统一的研究报告规范，导致现有研究难以横向对比、重复验证与后续拓展，严重制约领域知识积累。因此亟需建立专用的标准化文档框架，核心涵盖研究问题、目标系统特征、游戏设计细节（游戏类型、核心规则、反馈机制等）、智能体模型参数（智能体属性、互动规则、环境设置等）、游戏与模型要素时序安排、数据流转逻辑、研究评估方法等关键内容。该框架可有效提升研究透明度与可复制性，推动领域知识的系统性沉淀。本文已在附录C中提出初步框架，后续可结合领域内反馈与后续研究进一步优化完善。
+第二，深化方法论创新，补齐现有研究短板。一方面，需构建严谨的GAM方法验证体系，重点解决游戏定性数据与智能体模型定量数据融合后的验证难题；另一方面，针对不同研究目的与目标系统，探索游戏与智能体模型要素的最优时序组合模式，形成针对性的方法论指导。同时，方法论体系还需破解GAM研究规模化应用的瓶颈，比如实现从小规模实验室场景到真实场景的落地转化，以及玩家行为、智能体互动、现实观测等多源异构数据的高效整合。
+第三，强化跨学科协作，整合多元专业力量。该研究分析表明，GAM研究覆盖自然科学、社会科学、计算机科学、游戏设计等多个学科，但现有研究大多局限于单一学科内部开展，难以发挥跨学科优势。建议推动多领域研究者协同合作，由社会科学家剖析人类行为逻辑、计算机科学家搭建智能体模型、游戏设计师打造高参与度的研究型游戏，全方位提升GAM方法的严谨性与落地适用性。同时，加强与政策制定者、资源管理者、社区群体等实务从业者与利益相关方的合作，确保GAM研究紧扣现实需求，解决实际社会与环境问题。
+第四，拓展跨群体联动，提升GAM研究影响力与普及度。一方面，加强与游戏行业的交流，共享GAM研究方法与成果，借助行业经验优化游戏设计与玩家参与机制；另一方面，联动高校与教育机构，将GAM方法融入教学体系，培养领域后备科研与实务人才。此外，面向公众开展科普宣传，提升大众对GAM研究的认知度，让公众了解其在破解复杂社会、环境难题中的核心价值，进而提高公众参与GAM类公民科学项目的积极性。
+综上，GAM方法融合了游戏与智能体模型的双重优势，在社会复杂性研究领域具备巨大潜力。落实上述四项建议，可推动该领域逐步实现标准化、方法论严谨化与应用落地化，让GAM成为跨学科通用、兼具学术价值与实践意义的核心研究工具。
+5.1 总体说明
+基于本系统性文献综述（SLR）纳入的研究，本文为每种研究设计类型提供简要的实施指导，并阐述游戏化智能体建模（GAM）方法的局限性。这些建议可为（尤其是新入行的）研究者提供帮助，使其根据自身研究目的选择合适的设计类型，同时也对智能体模型（ABM）开发者和游戏设计师具有参考价值。研究者们还邀请学者和实务研究者参与方法论讨论，对GAM研究设计类型进行批判性反思，并为GAM方法论的完善提供严谨建议。
+1类（游戏→智能体模型）研究设计适用于旨在收集内部知识和本地知识、加深对特定目标系统理解的研究。其核心目的是通过让利益相关者参与共建现实系统的抽象表征（即概念模型），为决策过程提供支持。游戏用于辅助后续智能体模型的设计过程，通过游戏测试和系统要素讨论，构建所研究系统的概念模型。该概念模型勾勒出研究系统的轮廓，并在后续阶段作为智能体模型的设计蓝图。智能体模型部分则用于呈现和讨论系统发展场景。
+2类（游戏⇏智能体模型）研究设计非常适合支持游戏开发。该类设计的目的是利用智能体模型提升游戏各方面的性能或进行校准，也适用于在计算机中重建可扩展的游戏版本，以探索玩家的社会模式和动态特征。2类设计旨在通过智能体模型理解和分析游戏中的决策与互动，有时还用于评估和比较关于合作、群体互动、集体决策等方面的不同理论。
+3类（智能体模型⇏游戏）研究设计与1类设计的目标和目的一致，即收集玩家知识。因此，游戏通过游戏测试和概念模型中系统要素的讨论，用于协同设计和探讨系统概念。3类设计的独特之处在于，研究以智能体模型为起点，随后创建一个游戏来映射智能体模型的基本概念。这种时序安排可实现模型验证，利用通过游戏收集的知识改进或支撑现有智能体模型。3类设计旨在验证、确认或校准模拟过程。
+4类（智能体模型⇏游戏）研究设计旨在为智能体模型增添更贴近现实的智能体行为，或将已实现的智能体与真实人类进行比较。在该设计中，游戏在受控环境（如实验）中使用，以追踪玩家在游戏过程中的行为。基于收集到的数据，可创建新的智能体行为或验证现有智能体行为。4类设计旨在利用游戏研究智能体模型构建和分析过程中发现的问题。
+5类（游戏+智能体模型）研究设计利用智能体模型计算并呈现游戏过程中玩家行为对游戏世界的影响，例如展示玩家的决策和行为对地下水位、土地产量、政府预算等环境参数的影响。因此，在每个游戏回合中，游戏世界的参数会根据智能体模型的过程进行更新，并向玩家呈现新的数值。由此可见，游戏无法脱离智能体模型及其结果独立运行。5类设计旨在将智能体模型作为游戏的一个（子）组件加以实现。
+6类（智能体模型=游戏）研究设计将智能体模型和游戏融合在一个完全集成的应用程序中，即基于智能体的游戏。该方法特别适用于决策支持工具，但采用该设计的研究也可用于上述所有研究目的。游戏与智能体模型的融合既有显著优势，也存在不足：一方面，采用此类研究设计可无需进行游戏与智能体模型之间的数据整合；另一方面，该设计限制了玩家展现意外游戏行为的可能性，例如修改游戏规则或制定“内部规则”。6类设计旨在利用智能体模型为游戏互动和游戏过程提供基础架构。
+在考虑使用上述任何一种研究设计类型时，还需注意GAM方法的局限性。实施该方法需要具备两套设计和实施技能，即游戏相关技能和智能体模型相关技能，此外还需掌握有效融合两者的知识。据作者所知，除该研究外，目前仅有一项研究概述了游戏与智能体模型融合的通用方法论（即伙伴建模方法的发起者Bousquet等人在2002年对6个案例的分析）。实施GAM研究是一个耗时且费力的过程，因此建议提前充分规划掌握必要技能所需的时间，以及实施游戏与智能体模型融合所需的时间。
+值得注意的是，本综述纳入的文献往往缺乏对基本概念的明确说明，例如研究目的或研究问题。此外，对于设计选择背后的原因，以及如何将这些选择转化为游戏与智能体模型的特定融合方式，相关解释要么不存在，要么缺乏系统性。因此，无法明确GAM研究设计是否符合研究目的。这也导致部分研究的分类面临挑战，因为文献中没有足够的细节或明确描述来确定清晰的时序安排、区分目标系统或说明游戏与智能体模型的对应关系。研究者们还发现，GAM研究中游戏部分与智能体模型部分的文档记录分布不均衡，原因在于尽管有研究呼吁加强游戏建模的严谨性（Raghothama & Meijer, 2018），但目前尚无游戏文档记录框架，而智能体模型的报告则有多种协议可供参考（例如，概述-设计概念-细节协议（Grimm等人, 2020）、严谨性与透明度报告框架（Siebers等人, 2021））。
+5.2 游戏与智能体模型（GAM）文档记录框架
+为便于撰写和阅读研究方法描述、实现GAM研究的可复制性，并通过构建体系和使用GAM专用术语推动该领域发展，研究者们建议实务研究者采用本文概述的简易文档记录框架。需注意的是，这只是设计该框架的初步尝试，未来还需进一步研究和验证。研究者们欢迎各界就该框架的内容、使用方法和实用性提供反馈。
+[图]
+[图]
+图3 GAM文档记录框架
+6. 结论
+该研究通过系统性梳理2001-2020年发表的52篇游戏与智能体模型融合实证研究，旨在为GAM方法奠定坚实的方法论基础。研究共识别出六种差异化的研究设计类型，各类设计均具备独特的游戏-模型时序安排、要素对应关系与目标系统关联模式。结果表明，GAM领域正处于快速发展阶段，文献发表量与研究设计多样性同步提升，研究应用覆盖14个领域，其中自然资源管理是核心应用领域。
+六种研究设计类型充分印证了GAM方法的高通用性，可适配不同研究目的与目标系统。其中6类设计适用范围最广，覆盖10个应用领域；1类设计应用场景相对单一，仅局限于自然资源管理领域。研究设计类型的时序演变规律，反映出GAM领域日趋成熟，随着电子游戏普及与简易开发平台的推广，4类、6类等新型设计的应用愈发广泛。
+该研究同时指出了当前GAM领域的核心不足：缺乏标准化研究文档、方法验证与规模化应用的指导体系不完善、跨学科协作不足、与行业及公众联动薄弱。针对上述问题，本文围绕标准化建设、方法论完善、跨学科协作、跨群体联动提出四项针对性建议，旨在推动GAM领域整合发展，提升研究可复制性与严谨性，强化研究的现实应用价值。
+总而言之，GAM方法整合了游戏的高参与性、人类行为定性研究优势，与智能体模型的复杂性系统分析、反事实场景探索优势，是探索社会复杂性的独特且高效的工具。落实本文提出的发展建议，可充分释放GAM方法的潜力，使其成为更严谨、更具影响力的研究方法论，助力各学科破解复杂社会与环境难题。
+参考文献
+Ampatzidou, C., & Gugerell, K. (2019). Participatory game prototyping – Balancing domain content and playability in a serious game design for the energy transition. *CoDesign*, 15(4), 345–360. https://doi.org/10.1080/15710882.2018.1504084
+Bakhanova, E., Garcia, J. A., Raffe, W. L., & Voinov, A. (2020). Targeting social learning and engagement: What serious games and gamification can offer to participatory modeling. *Environmental Modelling and Software*, 134, 104846. https://doi.org/10.1016/j.envsoft.2020.104846
+Barreteau, O. (1998). *Un système multi-agent pour explorer la viabilité des systèmes irrigués: Dynamique des interactions et modes d’organisation (Sénégal)*. Thesis, ENGREF.
+Barreteau, O. (2003). The joint use of role-playing games and models regarding negotiation processes: Characterization of associations. *Journal of Artificial Societies and Social Simulation*, 6(2). https://www.jasss.org/6/2/3.html
+Barreteau, O., d’Aquino, P., Bousquet, F., & Le Page, C. (2002). Le jeu de rôles à l’interface entre systèmes réel et virtuel pour la gestion de ressources renouvelables: Exemples d’application au Sénégal. In D. Orange, R. Arfi, M. Kuper, P. Morand, & Y. Poncet (Eds.), Gestion intégrée des ressources naturelles en zones inondables tropicales (pp. 799–814). Paris: IRD. https://agritrop.cirad.fr/512582/
+Bearman, M., Smith, C. D., Carbone, A., Slade, S., Baik, C., Hughes-Warrington, M., & Neumann, D. L. (2012). Systematic review methodology in higher education. *Higher Education Research & Development*, 31(5), 625–640. https://doi.org/10.1080/07294360.2012.702735
+Bousquet, F., Barreteau, O., Le Page, C., Mullon, C., & Weber, J. (1999). An environmental modelling approach: The use of multi-agent simulations. In F. Blasco & A. Well (Eds.), Advances in environmental and ecological modelling (pp. 113–122). Paris: Elsevier. https://agris.fao.org/agris-search/search.do?recordID=FR2019118995
+Bousquet, F., Barreteau, O., d’Aquino, P., Etienne, M., Boissau, S., Aubert, S., Le Page, C., Babin, D., Castella, J.C., et al. (2002). Multi-agent systems and role games: Collective learning processes for ecosystem management. In M. Janssen (Ed.), Complexity and ecosystem management: The theory and practice of multi-agent systems (pp. 248–285). Cheltenham: E. Elgar. http://publications.cirad.fr/une_notice.php?dk=512391
+Caillois, R. (2001). *Man, play and games*. University of Illinois Press.
+Clement, J. (2021). Number of gamers worldwide 2023. Retrieved February 23, 2021, from https://www.statista.com/statistics/748044/number-video-gamers-world/
+Cresswell, J. W., & Clark, V. L. P. (2017). Designing and conducting mixed methods research (3rd ed.). Sage Publication.
+Duke, R. D. (1974). Toward a general theory of gaming. *Simulation & Games*, 5(2), 131–146. https://doi.org/10.1177/003755007452001
+Elliott-Graves, A. (2020). What is a target system? *Biology & Philosophy*, 35(2), 131–146. https://doi.org/10.1007/s10539-020-09745-3
+European Commission. (n.d.). *Marie Skłodowska-Curie Actions - List of Descriptors*. Retrieved February 23, 2021, from https://ec.europa.eu/research/participants/data/ref/h2020/other/call_ptef/pt/h2020-call-list-descr-msca-itn_en.pdf
+Farias, G., Leitzke, B., Born, M., Aguiar, M., & Adamatti, D. F. (2019). Systematic review of natural resource management using multiagent systems and role-playing games. *Research in Computing Science*, 148(11), 91–102. https://doi.org/10.13053/rcs-148-11-7
+González, L. S., Rubio, F. G., González, F. R., & Velthuis, M. P. (2010). Measurement in business processes: A systematic review. *Business Process Management Journal*, 16(1), 114–134. https://doi.org/10.1108/14637151011017976
+Grimm, V., Railsback, S. F., Vincenot, C. E., Berger, U., Gallagher, C., De Angelis, D. L., & Ayllón, D. (2020). The ODD protocol for describing agent-based and other simulation models: A second update to improve clarity, replication, and structural realism. *Journal of Artificial Societies and Social Simulation*, 23(2), 7. https://doi.org/10.18564/jasss.4259
+Gu, X., & Blackmore, K. L. (2015). A systematic review of agent-based modelling and simulation applications in the higher education domain. *Higher Education Research and Development*, 34(5), 883–898. https://doi.org/10.1080/07294360.2015.1011088
+Guyot, P., & Honiden, S. (2006). Agent-based participatory simulations: Merging multi-agent systems and role-playing games. *Journal of Artificial Societies and Social Simulation*, 9(4). https://www.jasss.org/9/4/8.html
+Klabbers, J. H. B. (2006). *The magic circle: Principles of gaming and simulation*. Sense Publishers.
+Krippendorff, K. (2012). Content analysis: An introduction to its methodology (3rd ed.). Sage Publications.
+Le Page, C., Abrami, G., Barreteau, O., Becu, N., Bommel, P., Botta, A., & Souchère, V. (2014). Models for sharing representations. In M. Étienne (Ed.), Companion modelling: A participatory approach to support sustainable development (pp. 69–101). Dordrecht: Springer. https://link.springer.com/chapter/10.1007/978-94-017-8557-0_4
+McGonigal, J. (2011). *Reality is broken: Why games make us better and how they can change the world*. Penguin Press.
+Miller, J. H., & Page, S. E. (2009). *Complex adaptive systems: An introduction to computational models of social life*. Princeton University Press.
+Morgan, D. L. (2017). *Integrating qualitative and quantitative methods: A pragmatic approach*. SAGE Publications. https://doi.org/10.4135/9781544304533
+Pfirman, S., O’Garra, T., Bachrach Simon, E., Brunacini, J., Reckien, D., Lee, J. J., & Lukasiewicz, E. (2021). “Stickier” learning through gameplay: An effective approach to climate change education. *Journal of Geoscience Education*, 69(2), 192–206. https://doi.org/10.1080/10899995.2020.1858266
+Raghothama, J., & Meijer, S. (2018). Rigor in gaming for design: Conditions for transfer between game and reality. *Simulation & Gaming*, 49(3), 246–262. https://doi.org/10.1177/1046878118770220
+Ren, Y., Cedeno-Mieles, V., Hu, Z., Deng, X., Adiga, A., Barrett, C., Ekanayake, S., Goode, B. J., Korkmaz, G., Kuhlman, C. J., Machi, D., Marethe, M. V., Ramakrishnan, N., Ravi, S. S., Sarat, P., Selt, N., Contractor, N., Epstein, J., & Macy, M. W. (2018). Generative modeling of human behavior and social interactions using abductive analysis. In 2018 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (pp. 413–420). Barcelona, Spain: IEEE. https://doi.org/10.1109/ASONAM.2018.8508282
+Rodela, R., Ligtenberg, A., & Bosma, R. (2019). Conceptualizing serious games as a learning-based intervention in the context of natural resources and environmental governance. *Water*, 11(2), 245. https://doi.org/10.3390/w11020245
+Salen, K., & Zimmerman, E. (2003). *Rules of play: Game design fundamentals*. The MIT Press.
+Salvini, G., Ligtenberg, A., van Paassen, A., Bregt, A. K., Avitabile, V., & Herold, M. (2016). REDD+ and climate smart agriculture in landscapes: A case study in Vietnam using companion modelling. *Journal of Environmental Management*, 179, 58–70. https://doi.org/10.1016/j.jenvman.2016.03.065
+Schoonenboom, J., & Johnson, R. B. (2017). How to construct a mixed methods research design. *Kölner Zeitschrift für Soziologie und Sozialpsychologie*, 69(2), 107–131. https://doi.org/10.1007/s11577-017-0454-1
+Siebers, P. O., Achter, S., Palaretti Bernardo, C., Borit, M., & Chattoe-Brown, E. (2021). First steps towards RAT: A protocol for documenting data use in the agent-based modeling process. In P. Ahrweiler & M. Neumann (Eds.), Advances in social simulation (pp. 153–168). Cham: Springer. https://link.springer.com/book/10.1007/978-3-030-61503-1
+Šmite, D., Wohlin, C., Gorschek, T., & Feldt, R. (2010). Empirical evidence in global software engineering: A systematic review. *Empirical Software Engineering*, 15(1), 91–118. https://doi.org/10.1007/s10664-009-9123-y
+Voinov, A., & Bousquet, F. (2010). Modelling with stakeholders. *Environmental Modelling and Software*, 25(11), 1268–1281. https://doi.org/10.1016/j.envsoft.2010.03.007
+Voinov, A., Jenni, K., Gray, S., Kolagani, N., Glynn, P. D., Bommel, P., & Smajgl, A. (2018). Tools and methods in participatory modeling: Selecting the right tool for the job. *Environmental Modelling and Software*, 107, 140–152. https://doi.org/10.1016/j.envsoft.2018.06.005
+Voinov, A., Kolagani, N., McCall, M. K., Glynn, P. D., Kragt, M. E., Ostermann, F. O., Pierce, S. A., & Ramu, P. (2016). Modelling with stakeholders – Next generation. *Environmental Modelling and Software*, 77, 196–220. https://doi.org/10.1016/j.envsoft.2015.11.016
+Weber, C. T., Borit, M., & Aschan, M. (2019). An interdisciplinary insight into the human dimension in fisheries models: A systematic literature review in a European Union context. *Frontiers in Marine Science*, 6, 369. https://doi.org/10.3389/fmars.2019.00369
+参考文献可上下滑动查看
+「游戏×复杂科学」读书会
+从棋盘上的博弈，到屏幕中的虚拟世界；从概率赌局到人工智能对弈——游戏从来不只是娱乐，它是人类理解复杂性的实验场。
+在简单规则的反复运行中，秩序如何涌现？在多方互动的策略竞争中，合作如何诞生？在反馈回路与资源循环中，政治与经济如何生成？当算法接管博弈，Agent开始自主演化，我们是否正在见证“可计算社会”的雏形？
+从康威生命游戏的规则宇宙，到 AlphaGo 对围棋复杂度的突破；从 John Nash 的均衡理论，到 Norbert Wiener 的控制论反馈思想；从演化博弈到多主体建模，从系统动力学到生成式AI——游戏与复杂科学，正在交汇为一门新的认知范式。
+集智俱乐部联合人工智能、AIGC、游戏设计、复杂系统等领域的学者/工程师共同发起「游戏 × 复杂科学」读书会，自2026年3月31日起，每周二晚19:30-21:30，邀请来自各领域的研究者与实践者，共同探索：
+· 游戏如何启发科学？
+· 科学如何重塑游戏？
+· 而我们是否生活在一个巨型多主体演化系统之中？
+[图]
+详情请见：「游戏×复杂科学」读书会：从规则宇宙到虚拟文明
+[图][图][图]
+推荐阅读
+1. Nature速递：微软团队用AI模型重新定义游戏创意生成
+2. 从Q学习到AI游戏大师：DQN如何破解复杂任务？丨集智百科
+3. 《黑神话：悟空》背后的游戏复杂性：从交互叙事设计到最佳体验
+4. 诚招系统科学/AI/物理背景的内容创作者
+5. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+6. 高考分数只是张入场券，你的科研冒险在这里启航！
+7. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+#翻译#复杂科学
+点击“阅读原文”，报名读书会

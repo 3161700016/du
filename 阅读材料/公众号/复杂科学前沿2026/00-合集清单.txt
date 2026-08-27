@@ -1,0 +1,318 @@
+﻿合集：复杂科学前沿2026
+来源：https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIzMjQyNzQ5MA==&action=getalbum&album_id=4330186054201720833
+归档：2026-08-27 14:22 · 共 157 篇 · 纯JSON协议重制 v1.0.1
+------------------------------
+001 | 2026-08-24 | 自然·通讯：从测地线到随机游走——网络连通性的随机簇统一框架
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247735420&idx=1&sn=b4c17e697535aee71a5e6878e5f89ce3&chksm=e89802f1dfef8be75fb4899eac03f17d2964c59d50c67cbbd17a324dd6d5ee719dde92cb0045#rd
+002 | 2026-08-23 | 从可逆粒子到不可逆世界：邓煜如何为“时间之箭”搭起数学桥梁？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247735405&idx=1&sn=7c0d4eb5fc8e0b722ed84fd906a6b838&chksm=e89802e0dfef8bf6db928190554f6d90180b33e8175da6c674934143fbeedfb026210d100107#rd
+003 | 2026-08-22 | 邓煜：玻尔兹曼方程长时间推导笔记
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247735344&idx=1&sn=d2ecafde3de8784fef184a509c290abb&chksm=e89802bddfef8bab56e2afe5854e89103deed3da73a058c0f1fb0bd62d132d7cef343a9e9437#rd
+004 | 2026-08-21 | arXiv：宇宙沉默的演化算法
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247735295&idx=1&sn=757b35f7c50e8c69027abd8f44b7d9d8&chksm=e8980d72dfef846469cde561bb1559341474997bf21996f886b3f671f765fdeba960f65bd430#rd
+005 | 2026-08-18 | 自然·通讯：抑郁的大脑，可能困在一条“高成本循环”里
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247735085&idx=1&sn=398b6a45cdf2ac4a53b170b4f9379403&chksm=e8980da0dfef84b6a21b0bea98831fe8ca474324a5a937d9c061000ced8abcfc9c824fa055fd#rd
+006 | 2026-08-14 | arXiv：大模型如何自我进化？从闭环机制到反直觉挑战
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247735005&idx=1&sn=ed48d0c5230b27a9e9ac92bc90014f0f&chksm=e8980c50dfef854639ffd6c294770a10efc1980ef70bd080de2cd930f5083ef2db6ff1eaff9b#rd
+007 | 2026-08-13 | arXiv：MatrAIx试图重构AI产品评估
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734964&idx=1&sn=571fc6409c0002fa2fc65402928c75ad&chksm=e8980c39dfef852f0fab9e2ad40fa116e47f589cbd426ec12be382fef02516c77b6baf167960#rd
+008 | 2026-08-12 | Scientific Reports：多智能体网络舆情传播沙盘复现真实舆情
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734929&idx=1&sn=41d8b2993de0016ec569d26f45dd128c&chksm=e8980c1cdfef850a3b0a9c81f1b747da165a4c719b169faa231c303149c8e816128053482f4a#rd
+009 | 2026-08-11 | PNAS：扩散失稳重塑演化博弈
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734928&idx=1&sn=92295c89312505efc519d4ded67f408f&chksm=e8980c1ddfef850b987daea71967633fe22cd93e50a9fe2925da3c852eadd960492dcc506aee#rd
+010 | 2026-08-08 | 自然 · 机器智能：认知地图如何赋予人工智能灵活规划能力
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734839&idx=1&sn=decca4d88094128314d2c30df958a2c9&chksm=e8980cbadfef85ac925e7fbd9e2ca1f7eb6caf48a152967f8bb440b05e7021177be8ea80a749#rd
+011 | 2026-08-06 | arXiv：OpenLife——开放世界人工生命的互动，如何驱动社会科学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734814&idx=1&sn=68d1d349ea169eaf1e91f4abb00e5f62&chksm=e8980c93dfef8585ec601d37d6dc8763f24dd40e68fd84e66009a2c2b097cec65b4db4ad4c23#rd
+012 | 2026-08-05 | Ecology and Society：生态抵抗力与恢复力的新诠释
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734801&idx=1&sn=1223412c5cc82c63c6df1b0d6b086ecf&chksm=e8980c9cdfef858a03f686319a984e836e7d3a49cd0ac33471c391f41ba65595d8c77419cd55#rd
+013 | 2026-08-04 | 物理评论X：物理模型探索智能体——Sciexplorer
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734784&idx=1&sn=d5c71041f730777b303ad0c2d32dd282&chksm=e8980c8ddfef859b3bd5b72f8aea55416eeef092093e515ff132b87c488719d79790a8959321#rd
+014 | 2026-08-03 | 自然·通讯：聪明的人，一定拥有更“快”的大脑吗？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734705&idx=1&sn=77386f1ccb91cba6fc8535124f244266&chksm=e8980f3cdfef862a46f6a83d9b7d8cf55aad1e99e0e5727e01491be3250d034520c002829892#rd
+015 | 2026-08-02 | EmergentMind：自指神经网络综述
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734688&idx=1&sn=cc39e7be7ebaffb0d6abe249af4c0cf2&chksm=e8980f2ddfef863b44597da13e3ed03f99b4f5f5fbf4d854efd7d246e3b63d2c9cc080b11ea3#rd
+016 | 2026-07-31 | arXiv：世界模型架构、方法、推理范式与应用全景综述
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734678&idx=1&sn=8857d36070172662c3e2090d870cf582&chksm=e8980f1bdfef860dd19ca7731aed5cbec47c7a549c446ffc6cf619b47d71bc7d798ed31f1e51#rd
+017 | 2026-07-30 | arXiv：从“种子AI”到技术奇点
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734655&idx=1&sn=451f1c05b0785b75bbcb30f882a895d1&chksm=e8980ff2dfef86e4af8bdfd8463162deeed19caaa21e4b1178d9c91d6be8a980479eb248d30d#rd
+018 | 2026-07-29 | 张江：大语言模型中的自指——递归式自我改进的内省阈值｜集智科学研究中心
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734538&idx=1&sn=83e32ceaf95f24197e463ee3e6b6fd2f&chksm=e8980f87dfef869116cb7372232ac095228a58942b2e4a79782e77f25ba6ad723a4daedb3207#rd
+019 | 2026-07-27 | arXiv：红皇后协同演化哥德尔机及其对比
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734494&idx=1&sn=0cdc2d9c5d988c086eb87f85c00503e9&chksm=e8980e53dfef8745dca73b0fe36041dbaae83edef408b473783ac7d640b611d40e17df84628d#rd
+020 | 2026-07-25 | arXiv：复杂自适应系统的自组织原则——通过服务来生存
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734483&idx=1&sn=7b0609a43870730416c950ab67a410e7&chksm=e8980e5edfef874814ba139af8bbc390caa4454993a513eda029793a6e8a11f05ef75d90d1db#rd
+021 | 2026-07-24 | 自然·生物技术：AI介观显微镜解锁针灸抗炎免疫机制
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734463&idx=1&sn=faf570947237b65f266a8c15cd8c2e18&chksm=e8980e32dfef8724115118b0f9d85642926117474f392a433c75ed5aaab6198b5959612626fe#rd
+022 | 2026-07-23 | 压缩视角下的人类记忆 - 从事件经验到世界模型｜胡洁雯
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734424&idx=1&sn=7d10cfe4c5e1a88bc9c2e07395754703&chksm=e8980e15dfef8703d71042804228bd434b94d06d9eed7ba82f2d465839c0deef38636c744cd6#rd
+023 | 2026-07-21 | arXiv：AgentSociety²——重塑社会科学研究范式
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734373&idx=1&sn=3ef4dcd2518470b2810d5059426791d8&chksm=e8980ee8dfef87fe8fffb4dc743ef8fc595b01313df47d62ee431490f7601c9cae7cea1d62e1#rd
+024 | 2026-07-18 | 幂律分布的数学机制--随机过程 v.s 优化原理｜陶如意
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734305&idx=1&sn=5517f79d34eef65b4e8164b25181f1e0&chksm=e8980eacdfef87bace525155e59f70b0ebba2f400eaa423dff890275e3d8e9c7f3897c6a74b0#rd
+025 | 2026-07-16 | 自然·人文与社会科学通讯：大语言模型正在重写复杂系统仿真的规则
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734242&idx=1&sn=12fc64bb44d16bf68e4fa38771411606&chksm=e898096fdfef8079c2fdbe6ad2692c2edbd677212080fa1bb0eadcde5b13a8f07808e67b08f8#rd
+026 | 2026-07-15 | 物理学报告：新闻、谣言与观点的传播动力学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734205&idx=1&sn=35b0f309c6f49e8aaf90a3db5f7c89b2&chksm=e8980930dfef80266b701740b48209f2316c16111ed74856b454e88650d223d46d089843a3b0#rd
+027 | 2026-07-14 | 科学·前沿：全球数据重新检验生态学“1/10定律”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734168&idx=1&sn=dfbb88809d4384202e12d0a4054799f7&chksm=e8980915dfef8003553afb695f3cd1a8f0a9a131b365a6cba34855313e9a66b1749f2af13f76#rd
+028 | 2026-07-12 | Anthropic：大语言模型在回答前想了什么？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734110&idx=1&sn=7b77ef3093932a1516c1fb2c05ecf5f0&chksm=e89809d3dfef80c58e851edf0ce3e3f97261cbf1831301271e143e568deb65b8b6b5a7127583#rd
+029 | 2026-07-11 | arXiv：高阶网络的统一框架
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734066&idx=1&sn=01f9ab648ab39bcef91253e86ba7cb74&chksm=e89809bfdfef80a9ada0e63d7bba7778ce8aa7658537577aa49933ded18bf66ada295d55d4d7#rd
+030 | 2026-07-09 | 科学报告：从成对数据中，看见复杂系统的高阶结构
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733976&idx=1&sn=9739a64d905e6fda842a4ead99b8eea5&chksm=e8980855dfef81435505cb526350bdbecf9a598467272d11f96a9bf20b813294242d0198f968#rd
+031 | 2026-07-08 | 自然·计算科学：让AI当心理学被试，会复制人类实验吗？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733952&idx=1&sn=c0f77ae8c65683884f1dfd7e6904cd18&chksm=e898084ddfef815b08cbb0f2654b633f4be3686a83f9a7414460c45c9284939d53e004905a7c#rd
+032 | 2026-07-06 | 复杂：高阶交互如何重塑网络科学综述
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733832&idx=1&sn=9171b35a8d0977aba3f52ebce35ac488&chksm=e89808c5dfef81d3de352e0eb79f1e2fc5221766e67327225af5fcf61e00305f7e19d39add45#rd
+033 | 2026-07-05 | 告别单一局限！当进化计算遇上强化学习，破解路径规划难题（下）
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733811&idx=1&sn=4ba0d2f3d49bdac98ab3ee85338673d2&chksm=e89808bedfef81a87426d30e2492b625837eeaa7698625f03bdfb121824b6ef49a8940d88b02#rd
+034 | 2026-07-04 | 告别复杂计算！用进化计算高效破解路径优化难题（上）
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733762&idx=1&sn=5329d70b582637695e88d64d7241305d&chksm=e898088fdfef819983db4a8ef764fffbabfa00d3db01bc17eb5d65efd152a30e0bcb9f8b4d8c#rd
+035 | 2026-07-02 | 从「物理」方程出发，拆解企业生长中的可预测性｜陶如意
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733620&idx=1&sn=c39b2ea5bd7445b5209e1543c6e59058&chksm=e8980bf9dfef82ef33ecc6c07467de02a110b0b39f8eece1b28cd86329cd1254a934391dd8b7#rd
+036 | 2026-07-01 | Patterns：因果涌现2.0——如何区分四类复杂系统｜Erik Hoel
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733577&idx=1&sn=b660cff97cf9c324587aa710948280b3&chksm=e8980bc4dfef82d262fbad4fc5311be0204753b341af546ed9c05bc0f28fd94a4ec02dd56f20#rd
+037 | 2026-06-29 | 物理学报告：大语言模型重塑传播动力学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733552&idx=1&sn=0077a2552ee9ee19f535fc2476a4446b&chksm=e8980bbddfef82abfa28e5ef17b6f51155aa034b1d48edc6220dc4b4453249351339df21afbf#rd
+038 | 2026-06-28 | Nature: AI医生MIRA首次“全流程上岗”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733534&idx=1&sn=b71f1b36148a9eb1385b5f059f69ec90&chksm=e8980b93dfef82854db4ed50b41841b5680dd04e21af319cd1840589d3eac3418ccd2d9bc4a4#rd
+039 | 2026-06-27 | Nature：首个End-to-End的AI科学家
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733441&idx=1&sn=101e2469d11bc8b92198bf9ba08a60dd&chksm=e8980a4cdfef835a51bfccac96b2f886a7442dc3aebb266f6027500da67b5d26e63dc947c215#rd
+040 | 2026-06-26 | arXiv：能提出猜想的数学智能体Moonshine
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733377&idx=1&sn=64a5761b9eb156ea8f1a078001a45b72&chksm=e8980a0cdfef831abc77ac2ba4c2f566648a55854eb4796c19a37c2d51330a3866b7c1697d7a#rd
+041 | 2026-06-25 | Science：菌群越复杂越好猜？涌现简单性会自动化繁为简
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733331&idx=1&sn=cfb4bbe9ebba522afa1a203664066f81&chksm=e8980adedfef83c8239b083ba4a29a75be803c346234b292411e8e3003603635b4e3d5c06ece#rd
+042 | 2026-06-24 | “人在回路”失效：AI Agent时代的人类监督困境
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733240&idx=1&sn=016aec1ee5946118ab399c7f9e15dcf9&chksm=e8981575dfef9c63df7143ea9093a5a05ab49b88375f71695fff25f997a4ab9d7bf95c3ee922#rd
+043 | 2026-06-23 | 不只是预测：动力学学习中「记忆」的五重境界
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733146&idx=1&sn=a5bde47375238e9670900cf663adab25&chksm=e8981517dfef9c017c2dc23cef9ec1137d9f539133f248c5b8ac4eb058891aef26b4371291e3#rd
+044 | 2026-06-22 | arXiv：谷歌量子AI团队最新研究——椭圆曲线密码学的量子危机与防御
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733107&idx=1&sn=fc2ea7f6332ec9e893c233d253482ebf&chksm=e89815fedfef9ce820dbe0bab71f52750a4e52390eee1588fd707995a971cd08ebed5bac03a1#rd
+045 | 2026-06-20 | arXiv：哥德尔智能体-具有递归自进化能力的agent框架
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247733027&idx=1&sn=b4cf36d96f9df4b98352aa5f195eef0c&chksm=e89815aedfef9cb8e42b693131f1093570a7a26d0f0608f6e948c4eaea0c712cb2856f7bb37d#rd
+046 | 2026-06-17 | Nature：高阶相互作用如何塑造全球森林多样性梯度
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732859&idx=1&sn=db8c2e73b9fe88ccba11aa08d7013d5d&chksm=e89814f6dfef9de0fbb623344fd4b09f1b6d5171b8faf705b33610e5ddf30d21467b2fc179e9#rd
+047 | 2026-06-16 | arXiv：当大模型面对自指悖论——大语言模型中的矩阵层级动力学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732806&idx=1&sn=5efa1e66ff36282f490d86658fbef0dc&chksm=e89814cbdfef9ddd193d9638fe175518e6c08f6089d09adebf145239eafe5a60ea823c2d09aa#rd
+048 | 2026-06-15 | Nature：从抗性与恢复能力预测时间稳定性和韧性
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732775&idx=1&sn=7b42ff93ffd6ed43f5e51de4b2f61dd0&chksm=e89814aadfef9dbcbca664ef420325c87d63993a9a466823ce33a09bab3c90a495396e758351#rd
+049 | 2026-06-14 | 莱顿宣言：在人工智能时代，数学的未来不能只剩下机器的答案
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732730&idx=1&sn=cae61c8a8877560e0921b4b04d847bf8&chksm=e8981777dfef9e6190380d6576eecddd054d35029c2dd4add77e830eec137f90c3c1b7143f5a#rd
+050 | 2026-06-12 | 自然·机器智能：全球气候模态耦合动力学建模
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732661&idx=1&sn=e4112c7fe59268dec32d33f6affe69d2&chksm=e8981738dfef9e2eae1835060b55bb4af470cf3d4fab638c013187ecb31ebfffa9a47c169e05#rd
+051 | 2026-06-11 | AI agent 能算清自己的账单吗？一次关于 token 消耗的系统分析｜白龙驹
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732658&idx=1&sn=36b98335da0e63858043abf67b3923e2&chksm=e898173fdfef9e2990ba5822c2dc5fbb010904775dc5cd1f1023efc4607ad5680fd02668795e#rd
+052 | 2026-06-10 | arXiv：面向具身智能的世界模型综述
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732640&idx=1&sn=45c0204ee950dc7e61aae5358b84772f&chksm=e898172ddfef9e3b3ce24b9dc6756ce04bd985e2549d6c0cb0f49870d4a1d56a7cefbfbf2114#rd
+053 | 2026-06-07 | arXiv：大模型推理为何有效？低维流形与因果涌现的新证据
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732551&idx=1&sn=cb3ea67c7dbe06580d1d766bc2fed551&chksm=e89817cadfef9edc6b7cf5df20ce593887f081831c2dfa9d077a4d3d87c752c01e596f61e630#rd
+054 | 2026-06-06 | arXiv：游戏如何塑造大模型智能
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732512&idx=1&sn=31a36879e2a3d0adfc8b21ef1a1b0a03&chksm=e89817addfef9ebbf1c10fdc9219979a110b55432d8fcb4934155e9261361befc6be12e5eea9#rd
+055 | 2026-06-05 | PRL：如何试图从信息论重建量子动力学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732328&idx=1&sn=b6c57d76333ba47b46b506c4ac6e83a6&chksm=e89816e5dfef9ff3864a78ea72a18ed82fd7a7c97c702151c2b692f74a16952b96e21fce09a2#rd
+056 | 2026-06-04 | Nature：大模型的潜意识学习引发行为偏好传递风险
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732315&idx=1&sn=59f6644d1a9b7c60386eb790b0a8e8f1&chksm=e89816d6dfef9fc07ae94188842fc91ee1bd2f68dbeafd0088c70ba3f6f8c5fb53cb7765fa6f#rd
+057 | 2026-06-01 | Neuron：大脑与 AI 的统一记忆框架 —— 键值记忆系统
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732288&idx=1&sn=ccff4daa332088e53851f4d5d9f11778&chksm=e89816cddfef9fdb8c026c6efdaa469f931d17272f33d38b3ac17efbae9923e3edae81632ddc#rd
+058 | 2026-05-31 | 华为韬定律背后的系统科学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732176&idx=1&sn=6d18b9aaeff682effa65cb56f2c49c15&chksm=e898115ddfef984b04b09c5718447c520fb3c0dc120691ed1647c71f7a5b806238ce09931e12#rd
+059 | 2026-05-30 | 自然 · 通讯：网络不只是“小世界”，社群结构让最短路径变得“选择困难”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247732118&idx=1&sn=c086421e4790e8d2d86c62d8150a844b&chksm=e898111bdfef980df62ad7f4be433f10cbca860969f6da24283a4d25403ed68f7d3aa97a4a82#rd
+060 | 2026-05-29 | arXiv：物质音乐学——选择性不完美的生成科学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731996&idx=1&sn=f2b3b531d8d5cc0696aa638840fcc61c&chksm=e8981191dfef9887a717281541e419fa7e377f5c30f5c88890785ba76d6fd4f3e7cddf84cf85#rd
+061 | 2026-05-27 | 从石斧到GPT：技术创新的“能量代价”从未改变
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731939&idx=1&sn=bcb8f8d485a89b5a4ffb659699ba8ef9&chksm=e898106edfef997849d7cf1d5b71e248a225ff400425c82f1eca43b339e259d9e88c409eea92#rd
+062 | 2026-05-26 | PNAS：复杂网络可预测性的物理密码
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731907&idx=1&sn=8dbace9aea4931affd6037adeda4e098&chksm=e898104edfef9958d4824f9c568df53da7238418df14fd06db91391f655f276718642cf826cc#rd
+063 | 2026-05-23 | 集智如何集智？从联通主义视角看开放专业学习社群的生长演变
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731844&idx=1&sn=a81c279bb260e12f6328c53d84ff7809&chksm=e8981009dfef991f715ce4c9143f83ddf5fecb58bda384f0d4b114ad650405732f547097773c#rd
+064 | 2026-05-22 | Vibe Modeling：当建模进入对话时代
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731780&idx=1&sn=d212ce4b2e6228624aaa556c5c1e5721&chksm=e89810c9dfef99dfe3ad8ecd83b58b912f534cfb7bc367209c6c08d734f88d8a667823afbf0f#rd
+065 | 2026-05-21 | 涌现与观察者｜张江
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731637&idx=1&sn=d9755abdcc792806f221e7e3d3dc6190&chksm=e8981338dfef9a2e2e7467ce6c486901cb6a55b2ba40fc13e36a2e234bd333b3b7f17f70f62e#rd
+066 | 2026-05-20 | 通讯工程：融合数学建模与AI的无外部参照3D定位新范式
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731605&idx=1&sn=332afa6907f05495c07204e3daa837ea&chksm=e8981318dfef9a0e1a4ca134ca162cd3054f52297915faa184c621bff6a2550867092ccabffa#rd
+067 | 2026-05-19 | 从科学视角，如何理解和研究涌现——寻规律，探法则，溯本源｜郑志刚
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731565&idx=1&sn=d6e404a0a74cdb67b40db655b52fe3ea&chksm=e89813e0dfef9af6783e489dbafa0790e02afa4d3fefdafbd2ebdd827108f4542e778f48fbec#rd
+068 | 2026-05-17 | 山谷中的脑力激荡——六位重磅嘉宾揭秘AI时代下的复杂科学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731528&idx=1&sn=e95f6c8f1cc33141a3e6a0c4f415d0d1&chksm=e89813c5dfef9ad3107b78df59ed7c770b19638e2d19107dcf0a152d4058c08294a913d6b437#rd
+069 | 2026-05-16 | Science：科学界的 “中年危机”，如何再突破
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731516&idx=1&sn=5d5633d417ecb8f4d6dbf5a8e18e8707&chksm=e89813b1dfef9aa793476215fdd8c247d7392faee3f5640f7479a0f507320f8be9e303fae497#rd
+070 | 2026-05-15 | 当AI的键值记忆遇上大脑：原来我们和AI共享同一套记忆逻辑
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731466&idx=1&sn=36b1df99174f7ace257aaee86a9666f8&chksm=e8981387dfef9a9177b51cd3ab54236803820d32281cb8cfb02790c7e2c2d195a204761abede#rd
+071 | 2026-05-14 | 科学·前沿：仿态不仿形——如果不仿鸟飞、不仿鱼游，我们该仿生命的什么？｜黄嘉骏
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731379&idx=1&sn=84a74186e70bff23b8c4b0d5a53e46a1&chksm=e898123edfef9b283f08d287ae5cb8500ffccfece37c3bcd6fbcce69a4cb9b6fb7c1e3517dec#rd
+072 | 2026-05-12 | 人工智能中的内省：大语言模型中自我意识的一丝曙光
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731249&idx=1&sn=ee3d4ae7c7f1e81fc8bea05ce17c9ec4&chksm=e89812bcdfef9baa575aa126d68b6f9bd2b8a5dcecb8ce333928e8675783b336c49cd67c2a99#rd
+073 | 2026-05-10 | 信息聚合、能力涌现与驾驭工程：大语言模型三十年技术演进
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247731058&idx=1&sn=a133c2136fdcd379c5c0cf205d3283c2&chksm=e8981dffdfef94e9a337461196bbe0e3da366b3a703a44e1433acde487787e5ddc42fad778ec#rd
+074 | 2026-05-09 | PNAS：大语言模型生成社会数据的统计真实性评估
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730988&idx=1&sn=5152017d9ce205b6ba64e2dab1b74946&chksm=e8981da1dfef94b7123d9a900bf4107b319f1f04d54e2ddf496362887074f1c0421fdac7698e#rd
+075 | 2026-05-08 | arXiv：自我进化AI智能体综述
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730921&idx=1&sn=2d391889bac62a54e51e31125e804ca3&chksm=e8981c64dfef9572186ae7bde0b8352cb573e392232191fd67e4e68a580d72c69e9fa8d7aaa4#rd
+076 | 2026-05-07 | 自然·机器智能：流动思维让群体智能更轻更强
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730863&idx=1&sn=a6d1c6f656f710d2ab32f070ae3c9961&chksm=e8981c22dfef9534defe5388aabfc3dc2992ccfb8c177dbbf086c631de65ee7dbe5eb47810eb#rd
+077 | 2026-04-30 | arXiv: AI意识综述
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730276&idx=1&sn=59b24c4335fce6927e1be363f737e938&chksm=e8981ee9dfef97ff529e5b4e688925eac046bef4804e19cbba4abde7a36ef762ee3d6851bf0e#rd
+078 | 2026-04-28 | Google DeepMind：为何AI只能模拟意识，而无法具现意识
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730164&idx=1&sn=5d2293275f772578cd657158e5b5be90&chksm=e8981979dfef906f2c94cfe2779048470001700ad87a0de6b82c0b4f2196130e4d03ad6f0fea#rd
+079 | 2026-04-27 | 科学 · 进展：社会性运动中的对齐相变
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730155&idx=1&sn=ca3148e4fe839035dc4da33ceec89dd3&chksm=e8981966dfef90702d03dcc95215bb309e5a22014e2d2501ce160ecad93ca3d75f099344be3f#rd
+080 | 2026-04-24 | 自然·方法：Jaxley——可微分神经动力学的新范式
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247730041&idx=1&sn=17e8ad8767da4d3e089948a2b5a058c5&chksm=e89819f4dfef90e2a9ec0d7c227e733fb197264ba08a204d970c73eba750f25a995f2e845992#rd
+081 | 2026-04-23 | 自然 · 电子：面向多机器人系统的通用群体智能
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729983&idx=1&sn=6e517b7a607f77b3e3b21b530965dd76&chksm=e89819b2dfef90a41e79528f60519d50680c778a4d305a1fee4bec4f424a39e9adcb85bcca4e#rd
+082 | 2026-04-22 | 自然·计算科学：当机器拥有“概念”，理解才真正发生
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729953&idx=1&sn=6a6e941b3b751bbf36afe19033bca817&chksm=e89819acdfef90badfd2364b22aeff6d6a62286d7ea67b80af9980840f6d6c19c456a14c0891#rd
+083 | 2026-04-21 | 涌现——AI“思考”背后的科学｜杨明哲
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729878&idx=1&sn=84ec4809d79b78a04a2a6a398dd50234&chksm=e898185bdfef914d9d61d6eb90064183a234ad17d49c42eb4ba8659883f3eb851cc71095db4e#rd
+084 | 2026-04-19 | 自然·通讯：提前一年预警冰川跃动与雨林生态临界点
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729682&idx=1&sn=8a64c619022885ff5275ab75c90711be&chksm=e898189fdfef91890c9e533b90917deaa7efccfd1e0d9c1ce0510b1168e33d2885d2c4181100#rd
+085 | 2026-04-18 | 自然·人类行为：大语言模型如何调控人类语言网络
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729674&idx=1&sn=2b8e59be6ac61979fd2fcfe3df13b2e5&chksm=e8981887dfef9191936b3d01861e20eeead6eb1adcefd582343442de2b148ed27f8159c2a3f3#rd
+086 | 2026-04-17 | Meta-Harness：当一个agent学会了看场合说话
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729664&idx=1&sn=16bcf6cacd6578a35a40c63033e2b410&chksm=e898188ddfef919bd372dbcfadfcec86468e277880f3150f46fab895909d7f91358f54acaaba#rd
+087 | 2026-04-16 | 智能体AI引领社会智能跃迁
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729597&idx=1&sn=e07cd3e9273d424feb2ed972519e9c37&chksm=e8981b30dfef922619f3ef8e4ab44a63fd43533b0d2c0378f477383c298cb52013a8e8d0ce99#rd
+088 | 2026-04-15 | 科学·前沿：噪声诱导的稳定性
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729587&idx=1&sn=dc7c60a66a1f9090ea26b8fcea8f26ee&chksm=e8981b3edfef922867461c06b40068ba07ce75c432558a14236d825e597956f6122380640905#rd
+089 | 2026-04-14 | 物理学报告：复杂系统的可预测性
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729576&idx=1&sn=b78c089cde78f4dbd5612738e6ec7bee&chksm=e8981b25dfef92339102912196c648d4a362e6c1775948f643aaa5c184e6eb9f8e17899d20db#rd
+090 | 2026-04-13 | PRL：量子水池中的涟漪，如何在“混沌边缘”触发最强算力
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729468&idx=1&sn=b285f778ac0860b3128eafcd75796af7&chksm=e8981bb1dfef92a72b2d99f00d1e837c8e880197ab03c80c540433cb1ea8a876c559399b0554#rd
+091 | 2026-04-13 | 从细胞微环境到基因表达：渗透压调控核内DNA标记与转录的物理机制
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729468&idx=2&sn=4a1043da55b7d8d53e63bfce09072001&chksm=e8981bb1dfef92a72cd0eb63913955eb2256b88ba43d9618f8be323257f8d28a320292ae20be#rd
+092 | 2026-04-11 | SimWorld：尝试给AI智能体造一个真实世界
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729360&idx=1&sn=73064925f645940c85886117dba8926e&chksm=e8981a5ddfef934b31eef35e4c4c2ef87382e764fa6082cd919e893d31e5cb1e1731a31108a2#rd
+093 | 2026-04-10 | 量子“不可区分性”如何改写统计物理的计数规则｜李文韬
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729301&idx=1&sn=88082a7fe90496b0c0eebe1602f1abbb&chksm=e8981a18dfef930e91b76ad30bc5c330a54978e0035309019aaf3d5dbb9b2fb0b8aafc9920b4#rd
+094 | 2026-04-07 | 自然·方法：利用神经最优传输学习单细胞扰动反应
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729148&idx=1&sn=8839067522fbf1cab01dd5b8c25ced4d&chksm=e8982571dfefac67c562b93d7a7d97b6ca65fd2798d541f600feb5fd1cf1ec8985dbe2f0b29c#rd
+095 | 2026-04-06 | 当我们在谈论“游戏”时，我们在谈论什么？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729094&idx=1&sn=1087fd1db46c0d6f466c1308f76c913c&chksm=e898254bdfefac5d25e5637b1b6be82cdb720ec92e9d066d182e9c1cee17fa3071fab38e08e1#rd
+096 | 2026-04-04 | 材料的“记忆地图”：滞回动力学景观理论统一动态迟滞的跨尺度行为｜陈苗、赵秀花、马宇翰
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729022&idx=1&sn=0bbe416c8a70bbc33aeac7d35f03e120&chksm=e89825f3dfeface59633c6dac04ace5ce5958ec0fb861544482765a544bc35d16ffcd2d1eb1f#rd
+097 | 2026-04-03 | 英国皇家学会特刊：从细胞到社会“涌现”的全景探索
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729021&idx=1&sn=9fe7d8e6f83d57da7a26f766882a8a5d&chksm=e89825f0dfeface66679ad5b0feac94fb2f41de9f1a8000ecd6dff0d0754aa7977cc922756d6#rd
+098 | 2026-03-31 | 国际社会研究方法：GAM探索社会复杂性的六种途径
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728854&idx=1&sn=194ecac446931995f5e50ecd398105e9&chksm=e898245bdfefad4d0dca19424e9c38d0a4ff1af22f49890259f79591dfa9e72964a7699f76a9#rd
+099 | 2026-03-30 | 鱼群越大越会“分裂”？五万条鱼的自组织、相关性崩塌与信息“高速公路”｜杭皓天
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728718&idx=1&sn=fd78d47a048213e1c5471684a2444495&chksm=e89824c3dfefadd56d81c133352c65edff13dcbf73aea9d334bea910611a72b150caa93922cf#rd
+100 | 2026-03-28 | Nature：AlphaGenome——多模态AI模型破译基因组“暗物质”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728708&idx=1&sn=8e4a8c8eb97c78bf04e6a5b9780a27f1&chksm=e89824c9dfefaddf44ca70bee7536186fa54ec9ac939436b82f4647e3e6134c30fea981d3ebe#rd
+101 | 2026-03-27 | 《Causality and Complex Systems》｜集智科学研究中心最新成果
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728670&idx=1&sn=7bbc2c6ca7732193ef608230a1c89b36&chksm=e8982493dfefad85bf88e4f6016d6889be40768466c37a148b8201e4970e9cfc0b6346ab9b9f#rd
+102 | 2026-03-26 | ArXiv：为何大模型无法拥有意识｜Erik Hoel
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728557&idx=1&sn=9cd3f8661c7d5f813c828185e61dc700&chksm=e8982720dfefae36d3fe07f4acf5c4aec8443beccdd52a7c4da4e477104789b4dc2dbd49e252#rd
+103 | 2026-03-25 | 从困在时间里的人到连续吸引子：对海马体的计算神经科学建模｜贾梓杏
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728438&idx=1&sn=e5e37383bcb67e1f3305cb41c557fd56&chksm=e89827bbdfefaead22698f7a9208aa0660e8f8e6e692782cedbd3b88abec842f725648ccbe34#rd
+104 | 2026-03-24 | Patterns：量化涌现复杂性
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728371&idx=1&sn=bf725bda68b9313befc9c906da1dbbc8&chksm=e898267edfefaf6816a5b97149aba1f9f467d07a16fefc74efd74b82154ed040d42406b4c705#rd
+105 | 2026-03-21 | 人类学习的集体注意力流分析｜高明、张婧婧、张江
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728303&idx=1&sn=02f7ccd39401fcf649dd769cf51136f3&chksm=e8982622dfefaf34c85dd41c79855a34175eac096b4d760ca14e5a80dc76eb0fc2d1e5b8552a#rd
+106 | 2026-03-20 | 自然·通讯：高阶网络的“可约性”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728231&idx=1&sn=6da8a6287b647d48ee665f5d47b030d1&chksm=e89826eadfefaffcee2e95185a9ef08f99028f5a49a09b49994418bc8efbd4662adcb2b1a14a#rd
+107 | 2026-03-19 | AI时代的复杂系统科学：为科学研究提供普适范式
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728208&idx=1&sn=d0d0b96187314f6652d101d714a17b8b&chksm=e89826dddfefafcb01ac461cdde52cd2b4889eb43dd3aaa3150cdcdfc6fc96c6ad583c18b90f#rd
+108 | 2026-03-16 | 复杂适应系统中的伊朗：网络结构、级联效应与地缘政治
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247728003&idx=2&sn=72658f4eb115f0b16f64bd91ad3247dd&chksm=e898210edfefa818bc1ba52f1a9a1f4d5323ecab3902e986234f73ffacb8476510d260ff0986#rd
+109 | 2026-03-15 | 自然·计算科学：并行符号枚举，让AI发现物理定律
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727961&idx=1&sn=02153d1d66aed794ec2accd447c9258e&chksm=e89821d4dfefa8c287ea49df1cdd113f8e3a0950a8ddbd1ea86ae11b0c7be9909f3a7ff82328#rd
+110 | 2026-03-12 | 物理·评论：结构即解释——网络成为科学假设的可计算载体
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727449&idx=1&sn=e3d04c3fa2f4735a736113ba8f0520f0&chksm=e89823d4dfefaac24fc217da314a593553fa5dbe4b24bb702d509f322bc4f90e43cc4897e306#rd
+111 | 2026-03-10 | 自然 · 人类行为：跨物种解码意识——连接组、转录组与信息整合的统一图景
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727351&idx=1&sn=6bea7fb41e63db03e802f0a7f19a7f8f&chksm=e898227adfefab6cbf12b32cc098086c6b08082fb4215885417b41c308bb8d6390fbac5946c0#rd
+112 | 2026-03-09 | 从“连接”、“整合”再到“自由”：一条被忽视的意识科学纽带
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727270&idx=1&sn=c58bc659fa4b5dff61d9ed7af26e155d&chksm=e898222bdfefab3d74d4b016406312cca4fd6b3a4b11977344e0c6e2ead4db6cbcf6c2a2bbf0#rd
+113 | 2026-03-08 | Complexity：影响力最大化研究的学术图景与前沿趋势
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727269&idx=1&sn=34965e72abf89a49fefba1ada3106933&chksm=e8982228dfefab3e391b0c6e71b6c26eef0b96c0ab6137a22e6af2eb1a3db5cd9281055df128#rd
+114 | 2026-03-07 | Nature：大模型的涌现性错位
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727268&idx=1&sn=56da248b062255e99aa0466657f360bc&chksm=e8982229dfefab3ff0b72236b05dab3b12fed9d49d6c7ea31d433407c853f771dbe2ce79788d#rd
+115 | 2026-03-06 | Citrini Research&UNDP：AI革命的隐忧——2028智能危机下的智能替代螺旋与下一轮大分流
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727242&idx=1&sn=222d037cba144a8824ec9349110e0256&chksm=e8982207dfefab11258d237fb185b4bd331ba1580bb73ffecfc78e88d4e18ddf4aea21d2450b#rd
+116 | 2026-03-03 | 自然·计算科学：从有限数据到最优解，高维科学优化的新范式
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727122&idx=1&sn=2343422b7cd953e994c3a3fbecd54ec9&chksm=e898229fdfefab8999907f4adcee96c22f845e57d2f2b3827167108dcbe4035e0262f8571393#rd
+117 | 2026-03-02 | 陶如意：效率和风险的权衡——在临界边缘理解经济世界
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727053&idx=1&sn=5deef500e67928c10f8af816984e0840&chksm=e8982d40dfefa456007387b04cada9da1331fa71fb71cb44afe672ee537ef7d7023b77e2a4cd#rd
+118 | 2026-03-01 | 2028全球智能危机：AI冲击下的复杂系统演化
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727031&idx=1&sn=b14661abb630f3ba16010b0607046f91&chksm=e8982d3adfefa42cfe0b9dac35889e504602bcb081dc5ebfdcc589bc469770aa9b41c52ed781#rd
+119 | 2026-03-01 | 马煜曦：为什么AI总写出“正确”却无聊的故事？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727031&idx=2&sn=e2e363cedaad485c74917d541525311d&chksm=e8982d3adfefa42c870807b67d912786ad8be7e1dd874657e80b1acf4e7bada9e84b640a8377#rd
+120 | 2026-02-28 | 英国皇家学会汇刊：为什么我们走路不用“算”？藏在腿部结构里的力学智能
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247727013&idx=1&sn=5511eaf8545dc2b918e8beab9da60771&chksm=e8982d28dfefa43eae7c8965cbaca43a460a831dfbbfd0543da0f3a1d6b3c04900e79a9a7166#rd
+121 | 2026-02-25 | 自然·通讯：人脑网络四大“转折”，界定人生五次“重塑”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726921&idx=1&sn=09e406fae63d575433a33588e63a4331&chksm=e8982dc4dfefa4d2c67b2f1399244d7681e94ff2b0748b79b9b12bffb6c10678f25b6ddfa0bf#rd
+122 | 2026-02-24 | 自然·神经科学：脑体节律的层级系统，如何塑造我们的主观时间感？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726896&idx=1&sn=3c820f2f3e996d5786512555c503a14e&chksm=e8982dbddfefa4abd81263d23e135b8143666baf6a8ef35de0fa77a9fd1e9a20c09e90f63c54#rd
+123 | 2026-02-20 | 集智俱乐部公众号2025年度精选
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726659&idx=1&sn=cd5dadde51b73a7fd8e661074d02095d&chksm=e8982ccedfefa5d8f8cbb2e7f0d40179469e3c24e36078d62205f0ec6ab74d341476daff6ca1#rd
+124 | 2026-02-15 | 自然·物理：当拓扑“动起来”，高阶网络重塑动力学
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726628&idx=1&sn=5b5e18ce9ac6d778502c2b6970b16820&chksm=e8982ca9dfefa5bf6c60bce736de2f7ea9f0b365fff07213c0fd1465e98087b462d5499ccf5e#rd
+125 | 2026-02-14 | 自然·神经科学评论：当 AI 开始同时“理解”大脑与行为
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726627&idx=1&sn=419fa4d8050c34f5b1fb4bee0bbc4934&chksm=e8982caedfefa5b8d28b858e73c1bb796cf03a6d82be07e6b3085e753ba1950bb6edf94e2b5c#rd
+126 | 2026-02-13 | 通研院&北大：智能体如何提升社交能力？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726626&idx=1&sn=9df21b7646822ea1a6a074a021cd62f2&chksm=e8982cafdfefa5b91e5136fa2b161d4e2e0f834c8167a0c10e3aea8cfc93dc101dd0f5c4194f#rd
+127 | 2026-02-12 | 唐乾元：从AI模型中提取蛋白质折叠与功能动力学的统一物理约束
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726606&idx=1&sn=f67b2d3c8ac04922d3566ada144c3790&chksm=e8982c83dfefa59575d91a98b6e4fe99ad5a0b08877a471832636c6f4f16647d4af551f0e9db#rd
+128 | 2026-02-11 | 韦晓慧：从基因变异到宏观生命色彩——跨尺度形成机制解析丨细胞动力学读书会第二期
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726578&idx=1&sn=0ec5d4dfade2c0f4dbfbd6579b8298d7&chksm=e8982f7fdfefa669600370dbdd60192102c132160aab5b5302fb0a36fc5ed2640458ccde6927#rd
+129 | 2026-02-10 | arxiv：AI正在读懂量子世界——从量子态到量子计算机
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726504&idx=1&sn=7410ad1a7d9cd40ac220ce9d7b3279a9&chksm=e8982f25dfefa633bf6ff248088f7a697a5c52fa60643f2bb879f832244830c03bfdd776916e#rd
+130 | 2026-02-09 | Nature：AI科研的双重后果——个体理性奋进，集体探索徘徊
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726428&idx=1&sn=00dfcff024917f46e5254cb929d5622b&chksm=e8982fd1dfefa6c7d11c428ef1b9aa4373f7bcfee3ef998c5584a6216a9fc40fd7b66862bf6a#rd
+131 | 2026-02-08 | Science：大语言模型如何重塑科学产出
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726372&idx=1&sn=5b9d53bdf7b202268f7ab6d35bf6ae42&chksm=e8982fa9dfefa6bf8fab24b56525f2a83c8f1fea54fe9c4f86ff117df4ae29206e12f4e6aeea#rd
+132 | 2026-02-07 | 杨明哲：信息论视角下复杂系统如何适应多变的环境？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726365&idx=1&sn=08e6d69686da80c539947c045291e486&chksm=e8982f90dfefa6862c88153bfa6922e177b75f5f286eddbd8f60897d16181996d9696a47518d#rd
+133 | 2026-02-06 | 刘凯威：在连续随机系统中寻找“时间倒流”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726353&idx=1&sn=7e567bf74137f2660b1790537444fc8c&chksm=e8982f9cdfefa68aed12a4a402a14c79772da52de9a890335b87a50112344edab1c0e198302e#rd
+134 | 2026-02-05 | 方东榆：当空间被无数个孔填满——费曼路径积分的直观推导
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726333&idx=1&sn=ab01c83ff202d55af5c37655ab753465&chksm=e8982e70dfefa766138e1672aef9a1a4e19a57cf2e3300074444d2920ddb1eeffaa28de09d95#rd
+135 | 2026-02-02 | 物理化学年鉴：最大口径变分原理——一种非平衡态的普适性理论
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726270&idx=1&sn=5fc427df47ebe994485e3c079a0fc2d1&chksm=e8982e33dfefa72598497040ebc2e18faea5767a8c3b3e0f0d5f9ec2a406f597241310063086#rd
+136 | 2026-02-01 | PRL：非平衡涨落的“天花板”——逆热力学不确定性关系与熵产生的深层关联
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726224&idx=1&sn=f636109f4c32889f5718d814f11981ad&chksm=e8982e1ddfefa70ba3978ae4c4b3642ed1453adae3e05beade2d53ec2e21fa653408b83237fd#rd
+137 | 2026-01-29 | 自然·通讯：如何挖掘复杂系统中的三元交互
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247726020&idx=1&sn=cb3a2d66329c50b4aa50aa23fc9784c8&chksm=e8982949dfefa05f269550ccb502bc3ff11288e1f6e929b52ae5c81a82c7c8ba037d01f5a148#rd
+138 | 2026-01-28 | F. E. Rosas：从对称性到信息闭包：层级涌现的起源
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725930&idx=1&sn=ac7c4a8dbdffe92c7892b5ef319370d7&chksm=e89829e7dfefa0f17675f87a2be80b906d535992cf31641da7c44ca15f69df0bbe0b418a37f9#rd
+139 | 2026-01-27 | 自然·人类行为：解锁人类语言系统性结构的认知密码
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725844&idx=1&sn=ec8f4ac1a9d303ea23aa3102f77e3f1d&chksm=e8982999dfefa08f516d1de61e4316e23e18748981e2ad8f681c061ab38470636de495a8f4a1#rd
+140 | 2026-01-26 | 张倩：那个养鸡的物理学家来集智了——从“鸡群智能”到“人类群体智能”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725734&idx=1&sn=c8619f8fc5a09e9f7085f47f4186b5a1&chksm=e898282bdfefa13d440b72aaf850ff01fe67b8d741d5843299bcc83d3fb61ddf1474b8332c24#rd
+141 | 2026-01-24 | 自然·机器智能：神经SDE破译单细胞命运密码
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725714&idx=1&sn=b041f634ffe5a150c4bf644e3b526a41&chksm=e898281fdfefa10983af371e824bdfbda186fef53f2c5e419265bd89506f02bb01f254b26229#rd
+142 | 2026-01-22 | 王稙鑫：集群行为探秘：从生物实验到集群机器人设计
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725641&idx=1&sn=fe7cbacebad5e34d908cf65bdc068e51&chksm=e89828c4dfefa1d2d50f33e2a35af2beae768b9b390cbbefca7f38366d4687d8b40595851779#rd
+143 | 2026-01-20 | PNAS：身体自我感知过程中的觉知、整合与证据积累
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725461&idx=1&sn=0584b8847e743ea921b62a20006f7425&chksm=e8982b18dfefa20e59221d60eaa002ce9ebeb7d78731e58ce610cf7cdc1bd04ff113258170e1#rd
+144 | 2026-01-20 | 赵思怡：量子认知是不是在“讲玄学”？一场读书会后的数学追问
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725461&idx=2&sn=c5134029faad33b9750a8a4fb2d43ff9&chksm=e8982b18dfefa20e9b8926bfac8a2985d73ff302a42aefae3178ca1cdec4ab36ba387a86b8e2#rd
+145 | 2026-01-19 | 物理学家所理解的熵：从热力学、统计物理，到生成模型
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725426&idx=1&sn=dc8136cf89657a0350da24139243ed14&chksm=e8982bffdfefa2e90d448d6c51abecd7b9e6aa4269d2e3ef68b37d6b4ef8d26aed7ef2fad620#rd
+146 | 2026-01-17 | 自然·通讯：当环境“说谎”时，智能体如何做出可靠决策？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725321&idx=1&sn=8f44737c7f8c227d4d7d057d2046a051&chksm=e8982b84dfefa292141f5ea2180ba2d9f5b9071e08e5916d55dddb0476f09a6fd9507b40e78f#rd
+147 | 2026-01-16 | 自然·物理：奇异值分解在复杂系统研究中的应用
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725295&idx=1&sn=3ddc2d4e6b725eeaaf845f453bab226d&chksm=e8982a62dfefa374d3dede7b593efdaf60de8ee98f4ca2a30e19bb932aa8feb882e86cdf17d8#rd
+148 | 2026-01-15 | 自然·物理：复杂系统的低秩假说
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725243&idx=1&sn=e5719b1cdb454bbceefe20e5e5153bd4&chksm=e8982a36dfefa3202e4b3c9b7a7d91296f4c90d0f99924bdcac7bbbccf1ad2e86e36af86d773#rd
+149 | 2026-01-14 | PNAS：网络枢纽晚参与，群体协作更高效
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725209&idx=1&sn=ea8898a6569294a44e589cec89609423&chksm=e8982a14dfefa302fa17877c3284830cbe32e450ce7f377ecd92ea9f2d49dbb764f81e34ed6b#rd
+150 | 2026-01-13 | Tononi团队：人工智能不等于人工意识——一次关键的理论分离
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725185&idx=1&sn=2be65cdede1acccf17cdae8311a15f9b&chksm=e8982a0cdfefa31a436949eaa9d6a7eecf22d9aeb008795a4b11beb847c8008d72f847998ec8#rd
+151 | 2026-01-12 | 自然·通讯：水下集群机器人实现“民主协商”
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725106&idx=1&sn=11861070d950725991634009227ab833&chksm=e8982abfdfefa3a9de17efab2e9d53cc6c71008a0d58d4d959268434c089e412c30b6c9075f9#rd
+152 | 2026-01-11 | 张钢锋、王硕等：图神经网络解码华北未来大气污染“跷跷板”效应
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725071&idx=1&sn=2325ecd7e4838d7d4c5234435ed857ca&chksm=e8982a82dfefa3945386ee2569c881c276da6bffc1d18b1eb22728ecf94fc1316a932ebf2640#rd
+153 | 2026-01-09 | 自然 · 通讯：谁需要为未来职场付出更高的学习成本？
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725044&idx=1&sn=912b0fe5fab55f5de4bcf41b6c54e31f&chksm=e8983579dfefbc6ffa669cce5377c298f324cdadacfd985ba4469c7e4a79f3b0325114654d82#rd
+154 | 2026-01-08 | arXiv论文：以自指建模观察者破解量子力学基础难题
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725032&idx=1&sn=7d71d82563b0be3eb36fe4f4a2e1553a&chksm=e8983565dfefbc73e98cc2b13b3daaa6c3b36b53671780cb1ad7cf865859892d483c5df8d152#rd
+155 | 2026-01-06 | 从涌现到相变：城市演化的复杂性逻辑与治理启示
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247724888&idx=1&sn=e9dc1e556a3e0299bd9f75eeab26c027&chksm=e89835d5dfefbcc3e5910c43a0fb970444bada1b27fd01c8ab3dc9cb802cd46a15226c39669b#rd
+156 | 2026-01-04 | 现代物理评论：生态学的统计力学——统计物理视角下的生态中性理论
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247724678&idx=1&sn=98c7f3d0033bf355cc50d2ea21a8b1a3&chksm=e898340bdfefbd1d93053c6aaa8812499979099e61bd7f245f49c8c232ac61a927befe1ed134#rd
+157 | 2026-01-02 | 综述：量子理论能否为意识提供解释？——从物理基础到哲学边界的一次系统梳理
+      https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247724648&idx=1&sn=52429e31964d7eb81bad1cdf27fc15b2&chksm=e89834e5dfefbdf3a3c2426d79fcd7977eb6c9ec87c1d0d547c4a0e55f2a84ac530ce628bec6#rd

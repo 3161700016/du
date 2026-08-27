@@ -1,0 +1,210 @@
+标题：Ecology and Society：生态抵抗力与恢复力的新诠释
+公众号：集智俱乐部
+发布：2026-08-05
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734801&idx=1&sn=1223412c5cc82c63c6df1b0d6b086ecf&chksm=e8980c9cdfef858a03f686319a984e836e7d3a49cd0ac33471c391f41ba65595d8c77419cd55#rd
+合集：复杂科学前沿2026 · 序号 012/157
+------------------------------
+[图]
+导语
+生物代生态稳定性是支撑生态系统结构与功能完整性的核心属性，但其概念内涵长期存在分歧与混淆，制约了科学保护决策的制定。传统的基于动力系统理论的分析框架虽能合理界定恢复力，却因忽略生态单元对周边环境的主动调控作用，无法对抵抗力机制做出合理阐释。本研究厘清了稳定性概念的现象—原理二重性，区分维稳属性与测度指标的差异，并进而提出双重耦合理论框架，以为抵抗力机制提供合理阐释。第一层为生态单元与环境的耦合，通过缓冲、过滤间接干扰体现抵抗力。第二层为单元内部要素的动力系统耦合，通过状态与结构稳定性实现恢复力。该框架统一了抵抗力与恢复力的概念边界，还可拓展至适应、再生等更多维稳属性，为化解“复杂性-稳定性”争论、完善生态保护理论提供了新的分析视角。
+关键词：生态稳定性，抵抗力，恢复力，双耦合框架，持存性，同一性，复杂性-稳定性
+[图][图][图][图][图]
+王璇丨作者
+徐光华丨审校
+[图]
+论文题目：Reinterpreting resistance and resilience in ecology: a dual-coupling framework
+论文链接：https://ecologyandsociety.org/vol31/iss2/art37/
+发表时间：2026年6月
+论文来源：Ecology and Society
+引言
+生态系统结构与功能的完整性对人类福祉具有根本意义（Costanza 等，2017；Leclère 等，2020；Capdevila 等，2021；Daily 和 Ruckelshaus，2022）。然而，长期以来，生态学中稳定性的概念解读模糊且矛盾，阻碍了有效保护决策与行动的制定（Molinos 和 Donohue，2011；Mrowicki 等，2016；Kéfi 等，2019）。早在 20 世纪 70 年代，Noy-Meir（1974）就指出了生态稳定性定义的混乱，质疑了该概念的统一性。到 20 世纪 90 年代，Grimm 和 Wissel（1997）从文献中梳理出 163 种稳定性相关定义、70 个不同概念以及 40 余种测量方法，称其为 “整个生态学中最模糊的术语之一”。即便在近年，学界对其内涵仍远未达成共识（Donohue 等，2016；Van Meerbeek 等，2021）。
+大多数学者认同稳定性是一个多维概念，争论的核心在于其包含哪些具体维度以及各维度之间的关系（Hodgson 等，2015；Ingrisch 和 Bahn，2018；Capdevila 等，2021）。例如，Orians（1974）认为稳定性包含恒定性、惯性、弹性、振幅、周期稳定性和轨迹稳定性等形式；Pimm（1984）将稳定性划分为渐近稳定性、变异性、持存性、抵抗力和恢复力五个组分；Grafton 等（2019）提出稳定性至少包含抵抗力、恢复力和鲁棒性三个核心特征；Van Meerbeek 等（2021）则提出了抵抗力、恢复力、复原性、耐受幅和容忍度五项必要但非充分的稳定性测度指标。尽管不同学者独立提出相关术语进一步加剧了概念混乱，但混乱的根源在于概念本身的内在复杂性（Donohue 等，2016）。合理、一致地定义生态稳定性概念，需要一个统一的理论框架。
+本研究首先厘清了生态稳定性概念框架中现象与原理的区分，以及维稳机制与其对应测量指标的差异。在此基础上，这项工作指出现有的动力学系统框架为定义恢复力提供了结构基础，但难以刻画抵抗力及其他维稳属性。针对这一局限，我们提出双重耦合框架，作为定义抵抗力的可行路径。最后，这项工作对其他维稳属性的界定进行了初步探讨，并分析了重新解读后的稳定性概念对阐明 “复杂性–稳定性” 之争的启示。
+生态稳定性概念的内涵
+现象与原理的区分
+区分现象（我们在自然界中观察到的事实）与原理（对现象的理论解释），是深入理解生态稳定性概念的前提（Delettre，2021；Van Meerbeek 等，2021）。然而，许多研究将这两个概念混为一谈（如 Orians，1974；Pimm，1984）。稳定性本质上意味着生态单元（如种群、群落、生态系统等；Jax，2006）保持某种恒定性（constancy）或不变性（invariance），这种相对恒定的属性通常被表述为 “同一性”（identity）（Jax 等，1998；Holling，2001），即其关键组分、相互作用以及时空连续性得以保留（Cumming 和 Collier，2005；Cumming，2011）。对于一个给定的生态单元，可以区分出多种同一性，对应不同程度的不变性。
+例如，Grimm 和 Wissel（1997）总结了三种不同类型：（1）相对于某一参考状态或动态过程基本保持不变；（2）经受短暂干扰后恢复到参考状态；（3）在考察的时间尺度内，系统作为可识别的实体得以维持（不依赖于特定参考状态）。Delettre（2021）则划分了四个层级的同一性：（1）局地状态同一性，是最严格意义上的不变性，即系统状态随时间基本保持不变；（2）全局状态同一性，表现为系统关键变量的波动不超出阈值限定的范围；（3）数值同一性，指实体在整个生命周期中与自身保持的必然等价关系；（4）类型同一性，是最宽泛意义上的不变性，甚至允许系统暂时崩溃，只要重建后的系统基本组分与原系统一致即可。
+其次，由于生态单元始终面临各类环境干扰，其维持恒定性的能力源于背后的作用原理（Hodgson 等，2015；Scheffer 等，2015；Delettre，2021）。这些原理建立在单元内部要素之间、单元与周边环境之间的相互作用之上，能够抵消各类干扰的影响，以及在受损后迅速恢复。本研究将这些原理统称为持存性（persistence）：若一个生态单元能够应对更复杂、更严酷的环境，且自身变化极小，则说明其持存性更强（Hansson 和 Helgesson，2003）。持存性可进一步划分为多种维稳属性（即维度），包括抵抗力（resistance）、恢复力（resilience）（Boesch，1974），以及适应（adaptation）（Walker 等，2004）和再生（regeneration）（Fischer 等，2024）。因此，稳定性概念的多面性可分别从现象层面与原理层面进行考察，分别表现为不同形式的同一性、不同类型的维稳属性，以及二者之间的对应关系（图 1）。
+[图]
+图 1. 生态稳定性概念的现象层面与原理层面。
+属性与测度指标的区分
+维稳属性与其对应的测度指标常被混为一谈（如 Boesch，1974；Pimm，1984）。但实际上，属性是系统的内在根本特性，而测度指标是用于衡量该属性强弱的可量化变量。测度指标有助于直观理解属性，并实现不同系统间的比较。对于简单系统而言，这种区分或许无关紧要，但对于复杂的多维系统至关重要，同一种属性可对应多种测量方法。例如，Walker 等（2004）通过当前稳定态所在吸引域的多种几何属性来量化恢复力，包括吸引域的宽度、吸引子的深度，以及系统当前状态与阈值的距离。
+基于动力系统的恢复力框架
+基本概念
+要清晰、一致地定义各类维稳属性并阐明其相互关系，就必须将其纳入统一的理论框架。当前主流的框架建立在动力系统理论之上，其核心思想是将世界抽象为两个基本组分：系统（研究对象）与环境（其余部分）（Strogatz，2018）。在这一架构中，系统自身具有不同的状态，由一组相互作用的关键变量（如生物量、物种密度、群落结构等）表征；所有可能状态的集合构成状态空间，系统的行为由演化方程支配，方程决定了状态随时间的转变规律。相比之下，环境被高度简化：它没有独立的状态，也不受系统的影响，仅被当作演化方程中的一组参数。演化过程中的不确定性表现为对系统状态变量和参数的扰动（Justus，2007）。演化方程通常以微分方程形式表达：
+[图]
+其中，x为系统的状态变量，t为时间，f() 为系统的演化方程，α 为系统参数。为简化起见，公式（1）中的状态变量与参数均以一维形式呈现；但在实际场景中，生态单元的状态与参数通常是多维的，应以向量表示。
+在状态转变过程中，系统常会进入一个仅包含少数状态的闭子集，若无外力驱动，系统将不会脱离该子集。这个子集对周围状态具有不可抗拒的 “吸引” 作用，因此被称为吸引子。被吸引向该子集的所有状态构成了吸引域，类似于水库的集水区。一个系统的状态空间中可能存在多个吸引子，将整个空间划分为不同的吸引域（Ashby，1962；McCann，2011）。本质上，吸引子及其对应的吸引域是系统维稳属性的数学表达。
+公式（1）的局限在于，它只能将干扰表示为状态变量或参数的重置，分别对应脉冲扰动（持续时间短但强度大的环境变化；Donohue 等，2016）和阶跃扰动（一旦发生便长期持续的胁迫因子）。但在现实中，干扰往往是持续发生的（Arnoldi 等，2019；Domínguez-García 等，2019；Kéfi 等，2019），生态单元相应的稳定机制也应持续发挥作用。通过将环境干扰正式纳入系统演化方程，可以弥补这一局限：
+[图]
+其中，x、t、f() 和 α 的含义与公式（1）一致，φ(t) 表示作用于系统的其他干扰。
+恢复力的界定
+在生态稳定性研究史上，对吸引子与状态空间的认知经历了从单稳态模式到多稳态、非平衡模式的转变，恢复力的内涵也随之不断演化（Van Meerbeek 等，2021）。
+单稳态模式
+早期生态学理论假定生态系统是平衡的静态系统，系统内部的负反馈机制总能在干扰后将系统拉回原始参考状态（Holling，1973）。对稳定能力的测度聚焦于量化系统受干扰偏离平衡后的恢复过程：回到平衡态的速度越快，稳定能力越强。例如，Boesch（1974）将弹性定义为 “系统受扰动后回到原有状态的速度”，Pimm（1984）则用 “恢复力” 表达同一含义。在数学上，它通过考察邻近状态下势函数的主导曲率（以李雅普诺夫指数表示）来评估：曲率的符号决定状态是否稳定，其绝对值衡量微小扰动后系统收敛或发散的速度。Holling（1996）将其称为工程恢复力。
+多稳态模式
+然而，状态空间中可能存在多个吸引子，即系统存在多个替代稳定态，每个稳定态都有对应的吸引域（Lewontin 和 Cohen，1969；Holling，1973，1996；Folke 等，2004）。当干扰使系统小幅偏离稳定态时，内部反馈过程会将其拉回初始状态；但如果外部干扰强度过大，将系统状态推过吸引域边界，原有反馈机制就会失效，系统无法恢复到之前的状态，转而进入新的稳定态（Carpenter 等，2001；Beisner 等，2003；Folke 等，2004；Dakos 和 Bascompte，2014）。
+多稳态模式是对单稳态模式的拓展与涵盖：单稳态模式仅关注恢复速度，而多稳态模式进一步考察恢复是否可能。生态单元的同一性可由状态空间中对应吸引域的区域来表征：若该区域对应一个既宽又深的吸引域，则说明恢复力较强。但这种对应关系并非一一对应。只要生态单元在中等干扰下能在多个吸引域之间灵活切换，同一种同一性就可以包含多个吸引域（图 2）。大量研究表明，湖泊、珊瑚礁、海洋、森林、干旱区等许多生态系统都存在多稳态转换现象，这通常被视为高恢复力的体现（Biggs 等，2018）。但如果一旦越过某个临界点，生态单元就极难甚至无法回到初始稳定态，则意味着同一性的丧失。例如，有研究认为全球尺度存在临界阈值或倾覆点，标志着可持续与不可持续的边界（Steffen 等，2015；Rockström 等，2017）。
+[图]
+图2. 包含两个区域的三维稳定性景观图。区域1对应身份A，包含两个吸引子（吸引子1和吸引子2）；区域2对应身份B，包含一个吸引子（吸引子3）。修改自（Walker等，2004）。
+生态动态体制
+此外，在动力系统理论中，稳定性并不总是意味着系统收敛到单一状态（即定点吸引子），它也可以指一组状态，包括周期吸引子（对应系统的周期行为）和奇异吸引子（对应系统的混沌行为）。模型与实验研究早已发现，物种相互作用可产生振荡与混沌现象（May，1972，1977；McCann，2011），这些现象也在一定程度上得到了真实生态系统的验证（Benincà 等，2015）。而且，对于需要大量变量描述的复杂系统，其状态空间具有高维性，吸引子也会表现出更复杂的动态特征（Law 和 Blackford，1992；Kendall 等，1999；Ives 和 Carpenter，2007）。为强调吸引子的这种动态属性，Scheffer 和 Carpenter（2003）提出用 “生态动态体制” 一词替代 “稳定态”（Scheffer 和 Carpenter，2003；Angeler 和 Allen，2016；Sánchez-Pinillos 等，2023）。基于吸引域景观的几何属性（如吸引域的大小、形状，以及吸引子在盆内的相对位置），可以构建多种量化指标（Walker 等，2004；Van Nes 和 Scheffer，2007；Menck 等，2013；Mitra 等，2015；Pimm 等，2019）。
+结构稳定性
+除了状态受到过度干扰外，参数扰动导致吸引域构型（稳定性景观）改变，也会使系统丧失恒定性。这类变化会导致包含当前状态的吸引域缩小甚至消失，而邻近的替代吸引域则不断扩张（Scheffer 等，2001；Beisner 等，2003；Connell 和 Ghedini，2015；Dakos 和 Kéfi，2022）。在这种情况下，不仅需要考察状态空间，还需要考察参数空间（Ludwig 等，1997；Scheffer 等，2001；Sánchez-Pinillos 等，2023）。在动力系统理论中，结构稳定性描述的是：只要参数向量的变化保持在一定范围内，系统就能维持吸引域的整体构型，从而表现出相似的动态特征的能力。
+由此，恢复力的概念被拓展到状态 - 参数联合空间，分别应对状态变量扰动（状态稳定性）和参数扰动（结构稳定性）。前者刻画了稳定性景观不变时系统的维稳行为，后者则指系统在不引发稳定性景观质性改变的前提下，所能承受的参数变化范围（Dakos 和 Kéfi，2022）。当环境参数变化导致生态单元当前状态所在的吸引域缩小、邻近吸引域扩大时，系统就更容易发生稳态转换。而一旦转换发生，通常在很大程度上不可逆，生态单元也往往被视为丧失了同一性。
+简要总结
+因此，恢复力可基于这些不同的系统动态模式来定义，各模式之间存在递进关系：最简单的模式是由线性方程描述的单一平衡态。其次是多稳态模式，其中每个吸引子可以是平衡点、极限环，以及更复杂的结构。进一步拓展则从状态空间延伸到状态-参数空间。
+需要注意的是，建模过程本身具有很大的灵活性。由于对变量、参数、干扰因子的考量不同，以及方程形式的差异，同一生态过程可被建模为不同的模式。例如，某一现象在高度粗粒度的模型中可能表现为单稳态；在更精细的模型中，可能表现为两个点吸引子在扰动下的相互转换；在第三种模型中，这种转换可能被表征为单个周期吸引子；而在第四种模型中，这种转变可能被归因于参数扰动引发的结构不稳定性。
+除了吸引域本身的几何结构外，吸引子在盆内的位置也可能至关重要。环境干扰往往具有方向性而非完全随机：例如，种群规模在干扰后通常会迅速下降，而非反向增长。
+界定抵抗力的难点
+抵抗力与恢复力的差异
+尽管基于动力系统的框架能够恰当界定恢复力，但持存性的其他维度仍有待厘清，其中首当其冲的就是抵抗力。传统上，抵抗力常被定义为生态单元在干扰中保持不变的能力（Boesch，1974），但要对其进行标准化定义却存在很大困难。部分学者认为，仅用恢复力就足以表征生态稳定性，抵抗力应以某种形式纳入动力系统框架（Sundstrom 等，2016）。例如，Walker 等（2004）将抵抗力等同于稳定性景观中吸引子的深度，但这实际上将抵抗力从一种维稳属性降格为一项测度指标，在这项工作看来是不可取的。正如 Hodgson 等（2015）所指出的，系统能从干扰中快速恢复，并不代表它能抵御干扰。因此，有必要区分两个不同的过程：（1）限制干扰对生态单元所造成的影响（抵抗力）；（2）从干扰造成的破坏中恢复（恢复力）（Connell 和 Ghedini，2015；Connell 等，2016）。
+直观来看，抵抗力表现为生态单元通过缓冲、过滤、转化等方式缓解外部不利干扰、降低其负面影响的机制。这类机制在个体和种群层面十分常见：例如，南极冬季气温低至 - 40℃至 - 60℃、风速超过 100 千米 / 小时，帝企鹅种群通过抱团取暖的合作行为抵御极端低温（Gilbert 等，2006）。在群落和生态系统层面，这类机制同样普遍存在，对维持稳定性具有重要价值：例如，植物群落通过积累有机质、固氮（共生固氮作用）塑造土壤属性，使土壤为植被发挥保水、养分储存等功能（Rahmonov 等，2021；Beugnon 等，2024）。森林冠层可显著改变林下微气候条件，缓冲外部极端气候事件的冲击，为林下植物提供更稳定、更适宜的生长环境（Myers，1997；Bulleri 等，2016；Beugnon 等，2024）。珊瑚虫的造礁活动提升了生境的空间异质性，为其他物种提供多样的庇护场所，提高了珊瑚礁群落的物种多样性（Bongaerts 等，2010；Rovellini，2020）。在生物圈尺度上，海洋生态系统与地球气候之间的负反馈作用稳定了大气温度（CLAW 假说；Charlson 等，1987；Lovelock，2008）。这些案例都可看作各尺度的生态单元对周边环境系统的调控，使其直接接触的环境因子显著地不同于外部环境，从而减轻对自身的不利影响。
+抵抗力需要新的框架
+然而，公式（2）由于未对环境进行显式表征，无法捕捉系统与环境相互作用的复杂过程，从而可能导致理论研究与实证研究脱节。这是因为：在理论框架中，环境干扰仅体现为对应事件对系统的作用结果（即 perturbation）。而在实证研究中，干扰指的是影响生态系统结构与动态的生物和非生物环境变化，是一个具体事件（即 disturbance）（Donohue 等，2016）。这些干扰事件很少直接作用于目标生态单元，而是通过常被忽略的中间过程产生级联效应。此外，干扰也并非如通常假设的那样完全随机，而是在强度、发生概率、持续时间以及预警信号等方面呈现出一定规律性。另一方面，生态单元与周边环境在一定程度上共同演化，其演化的环境背景也是协同演化动态的一部分。经过长期协同演化，生态单元可利用这些规律主动塑造并维持有利环境，增强自身的持存性。要恰当定义这种维稳属性，就必须突破现有动力系统框架，将生态单元的环境调控动态纳入研究范畴。
+双重耦合框架
+基本原理
+生态单元应被视为 “子整体”（holon，Allen 和 Starr，2017），这要求我们从两个不同视角来考察它。第一，作为整体：它体现内部组分之间的相互作用，可表征为受演化规律支配的状态转变过程。第二，作为更高整体的部分：它因与外部实体相互作用而表现出各种相应的功能。这两个视角共同构成了对生态单元的完整描述。例如，对于生物体而言，状态描述体现为各种性状（如植物的叶面积）及其变化，而这些性状也对应着特定功能（如捕获阳光、气体交换）。对于生态系统而言，状态描述可包括各营养级物种种群数量特征的变化，而其功能则涵盖水土保持，以及为人类提供食物、木材等服务。当生态单元与环境因子的相互作用以某种方式反馈到单元自身的组成与结构时，这类功能就对其自我维持至关重要，应在研究中予以重视。这项工作提出，那些能间接为单元营造更适宜的局部环境的外部功能，共同构成了生态单元的抵抗力。生态单元状态变量的取值直接影响其对应的功能，因此状态与功能之间是相互强化的关系。
+框架描述
+为拓展现有基于动力系统的框架，这项工作提出两个基本假设。
+第一，作用于目标生态单元的环境干扰可分为两个层级：（1）间接干扰，包括各类气象、水文和生物因子（如冠层外的辐射、风速、气温等），它们自身变异性和不确定性很高，但不直接作用于生态单元；（2）直接扰动，指目标生态单元直接经受的干扰（如冠层内的温度、湿度），可看作间接环境因子经某些中间过程过滤、缓冲、转化或其他形式介导后的结果，表现为单元演化方程中的扰动项。
+第二，生态单元在一定程度上塑造甚至主导这些介导过程，从而为自身创造相对有利的环境，体现为更适宜的参数取值范围（同时允许其他因子有一定波动）。要描述生态单元的这种主动塑造作用，就必须在原有的状态演化描述之外，引入功能描述，以反映其调控局部环境的能力。
+基于上述概念，可构建双重耦合框架（图 3）。第一个层面是生态单元内部各要素相互作用形成的动力系统，该系统具有一定的状态稳定性和结构稳定性，能够应对参数与状态变量受到的扰动（即公式 2）。
+[图]
+图 3. 双重耦合框架的概念示意图。
+第二个层面是生态单元与其周边环境的耦合，可理解为生态单元通过塑造介导过程，使自身参数值维持在更适宜的范围内：
+[图]
+其中，公式 2 中的系统参数α在此过程中成为状态变量，受外部环境因子αout的影响；σ(t)表示这些外部环境因子固有的不确定性变化；g()表示生态单元对该影响的调控作用，体现了其抵抗力功能。这种功能依赖于相应的结构性状（如螃蟹的甲壳、森林的冠层），并以这些性状的损耗为代价：
+[图]
+其中，H是一个泛函，表征生态单元的结构与其抵抗力功能之间的对应关系。
+这两个层面的耦合分别对应恢复力与抵抗力，二者相互支撑。恢复力维持生态单元的结构完整性，是抵抗力发挥作用的基础。反过来，抵抗力将环境因子控制在合理范围内，从而也有助于恢复力的正常发挥。当外部环境干扰发生时，抵抗力首先启动，尽力将生态单元恢复力所依赖的关键参数维持在合理区间。这一过程具有损耗性，支撑抵抗力的结构会最先受到干扰的破坏（如螃蟹甲壳因机械摩擦而磨损、森林冠层因风雪等气象因子而受损）。几乎与此同时，恢复力启动对受损结构的修复过程。当干扰更强、更持久时，抵抗力会被耗尽，生态单元直接暴露于不利环境胁迫之下；此时恢复力将受到影响，其有效性取决于生态单元的耐受能力（结构稳定性）。若干扰进一步加剧，恢复力本身也会受损，生态单元可能丧失同一性。
+抵抗力的可能形式与局限
+对生态单元而言，环境不仅是干扰的来源和容错空间，从更广义上讲，也是资源与机遇的载体。因此，广义的抵抗力概念不必局限于抵消破坏性环境干扰，还可包括更高效地利用资源、发掘机遇。换言之，生态单元是主动的调控者，环境因子是被调控的对象（即生态单元在一定程度上“同化”了其周边环境）。具体而言，各类生态单元的调控方式包括：（1）缓冲，如森林冠层对温度、风速等外部气象因子的衰减作用（Zellweger 等，2019）；（2）过滤，如群落对外来入侵物种的筛选；（3）转化，如植物通过蒸腾作用将地下水释放到大气中，从而降低环境气温（Kirschbaum，2004）；（4）改造，如动物在消化道内维持共生微生物群落，高等植物在根际维持共生群落以促进养分吸收；（5）迁移，如集合种群通过在不同生境间移动来改变自身所处的局部环境。
+生态单元的抵抗力能力存在以下局限：第一，环境干扰的形式几乎无限，必然存在抵抗力无法覆盖的方面，表现为公式 2 中的扰动项φ(t)；第二，对于能够覆盖的方面，调控程度也有限度，相关参数仍会在一定范围内波动；第三，随着抵抗过程持续，单元结构的累积损伤会导致调控能力下降。
+讨论
+恒温动物的 “悖论”
+Holling（1996）区分了工程恢复力与生态恢复力：前者对应单稳态模型，整个状态空间都是其吸引域，因此无需考虑系统崩溃的可能，仅关注干扰后恢复的效率。但由于生态系统面临不同类型、不同时间尺度的干扰，这种模式通常并不适用，而应采用生态恢复力概念，这通常意味着允许系统关键变量在更大范围内波动。如果人为干预降低了这种变异性，往往会导致生态恢复力下降、系统脆弱性上升。
+然而，恒温动物构成了一个反例。生物的存活温度范围（即生存温度与致死温度之间的区间）：极端变温动物约为 40℃，中等变温物种约为 30℃，而调控严格的恒温动物仅为 20℃。因此，若以温度变异性衡量，恒温动物的恢复力是最低的。但在现实中，恒温动物确实得以存续并繁盛（Ruben，1995）。Holling将其成功归因于两点：（1）动物调控功能的重叠 “软” 冗余；（2）在不稳定性边缘实现信息与机遇的最大化（即变异性并未被消除，而是从动物内部环境转移到了外部环境；Holling，1996）。
+Holling 的论证完全依赖恢复力概念，在解释恒温动物悖论时显得理论说服力不足，还无形中让 “恢复力” 一词产生了歧义。而在我们的双重耦合框架中，这一现象可简洁地解释为恢复力与抵抗力之间的权衡。二者分别对应两个层面的耦合（即生态单元内部的耦合、生态单元与周边环境的耦合）。也就是说，尽管系统的恢复力有所下降（表现为生物内在热耐受范围收窄），但抵抗力的显著提升（即尽管环境温度波动加剧，仍能通过行为、形态和生理适应维持体温稳定的能力）足以弥补这一下降，最终提升了系统的整体持存性。
+其他维稳属性
+抵抗力与恢复力或许是持存性最核心的两个维度，但要更深入地理解生态稳定性概念，还需进一步厘清其他维稳机制。
+（1）适应。抵抗力与恢复力的发挥依赖于目标生态单元核心部分组成与结构的完整性。这些核心结构在一定程度上具有多样性与冗余性（例如，种群遗传结构中的一个基因座可容纳不同等位基因，群落中的一个功能群可包含冗余物种等），并可能因相应的随机干扰（如随机基因突变、外来物种入侵）而发生改变。这些微观组分的变化不会改变生态单元的整体结构，但可能影响其功能（包括恢复力与抵抗力）。也就是说，多样的组分意味着多种潜在功能（类似于量子力学中的叠加态）；如果其中某一种功能恰好能应对外部环境正在发生的趋势性变化，选择机制就会发挥作用，强化对应的功能（叠加态在 “观测” 下坍缩），帮助生态单元适应新环境（在新的环境常态下重建抵抗力与恢复力），从而实现持存。从这个意义上说，适应可被视为 “以变应变”：微观层面通过局地干扰积累的多样性，能够 “抵消” 宏观层面需要应对的外部环境趋势性变化。适应现象存在于不同层级的生态单元中：在个体层面表现为驯化（内在多样性是生物体固有的；Gessler 等，2020）；在种群层面是广为人知的自然选择；ITNTS（“关键在于歌手，而非歌曲”）理论是群落层面的例子（Doolittle 和 Inkpen，2018；Boyle 和 Lenton，2022）；而生态系统也可能表现出适应性演化（Bouchard，2014）。
+（2）再生。对生态单元核心的干扰不仅会改变其组分的多样性，还可能改变其结构，损害正常功能，削弱抵抗力与恢复能力。如果这一过程持续下去，单元可能面临崩溃和解体。但如果能创造出单元的 “替代者”，传承前代的核心特征，那么单元的类型同一性就得以保留（Delettre，2021）。从这个意义上说，生态单元实现了再生。例如，单细胞生物通过分裂实现再生；多细胞生物通过繁殖对抗衰老与死亡；种群通过扩散建立亚种群实现再生；生态系统则在重度干扰后，依靠土壤中的繁殖体库、避难所等，通过次生演替实现重建（正如适应循环理论所阐释的；见 Holling，2001）。生态单元包含的不同类型同一性、它们之间的相互关系，以及与各类维稳属性的对应关联，仍有待进一步研究揭示。
+对 “复杂性 - 稳定性” 之争的启示
+20世纪70年代，Robert May采用随机网络模型方法（Gardner 和 Ashby，1970）模拟群落动态，得出结论：模型群落越复杂，维持稳定共存的可能性越低（May，1972，1973；Allesina 等，2015）。这一理论发现挑战了当时盛行的 “生态群落复杂性与稳定性正相关” 的共识，引发了持续至今的 “复杂性 - 稳定性” 之争（De Angelis 和 Waterhouse，1987；Ives 和 Carpenter，2007；Landi 等，2018）。May本人也提出，尽管随机群落的稳定概率随复杂性上升而下降，但自然群落可能采用某些 “巧妙策略”，使复杂性与稳定性得以共存（May，1973；Jansen 和 Kokkoris，2003；Rohr 等，2014）。
+然而，May采用的稳定性定义基于局部稳定性，后续许多学者虽对该方法进行了改进，但仍局限于恢复力的范畴。而正如本研究所指出的，稳定性的本质是持存性，即群落（以及其他类型的生态单元）在复杂、严酷的环境条件下维持自身同一性的能力（Odum，1953；MacArthur，1955；Elton，1958；Pimentel，1961；Justus，2007）。
+显然，这一悖论的根源在于对 “复杂性” 和 “稳定性” 内涵的不同解读。如果仅考虑轻微的环境干扰，同时要求目标生态单元精确回到参考状态，那么更高的多样性确实不仅多余，甚至是一种负担。但这种场景仅对应现实中的少数极端情况，不具备普遍意义。对自然生态单元稳定性更合理的描述，应包含抵抗力、恢复力与适应三个维度；而复杂性也不应局限于多样性和相互作用强度，还应涵盖生态单元的组织条件，包括层级内与跨层级耦合。Ashby 提出的 “必要多样性定律” 指出：系统要在外部干扰下存续，就必须具备足够的多样性以匹配干扰（Ashby，1958）。因此，尽管更简单的系统可能更容易实现动态稳定，但由于干扰往往超出其适应极限，它们通常无法应对复杂多变的环境。只有当系统具备一定程度的复杂性时，才有可能通过更高效的内部协作应对挑战、利用资源，从而实现更强的持存性。也就是说，复杂性在抬高恢复力的下限（使其更难通过随机方式实现）的同时，也抬高了抵抗力与适应的上限（提供了更大的潜力），使系统能够应对简单系统无法应对的复杂环境。真实的生态单元经过生态与演化过程的淬炼，已在很大程度上实现了这种潜力，因此表现出复杂性与持存性的正相关关系。
+结论
+稳定性作为生态学的核心概念之一，其定义在学界长期缺乏共识。这不仅是因为术语使用不统一，更重要的是源于概念本身的内在复杂性。基于动力系统的框架虽然消除了生态稳定性概念的部分模糊性，但也导致概念被过度窄化，存在明显缺陷，尤其无法合理定义抵抗力（Connell 等，2016）。本研究提出构建双重耦合框架，能够合理、清晰地界定抵抗力与恢复力。未来研究应致力于构建更完善的理论框架，清晰、一致地定义适应、再生等更深层的维稳属性，深化对生态稳定性的理解，从而化解 “复杂性 - 稳定性” 命题中的理论悖论，为相关生态保护与修复政策提供科学指导。
+论文作者：
+[图]
+参考文献
+Allen, T. F. H., and T. B. Starr. 2017. Hierarchy: perspectives for ecological complexity. University of Chicago Press, Chicago, Illinois, USA. https://doi.org/10.7208/chicago/9780226489711.001.0001
+Allesina, S., J. Grilli, G. Barabás, S. Tang, J. Aljadeff, and A. Maritan. 2015. Predicting the stability of large structured food webs. Nature Communications 6(1):7842. https://doi.org/10.1038/ncomms8842
+Angeler, D. G., and C. R. Allen. 2016. Quantifying resilience. Journal of Applied Ecology 53(3):617-624. https://doi.org/10.1111/1365-2664.12649
+Arnoldi, J., M. Loreau, and B. Haegeman. 2019. The inherent multidimensionality of temporal variability: how common and rare species shape stability patterns. Ecology Letters 22(10):1557-1567. https://doi.org/10.1111/ele.13345
+Ashby, W. R. 1958. Requisite variety and its implications for the control of complex systems. Cybernetica 1(2):83-99.
+Ashby, W. R. 1962. Principles of the self-organizing system. Pages 255-278 in H. Von Foerster and G. W. Zopf, Jr. editors. Principles of self-organization: transactions of the University of Illinois Symposium. Pergamon, London, UK.
+Beisner, B., D. Haydon, and K. Cuddington. 2003. Alternative stable states in ecology. Frontiers in Ecology and the Environment 1(7):376-382. https://doi.org/10.1890/1540-9295(2003)001[0376:ASSIE]2.0.CO;2
+Benincà, E., B. Ballantine, S. P. Ellner, and J. Huisman. 2015. Species fluctuations sustained by a cyclic succession at the edge of chaos. Proceedings of the National Academy of Sciences 112(20):6389-6394. https://doi.org/10.1073/pnas.1421968112
+Beugnon, R., N. Le Guyader, A. Milcu, J. Lenoir, J. Puissant, X. Morin, and S. Hättenschwiler. 2024. Microclimate modulation: an overlooked mechanism influencing the impact of plant diversity on ecosystem functioning. Global Change Biology 30(3):e17214. https://doi.org/10.1111/gcb.17214
+Biggs, R., G. Peterson, and J. Rocha. 2018. The regime shifts database: a framework for analyzing regime shifts in social-ecological systems. Ecology and Society 23(3):9. https://doi.org/10.5751/ES-10264-230309
+Boesch, D. F. 1974. Diversity, stability and response to human disturbance in estuarine ecosystems. Pages 109-114 in Proceedings of the First International Congress of Ecology. Center for Agricultural Publishing and Documentation Wageningen, The Netherlands.
+Bongaerts, P., C. Riginos, T. Ridgway, E. M. Sampayo, M. J. H. Van Oppen, N. Englebert, F. Vermeulen, and O. Hoegh-Guldberg. 2010. Genetic divergence across habitats in the widespread coral Seriatopora hystrix and its associated Symbiodinium. PLoS ONE 5(5):e10871. https://doi.org/10.1371/journal.pone.0010871
+Bouchard, F. 2014. Ecosystem evolution is about variation and persistence, not populations and reproduction. Biological Theory 9(4):382-391. https://doi.org/10.1007/s13752-014-0171-1
+Boyle, R. A., and T. M. Lenton. 2022. The evolution of biogeochemical recycling by persistence-based selection. Communications Earth & Environment 3:46. https://doi.org/10.1038/s43247-022-00371-3
+Bulleri, F., J. F. Bruno, B. R. Silliman, and J. J. Stachowicz. 2016. Facilitation and the niche: implications for coexistence, range shifts and ecosystem functioning. Functional Ecology 30(1):70-78. https://doi.org/10.1111/1365-2435.12528
+Capdevila, P., I. Stott, I. Oliveras Menor, D. B. Stouffer, R. L. G. Raimundo, H. White, M. Barbour, and R. Salguero-Gómez. 2021. Reconciling resilience across ecological systems, species and subdisciplines. Journal of Ecology 109(9):3102-3113. https://doi.org/10.1111/1365-2745.13775
+Carpenter, S., B. Walker, J. M. Anderies, and N. Abel. 2001. From metaphor to measurement: resilience of what to what? Ecosystems 4(8):765-781. https://doi.org/10.1007/s10021-001-0045-9
+Charlson, R. J., J. E. Lovelock, M. O. Andreae, and S. G. Warren. 1987. Oceanic phytoplankton, atmospheric sulphur, cloud albedo and climate. Nature 326(6114):655-661. https://doi.org/10.1038/326655a
+Connell, S. D., and G. Ghedini. 2015. Resisting regime-shifts: the stabilising effect of compensatory processes. Trends in Ecology & Evolution 30(9):513-515. https://doi.org/10.1016/j.tree.2015.06.014
+Connell, S. D., D. G. Nimmo, G. Ghedini, R. Mac Nally, and A. F. Bennett. 2016. Ecological resistance - why mechanisms matter: a reply to Sundstrom et al. Trends in Ecology & Evolution 31(6):413-414. https://doi.org/10.1016/j.tree.2016.03.015
+Costanza, R., R. de Groot, L. Braat, I. Kubiszewski, L. Fioramonti, P. Sutton, S. Farber, and M. Grasso. 2017. Twenty years of ecosystem services: how far have we come and how far do we still need to go? Ecosystem Services 28:1-16. https://doi.org/10.1016/j.ecoser.2017.09.008
+Cumming, G. S. 2011. Spatial resilience: integrating landscape ecology, resilience, and sustainability. Landscape Ecology 26(7):899-909. https://doi.org/10.1007/s10980-011-9623-1
+Cumming, G. S., and J. Collier. 2005. Change and identity in complex systems. Ecology and Society 10(1):29. https://doi.org/10.5751/ES-01252-100129
+Daily, G. C., and M. Ruckelshaus. 2022. 25 years of valuing ecosystems in decision-making. Nature 606(7914):465-466. https://doi.org/10.1038/d41586-022-01480-x
+Dakos, V., and J. Bascompte. 2014. Critical slowing down as early warning for the onset of collapse in mutualistic communities. Proceedings of the National Academy of Sciences 111(49):17546-17551. https://doi.org/10.1073/pnas.1406326111
+Dakos, V., and S. Kéfi. 2022. Ecological resilience: what to measure and how. Environmental Research Letters 17(4):043003. https://doi.org/10.1088/1748-9326/ac5767
+De Angelis, D. L., and J. C. Waterhouse. 1987. Equilibrium and nonequilibrium concepts in ecological models. Ecological Monographs 57(1):1-21. https://doi.org/10.2307/1942636
+Delettre, O. 2021. Identity of ecological systems and the meaning of resilience. Journal of Ecology 109(9):3147-3156. https://doi.org/10.1111/1365-2745.13655
+Domínguez-García, V., V. Dakos, and S. Kéfi. 2019. Unveiling dimensions of stability in complex ecological networks. Proceedings of the National Academy of Sciences 116(51):25714-25720. https://doi.org/10.1073/pnas.1904470116
+Donohue, I., H. Hillebrand, J. M. Montoya, O. L. Petchey, S. L. Pimm, M. S. Fowler, K. Healy, A. L. Jackson, M. Lurgi, D. McClean, N. E. O’Connor, E. J. O’Gorman, and Q. Yang. 2016. Navigating the complexity of ecological stability. Ecology Letters 19(9):1172-1185. https://doi.org/10.1111/ele.12648
+Doolittle, W. F., and S. A. Inkpen. 2018. Processes and patterns of interaction as units of selection: an introduction to ITSNTS thinking. Proceedings of the National Academy of Sciences 115(16):4006-4014. https://doi.org/10.1073/pnas.1722232115
+Elton, C. S. 1958. The reasons for conservation. Pages 143-153 in C. S. Elton, editor. The ecology of invasions by animals and plants. Springer, Dordrecht, The Netherlands. https://doi.org/10.1007/978-94-009-5851-7_8
+Fischer, J., S. Farny, D. J. Abson, V. Zuin Zeidler, M. Von Salisch, S. Schaltegger, B. Martín-López, V. M. Temperton, and K. Kümmerer. 2024. Mainstreaming regenerative dynamics for sustainability. Nature Sustainability 7:964-972. https://doi.org/10.1038/s41893-024-01368-w
+Folke, C., S. Carpenter, B. Walker, M. Scheffer, T. Elmqvist, L. Gunderson, and C. S. Holling. 2004. Regime shifts, resilience, and biodiversity in ecosystem management. Annual Review of Ecology, Evolution, and Systematics 35(1):557-581. https://doi.org/10.1146/annurev.ecolsys.35.021103.105711
+Gardner, M. R., and W. R. Ashby. 1970. Connectance of large dynamic (cybernetic) systems: critical values for stability. Nature 228(5273):784. https://doi.org/10.1038/228784a
+Gessler, A., A. Bottero, J. Marshall, and M. Arend. 2020. The way back: recovery of trees from drought and its implication for acclimation. New Phytologist 228(6):1704-1709. https://doi.org/10.1111/nph.16703
+Gilbert, C., G. Robertson, Y. Le Maho, Y. Naito, and A. Ancel. 2006. Huddling behavior in Emperor Penguins: dynamics of huddling. Physiology & Behavior 88(4):479-488. https://doi.org/10.1016/j.physbeh.2006.04.024
+Grafton, R. Q., L. Doyen, C. Béné, E. Borgomeo, K. Brooks, L. Chu, G. S. Cumming, J. Dixon, S. Dovers, D. Garrick, et al. 2019. Realizing resilience for decision-making. Nature Sustainability 2(10):907-913. https://doi.org/10.1038/s41893-019-0376-1
+Grimm, V., and C. Wissel. 1997. Babel, or the ecological stability discussions: an inventory and analysis of terminology and a guide for avoiding confusion. Oecologia 109(3):323-330. https://doi.org/10.1007/s004420050090
+Hansson, S. O., and G. Helgesson. 2003. What is stability? Synthese 136(2):219-235. https://doi.org/10.1023/A:1024733424521
+Hodgson, D., J. L. McDonald, and D. J. Hosken. 2015. What do you mean, ‘resilient’? Trends in Ecology & Evolution 30(9):503-506. https://doi.org/10.1016/j.tree.2015.06.010
+Holling, C. S. 1973. Resilience and stability of ecological systems. Annual Review of Ecology & Systematics 4(1):1-23.
+Holling, C. S. 1996. Engineering resilience versus ecological resilience. Pages 31-43 in P. C. Schulze, editor. Engineering within ecological constraints. National Academy, Washington, D.C., USA. https://doi.org/10.17226/4919
+Holling, C. S. 2001. Understanding the complexity of economic, ecological, and social systems. Ecosystems 4(5):390-405. https://doi.org/10.1007/s10021-001-0101-5
+Ingrisch, J., and M. Bahn. 2018. Towards a comparable quantification of resilience. Trends in Ecology & Evolution 33(4):251-259. https://doi.org/10.1016/j.tree.2018.01.013
+Ives, A. R., and S. R. Carpenter. 2007. Stability and diversity of ecosystems. Science 317(5834):58-62. https://doi.org/10.1126/science.1133258
+Jansen, V. A. A., and G. D. Kokkoris. 2003. Complexity and stability revisited. Ecology Letters 6(6):498-502. https://doi.org/10.1046/j.1461-0248.2003.00464.x
+Jax, K. 2006. Ecological units: definitions and application. Quarterly Review of Biology 81(3):237-257. https://doi.org/10.1086/506237
+Jax, K., C. G. Jones, and S. T. A. Pickett. 1998. The self-identity of ecological units. Oikos 82(2):253-264. https://doi.org/10.2307/3546965
+Justus, J. 2007. The stability-diversity-complexity debate of theoretical community ecology: a philosophical analysis. Dissertation. The University of Texas at Austin, USA.
+Kéfi, S., V. Domínguez‐García, I. Donohue, C. Fontaine, E. Thébault, and V. Dakos. 2019. Advancing our understanding of ecological stability. Ecology Letters 22(9):1349-1356. https://doi.org/10.1111/ele.13340
+Kendall, B. E., C. J. Briggs, W. W. Murdoch, P. Turchin, S. P. Ellner, E. McCauley, R. M. Nisbet, and S. N. Wood. 1999. Why do populations cycle? A synthesis of statistical and mechanistic modeling approaches. Ecology 80(6):1789-1805. https://doi.org/10.1890/0012-9658(1999)080[1789:WDPCAS]2.0.CO;2
+Kirschbaum, M. U. F. 2004. Direct and indirect climate change effects on photosynthesis and transpiration. Plant Biology 6(3):242-253. https://doi.org/10.1055/s-2004-820883
+Landi, P., H. O. Minoarivelo, Å. Brännström, C. Hui, and U. Dieckmann. 2018. Complexity and stability of adaptive ecological networks: a survey of the theory in community ecology. Pages 209-248 in P. Mensah, D. Katerere, S. Hachigonta, and A. Roodt, editors. Systems analysis approach for complex global challenges. Springer, Cham, Switzerland. https://doi.org/10.1007/978-3-319-71486-8_12
+Law, R., and J. C. Blackford. 1992. Self-assembling food webs: a global viewpoint of coexistence of species in Lotka-Volterra communities. Ecology 73(2):567-578. https://doi.org/10.2307/1940763
+Leclère, D., M. Obersteiner, M. Barrett, S. H. M. Butchart, A. Chaudhary, A. De Palma, F. A. J. DeClerck, M. Di Marco, J. C. Doelman, M. Dürauer, R. Freeman, M. Harfoot, T. Hasegawa, S. Hellweg, J. P. Hilbers, S. L. L. Hill, F. Humpenöder, N. Jennings, T. Krisztin, G. M. Mace, H. Ohashi, A. Popp, A. Purvis, A. M. Schipper, A. Tabeau, H. Valin, H. van Meijl, W.-J. van Zeist, P. Visconti, R. Alkemade, R. Almond, G. Bunting, N. D. Burgess, S. E. Cornell, F. Di Fulvio, S. Ferrier, S. Fritz, S. Fujimori, M. Grooten, T. Harwood, P. Havlík, M. Herrero, A. J. Hoskins, M. Jung, T. Kram, H. Lotze-Campen, T. Matsui, C. Meyer, D. Nel, T. Newbold, G. Schmidt-Traub, E. Stehfest, B. B. N. Strassburg, D. P. van Vuuren, C. Ware, J. E. M. Watson, W. Wu, and L. Young. 2020. Bending the curve of terrestrial biodiversity needs an integrated strategy. Nature 585(7826):551-556. https://doi.org/10.1038/s41586-020-2705-y
+Lewontin, R. C., and D. Cohen. 1969. On population growth in a randomly varying environment. Proceedings of the National Academy of Sciences 62(4):1056-1069. https://doi.org/10.1073/pnas.62.4.1056
+Lovelock, J. 2008. A geophysiologist’s thoughts on geoengineering. Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 366(1882):3883-3890. https://doi.org/10.1098/rsta.2008.0135
+Ludwig, D., B. Walker, and C. S. Holling. 1997. Sustainability, stability, and resilience. Conservation Ecology 1(1):7. https://doi.org/10.5751/ES-00012-010107
+MacArthur, R. 1955. Fluctuations of animal populations and a measure of community stability. Ecology 36(3):533-536. https://doi.org/10.2307/1929601
+May, R. M. 1972. Will a large complex system be stable? Nature 238(5364):413-414. https://doi.org/10.1038/238413a
+May, R. M. 1973. Stability and complexity in model ecosystems. Princeton University Press, Princeton, New Jersey, USA.
+May, R. M. 1977. Thresholds and breakpoints in ecosystems with a multiplicity of stable states. Nature 269(5628):471-477. https://doi.org/10.1038/269471a
+McCann, K. S. 2011. Food webs (MPB-50). Princeton University Press, Princeton, New Jersey, USA. https://doi.org/10.23943/princeton/9780691134178.001.0001
+Menck, P. J., J. Heitzig, N. Marwan, and J. Kurths. 2013. How basin stability complements the linear-stability paradigm. Nature Physics 9(2):89-92. https://doi.org/10.1038/nphys2516
+Mitra, C., J. Kurths, and R. V. Donner. 2015. An integrative quantifier of multistability in complex systems based on ecological resilience. Scientific Reports 5(1):16196. https://doi.org/10.1038/srep16196
+Molinos, J. G., and I. Donohue. 2011. Temporal variability within disturbance events regulates their effects on natural communities. Oecologia 166(3):795-806. https://doi.org/10.1007/s00442-011-1923-2
+Mrowicki, R. J., N. E. O’Connor, and I. Donohue. 2016. Temporal variability of a single population can determine the vulnerability of communities to perturbations. Journal of Ecology 104(3):887-897. https://doi.org/10.1111/1365-2745.12533
+Myers, N. 1997. The world’s forests and their ecosystem services. Pages 215-235 in G. C. Daily, editor. Nature’s services: societal dependence on natural ecosystems. Island Press, Washington, D.C., USA.
+Noy-Meir, I. 1974. Stability in arid ecosystems and the effects of man on it. Pages 220-225 in Proceedings of the First International Congress of Ecology. Center for Agricultural Publishing and Documentation Wageningen, The Netherlands.
+Odum, E. P. 1953. Fundamentals of ecology. W. B Saunders, Philadelphia, Pennsylvania, USA.
+Orians, G. H. 1974. Diversity, stability and maturity in natural ecosystems. Pages 139-150 in W. H. van Dobben and R. H. Lowe-McConnell, editors. Unifying concepts in ecology: report of the plenary sessions of the First international congress of ecology, The Hague, the Netherlands, September 8-14, 1974. Springer, Dordrecht, The Netherlands. https://doi.org/10.1007/978-94-010-1954-5_11
+Pimentel, D. 1961. Species diversity and insect population outbreaks. Annals of the Entomological Society of America 54(1):76-86. https://doi.org/10.1093/aesa/54.1.76
+Pimm, S. L. 1984. The complexity and stability of ecosystems. Nature 307(5949):321-326. https://doi.org/10.1038/307321a
+Pimm, S. L., I. Donohue, J. M. Montoya, and M. Loreau. 2019. Measuring resilience is essential to understand it. Nature Sustainability 2(10):895-897. https://doi.org/10.1038/s41893-019-0399-7
+Rahmonov, O., S. Skreczko, and M. Rahmonov. 2021. Changes in soil features and phytomass during vegetation succession in sandy areas. Land 10(3):265. https://doi.org/10.3390/land10030265
+Rockström, J., J. Williams, G. Daily, A. Noble, N. Matthews, L. Gordon, H. Wetterstrand, F. DeClerck, M. Shah, P. Steduto, C. De Fraiture, N. Hatibu, O. Unver, J. Bird, L. Sibanda, and J. Smith. 2017. Sustainable intensification of agriculture for human prosperity and global sustainability. Ambio 46(1):4-17. https://doi.org/10.1007/s13280-016-0793-6
+Rohr, R. P., S. Saavedra, and J. Bascompte. 2014. On the structural stability of mutualistic systems. Science 345(6195). https://doi.org/10.1126/science.1253497
+Rovellini, A. 2020. Modelling regime shifts of coral reefs to sponge reefs. Dissertation. Te Herenga Waka-Victoria University of Wellington, New Zealand. https://doi.org/10.26686/wgtn.17143967.v1
+Ruben, J. 1995. The evolution of endothermy in mammals and birds: from physiology to fossils. Annual Review of Physiology 57:69-95. https://doi.org/10.1146/annurev.ph.57.030195.000441
+Sánchez-Pinillos, M., S. Kéfi, M. De Cáceres, and V. Dakos. 2023. Ecological dynamic regimes: identification, characterization, and comparison. Ecological Monographs 93(4):e1589. https://doi.org/10.1002/ecm.1589
+Scheffer, M., and S. R. Carpenter. 2003. Catastrophic regime shifts in ecosystems: linking theory to observation. Trends in Ecology & Evolution 18(12):648-656. https://doi.org/10.1016/j.tree.2003.09.002
+Scheffer, M., S. R. Carpenter, V. Dakos, and E. H. van Nes. 2015. Generic indicators of ecological resilience: inferring the chance of a critical transition. Annual Review of Ecology, Evolution, and Systematics 46:145-167. https://doi.org/10.1146/annurevecolsys-112414-054242
+Scheffer, M., S. Carpenter, J. A. Foley, C. Folke, and B. Walker. 2001. Catastrophic shifts in ecosystems. Nature 413(6856):591-596. https://doi.org/10.1038/35098000
+Steffen, W., K. Richardson, J. Rockström, S. E. Cornell, I. Fetzer, E. M. Bennett, R. Biggs, S. R. Carpenter, W. De Vries, C. A. De Wit, C. Folke, D. Gerten, J. Heinke, G. M. Mace, L. M. Persson, V. Ramanathan, B. Reyers, and S. Sörlin. 2015. Planetary boundaries: guiding human development on a changing planet. Science 347(6223):1259855. https://doi.org/10.1126/science.1259855
+Strogatz, S. H. 2018. Nonlinear dynamics and chaos: with applications to physics, biology, chemistry, and engineering. Second edition. CRC Press, Boca Raton, Florida, USA. https://doi.org/10.1201/9780429398490
+Sundstrom, S. M., C. R. Allen, and L. Gunderson. 2016. Resisting resilience theory: a response to Connell and Ghedini. Trends in Ecology & Evolution 31(6):412-413. https://doi.org/10.1016/j.tree.2016.03.014
+Van Meerbeek, K., T. Jucker, and J. Svenning. 2021. Unifying the concepts of stability and resilience in ecology. Journal of Ecology 109(9):3114-3132. https://doi.org/10.1111/1365-2745.13651
+Van Nes, E. H., and M. Scheffer. 2007. Slow recovery from perturbations as a generic indicator of a nearby catastrophic shift. American Naturalist 169(6):738-747. https://doi.org/10.1086/516845
+Walker, B., C. S. Holling, S. R. Carpenter, and A. P. Kinzig. 2004. Resilience, adaptability and transformability in social-ecological systems. Ecology and Society 9(2):5. https://doi.org/10.5751/ES-00650-090205
+Zellweger, F., D. Coomes, J. Lenoir, L. Depauw, S. L. Maes, M. Wulf, K. J. Kirby, J. Brunet, M. Kopecký, F. Máliš, W. Schmidt, S. Heinrichs, J. den Ouden, B. Jaroszewicz, G. Buyse, F. Spicher, K. Verheyen, and P. De Frenne. 2019. Seasonal drivers of understorey temperature buffering in temperate deciduous forests across Europe. Global Ecology and Biogeography 28(12):1774-1786. https://doi.org/10.1111/geb.12991
+参考文献可上下滑动查看
+理论生态学读书会
+生态学本身就是一种充满隐喻的、整体化的自然科学方法论，对人类社会的组织、社群、各类系统都提供了观摩自然界的“模型”和“理论”照鉴。理论生态学是理论中的理论、方法中的方法，因此对这一领域的熟悉和梳理，对更系统地走进生态学的思想宝库、熟练分析和研究工具，具有基础而重要的意义。分享理论生态学框架与前沿、对理论生态学进行祛魅和进一步发展其与相关领域的连接，是我们发起举办这次读书会的初衷。“生态学欢迎所有人”——人生而来源于大自然，生活在各种的生态系统之中，终将归宿于大自然，取材自然、问道天地，遵循和应用自然的秩序和规律。相信理论生态学的读书会会给所有参与者带来一次很有启示意义的学习和共研旅程，从方法论的角度深度理解生态系统更本质的规律和特征。
+集智俱乐部联合北京林业大学大学副教授李周园，普利高津奖章得主、Towson大学Brian D. Fath教授以及北京大学理论生态学课题组博士研究生于越共同发起「理论生态学读书会」，旨在深入探讨理论生态学的基础思想与前沿进展，通过分享经典文献与最新研究，促进对生态学复杂性、共存机制及生态系统动态的理解，推动理论生态学与实际生态问题的连接与创新。
+[图]
+详情请见：探索理论生态学：洞察自然秩序之旅
+[图]
+推荐阅读
+1. 自然·通讯：提前一年预警冰川跃动与雨林生态临界点
+2. 科学·前沿：全球数据重新检验生态学“1/10定律”
+3. 现代物理评论：生态学的统计力学——统计物理视角下的生态中性理论
+4. 9900分可兑换“涌现”文化衫，报名任意读书会送299积分！
+5. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+6. 高考分数只是张入场券，你的科研冒险在这里启航！
+7. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+#翻译
+点击“阅读原文”，报名读书会

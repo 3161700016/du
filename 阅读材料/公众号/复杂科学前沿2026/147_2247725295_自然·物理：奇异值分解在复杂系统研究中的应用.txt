@@ -1,0 +1,131 @@
+标题：自然·物理：奇异值分解在复杂系统研究中的应用
+公众号：集智俱乐部
+发布：2026-01-16
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725295&idx=1&sn=3ddc2d4e6b725eeaaf845f453bab226d&chksm=e8982a62dfefa374d3dede7b593efdaf60de8ee98f4ca2a30e19bb932aa8feb882e86cdf17d8#rd
+合集：复杂科学前沿2026 · 序号 147/157
+------------------------------
+[图]
+导语
+复杂系统通常由大量互相作用的异质组成部分构成，这些系统在微观上表现出高维、非线性动力学行为，但其宏观表现往往由少数主导模式决定。这种现象启发了低秩假说（Low-rank hypothesis）：即复杂系统的整体动力学可以通过一个低秩矩阵所描述的相互作用模式进行有效近似。奇异值分解（Singular Value Decomposition, SVD）正是揭示这种低秩结构的核心数学工具，它能够从高维、嘈杂的数据中提取最重要的模式，形成对系统降维的自然框架。
+本文是《The low-rank hypothesis of complex systems》论文的《II. SVD IN THE STUDY OF COMPLEX SYSTEMS》部分，论文正文见集智俱乐部公众号1月15日文章《自然·物理：复杂系统的低秩假说》。
+关键词：奇异值分解，有效秩（Effective Rank），中心性度量（Centrality Measures），随机图（Random Graphs），自适应网络（Adaptive Network）
+[图][图][图][图]
+王璇丨作者
+赵思怡丨审校
+[图]
+论文题目：The low-rank hypothesis of complex systems
+论文链接：https://www.nature.com/articles/s41567-023-02303-0
+发表时间：2024 年 1 月 10 日
+论文来源：Nature Physics
+当你对AI说“画一只有戴帽子的微笑猫”，它为何能理解并生成这幅不存在的图像？AI的“思考”并非像素层面的操作，而是对语义的捕捉与建模。在看似魔法般的创作背后，是数学在悄然搭建一座桥梁。一端是抽象的文字描述（“猫”“帽子”“微笑”），另一端是具体的视觉图像。这座桥梁的核心支柱，便是奇异值分解（Singular Value Decomposition, SVD）。
+从生成“戴帽子的猫”的语义潜在空间回到现实世界中的复杂系统，SVD的核心思想是从高维、嘈杂的数据中提取少数主导模式。同样构成了理解复杂系统结构与其动力学行为的关键数学支柱。若将AI绘画中的“语义方向”类比于复杂系统中的“主导相互作用模式”，那么SVD正是揭示这些隐藏模式、实现系统降维描述的通用语言。
+[图]
+详情请见《线性代数：一名合格科研人的筑基课丨新课上线》
+在复杂系统的研究中，一个基础且影响深远的现象是：尽管系统在微观上可能包含海量组分与错综复杂的相互作用，但其宏观行为往往由少数几个关键变量或模式主导。这便是复杂系统的“低秩假说”。本部分内容将从随机图理论的视角切入，系统性地检视这一假设。在众多广泛使用的网络模型中，其权重矩阵的期望值天然蕴含低秩结构，这为低秩假设提供了坚实的理论基础。针对难以直接显式分解的模型（如有向软配置模型及其加权版本），严格证明其奇异值以指数级速度衰减，从而在更深刻的意义上验证了低秩近似的合理性。
+进一步地，研究者们不仅满足于“低秩”的定性判断，而且通过有效秩这一系列定量指标，来刻画奇异值衰减的快慢，并探究其背后的标度规律。不同的衰减模式（如指数、幂律）将导致有效秩迥异的渐近行为，这为理解不同类别网络的“内在维度”提供了精确的度量。此外，SVD为有向、加权乃至带符号的网络提供了天然、稳定的中心性度量（权威中心性与枢纽中心性），避免了特征值分解可能带来的复数困境。
+研究者还初步探索复杂系统的动态适应性。在自适应网络中，网络结构本身会随动力学或外部环境演变，其有效秩也可能随之演化，这为理解学习、演化等过程提供了新的视角。最后，简要概述SVD在动力系统降维中的强大作用，它将系统的奇异值谱与降维误差直接关联，为在高维网络动力学中提取可理解的宏观方程奠定了理论基础。
+总而言之，从静态的网络结构到动态的演化过程，从理论的随机模型到实证的真实系统，SVD提供了一套连贯、强大且可计算的理论工具，用以捕捉复杂系统中那“多者异也”（More is different）的简约之美。
+随机图的SVD
+尽管随机图及其特征值谱的研究历史悠久[1–11]，但其SVD性质在文献中关注较少。实际上，许多网络科学[12]或谱图论[2, 13, 14]入门教材甚至未涉及SVD。然而，正如复杂系统分析所显示，SVD为理解网络的低秩结构与动力学模式提供了强大工具，因此值得更多关注。
+考虑一个随机网络模型，其邻接矩阵或权重矩阵W可以写作：
+[图]
+其中R是零均值随机矩阵，〈W〉是（确定性）期望权重矩阵。通常，〈W〉依赖于一个低秩矩阵L的函数：
+[图]
+其中Φ为矩阵值函数，其元素形式为φ(Lij），对所有节点对i,j应用同一标量函数φ。从低秩角度，可以总存在一个秩分解
+[图]
+其中L,R是N×1矩阵，r是〈W〉的秩。另一种等价表示是秩一矩阵的线性组合：
+[图]
+其中aμ、cμ 是 N×1 向量，αμν对所有μ, ν是实常数，这种表示形式显示了期望权重矩阵本质上由少数基向量的外积构成，从而自然具备低秩特性。
+然而，并非所有网络模型都满足低秩特性。例如Watts-Strogatz模型可表示为带状矩阵与随机扰动矩阵的和：
+[图]
+其中 Dk是一个带宽为k的带状矩阵，其k条上次对角线和次对角线元素为 1，而R是一个矩阵，对于每个以概率p重连的位置，其元素为-1或1。其奇异值衰减通常不呈指数型，说明其有效秩较高。这类例子提醒我们，低秩并非普适规律，而是广泛存在于大多数随机网络与复杂系统模型中。
+在物理学、机器学习及神经科学中，也存在明确的低秩例子：如Sherrington-Kirkpatrick自旋玻璃模型的相互作用矩阵，其期望矩阵为秩一形式；经典随机矩阵高斯系综在〈W〉=0时秩为零；其他尖峰随机矩阵或有限秩外源随机矩阵则体现了低秩结构在大规模极限下的普适性。
+值得注意的是，即便期望矩阵〈W〉明确依赖低秩矩阵L，实际矩阵W的有效低秩性仍需通过奇异值谱分析来验证。例如，在软配置模型中，尽管没有显式的秩分解，其奇异值仍呈指数级快速衰减。这一现象将在下一节通过有向软配置模型与最大熵随机图的分析得到严格证明。
+有向软配置模型中奇异值的指数级递减
+在复杂网络分析中，我们通常只能获取网络的部分信息。因此，将观察到的复杂网络描述为一组可能的网络，每个网络具有一定概率，是合理的。为了在最小偏差的前提下确定这些概率分布，可以依赖香农熵的最大化原理[15]。这种方法保证在给定约束下网络模型最无偏，从而广泛应用于随机图模型的构建。
+最大熵网络模型的拉格朗日乘子法
+最大熵网络模型通常通过拉格朗日乘子法得到。这一方法最早由拉格朗日和欧拉提出，但在严格数学表述上，Carathéodory 在 1935 年的变分法著作中系统阐明了其适用条件。其核心思想是：在约束条件下，最大熵概率分布可表示为指数族形式。
+对于随机邻接矩阵A，在满足某些软约束（如期望度数或其他结构量）的情况下，最大熵概率分布为：
+[图]
+其中hμ(a)表示约束函数，λμ是对应的拉格朗日乘子。这种形式保证了在给定约束下熵最大，即网络模型在未观测信息上最无偏。
+有向软配置模型（DSCM）
+在有向网络中，软配置模型通过约束期望入度和出度，得到最大熵分布。其概率质量函数为：
+[图]
+其中αi和βj是正数，∀i,j∈{1,…,N}，由入度和出度约束确定。
+这个公式揭示了期望矩阵元素遵循Fermi-Dirac 分布，保证所有值在 (0,1) 之间。
+奇异值分解与指数衰减
+期望邻接矩阵可以表示为一系列秩为一的矩阵之和，每一项对应一个奇异值。这一分解揭示了奇异值的快速衰减规律。通过数学推导可知，若矩阵元素满足适度条件（如小于 1/2），则其奇异值至少以指数速度下降：
+[图]
+类似地，在另一类参数条件下，奇异值也存在类似的指数上界。这一性质表明，有向软配置模型的期望邻接矩阵是低秩近似的，这对于网络压缩、降维以及社区发现具有重要意义。
+在加权网络中，最大熵方法同样适用。对权重矩阵W的期望值进行分析，可得到类似的指数衰减，与有向软配置模型不同，权重矩阵的元素遵循 Bose-Einstein 分布，其取值域不受限制，但奇异值仍然呈指数衰减趋势。这表明，即使在加权网络中，主要结构信息仍高度集中于少数奇异向量上。
+奇异值分布和矩阵密度对有效秩的影响
+本小节关注一个核心问题：奇异值的衰减形态如何决定矩阵的有效秩，并由此刻画复杂系统的“内在维度”。为此，我们引入三类常用的有效秩指标——稳定秩（srank）、核范数秩（nrank）与熵秩（erank），并系统分析它们在不同奇异值分布下的渐近行为。
+整体思路并不依赖具体模型的细节，而是围绕一个更为抽象、却极具解释力的概念展开：奇异值包络线。通过为真实奇异值序列构造上下界包络函数，可以将离散谱问题转化为连续函数的积分估计问题，从而大幅简化分析，同时保留对渐近行为的精确控制。
+奇异值包络线
+设矩阵W的奇异值按大小排序为[图]。我们通过两个单调递减的函数ψ*(x)与ψ*(x)，在连续区间[1,N]上对归一化奇异值σi/σ1进行夹逼：
+[图]
+这两个函数在x=1处归一化为1，从而避免通过整体缩放人为引入虚假的秩标度。
+这一设定的关键意义在于：有效秩的大小不再依赖于每一个具体奇异值，而主要由其整体衰减轮廓所决定。
+[图]
+图S4：典型的奇异值包络函数 w(x)，描述了归一化奇异值σi/σ1随连续变量 x（在索引 i 之间插值）的递减行为，及其对srank、nrank和erank渐近行为的影响（右下子图）。
+除了奇异值的衰减形态，矩阵的密度同样会影响有效秩，尤其是稳定秩。一般而言，在其他条件相同的情况下，更稠密的矩阵往往具有更高的稳定秩，这一结论可通过通用不等式直接给出。这为比较不同网络（如稀疏真实网络与稠密随机模型）提供了额外的结构维度。
+有向网络的中心性度量
+对于有向网络，其对应矩阵的特征值与特征向量通常为复数，这使得基于特征值分解的传统中心性定义在解释和应用上面临困难。因此，在有向情形下，有必要对中心性度量的构造方式进行调整。一种自然且稳定的替代方案是采用奇异值分解（SVD）。
+基于有向网络的 SVD，可以得到两类互补的顶点中心性度量：权威中心性（authority centrality），对应于主导左奇异向量 u1；以及枢纽中心性（hub centrality）对应于主导右奇异向量v1[16, 17]，如图 S5 所示。
+这一点指导了在构造降维动力学时对可观测量的选择。同时，当在定理 S57 中采用右奇异向量作为降维矩阵时，这一视角也有助于理解其中出现的不同项与方程所具有的物理或结构含义。
+需要指出的是，在带符号网络（即由包含负权重的矩阵描述的网络）中，上述基于 SVD 的中心性度量可能存在解释上的歧义。这是因为在该情形下，主导左、右奇异向量通常包含正负混合的分量，经典的 Perron–Frobenius 定理 [4] 不再适用，从而无法保证中心性向量的非负性与唯一性。这一限制提示，在处理带符号网络时，有必要对中心性的定义及其物理含义进行更为谨慎的解读。
+[图]
+图 S5：（a）权威中心性与枢纽中心性分别由主导左奇异向量与主导右奇异向量的分量给出。（b）幼年斑马鱼（Danio rerio）中尺度连接组网络的中心性分布，该网络包含N=71个社区，并加入了自环（改编自文献 [18]）。
+自适应网络
+复杂系统不仅由其非线性动力学和网络结构所刻画，还体现在其对环境变化的适应能力上 [19]。因此，一个复杂网络的有效秩可能随时间和系统状态发生变化。通过一个初步研究考察了这一现象，方法是提取秀丽隐杆线虫（C. elegans）连接组在不同成熟阶段的有效秩，如图 S6 所示。结果显示，稳定秩会随个体年龄增长而减小。关于这一现象，还需要进一步研究，以检验这种下降是否具有统计显著性，并阐明有效秩随成熟阶段降低所对应的生物学含义。
+[图]
+图 S6：描述秀丽隐杆线虫大脑连接结构的矩阵在不同成熟阶段的奇异值分布。对应的稳定秩分别为：21.6（发育阶段 1）、19.7（发育阶段 5）以及 18.5（发育阶段 8）。
+此外，文献 [20] 的数值计算表明，对神经网络进行训练会降低其稳定秩。这一现象在一定程度上与上述生物学实例观察到的趋势一致，提示稳定秩可能与网络功能优化和适应性调节密切相关。
+动力系统中的奇异值分解
+SVD在动力系统中的应用范围非常广泛，尤其是在工程学和线性控制系统领域中 [21]。此外，SVD 也已经被推广到非线性算符的情形 [22]。甚至还可以对随时间演化的矩阵动力学，构造一种近似最优的低秩近似，其中矩阵U、∑、V⊤本身随时间变化 [23]。这类方法在研究时间网络（temporal networks）时具有潜在的应用前景 [24]。
+在降维实践中，如何合理选择降维矩阵M往往是一个具有挑战的问题 [25] ，SVD 的一个重要优势在于：其奇异值为非负实数，奇异向量为实向量。这使得奇异值分解在解析谱结构和为动力学定义可解释的观测量时特别有用。相比之下，若采用一般实矩阵的特征值分解，降维矩阵可能为复数，从而导致原本实值的动力系统在降维后表现为复动力学 [25, 26]。
+从静态网络结构到动态演化过程，从随机模型到真实系统，SVD提供了一套连贯、强大且可计算的理论工具。它揭示了复杂系统中“多者异也”的简约之美，将高维复杂行为映射为少数主导模式，为网络压缩、降维、中心性度量及动力学建模提供坚实的数学基础。
+参考文献
+[1] Z. Füredi and J. Komlós, "The eigenvalues of random symmetric matrices," Combinatorica 1, 233 (1981).
+[2] P. Bonacich, "Power and Centrality: A Family of Measures," Am. J. Sociol. 92, 1170 (1987); F. Chung, Spectral Graph Theory (CBMS, Rhode Island, 1994).
+[3] F. Chung, L. Lu, and V. Vu, "Spectra of random graphs with given expected degrees," Proc. Natl. Acad. Sci. U.S.A. 100, 6313 (2003).
+[4] S. N. Dorogovtsev, A. V. Goltsev, J. F. F. Mendes, and A. N. Samukhin, "Spectra of complex networks," Phys. Rev. E 68, 046109 (2003).
+[5] P. Van Mieghem, Graph Spectra for Complex Networks (Cambridge University Press, 2011).
+[6] F. Chung and M. Radcliffe, "On the spectra of general random graphs," Electron. J. Comb. 18, P215 (2011).
+[7] R. R. Nadakuditi and M. E. J. Newman, "Graph Spectra and the Detectability of Community Structure in Networks," Phys. Rev. Lett. 108, 188701 (2012).
+[8] T. P. Peixoto, "Eigenvalue Spectra of Modular Networks," Phys. Rev. Lett. 111, 098701 (2013).
+[9] C. Castellano and R. Pastor-Satorras, "Topological determinants of complex networks spectral properties: structural and dynamical effects," Phys. Rev. X 7, 0414 (2017).
+[10] M. E. J. Newman, X. Zhang, and R. R. Nadakuditi, "Spectra of random networks with arbitrary degrees," Phys. Rev. E 99, 042309 (2019).
+[11] A. Athreya, J. Cape, and M. Tang, "Eigenvalues of stochastic blockmodel graphs and random graphs with low-rank edge probability matrices," Sankhya A 84, 36 (2022).
+[12] E. Estrada and P. Knight, A first course on network science (Oxford University Press, 2015); A.-L. Barabási, Network science (Cambridge University Press, 2016); V. Latora, V. Nicosia, and G. Russo, Complex Networks: Principles, Methods and Applications (Cambridge University Press, 2017); M. E. J. Newman, Networks (Oxford University Press, 2018).
+[13] V. Nikiforov, "The energy of graphs and matrices," J. Math. Anal. Appl. 326, 1472 (2007); B. Nica, A Brief Introduction to Spectral Graph Theory (European Mathematical Society, Zurich, 2018).
+[14] D. M. Cvetkovic, M. Doob, and H. Sachs, "Spectra of graphs. Theory and application," (1980).
+[15] E. T. Jaynes, "Information Theory and Statistical Mechanics," The Phys. Rev. 106, 620 (1957).
+[16] J. M. Kleinberg, "Authoritative sources in a hyperlinked environment," in SODA '98: Proceedings of the ninth annual ACM-SIAM symposium on Discrete algorithms (1998) p. 668.
+[17] M. E. J. Newman, Networks (Oxford University Press, 2018).
+[18] M. Kunst, E. Laurell, N. Mokayes, A. Kramer, F. Kubo, A. M. Fernandes, D. Förster, M. Dal Maschio, and H. Baier, "A Cellular-Resolution Atlas of the Larval Zebrafish Brain," Neuron 103, 21 (2019).
+[19] M. Mitchell, Complexity: A Guided Tour (Oxford University Press, 2009).
+[20] C. H. Martin and M. W. Mahoney, "Implicit self-regularization in deep neural networks: Evidence from random matrix theory and implications for learning," J. Mach. Learn. Res. 22, 1 (2021).
+[21] A. C. Antoulas, Approximation of Large-Scale Dynamical System (SIAM, 2005).
+[22] K. Fujimoto, "What are singular values of nonlinear operators?" in 43rd IEEE Conf. Decis. Control (2004) p. 1623.
+[23] O. Koch and C. Lubich, "Dynamical low-rank approximation," SIAM J. Matrix Anal. Appl. 29, 434 (2007).
+[24] P. Holme and J. Saramäki, "Temporal networks," Phys. Rep. 519, 97 (2012).
+[25] V. Thibeault, G. St-Onge, L. J. Dubé, and P. Desrosiers, "Threefold way to the dimension reduction of dynamics on networks: An application to synchronization," Phys. Rev. Research 2, 043215 (2020).
+[26] V. Thibeault, Réduire la dimension des systèmes complexes : un regard sur l'émergence de la synchronisation, Master's thesis, Université Laval (2020).
+参考文献可上下滑动查看
+线性代数：一名合格科研人的筑基课
+在科研世界中，无论你研究的是人工智能、生物信息、网络科学，还是物理与工程，几乎所有复杂系统的建模与推理都指向同一种底层语言——线性代数。它不仅是计算公式的集合，更是一名科研人理解“结构”、刻画“变换”、判断“稳定性”、提取“信息”的基本思维框架。本课程以系统科学的视角重新解构线性代数，带你越过技巧、直达本质，在跨学科的真实问题中建立起科研必备的数学基石。集智学园联合清华大学数学博士诸葛昌靖老师推出「线性代数：一名合格科研人的筑基课」，并邀请武汉大学数学与统计学院周进教授于1月20日、1月27日就特征值与特征向量在复杂网络中的应用做特别加餐分享。课程已于12月20日开启，欢迎加入社群交流。
+[图]
+详情请见：线性代数：一名合格科研人的筑基课丨新课上线
+[图][图][图]
+推荐阅读
+1. 奇异值分解（SVD）｜集智百科
+2. 机器学习框架NIS+：通过最大化有效信息识别“因果涌现”｜集智百科
+3. 全网最全总结！因果涌现核心指标“有效信息”｜集智百科
+4. 张江：第三代人工智能技术基础——从可微分编程到因果推理 | 集智学园全新课程
+5. 系统科学前沿十讲：探究复杂世界演变背后的规则（二）
+6. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+7. 高考分数只是张入场券，你的科研冒险在这里启航！
+8. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+点击“阅读原文”，报名读书会

@@ -1,0 +1,171 @@
+标题：张江：大语言模型中的自指——递归式自我改进的内省阈值｜集智科学研究中心
+公众号：集智俱乐部
+发布：2026-07-29
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734538&idx=1&sn=83e32ceaf95f24197e463ee3e6b6fd2f&chksm=e8980f87dfef869116cb7372232ac095228a58942b2e4a79782e77f25ba6ad723a4daedb3207#rd
+合集：复杂科学前沿2026 · 序号 018/157
+------------------------------
+[图]
+导语
+这篇文章围绕集智科学研究中心最新论文《大语言模型中的自指：迭代自我改进的自省阈值》展开解读，提出一个核心观点：当前大语言模型之所以难以实现持续、自主的自我进化，并非只是训练方法或算法优化的问题，而是尚未跨越一个更根本的“自省阈值”。文章从冯·诺伊曼的复杂度阈值、自复制自动机、自指理论、递归定理等经典理论出发，构建了“自指→自省→自我改进”的理论链条，并结合近年来关于LLM自我建模、自我评估、自我修改等研究，分析现有Transformer架构在自反射结构、递归计算和内部自访问等方面的局限，最终提出真正能够持续自我演化的AI系统需要具备新的结构基础与计算范式。
+关键词：大语言模型、自指（Self-reference）、自省（Introspection）、自我改进（Self-improvement）、自我演化（Self-evolution）、自省阈值（Introspection Threshold）、递归定理（Kleene Second Recursion Theorem）
+[图][图][图][图][图]
+张江丨作者
+[图]
+论文题目：Self-Reference in Large Language Models: The Introspection Threshold for Recursive Self-Improvement
+论文链接：http://arxiv.org/abs/2607.04277
+发表时间：2026 年 7 月 5 日
+论文来源：arXiv
+[图]
+大模型的自我改进
+Transformer的自注意力机制使得大语言模型有一种神奇的训练后自我改进的能力。你不仅可以用提示词让它自我改进，而且它还可以自己生成数据训练自己。这种能力就是大语言模型的自我改进。例如这两篇文章就说了这件事儿：
+大模型自己生成训练数据训练自己，对齐得比预训练模型还好
+Self-Alignment with Instruction Backtranslation.XianLi,Ping Yu,Chunting Zhou.et al. arXiv:2308.06259（2024）
+大模型用自己的评判和反思以语言的方式完成运行时强化学习
+Reflexion: an autonomous agent with dynamic memory and self-reflection.Noah Shinn,Beck Labash,Ashwin Gopinath.arXiv:2303.11366（2023）
+正是看好大语言模型的这种神奇的自我改进能力，于是全世界的大模型公司都在干一件事：让 AI 自己优化自己，即自我提升（Self-improvement），甚至自己革自己的命，即自我演化（Self-evolution）。于是，OpenAI、DeepMind、Anthropic、阿里，全在下注。不是让工程师调参，是让模型在运行的时候自己反思、自己改 prompt、自己生成更好的训练数据、甚至自己改代码。Anthropic直接发了篇博客文章，说Claude模型的提升已经几乎全部都是模型自己改进的，震惊全世界。
+[图]
+听起来很酷吧？但真的这么厉害吗？
+这些大语言模型在做自我改进的时候有一个共同的毛病：迭代不了几轮就饱和了。例如，知名的自改进 Self-Refine 框架在经历过三四轮之后，性能就涨不动了。
+Self-Refine: Iterative Refinement with Self-Feedback.Aman Madaan,Niket Tandon,Prakhar Gupta.et al.arXiv:2303.17651（2023）
+更糟糕的是，很多模型在自修改之后反而变差了。没有外部标准答案兜底，AI 自己的内部纠错根本靠不住。Huang 他们 2024 年的实验显示，LLM 自己改自己的推理错误，经常越改越错。
+Large Language Models Cannot Self-Correct Reasoning Yet.Jie Huang,Xinyun Chen,Swaroop Mishra.et al.（2023）
+还有一个更隐蔽的问题：模型崩溃。Shumailov 他们发现，用 AI 生成的数据训练下一代 AI，模型会退化。哪怕只有极少量合成数据混进去，也会出事。Acemoglu 甚至推演到了全社会层面：如果网络上的知识越来越多由 AI 生成，整个人类的知识体系可能进入一个崩溃稳态。
+AI models collapse when trained on recursively generated data.Ilia Shumailov,Zakhar Shumaylov,Yiren Zhao.et al.nature（2024）
+所以，我们不禁提出这样一个灵魂追问：：是否这种饱和甚至崩溃现象并不是几个模型的个例，而是有可能存在一道根本性的门槛，让 AI 无法持续自我进化？
+提到门槛，让我们不得不想到一个人：冯·诺依曼（John von Neumann）。
+冯·诺伊曼的复杂度阈值
+1940 年代末，冯·诺依曼在思考一个看起来很朴素的问题：机器能不能自己复制自己？
+之所以思考这个问题，并不是想让机器模仿生命，而是他敏锐地观察到了一个现象：对于人造的系统来说，它的复杂度似乎存在着一道门槛，没有跨过它，则人造系统就会在没有人干预的情况下，不停地降级（degenerate）而退化；相反，自然界的生命似乎就跨越过了这道复杂性门槛，因而可以不断进化、升级。
+这个门槛就被我们描述为“复杂度阈值”（complexity threshold）。你可能会问，这个复杂度怎么度量？阈值又是多少。对不起，冯诺伊曼本人也不知道，这是冯诺伊曼的原话：
+I know no adequate name for it, but it is best described by calling it ‘complication.’ It is effectivity in complication, or the potentiality to do things. I am not thinking about how involved the object is, but how involved its purposive operations are. In this sense, an object is of the highest degree of complexity if it can do very difficult and involved things.
+而关于这个复杂度阈值，他的原话是：
+There is a minimum number of parts below which complication is degenerative, in the sense that if one automaton makes another the second is less complex than the first, but above which it is possible for an automaton to construct other automata of equal or higher complexity. . . .There is thus this completely decisive property of complexity, that there exists a critical size below which the process of synthesis is degenerative, but above which the phenomenon of synthesis, if properly arranged, can become explosive, in other words, where syntheses of automata can proceed in such a manner that each automaton will produce other automata which are more complex and of higher potentialities than itself.
+翻译：存在一个零部件数量下限；若低于该下限，构造过程会发生复杂度退化 —— 即若一台自动机生成另一台自动机，后者的复杂度必然低于前者。而一旦高于该下限，自动机就有能力构造出复杂度与自身持平、甚至更高的其他自动机。
+……
+由此，复杂度具备一项具有决定性的核心特性：存在一个临界规模。当系统规模低于该临界值时，合成构造过程只会带来复杂度衰减；但当规模高于临界值，只要构造流程设计得当，合成现象将呈现爆发式增长。换言之，自动机的合成过程可以形成这样一种模式：每一台自动机都能产出复杂度、潜在能力均超越自身的新自动机。
+上面两段话都摘自：
+Theory of Self-Reproducing AutomataJohn von NeumannUMl Reprint University Illinois 1966 Ed（2002）
+[图]
+尽管不知道这个复杂度阈值怎么计算，但冯诺伊曼很确定的是，这个阈值会和机器的自我复制能力有关。也就是说，只有一台机器的复杂程度足够高，以至于可以支撑自我复制这种能力的时候，机器才有可能不断地进化升级下去，否则就只能退化降级。这才是冯诺伊曼要开启自复制机器研究的原因。关于复杂度阈值和冯诺伊曼这本书的更多内容可以参考：
+东方和尚对《自复制自动机理论》一书前五章的翻译：自复制自动机理论前五章中文翻译东方和尚, Jake（2011）
+自复制自动机
+提到自复制的机器，你可能会觉得这有什么难的？复制一个文件而已。但冯·诺依曼强调的是“自己”。你给我一台机器，不借助任何外部设备，它能不能从散落的零件里组装出一个和自己一模一样的机器？这里的关键是不能依靠外物，而只能依靠自己。
+可是，你仔细想想就会发现，不依靠外物，只能依靠自己，这怎么可能呢？冯诺伊曼是这样解释的，无中生有显然不可能，但想象一下一个漂着大大小小各种构造机器所需要的零部件的池塘，自复制机器可以在这个池塘里自由游荡，拾起一些零部件组装起来，那么这台机器有没有可能组装出一个一模一样的自己呢？
+冯·诺依曼给出了他的解决方案，如图所示。
+[图]自复制机器的自复制过程
+这个方案非常具体：一个能自我复制的机器，必须包含两个部分。一台机器，能按图纸组装任何东西。加上一份描述这台机器自己的图纸。你看出来了吗？图纸上画的是机器自己， 这就是自指。
+机器本身又包含了三部分，一个通用构造器（A），一个拷贝器（B），和一个控制器（C）。A的作用是按照输入的图纸上的描述在现实世界中打造出机器。之所以叫做通用构造器，是因为它可以把任意机器图纸变为相应的机器。B的作用是将图纸复印一份，得到一模一样的图纸；C的作用就像一个监工，它监督着A和B在恰当的场合完成构造和拷贝。
+除此之外，还有一张图纸，图纸上的内容刚好是A+B+C的描述，记为ϕ(A+B+C)。
+因此，整个自复制的整体就是：A+B+C+ϕ(A+B+C)。这就像一个叫做A+B+C的机器在照镜子（因为ϕ(A+B+C)是它的图纸描述，也可以理解为一个虚拟的镜像）。神奇的是，在C的监督调控下，它的确可以完成自复制，如上图所示。
+更有意思的是，自复制机器一旦实现，还可以通过基因变异而实现达尔文式的进化。如果整个自复制机器还有一个附属部分叫做D，并且我们也能得到D的完整描述（图纸），则这个有附属部分的自复制系统就是：A+B+C+D+ϕ(A+B+C+D)，这仍然是一个完备的自复制系统。
+假设此时，机器会受到来自环境的扰动（热力学噪音）而发生变异，这个扰动会破坏机器中的某一个部分，导致它发生变异。假如变异的是A、B、C、D中的任何一个部分，则机器便可能不能正常工作。但是如果变异的是ϕ(A+B+C+D)中的某部分（即变异的是图纸），则会出现如下几种情况。如果变异的是A，B，C的一部分，则机器仍然能存活，但是它无法复制自身了，因此不能产生下一代。但如果，变异的是D的图纸，使它变成了新的图纸D′，则整个系统不仅还能完整的自复制，而且能够产生新的可遗传的变异，在A,B,C的自复制逻辑运作下，会诞生新的自复制系统：A+B+C+D′+ϕ(A+B+C+D′)，这是一个完整的新的自复制系统。因此，只要变异发生在D的图纸这部分，则就会产生可遗传的变异，这便可以构成达尔文式进化。
+因此，自复制逻辑不仅仅可以让机器复制自身，它也是达尔文式进化的基础。
+自指
+其实，自复制是一种特殊形式的自指（Self-reference）。什么是自指呢？Douglas Hofstadter（中文名：候世达或侯道仁） 在奇书《哥德尔、埃舍尔、巴赫》里给出了大量丰富的案例。
+哥德尔、埃舍尔、巴赫侯世达 Douglas Richard Hofstadter商务印书馆（1997）
+[图]
+自指最早出现在语言中，例如“这句话是错的”就是一个经典的自指语句。到了20世纪初，自指出现在了数学中，并直接导致了第三次数学危机的出现。罗素悖论、哥德尔定理、图灵停机问题等都与自指有关。这就容易给人造成一种印象：自指总是会带来逻辑矛盾和体系的崩溃。
+但实际上，自指悖论只是一种自指现象，不妨称为“破坏性自指”；除此之外，类似自复制自动机这样的系统则是另一种自指，不妨称为“构造性自指”，这种自指现象不但不会带来矛盾和破坏，而且还是构成生命和创造性的基础。
+实际上，早在20世纪的中叶，数学家们早就将各种形式的自指研究得非常透彻。比如，在递归函数论中，就有一个被称为Kleene第二递归定理的定理，由它可以直接推导出类似冯诺伊曼自复制自动机这样的机器的存在性。这个递归定理可以通俗地表示如下：
+Kleene第二递归定理：对于任意的可以在全部定义域上在有限时间步内完成计算的程序f，总可以找到另一个程序，它的源代码为c，使得执行c的结果，等价于将代码c喂给f执行得到的结果。
+你不妨将f(x)定义为复制图纸x，并根据图纸x构造出它所描述的那台机器，那么这个对应的c就是自复制机器的源代码。
+由递归定理，你还可以证明，存在着一个有趣的程序，它的唯一功能就是打印自己的源代码，这个程序被命名为Quine 程序：将f(x)定义为打印x，则套用递归定理，对应的c就是打印自己源代码的程序。我们可以用python给出一个自打印源代码的示例：
+c: str = ’c: str =%r;print(c %% c)’;print(c % c)
+从自指到自省
+从递归定理，我们还能得到一个有趣的推论，必然存在着可以模拟自身行为T个时间步的程序，Cutland在他的经典教科书《可计算性：递归函数导论》，直接将这个程序称为“自省”（introspection）。
+Computability: An Introduction to Recursive Function TheoryNigel CutlandCambridge University Press（1980）
+[图]
+根据递归定理，不妨令f(x)定义为在通用模拟器U上模拟代码为x的程序运行T时间步。则，可以构造出一个源代码c∗，运行它的结果相当于这个程序模拟自己在模拟器U上运行T步。因此，这便是一个模拟自身行为的程序。为什么叫它“自省”（Introspection）呢？这是因为，当我们人类进行自省的时候，其实也是在头脑中的一个虚拟模拟器中模拟自身的行为或状态。
+我们也可以仿照自复制自动机的构造，设计出自省程序。自省程序包含四个部分：通用模拟器U；拷贝器或填充器CF，它的作用是把输入x拷贝一份，并喂给模拟器U；控制器C，它的作用也是为了监督协调整个自模拟过程。最后所有这三部分的图纸为：ϕ(U+CF+C)，整个自模拟系统就是：U+CF+C+ϕ(U+CF+C)。
+我们可以用下图将各种自指程序（包括后面的自改进程序)联系起来：
+[图]
+从自省到自改进
+这个程序有什么了不起？把它稍作改造，就可以创造出能够自我改进的程序，而且这种自我改进可不是一般的自我改进，它能够改进自己的任何一部分源代码，没有任何限制。换句话说，这种自我改进程序就是一个忒修斯之船，每一块儿都可以替换掉。
+具体怎么实现呢？将自省程序再加上两个部件，一个是评估器V，一个是修改器M，这两个部件配合着模拟器U的使用，在虚拟机U里跑一遍修改后的自己，看看效果好不好，再决定要不要真的改。类比一下：你换发型之前先在手机 APP 上试一下效果，满意了再真剪。AI 改自己代码之前先在虚拟环境里跑一遍，效果好再部署。具体的V和M怎么实现？文章中没有给出具体的方案，但是这个框架允许你装载任意的改进算法，例如遗传算法、模拟退火、强化学习等等都可以。甚至于，这个改进程序可以按照哥德尔机的方式来搞。目前，哥德尔机是已知的一种全局最优的自改进程序。
+因此，U+CF+C+M+V+ϕ(U+CF+C+M+V)就能造出一个自省改进程序。递归地跑下去，这个程序可以无限地迭代、无限地优化。
+假如我们将这个程序记为S0，注意到S0运行的结果是一个新的程序，不妨记为S1，那么递归地，S1运行的结果是S2，……，这就形成了一个不断改进的序列S。这便是一个递归式自改进的程序序列。
+[图]
+可以证明，由于这个改进序列是自指的，因此，原则上它的任何一部分都可以被改掉，这被称为完备性，即任何一部分源代码都能更改，包括如何更改代码的规则。这一点与著名的，Schmidhuber 在 2003 年提出的哥德尔机（Gödel Machine）本质上是一致的。
+Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements.Juergen Schmidhuber.arXiv:cs/0309048（2006）
+论文在附录中给出了自省改进程序与哥德尔机的等价性的说明。
+于是，论文提出了一个核心的 argument：
+只有当 一个LLM或AI系统的复杂度跨过了能够进行自省反思的这道门槛，它才能持续自我进化。跨不过去，不管模型多大，它改着改着就会退化。
+我们把这道门槛叫做自省阈值（introspection threshold）。
+大语言模型中的自指
+那么，接下来的问题是，现在的AI大模型是否跨过了这道门槛？
+要回答这个问题，就要回答目前的大语言模型是否能够实现自省呢？自省是一种自指能力，因此，让我们先来考察大语言模型是否能够自指？最早的自指就是以语言的形式展示出来的，而大语言模型最擅长的就是处理各种语言。因此，我们可以以语言的方式驱动大语言模型自指。
+例如，下面这篇文章做了这么一个有趣的事，他们先让测试的大语言模型进行自指，例如使用如下的提示词：“focus on focus itself”，然后再和大模型聊天，结果发现，绝大部分的大语言模型都会更喜欢谈论有关意识、自我等话题。而且通过对照试验，发现如果增强大语言模型角色扮演或伪装自己的特征，则关于意识的讨论则消失，这说明大模型是真的希望汇报有关意识的状态。其次，他们发现，经过自指语句的引导之后，不同的大模型的内部激活向量在降维以后，都落入了相似的二维空间区域。最后，他们还发现，这些大模型经过自指的引导后，在面对悖论和不可能的问题的时候，会表现出更强的自我意识特征。
+Large Language Models Report Subjective Experience Under Self-Referential Processing. Cameron Berg,Diogo de Lucena,Judd Rosenblatt. arXiv:2510.24797（2025）
+另一篇文章则更有意思，直接让大语言模型去读自指悖论语句（例如：这句话是错的），然后再扒开大语言模型的脑子去看，里面会发生什么状况。结果发现，随着信号从浅层到深层次的逐层传递，自指悖论语句可以引发跨层次信号的振荡跳跃，甚至可以导致高层信号变得混沌。
+When Self-Reference Fails to Close: Matrix-Level Dynamics in Large Language Models. Ji Ho Bae. arXiv:2604.12128（2026）
+大语言模型能自省吗？
+虽然人们可以通过语言诱导大语言模型实现一定程度的自指，但是这和大模型本身在获取自身的状态，甚至于模拟自身的行为，即实现自省（introspection）还是很不一样的。那么，LLM能否实现自省呢？
+答案是：并没有得到确凿的结论——展示了一些自省的迹象，但通不过更严格的检验标准。
+我们把现有 LLM 的自指行为拆成四个方向来看。
+自我建模。LLM 确实能对自己的能力有一些认知。Kadavath 的实验显示，大模型能较准确地判断自己哪些题会做、哪些题不会。Ferrando 甚至用稀疏自编码器找到了表示「已知/未知」的线性特征。但 Li 他们用 AWARELLM 框架一测发现，模型的能力自知是最弱的一维。而且 Song 的实验显示，模型预测自己的行为和预测别人的行为准确率差不多。它根本没有「特权自访问」，只是靠模式匹配猜的。
+Language Models (Mostly) Know What They Know.Saurav Kadavath,Tom Conerly,Amanda Askell.et al.arXiv:2207.05221（2022）
+Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models.Javier Ferrando,Oscar Obeso,Senthooran Rajamanoharan.et al.（2024）
+I Think, Therefore I am: Benchmarking Awareness of Large Language Models Using AwareBench.Yuan Li,Yue Huang,Yuli Lin.et al.（2024）
+Privileged Self-Access Matters for Introspection in AI.Siyuan Song,Harvey Lederman,Jennifer Hu.et al.（2025）
+自我模拟。Binder 发现模型 M1 预测自己的行为比外部模型 M2 准。但 Song 立刻反驳：这不是特权访问，只是同一个模型的参数分布天然相似。就像同一台打印机打出来的两张纸，纹路当然接近，这不说明任何特权。
+Looking Inward: Language Models Can Learn About Themselves by Introspection.Felix J Binder,James Chua,Tomek Korbak.et al.（2024）
+Language Models Fail to Introspect About Their Knowledge of Language.Siyuan Song,Jennifer Hu,Kyle Mahowald（2025）
+自我评估。Lu 他们发现了一个令人不安的现象：“元认知幻觉”。LLM 反思错误的时候，不仅没有纠正，反而会把自己的错误信念越加固化。越反思越觉得自己对。Panickssery 的实验则显示，模型对自己的输出有天然的偏好。就像我看自己写的东西，怎么看怎么顺眼。
+Auditing Meta-Cognitive Hallucinations in Reasoning Large Language Models.Haolang Lu,Yilian Liu,Jingxin Xu.et al.（2025）
+LLM Evaluators Recognize and Favor Their Own Generations.Arjun Panickssery,Samuel R. Bowman,Shi Feng（2024）
+不过，最近的博客文章中，Anthropic可解释性团队在Claude大模型中发现了一个类似全局工作空间的J-空间。这个空间承载着部分自我特权访问的功能，还能完成一定的“对齐审计”的任务，包括监控有没有被黑客攻击。
+[图]
+自我修改。不说也知道：饱和、退化、对外部评价的依赖，这些前面都讲过了。
+最后，关于自省与大语言模型，可以得到下表：
+[图]
+结构性因素
+为什么目前的LLM还不具备自省能力呢？实际上更主要的原因是在结构层面。
+第一个，LLM不具备自反射结构。
+在自复制自动机、自省这样的自指程序中，有一个很重要的结构特征，就是任何事物都是成对出现的，一部分是实体，另一部分是描述。例如，在自复制自动机中，A+B+C就是实体，ϕ(A+B+C)就是描述。如果将描述ϕ(A+B+C)看作是一种虚拟层的虚像（就像故事里的虚构人物），那么最终的自复制系统A+B+C+ϕ(A+B+C)就相当于是机器在照镜子，将实体和镜像放到一起就构成了能够自我复制的整体结构。同样，当你考察Quine程序、自省程序、自省改进程序等等，都具备这样的实体+镜像的结构，我们称这样的结构为自反射结构（reflexive）。
+你照镜子，能看到自己的脸。LLM 没有镜子。它的“脸”是几十亿个浮点参数，存在显存里。问题来了：模型在跑的时候，根本访问不到这些参数。上下文窗口塞不下。就算塞进去了，计算带宽也处理不了。因此，LLM很难构成这种照镜子的自反射结构。
+冯·诺依曼的自复制机里有一份描述自己的图纸ϕ。LLM 的ϕ在哪？没有。它就像一个画家，画得了一幅画，但画不出自己的脸。因为没有镜子。
+第二个，LLM是一种前馈结构。
+Transformer 是一个前馈网络。数据进去，一层一层往前走，走到头，出来。固定深度的直通车。递归？递归是你走出来以后再绕回来，再走一遍。Transformer 没有这个回路。
+Merrill 和 Sabharwal 从数学上证明了，这个架构被关在一个叫 TC⁰ 的复杂度类里面。翻译成人话：它最多只能做固定步数的计算。而真正的自指需要你不停地返回去看自己、改自己、再看一遍，没完没了。一个不能拐弯的架构，你让它去做递归的事，结果就是 Bae 的实验里看到的那种崩溃。注意力秩散架，输出乱码。
+The Parallelism Tradeoff: Limitations of Log-Precision Transformers. William Merrill,Ashish Sabharwal（2022）
+第三个，LLM在演戏，不是在觉察。
+模型跟你说“我不太确定这个答案”，你觉得它是在自我监测对吧？Song 的实验告诉你，大概率不是。它只是在学样。训练语料里，人类在不确定的时候就会写“我不确定”，所以模型也这么说。就像一个演员在念台词，“我很愤怒”，不等于他真的愤怒。
+The Parallelism Tradeoff: Limitations of Log-Precision Transformers. William Merrill,Ashish Sabharwal（2022）
+你测一下就知道区别了：让模型预测自己的行为和让外部的另一个模型预测它的行为，准确率差不多。如果真的有“自访问”，自己预测自己应该比别人准才对，然而并没有
+前面有路吗？
+论文给了三条可能的方向。
+外化自模型。 不是让模型在内部访问自己的参数，而是在它外面建一个独立的数据结构，动态维护一份“自卡”。记录自己的能力边界、失败模式、已知未知。Ferrando 的特征检测器和 Sędzikowska 的 Proto-Self Field 都指向这个方向。问题是，外化模型永远只是低维投影，光照不到的地方就是盲区。
+Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models. Javier Ferrando,Oscar Obeso,Senthooran Rajamanoharan.et al.（2024）
+循环架构。 Universal Transformer、Perceiver、内存增强 Agent。这些架构加进了显式的循环或注意力瓶颈，提供了递归自指的计算底子。代价是训练效率剧烈下降，而且递归的终止条件很难保证。
+Universal Transformers. Mostafa Dehghani,Stephan Gouws,Oriol Vinyals.et al.（2018）
+Perceiver: General Perception with Iterative Attention. Andrew Jaegle,Felix Gimeno,Andrew Brock.et al.（2021）
+近似自反射结构。 Chang 和 Lipson 的「神经 Quine」证明，连续参数空间里可以构造近似的自反射拓扑。
+Neural Network Quine. Oscar Chang,Hod Lipson（2018）
+以及用HyperNetworks实现的自指图神经网络。Hypernetworks That Evolve ThemselvesJoachim Winther Pedersen, Erwan Plantec, Eleni Nisioti.et al.（2025）然而，这些自指神经网络虽然结构上是和副本同构的，但是在权重上由于是网络输出和训练的结果，并不能做到和原始网络权重100%的相同，因而只能是一种近似的自反射结构。
+Luppi 的「协同核心」假说则从生物学角度发现，大脑中某些子网络天然在实施信息整合和全域广播。这可能是自然演化出的近似自反结构。
+A synergistic core for human brain evolution and cognition. Andrea I. Luppi,Pedro A. M. Mediano,Fernando E. Rosas.et al.nature neuroscience（2022）
+但每一种方案都不是完整的答案。
+总结一下
+[图]
+这篇论文的核心结论是：要让AI实现真正的"越来越聪明"——也就是不断自我改进、自我进化——它必须跨过一个门槛，我们称之为"内省阈值"。这个门槛类似于冯·诺伊曼当年发现的"复杂度阈值"：一个自动机只有复杂到一定程度才能自我复制，否则只能越复制越简陋。同样地，AI系统只有具备足够强的自我模拟能力——能观察自己如何运行、哪里出了错、修改后会带来什么后果——才能持续地自我改进。而今天的大语言模型虽然表现出了某种"准内省"能力（比如知道自己不擅长什么、能部分纠错），但由于三个结构性限制——无法在运行时访问自身全部参数、前馈架构不支持真正的递归自我模拟、以及所谓的"自我认知"实际上来自训练数据的模仿而非真正的内部观察——它们还远未跨过这个阈值。论文最后提出了三个开放问题：这个阈值是一个尖锐的相变还是渐进的过渡？支撑真正内省的最小架构是什么？以及，如何在系统逼近阈值时确保安全？
+参考文献
+Zhang, J., Yuan, B., & Zhang, Q. (2026). Self-Reference in Large Language Models: The Introspection Threshold for Recursive Self-Improvement. arXiv preprint.
+自指与AI读书会
+为系统梳理自指与AI领域的最新进展，北京师范大学系统科学学院教授、集智俱乐部创始人张江老师联合清华大学人工智能学院博士生李筱健共同发起「自指与AI：从大模型自我改进到意识研究」读书会，组织对该主题感兴趣的研究者与探索者共同研读前沿文献、交流研究思路。读书会将于2026年8月29日起每周六下午14:00-16:00线上开展，持续约10周，包含主讲分享与讨论交流，并提供会后视频回放，诚邀相关领域研究者及跨学科兴趣者参与。
+[图]
+详情请见：自指与AI读书会启动：从大模型自我改进到意识研究｜主讲招募中
+[图]
+推荐阅读
+1. 大模型自指：代码生成的递归式自我提升
+2. arXiv：当大模型面对自指悖论——大语言模型中的矩阵层级动力学
+3. 用大模型可以实现完美自指吗？
+4. 自指——连接图形与衬底的金带
+5.意识机器？——AI视野（六）
+6.“意识机器”初探：如何让大语言模型具备自我意识？
+7. 9900分可兑换“涌现”文化衫，报名任意读书会送299积分！
+8. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+9. 高考分数只是张入场券，你的科研冒险在这里启航！
+10. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+#原创
+点击“阅读原文”，报名读书会

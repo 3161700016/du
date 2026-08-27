@@ -1,0 +1,215 @@
+标题：自然·方法：利用神经最优传输学习单细胞扰动反应
+公众号：集智俱乐部
+发布：2026-04-07
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247729148&idx=1&sn=8839067522fbf1cab01dd5b8c25ced4d&chksm=e8982571dfefac67c562b93d7a7d97b6ca65fd2798d541f600feb5fd1cf1ec8985dbe2f0b29c#rd
+合集：复杂科学前沿2026 · 序号 094/157
+------------------------------
+[图]
+导语
+理解和预测单细胞在化学、遗传或机械扰动下的分子响应是生物学中的核心问题。获取单细胞测量数据通常需要破坏细胞，这使得学习异质性扰动响应具有挑战性。因为研究者们仅能观察到扰动或未扰动细胞的未配对分布。在此，他们利用最优传输理论和近期出现的输入凸神经架构，提出了CellOT框架：该框架通过映射这些未配对分布，实现对单个细胞在特定扰动下响应的学习。
+关键词：单细胞扰动响应，神经最优传输，输入凸神经网络，异质性，泛化能力，单细胞 RNA 测序（single-cell RNA sequencing, scRNA-seq），多重蛋白质成像
+[图][图][图][图]
+王璇丨作者
+郑鸿盛、赵思怡丨审校
+[图]
+论文题目：Learning single-cell perturbation responses using neural optimal transport
+论文链接：https://www.nature.com/articles/s41592-023-01969-x
+发表时间：2023 年 9 月 28 日
+论文来源：Nature Methods
+目录
+理论基础与关键方法
+CellOT模型与单细胞扰动预测
+通过最优传输映射预测扰动反应
+CellOT性能优于现有最先进方法
+CellOT捕捉药物反应中的细胞间变异性
+CellOT分离亚群特异性药物效应
+CellOT精准推断未见过患者的细胞反应
+CellOT 可跨物种重建固有免疫反应
+CellOT将分化结果扩展至低潜能细胞
+讨论
+从非时间分辨数据中表征单细胞扰动反应是生物学的一大挑战，但对预测细胞对环境压力或药物的反应至关重要，尤其有助于理解肿瘤细胞逃避治疗的机制。单细胞扰动反应高度异质，受基因/蛋白丰度、细胞状态和微环境等因素影响，因此分析中必须纳入多变量亚群结构，以准确预测个体细胞的药物反应。
+学习扰动反应的核心难题在于：细胞测量通常需要破坏性处理，无法获取配对对照/扰动单细胞数据，只能获得独立的观测集。匹配不同条件下的单细胞，同时考虑异质性，是复杂的配对问题。
+本文提出CellOT，一种基于神经最优传输的扰动模型，通过学习对照与扰动细胞状态的映射，直接预测单细胞扰动反应，同时显式考虑多重分子读数中的亚群异质性。CellOT假设扰动逐步改变细胞特征（如基因表达或信号活性），利用最优传输理论（OT）建模这些变化，并通过输入凸神经网络参数化对偶势，实现高度可扩展且稳健的映射学习，可推广至未见过的样本或患者。
+CellOT在四个方面验证了有效性：（1）学习黑色素瘤细胞系中不同抗癌药物的单细胞标志物反应；（2）预测系统性红斑狼疮患者活检样本中的单细胞转录组反应，以及胶质母细胞瘤患者的帕比司他治疗结果；（3）推断不同动物物种对脂多糖（LPS）的反应；（4）建模造血过程中细胞命运的转录组演变。此外，在多个任务上[12, 13]将CellOT与当前最先进的方法进行了基准测试。
+理论基础与关键方法
+近年来，高通量技术能够在单细胞层面揭示细胞群体对各种扰动的响应规律，但这些数据通常不具备时间分辨性，且扰动前后的数据未经过对齐处理。因此，理解单细胞如何响应扰动，需要依赖数学建模方法来刻画对照组与扰动组之间的映射关系。在这里，最优传输（Optimal Transport, OT）提供了一个自然的框架。
+最优传输具有双重作用。它既可以在分布之间引入一种数学性质良好的距离度量，又能提供一种基于几何的方法来实现两个概率分布之间的耦合。设μ和ν为[图]空间中的两个测度。蒙日提出的最优传输问题定义为：
+[图]
+其中，对应最小代价的映射T即为最优传输映射。该公式是非凸的，求解难度较大。多年后，康托罗维奇[54]提出了一种松弛方法，允许进行软分配，其形式为：
+[图]
+式中多面体Γ(μ, ν)的定义为[图]，它描述了μ和ν之间所有耦合（或联合分布）的集合。因此，最优传输计划γ对应于使整体传输代价最小的两个概率分布之间的耦合。基于最优传输耦合γ，μ和ν之间的距离W(μ, ν)被称为Wasserstein距离。计算式(2)中的最优传输距离需要求解线性规划问题，由此产生的计算成本对于大规模机器学习任务而言过高。通过引入熵项对目标函数(2)进行正则化，能够显著提升优化效率[55]，同时保证目标函数关于输入的可微性，因此该方法常被用作机器学习中的损失函数。
+式(2)为最优传输的原始问题形式。康托罗维奇同时提出了对应的对偶问题[54]，该对偶问题是一个带约束的凹函数最大化问题，定义如下：
+[图]
+其中容许势函数集合Φc的定义为[图]（定理1.3）。维拉尼的定理2.9[23]进一步将关于函数对(g, f)的对偶问题(3)简化为：
+[图]
+式中[图]是[图]空间中所有凸函数的集合，[图]，[图]为f的凸共轭函数。将测度μ映射到ν的最优传输映射对应于f的梯度，即T=∇f。可以通过[图]构造最优传输计划。维拉尼的定理2.9证明了在[图]空间中存在一个由下半连续的真共轭凸函数构成的最优函数对(f, f*)，能够使式(3)取得最小值。
+输入凸神经网络。像式(4)中的[图]这样的凸空间，可以通过对输入具有凸性的神经网络进行参数化表示。阿莫斯等人[22]提出的输入凸神经网络（ICNN）就是一种这类参数化方法。输入凸神经网络基于全连接前馈网络构建，通过对网络参数施加约束来保证函数的凸性。一个参数为[图]的输入凸神经网络表示一个凸函数f(x ; θ)，对于第i层（i=0… L-1），其定义为：
+[图]
+其中激活函数σi为凸且非递减函数，同时所有权重矩阵[图]的元素都被约束为非负数。尽管存在这些约束，输入凸神经网络仍能对一大类凸函数进行参数化。陈等人[56]从理论上证明，定义在凸域上的任意凸函数都可以通过输入凸神经网络在一致范数意义下进行逼近。黄等人[57]进一步将输入凸神经网络从全连接前馈结构扩展到卷积神经网络结构。此外，输入凸神经网络还被用于对Wasserstei梯度流[58-60]和重心[61]进行参数化。
+CellOT模型与单细胞扰动预测
+近年来发展的高通量技术能够在单细胞层面揭示细胞群体对各种扰动的响应规律。但这类数据通常不具备时间分辨性，且数据之间未经过对齐处理。因此，扰动前后生物样本的快照无法提供单个细胞的轨迹信息。扰动的形式包括施加影响细胞分子功能的药物，或是改变细胞所处环境引发生物信号通路的变化，这些扰动会通过多种方式影响细胞及其状态。
+下文将介绍研究者的方法，该方法通过学习对照组与扰动组细胞状态之间的映射关系，来揭示单细胞的扰动响应规律。设X为由测得的细胞特征所张成的生物数据空间，研究者将细胞对第k种扰动的响应视为在高维细胞状态空间[图]中的演化过程。
+基于神经最优传输方法还原扰动效应。给定一个包含n个观测样本的数据集[图]，其中样本[图]服从扰动前的细胞分布[图]。同时给定另一组独立样本[图]，其中样本[图]，研究者的目标是预测细胞在受到第k种扰动后的分布[图]。
+细胞的扰动响应是一个动态过程：施加扰动k后，细胞状态会随时间演化，因此可以将其建模为细胞数据空间中的一个随机过程。尽管单细胞响应具有时间分辨的特性，但只能获取扰动前的细胞状态分布ρc和施加扰动k后的分布ρk。因此，需要在缺乏时间分辨的扰动响应数据的情况下，通过揭示ρc和ρk之间的映射T，来理解其背后的随机过程。基于已有的生物学知识，可以假设扰动不会剧烈或完全改变细胞的基本生物学过程。因此，研究者们提出，可以利用最优传输这一数学理论来建模单细胞概率分布在扰动后的演化规律。
+借鉴马克瓦等人的研究思路[18]，学习ρc和ρk之间的最优传输映射T（见式(1)）。与希宾格等人[17]使用现有求解器为每一对细胞样本单独计算耦合γ的方法不同，研究者们采用神经网络来学习一个参数化的最优传输映射。该参数化最优传输映射可作为稳健的预测器，用于预测未见过的n'个样本[图]例如来自其他患者的样本）在扰动后的细胞分布变化。
+最优传输映射的参数化。为了提出一种高效的最优传输映射学习策略，研究者们基于诺特[62]和布雷尼尔[63]的经典研究成果展开，这些成果建立了最优传输原始问题(2)与对偶问题(3)最优解之间的联系。由于凸共轭函数f*的计算难度极大，马克瓦等人提出用另一个凸函数g来近似式(4)中的f*，进而推导得到一个关于两个凸函数的极大极小优化公式（参考文献18的定理3.3），其形式如下：
+[图]
+该方法的核心思想源于如下事实：
+[图]
+可以发现，对于任意函数g，均满足[图]，当且仅当g=f*时等号成立（参考文献18的定理3.3）。为了学习得到最优传输映射，也就是求解式(6)中的极小化问题，马克瓦等人[18]采用输入凸神经网络[22]对两个对偶变量g和f进行参数化，得到的传输映射定义为g的梯度。研究者们通过交替进行极大极小优化来求解最优传输映射T*，其优化过程如下：
+[图]
+其中[图]，θ和Φ分别为两个输入凸神经网络的参数。
+基于CellOT预测扰动效应。上述框架能够帮助研究者们建立对照组细胞[图]与扰动组细胞[图]之间的映射关系，从而揭示细胞在受到扰动k后的响应轨迹。给定一组扰动K，同时获取对照组分布ρc以及每种扰动k∈K对应的扰动后分布ρk的样本，CellOT通过求解式(7)来学习最优对偶势函数对[图]。在得到每种扰动k对应的凸势函数参数化模型后，CellOT通过[图]来预测对照组细胞[图]在扰动k下的状态变化，预测得到的扰动后样本服从分布[图]。因此，CellOT提供了一种通用方法，可用于预测单细胞层面的状态轨迹，并揭示异质性细胞亚群结构在外部因素影响下的演化规律。
+神经最优传输。除了本文采用的方法外，已有多项研究探索了基于输入凸神经网络的方法，将其作为式(1)的一种快速且可扩展的近似求解方案。塔格瓦伊等人[64]提出用输入凸神经网络对f进行参数化，通过分步求解f*来计算式(4)，但该方法的计算成本极高。马克瓦等人[18]（即本文所采用的方法）对该工作进行了扩展，采用另一个输入凸神经网络g来近似f*，将原问题转化为关于两个输入凸神经网络的极大极小优化问题（见式(7)）。此外，黄等人[57]受最优传输理论的启发，提出了一种基于输入凸神经网络的归一化流参数化新方法。关于当前各类神经最优传输求解器的详细对比，可参考科罗廷等人的研究[65]。
+局限性。单细胞表达谱分析能够精细刻画单个细胞的分子状态，但这类检测方法通常具有破坏性，无法实现细胞分子特性的连续时间监测。目前已有多种方法被提出，旨在从群体数据中揭示单个细胞的动态变化规律，但这些方法都面临一个共同的挑战：细胞状态的时序分布可能由多种不同的基因调控动力学机制产生。由于该问题本身的不确定性，研究者们需要对细胞的潜在动力学过程做出一定的假设。
+本研究的数学基础源于一个生物学基本认知，即扰动会渐进式地改变细胞的分子图谱。该原理与最优传输理论相契合，借鉴前人的研究工作[17]，研究者们将其作为CellOT模型的自然理论基础。然而，当这一基本假设不成立，即扰动对细胞群体造成了严重破坏，导致细胞状态发生无法识别的改变时，CellOT及其他同类方法的性能都会下降（详见讨论部分）。在这种情况下，需要更复杂的数学工具来进行建模，但这类工具目前还无法扩展到包含多个基因的场景[66]。因此，研究者们需要依赖高时间分辨率的实验数据，来捕捉连续时间点之间细胞状态的显著变化[67]。
+此外，如果细胞系统在两个连续的观测快照之间存在旋转或振荡等动态过程，而这些过程未被检测手段捕获，那么基于最优传输的模型以及其他现有工具[68]都无法还原这类复杂的动力学过程。这在一定程度上是由于研究者们当前选择的代价函数为欧氏距离（见式(2)），该选择是综合理论约束和实际性能表现后确定的。探索其他类型的代价函数将作为研究者们未来的研究方向。
+除此之外，当前模型无法还原除细胞迁移外其他导致细胞分布随时间变化的因素，例如细胞增殖和凋亡[67]。不过，已有最新研究提出了对经典神经最优传输框架的扩展方案，能够将细胞的生死过程纳入建模范畴[69]。
+最后，当前生物工程技术的发展正致力于突破破坏性细胞检测技术的局限性。陈等人[70]提出了一种能够保持细胞活性的转录组分析方法。温雷布等人[46]通过条形码技术在克隆层面建立细胞与其子代细胞之间的联系，从而实现对细胞分化过程的追踪。这些技术能够提供单细胞的时间轨迹信息（尽管通量较低），即实现不同观测快照之间的细胞对应关系对齐。索姆纳特等人[52]提出了一种与最优传输理论相关的新型算法框架，能够有效利用这类（部分）对齐的数据集[71,72]。
+通过最优传输映射预测扰动反应
+小分子药物可通过改变信号级联等方式对细胞表型产生深远影响，这些影响大多取决于扰动发生的背景。鉴于细胞群体和组织中单个细胞的异质性，预测细胞反应需理解背景塑造基因组活性及其对药物反应的规律。通过单细胞基因组学或多重成像技术测量的高维单细胞数据可提供这种背景信息，但仅能返回细胞群体的非配对或未对齐观测数据。CellOT可利用此类非配对数据，学习扰动后的细胞状态转变。
+形式上，将未扰动的对照群体表示为ρc，由n个细胞xi（i=1,...,n）组成。在施加扰动k后，未扰动群体中每个细胞xi的多变量状态发生变化，将其观测为扰动群体ρk（图1a）。为理解扰动的作用方式和效果，研究者通过参数化映射Tk（见图1a,b）学习群体ρc和ρk之间的转变和对齐，该映射解释了每个细胞从未扰动细胞群体ρc在接受干预k后转变为其扰动状态ρk的过程。尽管源自不同观测，映射Tk仍能为每个细胞xi确定扰动群体中最可能对应的细胞Tk(xi)（图1c）。找到该映射不仅能建模扰动后的单细胞轨迹，还能预测未见过的对照细胞的扰动状态。因此，可通过将学习到的映射Tk应用于新的未扰动群体ρc'，预测扰动k的结果（图1d）。
+[图]
+图1 | CellOT模型概述。a，单细胞分布在未处理的对照状态（ρc）或多种扰动状态之一（ρk、ρl、ρm等）下进行测量，这些分布位于所分析特征的高维空间中。b，对于扰动k，旨在用函数Tk对其建模，该函数将ρc中的未处理细胞映射到ρk中的处理后对应细胞。c，缺乏配对测量时，研究者们假设扰动在最小努力原则下将ρc转化为ρk，具体而言，利用最优传输理论学习Tk，将这种分布映射直接估计为最优传输对偶势的梯度∇θ。d，为所有扰动独立学习最优传输映射，由于这些映射完全参数化，例如，CellOT可在一组初始提供的样本上训练，进而对来自新的、未见过样本的未处理细胞进行预测。
+研究者们寻求的对齐对照和扰动群体的最优映射Tk，应能最好地描述施加扰动k后每个细胞多变量特征的渐进式变化。利用最优传输[23, 24]恢复这些映射并揭示单细胞重编程轨迹，已被提出作为单细胞生物学领域的强有力建模假设[16, 17, 25-28]。最优传输问题返回分布ρc和ρk之间的对齐，对应于对齐分子特征之间的最小总体成本，从而确定每个细胞在扰动后的最可能状态（图1c）。学习Tk使其图像对应于ρk，且质量根据最小努力原则从ρc转移到ρk。由于直接参数化最优传输映射Tk[20, 21, 29]不稳定[18]，通过输入凸神经网络对最优传输对偶问题的凸势f和g进行参数化，并利用凸函数gk的梯度（∇gk）[18]恢复最优映射Tk。补充部分A.3详细综述了为单细胞生物学问题提出的最优传输方法，以及本文方法与先前方法的差异。
+为全面评估CellOT的性能，研究者们将其与基于自动编码器的当前最先进方法[12, 13]进行基准测试，这些方法试图通过操纵学习到的潜表征添加扰动效果（补充部分A.1有综述）。为进一步验证最优传输建模先验的假设，研究者们将每个扰动k的学习到的最优传输映射nabla gk与简单的非基于最优传输的对齐进行比较。
+CellOT性能优于现有最先进方法
+研究者们应用CellOT，利用包含两种黑色素瘤细胞系（M130219和M130429）的蛋白质组学数据集（通过迭代间接免疫荧光成像技术（4i）[5]分析）和单细胞RNA测序数据集[31]（分别包含34种和9种不同治疗方法），预测细胞群体对癌症治疗的反应。数据集详情见在线方法。研究者们将CellOT与两种基于自动编码器的工具（scGEN和cAE[12]）以及PopAlign（一种基于通过高斯密度混合近似的对照和处理空间亚群对齐的方法）进行基准测试。由于单细胞RNA测序数据的高维特性，研究者们在自动编码器学习到的潜表征上应用CellOT。两种4i治疗和两种单细胞RNA测序治疗的观测与预测细胞群体的边缘分布如图2a,d所示，每种扰动选择两个特征，完整边缘分布集见补充图1-4。自动编码器基线倾向于捕捉处理后细胞群体的均值，但在匹配扰动群体的所有异质性状态（扰动群体的高阶矩）方面效果不佳，因此这些模型往往学习过度简化的扰动效果，难以满足理解异质性而非平均细胞行为的需求。而CellOT能捕捉这些高阶矩，实现准确且细致的预测。
+这可通过分布度量（如最大均值差异（MMD）[33]）进一步量化。较小的最大均值差异值意味着两个分布的所有矩均匹配，因此能精细捕捉扰动细胞的整个分布，而非仅局限于群体平均（在线方法有详细说明）。所选扰动的预测群体与观测群体之间的最大均值差异如图2b,e所示。对于单细胞RNA测序数据，最大均值差异评估使用前50个标志物基因进行，所选标志物基因数量的影响分析见补充图7。除自动编码器基线外，研究者们还纳入简单的恒等基线（仅通过返回未处理状态预测治疗效果）以及理论下限（观测值，由一组不同的观测扰动细胞组成，与真实预测的差异仅源于实验噪声）。结果表明，CellOT可接近下限（观测设置），而基线方法通常相比恒等设置无明显改进。
+[图]
+图2 | CellOT在不同数据模态上优于当前最先进方法。a–f，通过4i（a）和单细胞RNA测序（d）分析的细胞标志物基因表达的边缘分布（x轴）。观测到的对照和处理状态分别以浅蓝色和深蓝色显示，CellOT预测结果以红色显示，基线预测结果（scGEN、cAE和PopAlign）以灰色显示。基于分布距离 MMD（最大均值差异）以及观测扰动细胞与预测扰动细胞之间的平均相关系数r2，对4i（b）和单细胞RNA测序（e）数据的模型进行比较。误差棒表示测试集十次自举抽样的标准差，虚线对应恒等和观测性能的中位数。4i（c）和单细胞RNA测序（f）数据的观测处理细胞与各模型预测细胞的联合UMAP嵌入。投影在联合细胞集上计算，通过下采样使观测扰动细胞（灰色）和预测扰动细胞（蓝色）数量相等。恒等映射用于比较处理细胞与未处理细胞。分析针对曲美替尼、伊马替尼和加维诺司他三种药物进行，4i数据使用M130219和M130429细胞系生成（在线方法）。
+所有35种4i疗法和6种单细胞RNA测序疗法的不同评估指标总结于补充图5和6。除最大均值差异外，研究者们还纳入[图]均值，用于测量所有特征上观测与预测平均药物效果之间的距离。最后，研究者们比较了所有特征上预测数据与观测数据之间的总体平均相关系数r2（在线方法）。在所有治疗中，CellOT在这两项指标上均优于基线，通常高出一个数量级。研究者们认为CellOT的出色性能源于其能够通过最优传输理论，学习明确考虑细胞群体数据几何结构的传输函数。这一假设得到以下观察结果的支持：处理后和未处理群体之间的特征间相关结构在很大程度上保持不变，这正是最优传输方法的优势场景。详情见扩展数据图1，扩展数据图2可视化了学习到的映射，进一步证明了CellOT建模精细反应的能力。
+最后，研究者们利用全特征空间，对预测和观测扰动细胞的联合集进行了UMAP嵌入（UMAP）[34]（图2c,f）。结果显示，CellOT推断的扰动细胞状态与观测到的扰动细胞高度整合，而两种基线均无法完整恢复扰动分布，因此无法一致捕捉不同亚群的扰动状态。
+CellOT捕捉药物反应中的细胞间变异性
+捕捉同一样本中不同细胞类型的不同扰动反应仍是一项具有挑战性的计算任务。为降低任务复杂性，预测算法可在扰动和未扰动状态下通过预定义的细胞类型标签进行指导[32]，或设置为近似平均药物反应[13]。但这些简化存在代价：依赖于对现有相关细胞类型的先验知识，假设细胞类型在扰动前后具有相同特征，且同一细胞类型内药物反应一致。在最坏情况下，这些局限性可能掩盖真实且重要的药物反应异质性，阻碍发现新的细胞类型或细胞状态特异性扰动反应（补充图13提供进一步比较）。CellOT无这些局限性，能让科学家以最适合解答其生物学问题的粒度查询预测的单细胞反应。作为概念验证，研究者们将上述患者来源的黑色素瘤细胞系按等比例共培养（在线方法），并进行定制药物筛选——将细胞暴露于34种药物中8小时，通过4i技术测量单细胞药物反应。利用CellOT，研究者们为每种药物预测了一组共享对照（二甲基亚砜（DMSO）处理）细胞的扰动细胞状态（图3a）。先前研究[7]表明，药物处理后信号激酶的磷酸化水平与细胞状态密切相关。为评估预测扰动细胞与观测扰动细胞中这种关系是否保持一致，研究者们利用CellOT学习到的每种药物的传输映射，分析了细胞外信号调节激酶（pERK）的磷酸化水平。使用750个预测扰动细胞和750个观测扰动细胞，研究者们基于除pERK外的所有特征联合计算了UMAP嵌入。图3b显示了分别标注每个细胞相应pERK水平的预测群体和观测群体。结果发现，两种投影的空间组织几乎完全一致，且在两类细胞和所有药物处理中，pERK水平的分布高度相似（扩展数据图3a,b和在线方法有进一步分析）。
+CellOT分离亚群特异性药物效应
+通过计算预测扰动细胞与未处理对照细胞之间的差异，CellOT可分离每种药物的作用方式。所有细胞的UMAP嵌入（按处理方式着色）能清晰区分不同处理（图3c和扩展数据图3e），CellOT能准确学习所有这些差异（补充图5）。而仅考虑平均扰动效果时，不存在这种明显的处理嵌入（扩展数据图3d），这表明捕捉药物反应的细胞异质性至关重要。
+基于全特征集的莱顿聚类，研究者们将未扰动对照细胞分为12种细胞状态（图3d、扩展数据图3g和在线方法）。细胞状态1、5、6、9和12显示出高MelA水平且无SOX9，对应黑色素细胞系M130429；而SOX9阳性且MelA阴性的状态2、3、4、7、8、10和11代表间充质细胞系M130219（在线方法）。总体而言，M130429细胞的测量信号激酶磷酸化水平高于M130219；大多数药物处理后仍保留典型的细胞状态空间组织，且同一细胞系的细胞状态聚类在一起（扩展数据图3f）。
+通过计算每种药物的对照与处理状态之间的差异（最优传输成本），研究者们可进一步表征药物的作用强度。凋亡诱导剂（如星形孢菌素）、蛋白酶体抑制剂（如伊沙佐米和卡非佐米，或联合治疗卡非佐米+泊马度胺+地塞米松）、微管稳定剂（如紫杉醇）、c-Met抑制剂（如克唑替尼）以及多种酪氨酸激酶（如c-KIT和Bcr-Abl）的ATP竞争剂（达沙替尼）显示出高传输成本，因此在所有细胞状态中均产生显著的特征变化（图3e）。其他药物在8小时孵育期内显示出较弱的效果。研究者们发现，除达沙替尼外，所有扰动均在两种细胞系的多种细胞状态中增加了凋亡标志物切割型半胱天冬酶3的水平（扩展数据图3k）；达沙替尼仅在与M130429相关的细胞状态5、6、9和12中诱导细胞死亡（图3f）。
+Smith等人[35]的先前研究报道，M130429细胞在MEK抑制剂（MEKi）和RAF抑制剂（RAFi）处理后代谢活性降低，而M130219细胞对这些抑制剂具有抗性。以pERK和pAKT作为相应读数，比较两种细胞系对曲美替尼（MEKi）和MLN2480（泛RAFi）在MEK和PI3K通路中的反应，结果发现：MEKi敏感的M130429细胞下调pAKT和pERK，而MEKi抗性的M130219细胞仅下调pERK。一致地，MLN2480处理也产生了类似的差异药物反应（扩展数据图3i）。这表明MEK和PI3K通路的解偶联可能赋予对MEK和Raf抑制剂的抗性，并构成癌症治疗逃逸的适应机制[36]。当分析曲美替尼（MEKi）和达拉非尼（BRAFi）联合处理后的pAKT和pERK水平时，研究者们发现了更多通路串扰改变的支持证据。
+针对两种作用于MEK通路的药物，研究者们观察到两种细胞系的pERK均降低，但在MEKi抗性细胞系M130219（患者预先暴露于MEKi期间获得抗性）中发现pAKT水平升高（图3f）。这一发现表明，M130219在MEKi治疗期间获得了补偿性反馈机制——MEK通路的抑制（量化为pERK降低）会促进PI3K通路的信号传导，可能通过激活上游受体激酶[37]实现。研究者们对两种共培养的原代黑色素瘤细胞系在多种抗癌药物处理下的研究结果表明，CellOT无需预定义细胞系标签，通过纳入潜在的细胞间变异性，可准确捕捉未扰动细胞群体的表型异质性，并预测多样化的药物反应。
+[图]
+图3 | CellOT助力癌症药物的多重单细胞表征。a，CellOT训练和预测设置。训练34个CellOT模型，每种药物扰动对应一个模型，随后每个模型用于从一组常见的未见过对照细胞中预测扰动细胞。b，基于34种扰动的同等数量预测细胞和测量细胞构建的UMAP嵌入。点表示细胞，颜色表示测得的pERK强度。AU，任意单位。c，使用预测细胞的单细胞扰动效果的UMAP嵌入。点对应细胞，按药物处理着色（扩展数据图3提供完整图例，在线方法提供单细胞扰动效果计算方法）。d，对照细胞中鉴定的细胞状态（在线方法）。每列代表一种细胞状态，横轴为基于与M130219和M130429细胞系关联排序的细胞状态，纵轴为细胞特征（扩展数据图3提供完整特征集）。圆圈的大小和色调根据特征值缩放。e，每种细胞状态的药物处理传输成本（TC）聚类图（主热图，蓝-黄配色方案）、每种药物所有状态的传输成本总和（热图左侧第一列，紫色）、每种药物传输成本的变异系数（CV）（热图左侧第二列，绿色）以及基于药物细胞状态传输成本层次聚类的树状图。细胞状态按d中的方式排序。f，细胞状态特异性药物反应。（i）达沙替尼（上）。（ii）曲美替尼+达拉非尼（下）。c中UMAP嵌入的条件聚焦放大图（左上）；与左上相同但按细胞状态分配着色（右上）；列代表细胞状态（cs），行显示突出特征（下）。“cell-”代表平均细胞强度。圆圈根据药物效果大小缩放，效果越强圆圈越大。负值以蓝色色调编码，正值以红色色调编码。
+CellOT精准推断未见过患者的细胞反应
+CellOT学习到的治疗前后分子状态之间的映射，有助于更好地理解对特定药物有反应的细胞与无反应细胞之间的差异。这对于推断新患者的药物反应以及细胞间变异性高的场景至关重要。但要对未见过的患者进行预测，需证明学习到的映射T能连贯且稳健地建模不同患者的扰动反应，同时为每个患者预测个性化治疗结果，而非仅提供群体平均结果。为测试CellOT在这种样本外（o.o.s.）场景中的泛化能力，研究者们使用外周血单个核细胞液滴单细胞RNA测序数据集。Kang等人[38]表征了8名狼疮患者对β干扰素（IFN-β）反应的细胞类型特异性和个体间变异性——β干扰素是一种强效细胞因子，可诱导免疫细胞转录组的基因组规模变化。下文比较了CellOT和其他基线在独立同分布（i.i.d.）场景（模型可见所有患者的细胞）和样本外场景（模型不可见特定未参与训练患者的细胞）中的性能（图4a）。
+与先前分析一致，研究者们评估了CellOT捕捉不同标志物基因从对照到β干扰素处理细胞的整体表达变化的准确性，进而评估预测的基因表达边缘分布与处理群体的对齐程度（图4b）。研究者们选择CXCL11、CCL2和APOBEC3A基因，因为它们与自身免疫性疾病（包括系统性红斑狼疮）[39, 40]相关，因此是狼疮患者治疗中潜在的治疗靶点，也可能适用于其他干扰素病[39-43]。这些选定基因从对照到扰动群体的表达发生显著变化，部分在扰动后表现出双峰基因表达谱。与CellOT不同，基线无法准确预测这些基因的显著转录组变化。受β干扰素处理强烈影响的其他基因的扩展分析见补充图9和10。
+所有模型（包括CellOT）使用基于患者队列训练的广义扰动模型TL，并以未见过患者的对照细胞[图]为输入，建模新患者的治疗结果时，性能几乎无下降。通过最大均值差异度量比较预测群体[图]与观测值[图]，这一点尤为明显。图4c显示了将每位患者分别作为未参与训练集的汇总结果，其他评估指标（包括[图]特征均值）见补充图8。在独立同分布和样本外场景中，CellOT均优于先前的基线，且在泛化到未见过患者时性能下降更小（补充图11有更多结果）。这些结果表明，学习到的最优传输映射能正确建模所有患者中存在的细胞亚群结构变化，因此样本外性能稳健。研究者们对包含7名患者的胶质母细胞瘤队列重复了相同评估[44]；但由于队列规模小且个体反应差异大，CellOT和所有基线在该场景中的泛化均面临困难，完整分析见扩展数据图6。
+CellOT 可跨物种重建固有免疫反应
+固有免疫反应是一种细胞内在防御程序，反应细胞间具有高度异质性，因此是评估CellOT能力的理想任务。研究者们的分析基于Hagai等人[45]收集的数据集，该数据集研究了不同物种（包括猪、兔、小鼠和大鼠）单核吞噬细胞先天免疫程序的进化。通过脂多糖（LPS）刺激这些原代骨髓来源细胞，下文测试了CellOT和基线在重建训练期间未接触过的物种的先天免疫反应方面的性能。研究者们将这种泛化任务称为分布外（o.o.d.）任务，因为与样本外场景不同，不同物种的反应预计存在显著差异（图4d）。未参与训练集由大鼠或小鼠来源的细胞组成，扩展数据图4a,b分析了跨物种相似性及选择未参与训练集的原因。
+事实上，在独立同分布和分布外场景中，CellOT均能准确重建小鼠和大鼠的先天免疫反应。这一点不仅通过更精确捕捉脂多糖添加后显示高差异表达的标志物基因（如Nfkb1（NF-κB）、Oasl1（Oasl1）、Mmp12和Cxcl5）的平均表达水平得以体现（图4e和扩展数据图4c,d），还通过分布外预测与未参与训练观测值在所有基因上的平均相关系数r2得以验证（图4f）。特别是，分析每种方法捕捉不同物种固有免疫反应异质性的能力时，CellOT优于基线，表现为较低的最大均值差异（图4f）。最值得注意的是，研究者们的方法显示出上述标志物基因表达边缘的高度对齐——这些基因在扰动后表现出复杂的双峰表达谱（图4g）。
+CellOT将分化结果扩展至低潜能细胞
+在发育过程中，干细胞和祖细胞经历一系列命运决定层级，其特征是细胞持续分化，不断完善自身特性，直至达到功能终末状态。通过追踪初始细胞群体的分化过程，CellOT可恢复单个分子细胞命运决定和发育轨迹。
+Weinreb等人[46]通过追踪广泛类别的寡能和多能祖细胞亚群，并在第2、4和6天观察样本，分析了造血干细胞和祖细胞的命运潜能（图4h）。本文测试了CellOT和其他基线学习第2天观测细胞向第4和6天（合并）观测细胞分化过程的能力，以及在不同亚群间的泛化能力（分布外场景）。研究者们训练了两个映射：映射To仅在寡能细胞上训练，Tm在多能细胞上训练。这些映射的独立同分布版本在寡能和多能细胞上均进行训练，因此每组独立同分布和分布外映射在相同测试集上进行评估。使用最大均值差异度量比较预测与观测分化细胞状态的分布距离，结果表明，在独立同分布场景中，CellOT在寡能和多能子集上均优于当前最先进方法（图4i）。此外，尽管基线在两种分布外场景中均表现不佳，但CellOT能在一个方向上泛化其预测（从多能细胞到寡能场景）。与寡能细胞不同，多能细胞具有更高的潜能，因此可能分化为更多细胞类型，因此研究者们预期Tm比在潜能较低的寡能细胞上训练的To更可能泛化。当使用To预测多能细胞的发育扰动时，无法恢复分化细胞命运。
+研究者们进一步比较了不同时间点和不同细胞类型的性能。图4j显示了使用映射Tm分别对第4天和第6天细胞建模多能细胞发育的准确性。显然，CellOT在预测短程发育动态时比预测时间上更远的状态时结果更好（扩展数据图5有更多结果）。这表明所有这些方法可能存在潜在局限性——难以在粗时间分辨率下恢复对齐。此外，尽管第4和6天的绝大多数细胞仍未分化（undiff），但部分细胞已分化为中性粒细胞（neut）、单核细胞（mono）、嗜碱性粒细胞（baso）、淋巴样前体细胞（lymph）或树突状细胞（DCs）。正如预期，对于数据集中仅少量存在的细胞类型，CellOT的性能（以最大均值差异度量）有所下降（图4k）。
+[图]
+图4 | CellOT泛化到未见过的患者和细胞亚群。a–k，样本外（a–c）和分布外（d–k）场景。a，8名狼疮患者的细胞在未处理和β干扰素处理状态下进行测量。针对每个样本，训练两个模型：样本外模型（基于所有其他样本的细胞训练）和独立同分布模型（额外使用未参与训练样本的一半细胞训练，未显示）。b，未参与训练样本在独立同分布（上）和样本外（下）场景中的预测细胞边缘分布。两个模型的预测均在相同测试集上进行（未用于训练两个模型）。c，独立同分布和样本外场景中，所有未参与训练样本的预测分布与观测处理分布之间的最大均值差异分数。箱线图显示中位数和四分位数。d，作为分布外任务，训练CellOT和基线预测不同物种对脂多糖的反应，并以大鼠（或小鼠）作为未参与训练物种进行测试。e，CellOT和scGEN对选定标志物基因的独立同分布和分布外预测的平均基因表达。f，CellOT和基线在分布外场景中r2相关特征均值和最大均值差异的性能比较。数据表示为测试集十次自举抽样的均值±标准差。g，以大鼠作为未参与训练物种训练时，显示双峰表达谱的标志物基因的分布外预测边缘分布。h，多能和寡能亚群的细胞在第2、4和6天进行测量。仅基于多能细胞（Tm）或寡能细胞（To）训练时，应用CellOT预测第2天细胞如何发育为第4和6天的合并集。然后应用Tm预测分布外寡能细胞，应用To预测分布外多能细胞。与样本外场景类似，训练独立同分布模型，包括未参与训练亚群的一半。i，所有模型在分布外和独立同分布预测任务中（第4和6天联合）的预测与（观测）发育分布之间的最大均值差异分数。j，使用Tm时，CellOT在每个场景中对不同细胞类型预测第4天和第6天状态的性能。k，第4和6天每种细胞类型的细胞数量和百分比。
+讨论
+本文提出CellOT框架，该框架利用神经最优传输技术，基于非配对的处理后与未处理细胞状态建模单细胞扰动反应。通过从最优传输视角充分建模问题本质，CellOT能够确定扰动对细胞特性的影响，重建单细胞在扰动后的最可能轨迹，进而助力深入理解细胞命运决定的驱动因素及细胞逃逸机制。CellOT借鉴了最优传输技术近年来在单细胞生物学中的应用成果[16,17]，引入了可应用于未知新样本的完全参数化传输映射。此前方法[19-21]依赖于原始最优传输映射的无约束参数化，然而这类模型的无约束特性使稳健优化面临挑战，导致性能下降[18]。与之不同，研究者们通过对偶最优传输问题学习未扰动到扰动细胞状态的转换，该问题通过一对受凸性约束的神经网络进行参数化[18]。这些约束构成了重要的基于理论的归纳偏置，能够促进模型学习，最终形成可靠且易于训练的框架——CellOT在多个问题中均展现出稳定优异的性能，且无需大量超参数调优，这一事实也印证了上述优势（详见在线方法）。
+CellOT能够推断细胞群体对扰动的高度复杂非线性演化过程，且无需对这些动态过程的本质做出强简化假设。与现有基于自动编码器的基线方法[12-14]不同，CellOT无需依赖学习有意义的低维嵌入空间，并将扰动建模为该空间中的线性移位。研究者们通过对癌细胞系中不同药物的单细胞反应实验（结合RNA-seq和空间分辨4i测量技术）验证了这一优势，结果表明CellOT性能始终更优（图2及补充图5）。研究者们的评估不仅局限于常用的平均治疗效果和全细胞相关性分析，还通过边缘分布分析和最大均值差异（MMD）分数计算，对预测分布与观测分布的匹配程度进行了更严格的量化评估。
+利用CellOT进行细胞状态感知药物分析，研究者们能够将扰动效果量化为研究系统潜在异质性的函数——本研究中即两种对药物敏感性不同的黑色素瘤细胞系共培养体系。通过这种方式，研究者们优化了所测药物的反应图谱，揭示了与细胞系供体治疗史相关的多信号通路细胞状态特异性反应。研究者们发现，预先暴露于MEK抑制剂的细胞中，MEK和PI3K通路的信号活性发生解偶联，这是黑色素瘤细胞已知的治疗逃逸适应机制[36]。这种通路重连与细胞分子反馈结构从效应器向受体的转变相关[36, 47]。因此，将CellOT与更多组合治疗方案、多重成像技术及反映疾病适应特性的细胞体系相结合，有望助力研究者们阐明癌症治疗背景下信号通路演化的分子机制。
+研究者们进一步分析了所学映射在训练样本之外（样本外场景）及不同样本组成（分布外场景）中的泛化能力。如图4所示，研究者们测试了CellOT预测未见过狼疮患者治疗反应、推断低潜能干细胞发育轨迹及跨患者转换先天免疫反应的能力。在所有场景中，CellOT的准确性和精确性均优于当前最先进方法（图4）。此外，扰动后的预测细胞状态与实际观测细胞状态仍高度接近。这些结果极具应用前景，表明精准的样本外和分布外预测是切实可行的。
+然而，分布外预测能力（如对未见过患者的预测）的实现需满足两个条件：（1）在未扰动场景中已观测到相似样本；（2）训练集包含不仅未扰动状态相似、且扰动反应也相似的案例。对接受帕比司他治疗的胶质母细胞瘤患者的分析（扩展数据图6a-c）证实了这一局限性：CellOT及基线方法能够对未扰动状态和扰动效果均与其他患者相似的病例预测治疗结果（扩展数据图6f），但无法捕捉表现出独特反应患者的扰动效果（扩展数据图6g）。在分布外场景应用CellOT时，这一局限性需重点考量。要解决此类问题，需扩大队列规模、补充元信息并拓展方法学。Bunne等人[48]提出了一种神经最优传输方案，通过在预测扰动反应时纳入上下文信息（如患者元数据），部分解决了这一问题。
+研究者们还观察到，当扰动过强时（扰动前后细胞分布差异极大），CellOT的预测性能会下降（图4j），其他方法也出现了类似的性能下滑（补充图12）。最优传输理论的核心原理适用于急性细胞扰动场景——在此类场景中，单细胞不会在多维测量空间中完全随机重分布，通常仅在少数维度发生变化，因此整体相关结构得以保留。当通过规律且高频的快照观测扰动反应时，该建模假设可得到满足；但当扰动反应进展过深时，分子转换过程无法被重建。对于极强或极复杂的扰动，细胞多重特征图谱可能发生剧烈变化，违背最优传输假设，导致难以基于最小努力原则重建未扰动与扰动群体间的对齐关系。在此类场景中，可能需要补充额外信息，例如潜在生物学模型或整合多个小时步观测结果的模型。
+尽管细胞命运决定具有随机性，且细胞动态过程本质上存在噪声[49]，但CellOT仍将细胞反应建模为确定性轨迹。此前研究表明，与确定性方法相比，将细胞命运决定视为概率事件的方法能更充分地估计完整动态模型[50]。近期研究[51, 52]通过将最优传输与随机差分方程相结合，可在CellOT基础上考虑生物异方差性，但需以增加模型复杂性及引入其他简化假设为代价。
+尽管研究者们通过深入分析所学映射的本质，以及验证CellOT在多种应用场景中的通用性，为其对不同数据模态下多种化学扰动的建模能力提供了概念验证，但CellOT的泛化能力仍基于相对较小的数据集进行评估。关键在于，由分子特征各异的患者（如具有不同潜在遗传学特征的癌症患者）组成的大型队列，可能会产生高度异质的治疗反应。显然，针对这些挑战的研究方法可充分利用即将出现的大规模患者队列研究数据。利用神经最优传输技术学习单细胞药物反应，为未来研究开辟了广阔前景，包括助力深化对细胞疗法的理解、研究患者样本的药物反应，以及在大规模药物设计中更好地考虑细胞间变异性。
+参考文献
+Frangieh, C. J. et al. Multimodal pooled Perturb-CITE-seq screens in patient models define mechanisms of cancer immune cell evasion. Nat. Genet. 53, 332–341 (2021).
+Liberali, P., Snijder, B. & Pelkmans, L. A hierarchical map of regulatory genetic interactions in membrane trafficking. Cell 157, 1473–1487 (2014).
+Battich, N., Stoeger, T. & Pelkmans, L. Image-based transcriptomics in thousands of single human cells at single-molecule resolution. Nat. Methods 10, 1127–1133 (2013).
+Battich, N., Stoeger, T. & Pelkmans, L. Control of transcript variability in single mammalian cells. Cell 163, 1596–1610 (2015).
+Gut, G., Herrmann, M. D. & Pelkmans, L. Multiplexed protein maps link subcellular organization to cellular states. Science 361, eaar7042 (2018).
+Shaffer, S. M. et al. Rare cell variability and drug-induced reprogramming as a mode of cancer drug resistance. Nature 546, 431–4335 (2017).
+Kramer, B. A., Sarabia del Castillo, J. & Pelkmans, L. Multimodal perception links cellular state to decision-making in single cells. Science 377, 642–648 (2022).
+Snijder, B. et al. Population context determines cell-to-cell variability in endocytosis and virus infection. Nature 461, 520–523 (2009).
+Wu, F. et al. Single-cell profiling of tumor heterogeneity and the microenvironment in advanced non-small cell lung cancer. Nat. Commun. 12, 2540 (2021).
+González-Silva, L., Quevedo, L. & Varela, I. Tumor functional heterogeneity unraveled by scRNA-seq technologies. Trends Cancer 6, 13–19 (2020).
+Li, C. et al. Single-cell transcriptomics reveals cellular heterogeneity and molecular stratification of cervical cancer. Commun. Biol. 5, 1208 (2022).
+Lopez, R., Regier, J., Cole, M. B., Jordan, M. I. & Yosef, N. Deep generative modeling for single-cell transcriptomics. Nat. Methods 15, 1053–1058 (2018).
+Lotfollahi, M., Wolf, F. A. & Theis, F. L. scGen predicts single-cell perturbation responses. Nat. Methods 16, 715–721 (2019).
+Yang, K. D. et al. Predicting cell lineages using autoencoders and optimal transport. PLoS Comput. Biol. 16, e1007828 (2020).
+Villani, C. Optimal transport: Old and New Vol. 338 (Springer, 2009).
+Lavenant, H., Zhang, S., Kim, Y.-H. & Schiebinger, G. Towards a mathematical theory of trajectory inference. Preprint at https://arxiv.org/abs/2102.09204 (2021).
+Schiebinger, G. et al. Optimal-transport analysis of single-cell gene expression identifies developmental trajectories in reprogramming. Cell 176, 928–943 (2019).
+Makkuva, A., Taghvaei, M. A., Oh, S. & Lee, J. Optimal transport mapping via input convex neural networks. In Proc. 37th International Conference on Machine Learning (eds Daumé III, H. & Singh, A.) 6672–6681 (PMLR, 2020).
+Jacob, L., She, J., Almahairi, A., Rajeswar, S. & Courville, A. Adversarial computation of optimal transport maps. Preprint at https://arxiv.org/abs/1906.09691 (2019).
+Yang, K. D. & Uhler, C. Scalable unbalanced optimal transport using generative adversarial networks. In International Conference on Learning Representations (ICLR, 2019).
+Prasad, N., Yang, K. & Uhler, C. Optimal Transport using GANs for Lineage Tissues. Preprint at https://arxiv.org/abs/2007.12098 (2020).
+Amos, B., Xu, L. & Kolter, J. Z. Input convex neural networks. In Proc. 34th International Conference on Machine Learning (eds Precup, D. & Teh, Y. W.) 146–155 (PMLR, 2017).
+Villani, C. Topics in Optimal Transportation Vol. 58 (American Mathematical Soc., 2003).
+Santambrogio, F. Optimal transport for applied mathematicians. Birkäuser 55, 94 (2015).
+Cang, Z. & Nie, Q. Inferring spatial and signaling relationships between cells from single cell transcriptomic data. Nat. Commun. 11, 2084 (2020).
+Demetci, P., Santorella, R., Sandstede, B., Noble, W. S. & Singh, R. SCOT: single-cell multi-omics alignment with optimal transport. J. Comput. Biol. 29, 3–18 (2022).
+Huizing, G.-J., Peyré, G. & Cantini, L. Optimal transport improves cell–cell similarity inference in single-cell omics data. Bioinformatics 38, 2169–2177 (2022).
+Zhang, S., Afanassiev, A., Greenstreet, L., Matsumoto, T. & Schiebinger, G. Optimal transport analysis reveals trajectories in steady-state systems. PLoS Comput. Biol. 17, e1009466 (2021).
+Korotin, A., Egiazarian, V., Asadulaev, M. A., Safin, A. & Burnaev, E. Wasserstein-2 generative networks. Preprint at https://arxiv.org/abs/1909.13082 (2021).
+Raaijmakers, M. I. et al. A new live-cell biobank workflow efficiently recovers heterogeneous melanoma cells from native biopsies. Exp. Dermatol. 24, 377–380 (2015).
+Srivatsan, S. R. et al. Massively multiplex chemical transcriptomics at single-cell resolution. Science 367, 45–51 (2020).
+Chen, S. et al. (Unfinished reference, original text truncated).
+Gretton, A. et al. A kernel two-sample test. J. Mach. Learn. Res. 13, 723–773 (2012).
+McInnes, L., Healy, J. & Melville, J. UMAP: Uniform Manifold Approximation and Projection for dimension reduction. Preprint at https://arxiv.org/abs/1802.03426 (2018).
+Smith, M. L. et al. (Unfinished reference, original text truncated).
+(Unfinished reference, original text truncated, associated with MEK/PI3K pathway decoupling).
+(Unfinished reference, original text truncated, associated with MEKi resistance mechanisms).
+Kang, H. M. et al. Multiplexed droplet single-cell RNA-seq of a human immune cell atlas. Preprint at https://doi.org/10.1101/229285 (2017).
+(Unfinished reference, associated with lupus and interferonopathies).
+(Unfinished reference, associated with autoimmune disease marker genes).
+(Unfinished reference, associated with interferon-β responses).
+(Unfinished reference, associated with interferon pathway targets).
+(Unfinished reference, associated with lupus therapy).
+Peidli, S. et al. (Unfinished reference, associated with glioblastoma cohort).
+Hagai, T. et al. (Unfinished reference, associated with cross-species LPS responses).
+Weinreb, C. et al. Lineage tracing reveals fate plasticity of mammalian nephron progenitors. Nature 553, 538–542 (2018).
+(Unfinished reference, associated with pathway rewiring).
+Bunne, C. et al. (Unfinished reference, associated with context-conditioned neural OT).
+(Unfinished reference, associated with stochastic cell-fate decisions).
+(Unfinished reference, associated with probabilistic cell-fate modeling).
+(Unfinished reference, associated with OT-stochastic difference equations).
+Somnath, V. et al. (Unfinished reference, associated with aligned dataset OT).
+Monge, G. Mémoire sur la théorie des déblais et des remblais. Histoire de l’Académie Royale des Sciences 666–704 (1781).
+Kantorovich, L. On the transfer of masses (in Russian). In Doklady Akademii Nauk, vol. 37 (1942).
+Cuturi, M. Sinkhorn Distances: Lightspeed Computation of Optimal Transport. Adv. Neural Inf. Process. Syst. (2013).
+Chen, Y., Shi, Y. & Zhang, B. Optimal Control Via Neural Networks: A Convex Approach. International Conference on Learning Representations (2019).
+Huang, C.-W., Chen, R. T. Q., Tsirigotis, C. & Courville, A. Convex Potential Flows: Universal Probability Distributions with Optimal Transport and Convex Optimization. International Conference on Learning Representations (2021).
+Bunne, C., Meng-Papaxanthos, L., Krause, A. & Cuturi, M. Proximal Optimal Transport Modeling of Population Dynamics. International Conference on Artificial Intelligence and Statistics (2022).
+Alvarez-Melis, D., Schiff, Y. & Mroueh, Y. Optimizing functionals on the space of probabilities with input convex neural networks. Transact. Mach. Learn. Res. (2023).
+Mokrov, P. et al. Large-Scale Wasserstein Gradient Flows. Adv. Neural Inf. Process. Syst. (2021).
+Fan, J., Taghvaei, A. & Chen, Y. Scalable Computations of Wasserstein Barycenter via Input Convex Neural Networks. International Conference on Machine Learning (2021).
+Knott, M. & Smith, C. S. On the optimal mapping of distributions. J. Optim. Theory Appl. 43, 39–49 (1984).
+Brenier, Y. Polar factorization and monotone rearrangement of vector-valued functions. Commun. Pure Appl. Math. 44, 375–417 (1991).
+Taghvaei, A. & Jalali, A. 2-Wasserstein approximation via restricted convex potentials with application to improved training for GANs. arXiv Preprint arXiv:1902.07197 (2019).
+Korotin, A. et al. Do Neural Optimal Transport Solvers Work? A Continuous Wasserstein-2 Benchmark. Transcript. Mach. Learn. Res. (2021).
+Heydari, T. et al. IQCELL: A platform for predicting the effect of gene perturbations on developmental trajectories using single-cell RNA-seq data. PLOS Comput. Biol. 18, e1009907 (2022).
+Tritschler, S. et al. Concepts and limitations for learning developmental trajectories from single cell genomics. Development 146, dev170506 (2019).
+Weinreb, C., Wolock, S., Tusi, B. K., Socolovsky, M. & Klein, A. M. Fundamental limits on dynamic inference from single-cell snapshots. Proc. Natl. Acad. Sci. USA 115, E2467–E2476 (2018).
+Lübeck, F. et al. Neural unbalanced optimal transport via cycle-consistent semi-couplings. arXiv preprint arXiv:2209.15621 (2022).
+Chen, W. et al. Live-seq enables temporal transcriptomic recording of single cells. Nature 608, 733–740 (2022).
+Shi, Y., De Bortoli, V., Campbell, A. & Doucet, A. Diffusion Schrödinger Bridge Matching. arXiv preprint arXiv:2303.16852 (2023).
+Tong, A. et al. Conditional flow matching: simulation-free dynamic optimal transport. arXiv preprint arXiv:2302.0042 (2023).
+Carpenter, A. E. et al. CellProfiler: image analysis software for identifying and quantifying cell phenotypes. Genome Biol. 7, 1–11 (2006).
+Snijder, B. et al. Single-cell analysis of population context advances RNAi screening at multiple levels. Mol. Syst. Biol. 8, 579 (2012).
+Guizar-Sicairos, M., Thurman, S. T. & Fienup, J. R. Efficient subpixel image registration algorithms. Opt. Lett. 33, 156–158 (2008).
+Stoeger, T., Battich, N., Herrmann, M. D., Yakimovich, Y. & Pelkmans, L. Computer vision for image-based transcriptomics. Methods 85, 44–53 (2015).
+Van der Walt, S. et al. scikit-image: image processing in Python. PeerJ 2, e453 (2014).
+Wolf, F. A., Angerer, P. & Theis, F. J. SCANPY: large-scale single-cell gene expression data analysis. Genome Biol. 19, 1–15 (2018).
+Rybakov, S., Lotfollahi, M., Theis, F. J. & Wolf, F. A. Learning interpretable latent autoencoder representations with annotations of feature sets. bioRxiv (2020).
+Peidli, S. et al. scPerturb: Information resource for harmonized single-cell perturbation data. bioRxiv (2022).
+Kingma, D. P. & Ba, J. Adam: A Method for Stochastic Optimization. International Conference on Learning Representations (2014).
+参考文献可上下滑动查看
+细胞动力学读书会
+细胞绝非孤立的单元，生命的智慧，如同蚁群的协作，涌现在细胞间复杂的相互作用之中。跨越临界点，简单规则便能催生全新的、稳定的结构与功能。
+半个世纪以来，复杂系统科学为我们提供了洞见生命现象的全新工具箱。本期活动，我们将融合物理学、复杂科学与系统生物学，从Waddington景观、自组织临界，到反应-扩散模型与类器官实验，绘制一幅理解细胞命运与群体动力学的连贯地图。
+本次读书会由李辉、王维康、韦晓慧三位学者及王艳博士共同发起，并沿两条主线展开：一是探讨细胞命运、多稳态等理论核心；二是结合单细胞测序、时序推断等方法，学习如何将静态数据转化为动态模型。
+[图]
+详情请见：细胞动力学读书会启动：基因网络、群细胞、组织形态与发育
+[图][图][图]
+推荐阅读
+1. 从困在时间里的人到连续吸引子：对海马体的计算神经科学建模｜贾梓杏
+2. 自然·神经科学：脑体节律的层级系统，如何塑造我们的主观时间感？
+3. 拓扑深度学习捕捉数据的高阶关系：信息传递拓扑神经网络概述
+4. 诚招系统科学/AI/物理背景的内容创作者
+5. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+6. 高考分数只是张入场券，你的科研冒险在这里启航！
+7. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+#翻译#动力学
+点击“阅读原文”，报名读书会

@@ -1,0 +1,450 @@
+标题：自然·物理：复杂系统的低秩假说
+公众号：集智俱乐部
+发布：2026-01-15
+URL：https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247725243&idx=1&sn=e5719b1cdb454bbceefe20e5e5153bd4&chksm=e8982a36dfefa3202e4b3c9b7a7d91296f4c90d0f99924bdcac7bbbccf1ad2e86e36af86d773#rd
+合集：复杂科学前沿2026 · 序号 148/157
+------------------------------
+[图]
+导语
+复杂系统通常可建模为高维非线性动力学系统，其宏观行为由大量异质成分之间的相互作用共同决定。为了获得可解释的宏观描述，研究中常隐含地假设：这些相互作用可以由一个有效低秩的网络矩阵来刻画，从而使系统动力学具备可降维的结构——这一假设被称为低秩假说。
+本文系统阐明了低秩假说的数学内涵，并检验了其在随机网络与真实网络中的适用性。基于奇异值分解（SVD）的基本理论，作者一方面分析了多类随机图模型中低秩结构出现的机制，另一方面通过大量真实网络数据验证了奇异值的快速衰减现象。进一步地，文章评估了低秩结构对网络上非线性动力学降维的影响，证明了包括循环神经网络在内的一类动力系统可以实现精确或近似的低维描述，并揭示了高阶相互作用在降维过程中自然涌现的机制。
+关键词：低秩假设（Low-rank hypothesis）、奇异值分解（Singular value decomposition，SVD）、维度约简（Dimension reduction）、动力学系统、高阶相互作用（Higher-order interactions）
+[图][图][图][图][图]
+王璇丨作者
+赵思怡丨审校
+[图]
+论文题目：The low-rank hypothesis of complex systems
+论文链接：https://www.nature.com/articles/s41567-023-02303-0
+发表时间：2024 年 1 月 10 日
+论文来源：Nature Physics
+目录
+引言
+网络模型假说的证据
+真实网络假说的验证
+诱导的低维假说
+高阶相互作用的涌现
+结论与展望
+方法
+真实网络数据集
+引言
+理解复杂系统中的涌现行为，关键在于建立微观相互作用与宏观集体现象之间的联系。与其试图穷尽系统中所有组成成分的细节，降维方法关注的是能否找到一组有限的宏观变量，使其既足以描述系统行为，又不会掩盖关键动力学机制。
+然而，这一目标在复杂系统中尤为困难。现实系统往往具有极高的维度，其动力学状态空间随系统规模迅速膨胀，这种现象通常被称为维数灾难[1-3]。在许多领域中，如何在保留系统本质行为的同时实现有效降维，仍是一个悬而未决的问题。
+在多者异也（More is different）的思想框架下，试图用简洁模型刻画复杂系统，表面上看似矛盾。然而，简化结构并不意味着行为简单。许多低维或规则明确的模型，同样可以展现出混沌、突变等高度复杂的动力学现象。
+这表明，关键不在于系统的形式是否简单，而在于所选描述是否抓住了主导动力学的核心自由度。正是在这一意义上，低秩结构为理解复杂系统提供了一种可能的桥梁。
+在网络科学中，复杂系统组成成分之间相互作用的拓扑结构通常被简化为图，由一组顶点和一组边定义 (Figs. 1a-b)。这种表示法有助于提取复杂网络的主导特性，例如其模块化组织结构[13]。目前正在发生的一种范式转变是使用超图或单纯复形（simplicial complex）来代替图，以考虑在某些真实系统中观察到的重要高阶相互作用[14, 15]。除了寻找描述复杂系统的合适维度，人们还需要揭示其相互作用的阶数。正如后文所示，这两个问题是相互交织的。
+一个图总可以表示为一个矩阵，这一事实为利用线性代数刻画网络结构提供了最基本、也最有力的切入点。基于这种表示，谱理论（spectral theory）通过对矩阵进行分解，使人们能够识别网络中起主导作用的结构成分。长期以来，特征值分解被广泛用于提取图的关键性质，例如网络不变量[16]、模块化结构[17]、节点中心性[18]，以及网络上动力系统的分岔行为[19]。
+然而，如何将谱理论有效推广到有向、加权以及带符号（如兴奋–抑制）等更一般的网络，仍然是网络科学中的一项关键挑战。在这些情形下，特征值分解往往会产生复特征值和复特征向量，从而在解释和应用上带来困难。更重要的是，从数学上讲，网络的矩阵表示甚至并不总是可对角化的。例如，仅由一条有向边连接的最简单有向图，或任何其（实）矩阵表示W为矩形矩阵的网络（如关联矩阵、多层网络中的层间耦合矩阵），都不存在特征值分解意义下的对角化表示。
+然而，矩阵 WW⊤ 和 W⊤W 总是方阵且对称，因此是可对角化的，这为奇异值分解（singular value decomposition, SVD）奠定了基础。有趣的是，SVD 对任何矩阵都存在，奇异向量是实值的，奇异值 σ1,...,σN 是非负实数。值得注意的是，非零奇异值的个数等于W的秩。此外，SVD 继承了特征值分解的许多定理[20]，例如 Weyl 定理[21, 22]，但它也产生新的基本结果。特别地，SVD 是降维的核心工具：Schmidt-Eckart-Young-Mirsky 定理保证，截断 SVD 能给出一个矩阵的最佳低秩近似 (Fig. 1c 和引理 S13)。
+[图]
+图 1：真实网络低秩假设的实验验证。
+SVD的显著特性及其与矩阵（有效）秩之间的密切关系，在网络科学和谱图理论中尚未得到充分的认识，相比之下，它在数据科学（例如矩阵补全[23]、动态模式分解[24]和最优奇异值收缩[25]）、控制理论（例如Kalman准则[26, 27]）、随机矩阵理论（例如Marcenko-Pastur's定律[28]）以及线性代数（例如矩阵范数[20]）等领域却极为常见。在许多网络科学或谱图理论的主要入门教材中，甚至都没有提及SVD。
+在整个论文中，利用SVD的关键属性来定义和评估复杂系统的低秩假设的影响。在处理复杂系统作为高维非线性动力系统的情况之前，首先揭示了随机图假设的理论证据，然后对真实网络的假设进行了经验验证。
+网络模型假说的证据
+首先，考虑随机图是颇具启发性的。随机图通常由一组顶点及其间连接的概率分布构成，这些概率依赖于诸如顶点度、模块结构或顶点在度量空间中的距离等属性。从数学上讲，任意随机图的权重矩阵都可以表示为
+W=〈W〉+R
+其中〈W〉是期望权重矩阵，R 是均值为 0 的随机矩阵。
+通过研究众多广泛使用的随机图，发现其期望矩阵包含低秩矩阵。实际上，强调了一个通常隐含的假设，即〈W〉等于低秩矩阵L的函数Φ（图 2a，方法部分表 I）。在很多情况下，Φ(L)=L，因此很容易看出〈W〉的低秩，因为它可以写成秩分解的形式。一个特定的魏尔不等式已经确立了该假设的一个预期但重要的结果：一个较小的随机部分R确保W的每个奇异值都接近〈W〉的奇异值，即
+[图]
+对于所有 i∈{1,...,N}，其中 σi(A) 表示矩阵 A 的第 i 个奇异值，||·||2 表示谱矩阵范数（见定理 S10 和推论 S12）。将 W=〈W〉+R，其中 〈W〉=L 且 rank(L)=r 视为一个带尖峰的随机矩阵[29-33]，能提供一个更精确的视角。对于此类矩阵，奇异值存在一个与 R 的奇异值相关的“主体”，并且奇异值的异常值的产生或消失在渐近意义上由 Baik-Ben Arous-Peche（BBP）相变[34]来表征。值得注意的是，W中存在 p≤r 个奇异值异常值仅取决于 W 的主导奇异值的阈值，即 σ1(〈W〉),...,σr(〈W〉）[32]。因此，〈W〉的低秩 r 以及温和的阈值条件意味着 W 的最大奇异值位于σ1(〈W〉),...,σr(〈W〉）附近，这是低秩假设的一个初步指标。
+然而，〈W〉的低秩并非总是显而易见的，比如在有向软配置模型及其加权版本的情况中。实际上，它们的预期权重矩阵是秩为 1 的矩阵的非线性函数（见方法部分）。利用Weyl不等式，证明了这两种模型中〈W〉的奇异值均被一个指数递减项所上界（见方法部分中的定理 1，图 2e 和 2i）。图 2b - 2i 展示了在四种不同的加权随机图和两种噪声条件下，W的奇异值如何继承了〈W〉主奇异值的递减趋势，而次主奇异值则与R相关。W 的主奇异值的迅速递减暗示了网络的近似低秩，从而构成了低秩假设的第二个关键指标。
+然而，“迅速下降”和“接近低秩”这两个属性仍需进行量化。为此，本文引入了有效秩的概念。例如，稳定秩衡量了平方奇异值相对于 [图] 的相对重要性（见方法部分，表 II）。在图 2j - 2m 中，展示了其随着噪声水平的增加在四个随机图中的持续性。通过 N→ ∞ 时的有效秩的渐近行为，可以更好地理解一个随机图的有效秩“低”的程度（见方法部分）。不同的奇异值下降会导致有效秩的渐近行为不同，从常数 O(1) 和次线性增长 O(N1-ϵ)（其中ϵ∈ (0，1]）到线性增长 O(N)。值得注意的是，次线性增长意味着有效秩与维度的比率在渐近情况下会下降到 O(N-ϵ) 的形式：因此，研究者将说一个有效秩如果其增长最多是次线性的，那么这个有效秩就是低的。例如，文章证明了任何具有指数递减特征值的扩展网络模型（例如软配置模型）都会导致稳定秩以及另外两个有效秩的渐近行为达到最低值 O(1)（见方法部分，推论 2）。然而，在处理随机图的单个实例或真实网络时，应保持 N 的值不变，上述渐近观点就不适用了。不过，可以针对“到底低到什么程度？”这一问题给出一个更微妙、分级的回应，即通过有效秩与维度比值来回答：比值远小于 1 的值表明在 SVD 中只有少数特征值有显著贡献，这意味着 W 可以很好地近似为低秩矩阵。因此，具有较小的有效秩与维度比值是低秩假设的第三个指标，这次是定量的。综上所述，对于随机图，低秩假设已通过三个指标进行了描述。第二个指标，即特征值的快速递减，是该假设的核心指标：第一个指标是导致递减的理论原因，第三个指标是其结果。第二和第三个指标并不依赖于任何理论模型，可以应用于任何类型的网络数据。因此，本文采用了以下通用且可行的低秩假设定义：即假设网络权重矩阵的奇异值迅速降低，这意味着其有效秩较低。现在将这一假设进行验证。
+综上所述，低秩假设在随机图中用三个指标进行了描述。第二个指标，即奇异值的迅速下降，是该假设的核心指标：第一个指标是导致其下降的理论原因，第三个指标则是其结果。第二个和第三个指标与任何类型的网络数据无关，并且可以应用于此类数据中。因此，研究者采用了以下关于低秩假设的一般且可行的定义：它是假设网络权重矩阵的奇异值迅速下降，这意味着有效秩较低。现在研究者将对这一假设进行检验。
+真实网络假说的验证
+尽管低秩假说经常被使用——通常是隐含的，但有时也非常明确[35, 36]——但对于各种类型的真实网络，仍需通过实验来验证。
+实验表明，真实网络中奇异值的快速衰减是普遍现象。作为一个例子，在图 1d 中展示了黑腹果蝇连接组的奇异值分布图。图 1e 展示了来自 10 个不同来源的 679 个真实网络的奇异值分布的综合视图。为了帮助理解衰减趋势，绘制了一条通用的奇异值包络线，所有网络 95% 的奇异值都位于该包络线之下。
+有了奇异值包络线的显式形式，就可以将稳定秩解释为曲线下的面积，进而找到一个理论界限，大多数网络的稳定秩都低于此界限（见方法部分，定理3）。在图 1f 中，展示了真实网络的稳定秩以及高于 96% 网络的理论界限，这表明稳定秩通常预期小于顶点数N的 10%。
+为了确保这一观察结果不仅限于稳定秩，在图 1g - 1m 中报告了其他有效秩的类似观察结果（见方法部分）。对于 m 均值秩和 e 均值秩而言，其值大于 frank 是意料之中的事。实际上，很容易证明 frank≤nrank≤erank≤rank（见方法部分）。与有效秩不同的是，实网络的秩通常与其维度相当（图 1n）。这一观察结果是合理的，特别是对于具有真实权重的加权网络而言，因为不可逆矩阵构成了测度为 0 的集合。
+所考虑的数据集均为具有固定节点数 N 的真实网络，但这些网络的有效秩的渐近行为仍可以像存在一个相关的不断增长的图那样进行评估，即当 N 增大时，该图的奇异值仍处于实验奇异值范围之内。通过这种方法，研究者证明了如图 1e 中所示的奇异值范围对于 Frank、nrank 和 crank 来说具有恒定和次线性增长（见方法部分）。
+总之，研究者表明许多实际网络的奇异值呈迅速递减趋势，从而导致有效秩较低。有趣的是，这种观察结果似乎在大数据矩阵中普遍存在[37-39]，但这一现象仍令人困惑。特别是，这些观察结果对于网络上的高维非线性动态的影响尚待厘清，这将在下一节中进行探讨。
+[图]
+图 2：随机图低秩假设的三个指标。
+诱导的低维假说
+从直觉上讲，认为具有低（有效）秩的网络使得这些网络上的动态过程能够进行维度缩减。考虑完整的动态方程[图]，其中 11[图]是在时间 t 时系统的状态，[图]是一个连续可微的向量场，而 W 是一个 N×N 的权重矩阵描述了该网络（图 3a - 3b）。更具体地说，给定[图]和 W （此时x(t)未知），研究动态方程的子类[图]，其中 y=W。
+考虑这个动力学子类已经突出了低秩假说的一个重要含义。g 中的线性函数 [图] 具有非常特殊的作用：即使 x 属于一个N维流形，当 W 的秩较低时，其像空间中的向量也将属于一个低维子流形。即使 W 是满秩的，研究者在图 1 中的实验观察表明，它很可能具有低的有效秩。因此，研究者可以说 Wx 将属于一个有效低维的子流形。
+正如一些随机图模型是由低秩矩阵L的非线性函数Φ构造而成一样，向量场 g 非线性地依赖于 Wx，这使得评估 g(x,y) 的低维性具有挑战性。尽管最近有所进展[40, 41]，但对于复杂网络上的非线性动力学，如何选择降维后的维度以及如何量化降维误差仍然不清楚。
+对动力系统的降维处理可以理解为将低维向量场与高维对应场进行对齐的问题（图 3c ）。这涉及选择一个 n×N的降维矩阵 M，它将整个系统的元素映射到降维系统中，同时还需要一个向量场 F，用于描述一组可观测量 [图] 在 [图]中的演化过程。在 [图] 中，对于 x∈[图]处的对齐误差，记为 [图]，可以定义为向量场 M o f 与 F o M 之间的误差（见方法部分）。
+通常情况下，要将对齐误差降至最低以找到最优的配对方案 (M,F) 是一项极具挑战性的任务（参见附录 III.1），而最佳选择则取决于建模者的具体目标。例如，选择 M 以确保 F 的时间演变在任何时候都具有可解释性（例如，同步可观测量 [41]），这可能会使优化问题变得更加复杂。
+[图]
+图 3：复杂系统的低秩假设以及更高阶相互作用的出现。
+先专注于确定 F 的值，暂时不考虑 M 。通过最小二乘法，证明了 [图]在[图]中能最小化一种对齐误差，其中 +$ 表示伪逆（见方法部分）。这样做能够证明，对于[图] ，由最小二乘向量场引起的对齐误差 [图]满足
+[图]
+其中 [图]和[图]是雅可比矩阵 (方法)。
+有趣的是，上述不等式提出了一种非任意选择降维矩阵的方法。实际上，
+[图]
+该方法将与系统中相互作用相关的因子 ||W(I-M+M)||2 降至最低，从而通常能使每个可观测量 Xμ 成为全局量，即包含关于大多数顶点的信息（见方法部分说明）。
+在式（3）中所做出的选择促使研究者推导出另一个不等式，该不等式揭示了网络奇异值对对齐误差的贡献（见方法部分，定理 4）：
+[图]
+其中 [图] 。值得注意的是，该不等式为精确的维度缩减提供了一个判据：若[图]（其中 [图] 且 n = rank(W），则上界会趋于零，此时维度缩减就是精确的（见方法部分）。
+[图]
+图 4：在真实复杂网络上进行非线性动力学分析时的维度缩减误差与它们的奇异值和有效秩的关系。
+因此，一类通用的动力学模型，包括RNN和Wilson-Cowan神经动力学模型，都可以被精确地简化（见方法部分部分）。上限（4）旨在具有直观性（不一定严格）：它将网络奇异值的迅速衰减与维度缩减误差联系起来。作为一个基本的例子，对于线性系统 [图]，相对对齐误差 [图] 只能简单地用 [图]来上界表示，这意味着网络矩阵 W 的奇异值的迅速减小（无论其权重如何）都会直接导致对齐误差的迅速减小。
+图 4a - d 展示了随着参数 n 的变化，对齐误差的降低情况——后者与上界值和奇异值的迅速衰减相一致——在四个真实网络的动态系统中均有体现。研究者展示了如何通过调整 n 来预测流行病在流行病学动态中的情况（图 4e）、神经元动态中的滞后现象（图 4f）、微生物动态中的稳定分支（图 4g）或RNN中的极限循环（图 4h）。虽然有效秩有助于选择合适的维度 n 来描述集体现象，但仅将其用作一种指示： n 应根据模型者对定性（例如，滞后现象是否保持不变？）或定量（例如，预测的转变是否准确？）误差的容忍度来选择。因此，很明显，描述复杂网络的低（有效）秩矩阵为这些网络上的非线性动态的降维提供了基础。
+简化后的系统类似于发生在一个更小结构上的低维动力学，该结构的性质仍有待明确（见图 3c ）。将在下一节展示，降维最终导致了高阶相互作用的涌现，如图 3d 所示。
+高阶相互作用的涌现
+关于各种复杂系统中存在更高阶相互作用的理论和实验证据已有报道，其结果——例如对爆发性转变[42]或介观定位[43]的影响——也已得到了广泛研究[44]。然而，这些相互作用的起源仍在积极研究之中，特别是对于振荡系统[45，46]。
+使用研究者的框架，一个简单的例子很容易提供对高阶交互出现的见解。用i∈{1,...,N}考虑流行病学动态[图]，其中xi为顶点i被感染的概率，y=Wx而di和γ分别为顶点i的恢复率和感染率。简化后的动力学由
+[图]
+对于所有 μ∈{1,...,n}，其中 [图] 是一个具有 n×n 规模的简化恢复率矩阵，其 D = diag(d1，...，dN}，而[图] 是一个具有 n×n 规模的简化权重矩阵。
+让研究者更仔细地研究一下式（5）中的最后一项。为了简化计算，假设 M+=M⊤，即 M 的各行是正交的。那么，Mμi 表示顶点 i 对第 μ 个可观测值的影响，[图]是第 ν 个可观测值对其在顶点 i 上的依赖程度的加权影响，而 [图] 是第 κ 个可观测值对其连接到顶点 i 的顶点的依赖程度的加权影响。总之，这些因素形成了可观测值 Xμ、Xν 和 Xκ 之间的三阶相互作用，通过将式（5）重新排列可以更清晰地体现这一点：
+[图]
+其中三阶相互作用被编码在一个三阶张量 [图] 中，其元素为
+[图]
+对于所有 μ, ν, κ ∈ {1,...,n} 。因此，简化系统所形成的结构是一个具有 n 个顶点的超图[图]（图 3c-d），该超图通常是有向的[47]、加权的、带符号的，并由 [图] 和 [图]构成。
+除了诸如权重矩阵W 等动态参数的影响之外，式（7）还强调了缩减矩阵 M 在塑造高阶相互作用方面所起的关键作用。实际上， M部分决定了超图的有向、加权和有符号性质。此外，如果可观测量分别取决于不相交的顶点组，即 [图]，其中δ是克罗内克符号， s 将每个顶点 i 映射到其所属的组，那么式（7）中元素构成的张量可以精确地映射为一个矩阵。换句话说，在流行病学动态中，高阶相互作用源自取决于顶点重叠组的可观测量（例如，一般情况下[图]）。有趣的是，这种重叠是复杂网络（如社交网络）中非常常见的特征[48]。
+这些观察结果促使研究者去探寻这种涌现现象的通用条件。对于 [图]（其中 [图] 对于所有 i∈{1,...，N} 都是一个解析标量场），证明了最小二乘最优向量场取决于可观测量 X1，...，Xn 之间的高阶相互作用（见方法部分，命题 5）。然后推导出了两个富有启发性的结论。首先，如果标量场在 xi 和 yi上是 xi 和 yi 的总次数为 δ 的多项式，那么简化系统的超图具有最高阶 δ+1 的相互作用（见方法部分，推论 S70）。其次，具有分别依赖于不同组顶点的可观测量并不足以避免一般情况下的高阶相互作用： yi 中的非线性也起到了作用（见方法部分，推论 S71）。微生物和振荡器动力学的其他计算示例在扩展数据表 1 中给出，以补充之前关于流行病学动力学的观察结果。
+总之，研究者的研究结果表明，许多高阶相互作用的情况可能是由于选择了低维（宏观）表示来模拟各种复杂系统所导致的副产品。这些结果阐明了描述维度以及原始系统的非线性在塑造后续简化系统中的相互作用方面所起的关键作用。
+结论与展望
+在本文中，阐述了低秩假设在复杂系统中的普遍性及其所产生的影响，涵盖了从网络上高维非线性动态的降维处理到更高阶相互作用的产生等方面的内容。
+实验结果表明，低秩假设或许不仅是一种假设，而且可能是许多真实复杂系统所固有的特性。发现暗示了某些涌现的集体现象可能是由远少于先验预期的变量所导致的，这得益于其复杂网络的低秩特性。然而，低秩假设的使用应当非常谨慎：实际网络的有效秩通常在 N 的相当大的比例范围内，若不加留意地采用低秩假设，可能会导致对给定复杂系统的一种过于简化的模型。因此，基于实际网络的观测奇异值来设计新的随机图似乎是很有意义的。网络的奇异值并非仅仅是谱理论的抽象：就像度、聚类系数或互惠性一样，它们具有直观的解释，可作为复杂网络/系统的有效维度的指标。
+理论框架还表明，从较粗粒度分辨率下观测到的时间序列中推断复杂系统中的相互关系（例如，大脑中的局部场电位[49] 或植物群落中的丰度[50]），很可能会揭示出显著的高阶相互作用。研究者推测，通过实验在不同尺度上监测复杂系统将有助于阐明测量所处维度对高阶相互作用出现的作用。对高阶网络上的动态进行维度缩减[14, 51] 也是值得探索的方向，或许可以通过塔克分解[52] 来实现。
+然而，确定驱动复杂系统行为的主要可观测量的确切形式仍是一个未解决的问题。尽管关注的是线性可观测量，但可能存在一组适用于特定高维动态的少量非线性可观测量[53]。然而，找到合适的、直观的非线性可观测量要困难得多[54]。研究者对真实网络的有效秩的观察也促使研究者进一步研究从时间序列中推断出可解释的低秩模型的课题[55]。
+最后，尚未探讨的复杂系统的一个关键特性是其适应能力[56]。研究者的初步研究结果表明，复杂网络的低有效秩在控制[57, 58]以及评估复杂适应系统的恢复能力方面起着核心作用[59]。此外，有迹象表明成熟或学习能够降低网络的有效秩[60]。
+方法
+随机图
+一个随机图可以用一个随机矩阵描述为
+[图]
+其中 〈W〉 是期望权重矩阵，R 是零均值随机矩阵。即使在典型模型中，单个实例通常是满秩 N 的，期望权重矩阵〈W〉也常被定义为一个低秩矩阵 L 的逐元素函数，即
+[图]
+其中 φ 是一个实变量的实值函数。这是对正文中 〈W〉=Φ(L) 的另一种等价写法。在表 1 中，研究者列出了一些经典随机图的例子及其对应的低秩矩阵。
+[图]
+表 I：低秩矩阵 L，其表征了具有 N 个顶点的不同随机图的预期邻接矩阵。SBM：随机块模型，CL：钟-卢模型，MD：元度模型，DSCM：有向软配置模型，RDPG：随机点积图，RGM：随机几何模型，RPG：秩扰动高斯模型，DCSBM：度校正随机块模型，缩写前的“W”表示“加权”。对于 SD RGM，L 的秩更确切地说是 D、D + 1 或 D + 2，这是由参考文献 [61， 定理 7] 以及不等式 rank(A o B) ≤ rank(A) rank(B) 所导致的。参数q、r、d 和 D 通常假定与 N 相比很小。
+评估 L 的低秩是简单的，但当 φ 是非线性时，评估〈W〉的低秩则更困难。例如，在有向软配置模型中，Φ=ΦFD，是一个费米-狄拉克分布；在其加权版本中，Φ=ΦBE，是一个Bose-Einstein分布。对于这两个模型，下面的定理表明它们期望权重矩阵的奇异值被一个指数衰减项从上界限制。
+在图 2 中，展示了 RPG、DCSBM、S1 RGM 和 WDSCM 中 W、〈W〉和 R 的奇异值。图 2e 和 i 中显示的上界由公式 (10) 给出，该公式通过累加常数 ni>ni+1>.. 直到 ni 小于 10-12 来计算。对于 RPG，向量 mμ 和 nμ 是不同高斯分布的实例，且 r=5。使用截断帕累托分布的实例来生成期望度（DCSBM 和 S1 RGM）以及 [图]（WDSCM）。DCSBM 的块数 q 设为 5，并且定义期望边数的块矩阵 ∧，使得块内的期望边数多于块间。为了获得随机权重矩阵中随机部分 R 的范数（RPG 除外，其 R 已设为均值为 0 的高斯分布），研究者生成了 100 个 W 的实例，计算了每个实例的 R=W-〈W〉 及其范数。通过改变 RPG 中 R 各高斯元素的方差、DCSBM 中的期望边数、S1 RGM 中的温度 1/β 以及 WDSCM 中 [图] 和 [图] 的最小值，来增加 R 的谱范数。
+[图]
+表 II: 维度为 N×N、秩为 r 的矩阵的不同有效秩，以其奇异值 σ1≥ ... ≥σN 表示。对于 energy，常数 Τ 是一个需在 0 到 1 之间设置的阈值。对于 thrank，σmed 是中位数奇异值，μmed 是 Marčenko-Pastur 概率密度函数的中位数 [62]。对于 shrank，s* 表示一个最优奇异值收缩函数 [25, 63]。
+有效秩
+从矩阵分解中提取显著分量数量这一想法是一个古老的主题（例如，在因子分析[64,65]或主成分分析[66-71]中），但仍在随机矩阵理论、数据科学[29,62]以及网络科学（其中超几何几何[57]和信息理论[68]被使用）等领域有着新的有趣发展。由于SVD与秩有着密切的关系，许多有效的秩是通过奇异值来定义的。直观地说，这些有效的秩是表示在分解矩阵时哪些奇异值是显著的数字。表 2 展示了所整理的不同有效秩的列表。有效秩 thrank 和 shrink 是从诸如 Refs. [65,66,25] 中介绍的矩阵去噪技术中定义的，这些技术依赖于无限随机矩阵的谱理论[32]来确定收缩奇异值的最优方法。在图 11 中，使用了弗罗贝尼乌斯范数来获得收缩，并且在图 1j 中使用了能量比的阈值为 0.9 。
+动力系统的降维
+高维非线性动力学的降维是获得复杂系统分析和数值见解的基本方法。低维动力学可以通过优化问题获得，在一组约束下最小化某种误差，以保留原始系统的显著特性。对于动力系统，一个自然的优化变量是简化向量场 F 本身，它被选择来近似表示完整的向量场 f。然而，找出不同向量场误差之间的关系以及哪一个可以解析地最小化是相当令人困惑的。
+动力学的积分与性质
+图 4 中展示的真实网络上的动力学轨迹是使用 scipy.integrate 的 solve_ivp 获得的。使用了后向微分公式（BDF），这是一种具有可变步长和阶数的隐式方法，已知非常适合刚性问题，例如肠道微生物组上的微生物动力学。研究者观察到，对于完整的微生物动力学，相对容差 rtol=10-8 和绝对容差 atol=10-12（对于简化动力学为 rtol=10-6 和 atol=10-10）在合理的积分时间内给出了可靠的结果，并且与最近的基准测试结果一致。此外，研究者按照 solve_ivp 文档对 BDF 方法的建议，向积分器提供了完整和简化动力学的雅可比矩阵。研究者还使用相对容差 10-8 和绝对容差 10-12 的 BDF 方法积分了其他动力学。
+对于流行病学动力学，出现了临界慢化现象，但可以通过在跨临界分岔点附近增加时间步数来轻松处理，正如在图 4e 插图中所做的那样。注意，增加维度可以提高对更高感染率的预测。在图 4f 中，观察到神经元动力学的全局可观测量相对于突触权重存在滞回现象。在图 4e-f 中，均方根误差（RMSE）简单地计算为完整动力学和简化动力学在不同 n 下的全局平衡点之间的误差。
+如图 4g 所示，微生物动力学的全局可观测量出现了多个稳定的平衡点分支。按照以下步骤进行，以获得一个仅涉及部分平衡点分支的简化图景。专注于使用从 0 到 1 的均匀分布中采样的初始条件 x0 获得的一个前向分支，并在图 4g 中展示了当逐渐增加微生物相互作用权重时其稳定性的丧失。为了获得一个后向分支，从 0 到 z 的均匀分布中采样初始条件 x0，其中 z 是 1 到 15 之间的随机整数，然后积分动力学以获得平衡点，接着降低微生物相互作用权重，并将最后一个平衡点用作下一次积分的初始条件，重复最后这两个步骤，直到达到最小耦合值。重复所有这些步骤 100 次以生成不同的初始条件和稳定分支。在每次迭代中，确保在平衡点处评估的向量场得到的向量其元素低于容差 10-7，并且平衡点是正的。在这种情况下，RMSE 计算为完整动力学和简化动力学的平均上分支和下分支之间的误差。
+对于（有限尺寸的）RNN，与参考文献[71]结论中的观察类似，在较低耦合时零点是稳定平衡点，增加耦合最终会导致复杂性增加的极限环。研究者展示了当维度n 接近学习网络的秩时，完整动力学中这个高维极限环的 3 维投影，以及简化动力学中的极限环。RMSE 计算为完整循环神经动力学的极限环上的点与简化动力学极限环上最近点之间的误差。
+真实网络数据集
+本节列出本文使用的真实网络，并给出两幅补充图。 表中所有网络都来自 Netzschleuder，只有其中 31 个例外，列在下面。
+• ‘celegans signed’：该网络由开源数据库 EleganSign [284] 的连接组 NT+R 方法预测结果补全得到，补全时遵循 Dale 原则（见 GitHub 仓库中的 graphs/get real networks.py，函数 get connectome weight matrix）。
+• ‘drosophila’：取自文献 [12]。
+• ‘cintestinalis’：Ciona intestinalis 的连接组来自文献 [285]，并保存在研究者的 Github 仓库：graphs/graph data/connectome/ciona intestinalis lavaire elife-16962-fig16-data1-v1 modified.xlsx。
+• ‘pdumerilii neuronal’：Platynereis dumerilii 的神经连接组来自文献 [286]。 该版本为更新版，由作者 G. Jékely 私下分享给 V. Thibeault。 连接组文件在研究者的 Github 仓库：graphs/graph data/connectome/pdumerilii neuronal.xml。
+• ‘pdumerilii desmosomal’：Platynereis dumerilii 的桥粒（desmosomal）连接组来自文献 [287]。 该版本为更新版，由作者 G. Jékely 私下分享给 V. Thibeault。 连接组文件在研究者的 Github 仓库：graphs/graph data/connectome/pdumerilii desmosomal.xml。
+• ‘mouse meso’：小鼠介观（mesoscopic）连接组来自文献 [288]，并保存在研究者的 Github 仓库：graphs/graph data/connectome/mouse connectome-Oh Nature 2014.csv。
+• ‘zebrafish meso’：斑马鱼介观连接组由文献 [202] 改编得到，处理过程见本文 GitHub 仓库 low-rank-hypothesis-complex-systems。
+• ‘mouse voxel’：体素（voxel）尺度的小鼠连接组可在 Mendeley 数据集 mouse connectome voxelwise [289] 获取。
+• ‘mouse control rnn’、‘mouse rnn’、‘zebrafish rnn’：来自 Hadjiabadi 等人 [281] 的递归神经网络。
+• ‘fully connected layer cnn XXXXX’（其中 XXXXX ∈ {00100, 00200, ..., 01000}）：来自仓库 NWS [183] 中卷积神经网络的全连接层[183]。
+• ‘gut’：人类肠道微生物组网络来自文献 [282]，其构造方式与文献 [58] 的补充材料一致（见 GitHub 仓库 graphs/get real networks.py 中的函数 get microbiome weight matrix）。
+• ‘AT 2008’、‘CY 2015’、‘EE 2010’、‘PT 2009’、‘SI 2016’：来自文献 [290] 的经济网络。
+• ‘financial institution07-Apr-1999’、‘non financial institution04-Jan-2001’、‘households 04-Sep-1998’、‘households 09-Jan-2002’：Dryad 上文献 [291] 的经济网络。
+从 Github 提取各网络的代码在 graphs/get real networks 中。 关于数据集里真实网络的更多信息，也可在 Github 仓库 low-rank-hypothesis-complex-systems 中找到。 具体来说，可以查看 graphs/graph data 中的 real networks and their effective ranks.pdf，以获得每个网络的来源信息；或等价地查看补充表 1（supplementary table 1 real networks.pdf）。 需要说明的是，在计算有效秩之前，研究者做过一次预处理：为避免某些网络类型被过度代表，研究者从包含 1145 个网络的更大数据集中删去了许多 Netzschleuder 网络（例如 ‘board directors net1m...’、‘edit wikibooks...’、‘ego social gplus...’）。
+研究者针对不同的奇异值衰减形式，给出了图模型有效秩的渐近结果。 这些结果展示了多种可能行为：从常数增长 O(1），到次线性增长 O(N1-ϵ}（其中 0<ϵ<1），再到线性增长 O(N）（当 N→∞）。 虽然研究者并不期望用单一图模型来描述数据集中所有网络（否则就能做统一的渐近分析），但研究者仍然可以问：有效秩如何随网络规模 N 分布。 在图 S11 中，研究者给出了这样的分布并做了非线性回归。 回归结果提示：随着 N 增大，有效秩呈现次线性上升。 正如 II E 小节所说，进一步研究增长图与真实增长网络中的有效秩行为，将有助于验证这种次线性增长是否普遍存在。
+此外，许多真实网络与合成网络都呈现稀疏矩阵结构。 在 II C 小节研究者也指出，稀疏矩阵模型会给出较低的稳定秩。 但是图 S12 表明：真实网络的有效秩与权重矩阵的密度反而呈现负相关。 这暗示，研究者在图 1 中观察到的有效秩现象，更关键的原因可能是奇异值的快速衰减，而不是单纯的稀疏性。
+参考文献
+[1] R. Bellman, Dynamic Programming (Princeton University Press, Princeton, 1957).
+[2] S. Ganguli and H. Sompolinsky, "Compressed sensing, sparsity, and dimensionality in neuronal information processing and data analysis," Annu. Rev. Neurosci. 35, 485 (2012).
+[3] L. F. Abbott et al., "The Mind of a Mouse," Cell 182, 1372 (2020).
+[4] P. W. Anderson, "More is different," Science 177, 393 (1972).
+[5] S. Strogatz, S. Walker, J. M. Yeomans, C. Tarnita, E. Arcaute, M. De Domenico, O. Artime, and K.-I. Goh, "Fifty years of 'More is different'," Nat. Rev. Phys. 4, 508 (2022).
+[6] R. M. May, "Simple mathematical models with very complicated dynamics," Nature 261, 459 (1976).
+[7] J. von Neumann, "The general and logical theory of automata," in John von Neumann Collected Work, Vol. V, edited by A. H. Taub (Bergamon Press, 1963) p. 288.
+[8] S. Wolfram, "Cellular automata as models of complexity," Nature 311, 419 (1984).
+[9] G. Parisi, "Statistical Physics and biology," Phys. World 6, 42 (1993).
+[10] D. L. Stein and C. M. Newman, Spin Glasses and Complexity (Princeton University Press, New Jersey, 2013).
+[11] K. I. Funahashi and Y. Nakamura, "Approximation of dynamical systems by continuous time recurrent neural networks," Neural Netw. 6, 801 (1993).
+[12] L. K. Scheffer et al., "A connectome and analysis of the adult Drosophila central brain," eLife 9, 1 (2020).
+[13] S. Fortunato and M. E. J. Newman, "20 years of network community detection," Nat. Phys. 18, 848 (2022).
+[14] G. Bianconi, Higher-Order Networks (Cambridge University Press, Cambridge, 2021).
+[15] F. Battiston, E. Amico, A. Barrat, G. Bianconi, G. F. de Arruda, B. Franceschiello, I. Iacopini, and S. Kéfi, "The physics of higher-order interactions in complex systems," Nat. Phys. 17, 1093 (2021).
+[16] H. S. Wilf, "The eigenvalues of a graph and its chromatic number," J. Lond. Math. Soc. 1, 330 (1967).
+[17] W. E. Donath and A. J. Hoffman, "Lower Bounds for the Partitioning of Graphs," IBM J. Res. Dev. 17, 420 (1973).
+[18] P. Bonacich, "Factoring and weighting approaches to status scores and clique identification," J. Math. Sociol. 2, 113 (1972).
+[19] J. G. Restrepo, E. Ott, and B. R. Hunt, "Onset of synchronization in large networks of coupled oscillators," Phys. Rev. E 71, 036151 (2005).
+[20] R. A. Horn and C. R. Johnson, Matrix Analysis (Cambridge University Press, 2013).
+[21] H. Weyl, "Das asymptotische Verteilungsgesetz der Eigenwerte linearer partieller Differentialgleichungen (mit einer Anwendung auf die Theorie der Hohlraumstrahlung)," Math. Ann. 71, 441 (1912).
+[22] K. Fan, "Maximum properties and inequalities for the eigenvalues of completely continuous operators," Proc. Natl. Acad. Sci. U.S.A. 37, 760 (1951).
+[23] J.-F. Cai, E. J. Candès, and Z. Shen, "A singular value thresholding algorithm for matrix completion," SIAM J. Optim. 46, 1956 (2010).
+[24] J. N. Kutz, S. L. Brunton, and B. W. Brunton, Dynamic Mode Decomposition (SIAM, 2016).
+[25] M. Gavish and D. L. Donoho, "Optimal Shrinkage of Singular Values," IEEE Trans. Inf. Theory 63, 2137 (2017).
+[26] R. E. Kalman, "On the general theory of control systems," in 1st International IFAC Congress on Automatic and Remote Control (1960) p. 491; "Contributions to the theory of time-optimal control," Bol. Soc. Mat. Mex. 5, 102 (1960).
+[27] G. Yan, P. E. Vértes, E. K. Towlson, Y. L. Chew, D. S. Walker, W. R. Schafer, and A.-L. Barabási, "Network control principles predict neuron function in the Caenorhabditis elegans connectome," Nature 550, 519 (2017).
+[28] V. A. Marčenko and L. A. Pastur, "Distribution of eigenvalues for some sets of random matrices," Math. USSR-Sbornik 1, 457 (1967).
+[29] D. Féral and S. Péché, "The largest eigenvalue of rank one deformation of large wigner matrices," Commun. Math. Phys. 272, 185 (2007).
+[30] M. Capitaine, C. Donati-Martin, and D. Féral, "The largest eigenvalues of finite rank deformation of large wigner matrices: convergence and nonuniversality of the fluctuation," Ann. Probab. 37, 1 (2009).
+[31] F. Benaych-Georges and R. R. Nadakuditi, "The eigenvalues and eigenvectors of finite, low rank perturbations of large random matrices," Adv. Math. 227, 494 (2011).
+[32] F. Benaych-Georges and R. R. Nadakuditi, "The singular values and vectors of low rank perturbations of large rectangular random matrices," J. Multivar. Anal. 111, 120 (2012).
+[33] A. Pizzo, D. Renfrew, and A. Soshnikov, "On finite rank deformations of wigner matrices," in Ann. I. H. Poincaré - PR, Vol. 49 (2013) p. 64.
+[34] J. Baik, G. Ben Arous, and S. Péché, "Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices," Ann. Probab. 33, 1643 (2005).
+[35] E. Valdano and A. Arenas, "Exact rank reduction of network models," Phys. Rev. X 9, 031050 (2019).
+[36] M. Beiran, A. Dubreuil, A. Valente, F. Mastrogiuseppe, and S. Ostojic, "Shaping dynamics with multiple populations in low-rank recurrent networks," Neural Comput. 33, 1572 (2021).
+[37] P. Gao and S. Ganguli, "On simplicity and complexity in the brave new world of large-scale neuroscience," Curr. Opin. Neurobiol. 32, 148 (2015).
+[38] B. Beckermann and A. Townsend, "On the singular values of matrices with displacement structure," SIAM J. Matrix Anal. Appl. 38, 1227 (2017).
+[39] M. Udell and A. Townsend, "Why are big data matrices approximately low rank?" SIAM J. Math. Data Sci. 1, 14459 (2019).
+[40] J. Gao, B. Barzel, and A.-L. Barabási, "Universal resilience patterns in complex networks," Nature 530, 307 (2016); C. Tu, J. Grilli, F. Schuessler, and S. Suweis, "Collapse of resilience patterns in generalized Lotka-Volterra dynamics and beyond," Phys. Rev. E 95, 062307 (2017); J. Jiang, Z.-G. Huang, T. P. Seager, W. Lin, C. Grebogi, A. Hastings, and Y.-C. Lai, "Predicting tipping points in mutualistic networks through dimension reduction," Proc. Natl. Acad. Sci. U.S.A. 115, E639 (2018); E. Laurence, N. Doyon, L. J. Dubé, and P. Desrosiers, "Spectral dimension reduction of complex dynamical networks," Phys. Rev. X 9, 011042 (2019); M. Vegué, V. Thibeault, P. Desrosiers, and A. Allard, "Dimension reduction of dynamics on modular and heterogeneous directed networks," PNAS Nexus, pgad150 (2023); P. Kundu, H. Kori, and N. Masuda, "Accuracy of a one-dimensional reduction of dynamical systems on networks," Phys. Rev. E 105, 024305 (2022).
+[41] V. Thibeault, G. St-Onge, L. J. Dubé, and P. Desrosiers, "Threefold way to the dimension reduction of dynamics on networks: An application to synchronization," Phys. Rev. Research 2, 043215 (2020).
+[42] C. Kuehn and C. Bick, "A universal route to explosive phenomena," Sci. Adv. 7, 1 (2021).
+[43] G. St-Onge, V. Thibeault, A. Allard, L. J. Dubé, and L. Hébert-Dufresne, "Social confinement and mesoscopic localization of epidemics on networks," Phys. Rev. Lett. 126, 098301 (2021).
+[44] F. Battiston, G. Cencetti, I. Iacopini, V. Latora, M. Lucas, A. Patania, J.-G. Young, and G. Petri, "Networks beyond pairwise interactions: Structure and dynamics," Phys. Rep. 874, 1 (2020).
+[45] M. H. Matheny, J. Emenheiser, W. Fon, A. Chapman, A. Salova, M. Rohden, J. Li, M. Hudoba De Badyn, M. Pósfai, L. Duenas-Osorio, M. Mesbahi, J. P. Crutchfield, M. C. Cross, R. M. D'Souza, and M. L. Roukes, "Exotic states in a simple network of nanoelectromechanical oscillators," Science 363, 1057 (2019).
+[46] E. Nijholt, J. L. Ocampo-Espindola, D. Eroglu, I. Z. Kiss, and T. Pereira, "Emergent hypernetworks in weakly coupled oscillators," Nat. Commun. 13, 4849 (2022).
+[47] G. Gallo, G. Longo, S. Pallottino, and S. Nguyen, "Directed hypergraphs and applications," Discret. Appl. Math. 42, 177 (1993).
+[48] G. Palla, I. Derényi, I. Farkas, and T. Vicsek, "Uncovering the overlapping community structure of complex networks in nature and society," Nature 435, 814 (2005).
+[49] S. Yu, H. Yang, H. Nakahara, D. Plenz, G. S. Santos, and D. Nikolic, "Higher-order interactions characterized in cortical activity," J. Neurosci. 31, 17514 (2011).
+[50] M. M. Mayfield and D. B. Stouffer, "Higher-order interactions capture unexplained complexity in diverse communities," Nat. Ecol. Evol. 1, 1 (2017).
+[51] G. Ferraz de Arruda, M. Tizzani, and Y. Moreno, "Phase transitions and stability of dynamical processes on hypergraphs," Commun. Phys. 4, 24 (2021).
+[52] L. Qi and Z. Luo, Tensor analysis (SIAM, 2017).
+[53] S. Watanabe and S. H. Strogatz, "Constants of motion for superconducting Josephson arrays," Physica D 74, 197 (1994).
+[54] S. L. Brunton, M. Budišić, E. Kaiser, and J. N. Kutz, "Modern Koopman theory for dynamical systems," SIAM Rev. 64, 229 (2022).
+[55] A. Valente, J. W. Pillow, and S. Ostojic, "Extracting computational mechanisms from neural data using low-rank RNNs," (Curran Associates, Inc., 2022, 2022) p. 24072.
+[56] J. H. Holland, Hidden Order: How Adaptation Builds Complexity (Addison-Wesley, 1995).
+[57] A. N. Montanari, C. Duan, L. A. Aguirre, and A. E. Motter, "Functional observability and target state estimation in large-scale networks," Proc. Natl. Acad. Sci. U.S.A. 119, e2113750119 (2022).
+[58] H. Sanhedrai, J. Gao, A. Bashan, M. Schwartz, S. Havlin, and B. Barzel, "Reviving a failed network through microscopic interventions," Nat. Phys. 18, 338 (2022).
+[59] P. Desrosiers and X. Roy-Pomerleau, "One for all," Nat. Phys. 18, 238 (2022).
+[60] C. H. Martin and M. W. Mahoney, "Implicit self-regularization in deep neural networks: Evidence from random matrix theory and implications for learning," J. Mach. Learn. Res. 22, 1 (2021).
+[61] J. Gower, "Properties of Euclidean and non-Euclidean distance matrices," Linear Algebra Appl. 67, 81 (1985).
+[62] M. Gavish and D. L. Donoho, "The optimal hard threshold for singular values is 4/√3," IEEE Trans. Inf. Theory 60, 5040 (2014).
+[63] D. Donoho, M. Gavish, and I. Johnstone, "Optimal shrinkage of eigenvalues in the spiked covariance model," Ann. Statis. 46, 1742 (2018).
+[64] E. R. Malinowski, "Theory of error in factor analysis," Anal. Chem. 49, 606 (1977).
+[65] E. Sánchez and B. R. Kowalski, "Generalized rank annihilation factor analysis," Anal. Chem. 58, 496 (1986).
+[66] H. Abdi and L. J. Williams, "Principal component analysis," WIREs Comput. Stat. 2, 433 (2010).
+[67] P. Almagro, M. Boguñá, and M. Angeles Serrano, "Detecting the ultra low dimensionality of real networks," Nat. Commun. 13, 6096 (2022).
+[68] C. W. Lynn and D. S. Bassett, "Compressibility of complex networks," Proc. Natl. Acad. Sci. U.S.A. 118, e2023473118 (2021).
+[69] P. O. Perry, Cross-Validation for Unsupervised Learning, Ph.D. thesis, Stanford University (2009).
+[70] P. Städter, Y. Schälte, L. Schmiester, J. Hasenauer, and P. L. Stapor, "Benchmarking of numerical integration methods for ODE models of biological systems," Sci. Rep. 11, 2696 (2021).
+[71] H. Sompolinsky, A. Crisanti, and H.-J. Sommers, "Chaos in random neural networks," Phys. Rev. Lett. 61, 259 (1988).
+[72] E. Schmidt, "Zur Theorie der linearen und nichtlinearen Integralgleichungen," Math. Ann. 63, 433 (1907).
+[73] C. Eckart and G. Young, "The approximation of one matrix by another of lower rank," Psychometrika 1, 211 (1936).
+[74] G. W. Stewart, "On the early history of singular value decomposition," SIAM Rev. 35, 551 (1993).
+[75] S. L. Brunton and J. N. Kutz, Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control (Cambridge University Press, 2019).
+[76] J. J. Gerbrands, "On the relationships between SVD, KLT and PCA," Pattern Recognit. 14, 375 (1981).
+[77] H. Hotelling, "Analysis of a complex of statistical variables into principal components," J. Educ. Psych. 24, 417 (1933).
+[78] H. Hotelling, "Analysis of a complex of statistical variables into principal components," J. Educ. Psych. 24, 498 (1933).
+[79] S. Wold, K. Esbensen, and P. Geladi, "Principal component analysis," Chemom. Intell. Lab. Syst. 2, 37 (1987).
+[80] L. Ferré, "Selection of components in principal component analysis: A comparison of methods," Comput. Stat. Data Anal. 19, 669 (1995).
+[81] I. M. Johnstone and D. Paul, "PCA in High Dimensions: An Orientation," Proc. IEEE 106, 1277 (2018).
+[82] R. D. Cook, "A slice of multivariate dimension reduction," J. Multivar. Anal. 188, 104812 (2022).
+[83] K. Karhunen, Uber lineare Methoden in der Wahrscheinlichkeitsrechnung, Ph.D. thesis, University of Helsinki (1947).
+[84] M. Loève, Probability theory: foundations, random sequences (Springer, 1955).
+[85] R. Everson and L. Sirovich, "Karhunen-Loève procedure for gappy data," J. Opt. Soc. Am. A 12, 1657 (1995).
+[86] G. Kerschen, J.-C. Golinval, A. F. Vakakis, and L. A. Bergman, "The method of proper orthogonal decomposition for dynamical characterization and order reduction of mechanical systems: An overview," Nonlinear Dyn. 41, 147 (2005).
+[87] S. Volkwein, "Proper Orthogonal Decomposition: Theory and Reduced-Order Modelling," (2013).
+[88] E. Lorenz, Empirical Orthogonal Functions and Statistical Weather Prediction, Tech. Rep. (Massachusetts Institute of Technology, 1956).
+[89] A. H. Monahan, J. C. Fyfe, M. H. P. Ambaum, D. B. Stephenson, and G. R. North, "Empirical orthogonal functions: The medium is the message," J. Clim. 22, 6501 (2009).
+[90] H. Bourlard and Y. Kamp, "Auto-association by multilayer perceptrons and singular value decomposition," Biol. Cybern. 59, 291 (1988).
+[91] H. Bourlard and S. H. Kabil, "Autoencoders reloaded," Biol. Cybern. 116, 389 (2022).
+[92] Z. Bai and J. W. Silverstein, Spectral Analysis of Large Dimensional Random Matrices, 2nd ed. (Springer, New York, 2010).
+[93] T. Tao, Topics in Random Matrix Theory, Vol. 132 (American Mathematical Society, 2012).
+[94] T. Tao and V. Vu, "Random covariance matrices: Universality of local statistics of eigenvalues," Ann. Probab. 40, 1285 (2012).
+[95] A. Bloemendal and B. Virág, "Limits of spiked random matrices ii," Ann. Probab. 44, 2726 (2016).
+[96] P. J. Forrester, Log-Gases and Random Matrices (Princeton University Press, 2010).
+[97] R. A. Horn and C. R. Johnson, Topics in matrix analysis (Cambridge University Press, 1991).
+[98] A. W. Marshall, I. Olkin, and B. C. Arnold, Inequalities: Theory of Majorization and its Application, 2nd ed. (Springer, 2011).
+[99] H. Wittmeyer, "Einfluß der Änderung einer Matrix auf die Lösung des zugehörigen Gleichungssystems, sowie auf die charakteristischen Zahlen und die Eigenvektoren," Z. Angew. Math. Mech. 16, 287 (1936).
+[100] L. Mirsky, "Symmetric gauge functions and unitarily invariant norms," Q. J. Math. 11, 50 (1960).
+[101] A. Ben-Israel and T. N. E. Greville, Generalized Inverses: Theory and Applications, 2nd ed. (Springer, New York, 2003).
+[102] A. C. Antoulas, Approximation of Large-Scale Dynamical System (SIAM, 2005).
+[103] G. H. Golub and C. F. Van Loan, Matrix Computations, 4th ed. (John Hopkins University Press, 2013).
+[104] I. Markovsky, Low-Rank Approximations: Algorithms, Implementation, Applications, 2nd ed. (Springer, 2019).
+[105] N. Harvey, "Low-rank approximation of matrices," (2011), Lecture 15, Section 1, University of British Columbia.
+[106] R. Penrose, "Generalized inverse matrices," Math. Proc. Camb. Philos. Soc. 51, 406 (1955).
+[107] R. Vershynin, High-Dimensional Probability: An Introduction with Applications in Data Science (Cambridge University Press, New York, 2018).
+[108] M. Rudelson and R. Vershynin, "Sampling from large matrices: An approach through geometric functional analysis," J. ACM 54, 1 (2007).
+[109] M. B. Cohen, J. Nelson, and D. P. Woodruff, "Optimal approximate matrix product in terms of stable rank," in 43rd Int. Colloq. Autom. Lang. Program. (ICALP 2016), Vol. 55 (2016) p. 11.
+[110] B. Désy, P. Desrosiers, and A. Allard, "Dimension matters when modeling network communities in hyperbolic spaces," arXiv:2209.09201 (2023).
+[111] A. Kyrillidis, M. Vlachos, and A. Zouzias, "Approximate matrix multiplication with application to linear embeddings," IEEE Int. Symp. Inf. Theory, 2182 (2014).
+[112] I. Gutman, "The energy of a graph: Old and new results," Algebr. Comb. Appl., 196 (2001).
+[113] V. Nikiforov, "The energy of graphs and matrices," J. Math. Anal. Appl. 326, 1472 (2007); B. Nica, A Brief Introduction to Spectral Graph Theory (European Mathematical Society, Zurich, 2018).
+[114] A. A. Shabalin and A. B. Nobel, "Reconstruction of a low-rank matrix in the presence of Gaussian noise," J. Multivar. Anal. 118, 67 (2013).
+[115] O. Roy and M. Vetterli, "The effective rank: A measure of effective dimensionality," in Eur. Signal Process. Conf. (2007) p. 606.
+[116] R. Cangelosi and A. Goriely, "Component retention in principal component analysis with application to cDNA microarray data," Biol. Direct 2, 1 (2007).
+[117] O. Alter, P. O. Brown, and D. Botstein, "Singular value decomposition for genome-Wide expression data processing and modeling," Proc. Natl. Acad. Sci. U.S.A. 97, 10101 (2000).
+[118] L. L. Campbell, "Minimum coefficient rate for stationary random processes," Inf. Control 3, 360 (1960).
+[119] W. Leeb, "Optimal singular value shrinkage for operator norm loss: Extending to non-square matrices," Stat. Probab. Lett. 186, 109472 (2022).
+[120] M. W. Mahoney, "Randomized algorithms for matrices and data," Found. Trends Mach. Learn. 3, 123 (2011).
+[121] P. D. Killworth and H. R. Bernard, "Informant accuracy in social network data," Hum. Organ. 35, 269 (1976).
+[122] T. P. Peixoto, "Reconstructing networks with unknown and heterogeneous errors," Phys. Rev. X 8, 041011 (2018).
+[123] M. E. J. Newman, "Network structure from rich but noisy data," Nat. Phys. 14, 542 (2018).
+[124] J.-G. Young, G. T. Cantwell, and M. E. Newman, "Bayesian inference of network structure from unreliable data," J. Complex Netw. 8, 1 (2020).
+[125] J.-G. Young, F. S. Valdovinos, and M. E. J. Newman, "Reconstruction of plant–pollinator networks from observational data," Nat. Commun. 12, 1 (2021).
+[126] Z. Füredi and J. Komlós, "The eigenvalues of random symmetric matrices," Combinatorica 1, 233 (1981).
+[127] P. Bonacich, "Power and Centrality: A Family of Measures," Am. J. Sociol. 92, 1170 (1987); F. Chung, Spectral Graph Theory (CBMS, Rhode Island, 1994).
+[128] F. Chung, L. Lu, and V. Vu, "Spectra of random graphs with given expected degrees," Proc. Natl. Acad. Sci. U.S.A. 100, 6313 (2003).
+[129] S. N. Dorogovtsev, A. V. Goltsev, J. F. F. Mendes, and A. N. Samukhin, "Spectra of complex networks," Phys. Rev. E 68, 046109 (2003).
+[130] P. Van Mieghem, Graph Spectra for Complex Networks (Cambridge University Press, 2011).
+[131] F. Chung and M. Radcliffe, "On the spectra of general random graphs," Electron. J. Comb. 18, P215 (2011).
+[132] R. R. Nadakuditi and M. E. J. Newman, "Graph Spectra and the Detectability of Community Structure in Networks," Phys. Rev. Lett. 108, 188701 (2012).
+[133] T. P. Peixoto, "Eigenvalue Spectra of Modular Networks," Phys. Rev. Lett. 111, 098701 (2013).
+[134] C. Castellano and R. Pastor-Satorras, "Topological determinants of complex networks spectral properties: structural and dynamical effects," Phys. Rev. X 7, 041024 (2017).
+[135] M. E. J. Newman, X. Zhang, and R. R. Nadakuditi, "Spectra of random networks with arbitrary degrees," Phys. Rev. E 99, 042309 (2019).
+[136] A. Athreya, J. Cape, and M. Tang, "Eigenvalues of stochastic blockmodel graphs and random graphs with low-rank edge probability matrices," Sankhya A 84, 36 (2022).
+[137] E. Estrada and P. Knight, A first course on network science (Oxford University Press, 2015); A.-L. Barabási, Network science (Cambridge University Press, 2016); V. Latora, V. Nicosia, and G. Russo, Complex Networks: Principles, Methods and Applications (Cambridge University Press, 2017); M. E. J. Newman, Networks (Oxford University Press, 2018).
+[138] D. M. Cvetkovic, M. Doob, and H. Sachs, "Spectra of graphs. Theory and application," (1980).
+[139] R. Solomonoff and A. Rapoport, "Connectivity of random nets," Bull. Math. Biophys. 13, 59 (1951).
+[140] E. N. Gilbert, "Random graphs," Ann. Math. Stat. 30, 1141 (1959).
+[141] P. Erdős and A. Rényi, "On the evolution of random graphs," Publ. Math. Inst. Hung. Acad. Sci 5, 17 (1960).
+[142] M. E. J. Newman, "The structure and function of complex networks," SIAM Rev. 45, 167 (2003).
+[143] A. Guionnet, "Bernoulli Random Matrices," arXiv:2112.05506 (2021).
+[144] A. Perry, A. S. Wein, A. S. Bandeira, and A. Moitra, "Optimality and sub-optimality of PCA I: Spiked random matrix models," Ann. Statis. 46, 2416 (2018).
+[145] P. W. Holland, K. B. Laskey, and S. Leinhardt, "Stochastic blockmodels: First steps," Soc. Netw. 5, 109 (1983).
+[146] J.-G. Young, G. St-Onge, P. Desrosiers, and L. J. Dubé, "Universality of the stochastic block model," Phys. Rev. E 98, 032309 (2018).
+[147] F. Chung and L. Lu, "Connected Components in Random Graphs with Given Expected Degree Sequences," Ann. Comb. 6, 125 (2002).
+[148] F. Chung and L. Lu, "The average distances in random graphs with given expected degrees," Proc. Natl. Acad. Sci. U.S.A. 99, 15879 (2002).
+[149] W. Wang, M. Tang, E. H. Stanley, and L. A. Braunstein, "Unification of theoretical approaches for epidemic spreading on complex networks," Rep. Prog. Phys. 80, 036603 (2017).
+[150] S. N. Dorogovtsev, A. V. Goltsev, and J. F. F. Mendes, "Critical phenomena in complex networks," Rev. Mod. Phys. 80, 1275 (2008).
+[151] D. Krioukov, F. Papadopoulos, M. Kitsak, A. Vahdat, and M. Boguná, "Hyperbolic geometry of complex networks," Phys. Rev. E 82, 036106 (2010).
+[152] A. Allard, M. A. Serrano, and M. Boguñá, "Geometric description of clustering in directed networks," arXiv:2302.09055 (2023).
+[153] A.-L. Barabási and R. Albert, "Emergence of scaling in random networks," Science 289, 509 (1999).
+[154] D. de Solla Price, "A general theory of bibliometric and other cumulative advantage processes," J. Am. Soc. Inf. Sci. 27, 292 (1976).
+[155] C. Aicher, A. Z. Jacobs, and A. Clauset, "Learning latent block structure in weighted networks," J. Complex Netw. 3, 221 (2015).
+[156] T. L. J. Ng and T. B. Murphy, "Weighted stochastic block model," Statistical Methods & Applications 30, 1365 (2021).
+[157] U. Brandes, J. Lerner, U. Nagel, and B. Nick, "Structural trends in network ensembles," in Complex Networks: Results of the 2009 International Workshop on Complex Networks (CompleNet 2009) (2009) p. 83.
+[158] M. Porfiri, D. J. Stilwell, and E. M. Bollt, "Synchronization in random weighted directed networks," IEEE Transactions on Circuits and Systems I 55, 3170 (2008).
+[159] K. Rajan and L. F. Abbott, "Eigenvalue spectra of random matrices for neural networks," Phys. Rev. Lett. 97, 188104 (2006).
+[160] J. Kadmon and H. Sompolinsky, "Transition to chaos in random neuronal networks," Phys. Rev. X 5, 041030 (2015).
+[161] T. Tao and V. Vu, "Random matrices: the circular law," Communications in Contemporary Mathematics 10, 261 (2008).
+[162] F. Götze and A. Tikhomirov, "The circular law for random matrices," Ann. Probab. 38, 1444 (2010).
+[163] K. P. Costello and V. Vu, "On the rank of random sparse matrices," Combinatorics, Probability and Computing 19, 321 (2010).
+[164] P. M. Wood, "Universality and the circular law for sparse random matrices," Ann. Appl. Probab. 22, 1266 (2012).
+[165] N. Cook, "The circular law for random regular digraphs with random edge weights," Random Matrices: Theory and Applications 6, 1750012 (2017).
+[166] A. Allard, M. A. Serrano, G. García-Pérez, and M. Boguñá, "The geometric nature of weights in real complex networks," Nat. Commun. 8, 14103 (2017).
+[167] B. Karrer and M. E. J. Newman, "Stochastic blockmodels and community structure in networks," Phys. Rev. E 83, 016107 (2011).
+[168] T. P. Peixoto, "Nonparametric weighted stochastic block models," Phys. Rev. E 97, 012306 (2018).
+[169] A. Athreya, D. E. Fishkind, M. Tang, C. E. Priebe, Y. Park, J. T. Vogelstein, K. Levin, V. Lyzinski, Y. Qin, and D. L. Sussman, "Statistical inference on random dot product graphs: A survey," J. Mach. Learn. Res. 18, 1 (2018).
+[170] D. Garlaschelli and M. I. Loffredo, "Generalized bose-fermi statistics and structural correlations in weighted networks," Phys. Rev. Lett. 102, 038701 (2009).
+[171] D. Garlaschelli, "The weighted random graph model," New J. Phys. 11, 073005 (2009).
+[172] M. A. Serrano and M. Boguñá, "Weighted configuration model," in AIP conference proceedings, Vol. 776 (American Institute of Physics, 2005) p. 101.
+[173] D. J. Watts and S. H. Strogatz, "Collective dynamics of 'small-world' networks," Nature 393, 440 (1998).
+[174] D. Sherrington and S. Kirkpatrick, "Solvable model of a spin-glass," Phys. Rev. Lett. 35, 1792 (1975).
+[175] P. Desrosiers and P. Forrester, "Asymptotic correlations for Gaussian and Wishart matrices with external source," Int. Math. Res. Not. 2006, 27395 (2006).
+[176] A. Bloemendal and B. Virág, "Limits of spiked random matrices i," Probab. Theory Relat. Fields 156, 795 (2013).
+[177] J. J. Hopfield, "Neural networks and physical systems with emergent collective computational abilities," Proc. Natl. Acad. Sci. U.S.A. 79, 2554 (1982).
+[178] M. Lukoševičius and H. Jaeger, "Reservoir computing approaches to recurrent neural network training," Comput. Sci. Rev. 3, 127 (2009).
+[179] D. Sussillo and L. F. Abbott, "Generating coherent patterns of activity from chaotic neural networks," Neuron 63, 544 (2009).
+[180] F. Mastrogiuseppe and S. Ostojic, "Linking Connectivity, Dynamics, and Computations in Low-Rank Recurrent Neural Networks," Neuron 99, 609 (2018).
+[181] F. Schuessler, A. Dubreuil, F. Mastrogiuseppe, S. Ostojic, and O. Barak, "Dynamics of random recurrent networks with correlated low-rank structure," Phys. Rev. Research 2, 013111 (2020).
+[182] F. Schuessler, F. Mastrogiuseppe, A. Dubreuil, S. Ostojic, and O. Barak, "The interplay between randomness and structure during learning in RNNs," in Adv. Neural Inf. Process. Syst. 34 (2020) p. 1.
+[183] G. Eilertsen, D. Jönsson, T. Ropinski, J. Unger, and A. Ynnerman, "Classifying the classifier: dissecting the weight space of neural networks," Proceedings of the European Conference on Artificial Intelligence (ECAI 2020) 325, 1119 (2020).
+[184] E. T. Jaynes, "Information Theory and Statistical Mechanics," The Phys. Rev. 106, 620 (1957).
+[185] J. Park and M. E. J. Newman, "Statistical mechanics of networks," Phys. Rev. E 70, 066117 (2004).
+[186] G. Bianconi, "Entropy of network ensembles," Phys. Rev. E 79, 036114 (2009).
+[187] T. Squartini and D. Garlaschelli, Maximum-Entropy Networks: Pattern Detection, Network Reconstruction and Graph Combinatorics (Springer, 2017).
+[188] G. Cimini, T. Squartini, F. Saracco, D. Garlaschelli, A. Gabrielli, and G. Caldarelli, "The statistical physics of real-world networks," Nat. Rev. Phys. 1, 58 (2019).
+[189] C. Carathéodory, "The beginning of research in the calculus of variations," Osiris 3, 224 (1937).
+[190] G. Giorgi and T. H. Kjeldsen, eds., Traces and emergence of nonlinear programming (Birkhauser, New York, 2014).
+[191] C. Carathéodory, Calculus of Variations and Partial Differential Equations of the first order, 3rd ed. (Chelsea Publishing Company, 1989).
+[192] B. H. Pourciau, "Modern Multiplier Rules," Am. Math. Mon. 87, 433 (1980).
+[193] E. K. P. Chong and S. H. Zak, An Introduction to Optimization, 4th ed. (Wiley, New Jersey, 2013).
+[194] DLMF, "NIST Digital Library of Mathematical Functions," https://dlmf.nist.gov/, Release 1.1.9 of 2023-03-15, f. W. J. Olver, A. B. Olde Daalhuis, D. W. Lozier, B. I. Schneider, R. F. Boisvert, C. W. Clark, B. R. Miller, B. V. Saunders, H. S. Cohl, and M. A. McClain, eds.
+[195] J. Gao, Y. Cao, and J.-M. Lee, "Principal component analysis of 1/fα noise," Phys. Lett. A 314, 392–400 (2003).
+[196] M. Sánchez-Islas, J. C. Toledo-Roy, and A. Frank, "Criticality in a multisignal system using principal component analysis," Phys. Rev. E 103, 042111 (2021).
+[197] C. Stringer, M. Pachitariu, N. Steinmetz, M. Carandini, and K. D. Harris, "High-dimensional geometry of population responses in visual cortex," Nature 571, 361 (2019).
+[198] C. Stringer, M. Pachitariu, N. Steinmetz, C. B. Reddy, M. Carandini, and K. D. Harris, "Spontaneous behaviors drive multidimensional, brainwide activity," Science 364, eaav7893 (2019).
+[199] N. C. L. Kong, E. Margalit, J. L. Gardner, and A. M. Norcia, "Increasing neural network robustness improves match to macaque v1 eigenspectrum, spatial frequency preference and predictivity," PLoS Comput. Biol. 18, e1009739 (2022).
+[200] J. M. Kleinberg, "Authoritative sources in a hyperlinked environment," in SODA '98: Proceedings of the ninth annual ACM-SIAM symposium on Discrete algorithms (1998) p. 668.
+[201] M. E. J. Newman, Networks (Oxford University Press, 2018).
+[202] M. Kunst, E. Laurell, N. Mokayes, A. Kramer, F. Kubo, A. M. Fernandes, D. Förster, M. Dal Maschio, and H. Baier, "A Cellular-Resolution Atlas of the Larval Zebrafish Brain," Neuron 103, 21 (2019).
+[203] M. Mitchell, Complexity: A Guided Tour (Oxford University Press, 2009).
+[204] D. Witvliet, B. Mulcahy, J. K. Mitchell, Y. Meirovitch, D. R. Berger, Y. Wu, Y. Liu, W. X. Koh, R. Parvathala, D. Holmyard, R. L. Schalek, N. Shavit, A. D. Chisholm, J. W. Lichtman, A. D. T. Samuel, and M. Zhen, "Connectomes across development reveal principles of brain maturation," Nature 596, 257 (2021).
+[205] K. Fujimoto, "What are singular values of nonlinear operators?" in 43rd IEEE Conf. Decis. Control (2004) p. 1623.
+[206] O. Koch and C. Lubich, "Dynamical low-rank approximation," SIAM J. Matrix Anal. Appl. 29, 434 (2007).
+[207] P. Holme and J. Saramäki, "Temporal networks," Phys. Rep. 519, 97 (2012).
+[208] V. Thibeault, G. St-Onge, L. J. Dubé, and P. Desrosiers, "Threefold way to the dimension reduction of dynamics on networks: An application to synchronization," Phys. Rev. Research 2, 043215 (2020).
+[209] V. Thibeault, Réduire la dimension des systèmes complexes : un regard sur l'émergence de la synchronisation, Master's thesis, Université Laval (2020).
+[210] X. Wang and I. H. Sloan, "Why are high-dimensional finance problems often of low effective dimension?" SIAM J. Comput 27, 159 (2005).
+[211] P. Español, "Statistical Mechanics of Coarse-graining," in Nov. Methods Soft Matter Simulations, Vol. 140, edited by M. Karttunen, I. Vattulainen, and A. Lukkarinen (Springer, Berlin, 2003) p. 69.
+[212] P. Castiglione, M. Falcioni, A. Lesne, and A. Vulpiani, Chaos and Coarse Graining in Statistical Mechanics (Cambridge University Press, 2008).
+[213] Y. S. Cho, T. Nishikawa, and A. E. Motter, "Stable chimeras and independently synchronizable clusters," Phys. Rev. Lett. 119, 084101 (2017).
+[214] L. D. Smith and G. A. Gottwald, "Model reduction for the collective dynamics of globally coupled oscillators: From finite networks to the thermodynamic limit," Chaos 30, 093107 (2020).
+[215] J. Wei and J. C. W. Kuo, "A lumping analysis in monomolecular reaction systems: Analysis of the exactly lumpable system," Ind. Eng. Chem. Fundamen. 8, 114 (1969).
+[216] J. Tóth, G. Li, H. Rabitz, and A. S. Tomlin, "The effect of lumping and expanding on kinetic differential equations," SIAM J. Appl. Math. 57, 1531 (1997).
+[217] I. Z. Kiss, J. C. Miller, and P. L. Simon, Mathematics of epidemics on networks: From exact to approximate models (Springer, Cham, 2017).
+[218] B. B. Machta, R. Chachra, M. K. Transtrum, and J. P. Sethna, "Parameter Space Compression Underlies Emergent Theories and Predictive Models," Science 342, 604 (2013).
+[219] T. Hoefler, D. Alistarh, T. Ben-Nun, N. Dryden, and A. Peste, "Sparsity in Deep Learning : Pruning and growth for efficient inference and training in neural networks," J. Mach. Learn. Res. 23, 1 (2021).
+[220] F. Forni and R. Sepulchre, "Differential Dissipativity Theory for Dominance Analysis," IEEE Trans. Autom. Control 64, 2340 (2019).
+[221] M. Faccin, M. T. Schaub, and J. C. Delvenne, "State Aggregations in Markov Chains and Block Models of Networks," Phys. Rev. Lett. 127, 078301 (2021).
+[222] J. C. W. Kuo and J. Wei, "A lumping analysis in monomolecular reaction systems: Analysis of the approximately lumpable system," Ind. Eng. Chem. Fundamen. 8, 124 (1969).
+[223] L. Perko, Differential Equations and Dynamical Systems (Springer, 2001).
+[224] R. Penrose, "On best approximate solutions of linear matrix equations," Math. Proc. Camb. Philos. Soc. 52, 17 (1956).
+[225] J. J. Sylvester, "Sur l'équation en matrices px = xq," C. R. Acad. Sci. Paris 99, 67 (1884).
+[226] S. Boyd and L. Vandenberghe, Convex Optimization (Cambridge University Press, Cambridge, 1998).
+[227] G. Li and H. Rabitz, "A general analysis of exact lumping in chemical kinetics," Chem. Eng. Sci. 44, 1413 (1989).
+[228] G. Li and H. Rabitz, "A general analysis of approximate lumping in chemical kinetics," Chem. Eng. Sci. 45, 977 (1990).
+[229] C. W. Rowley, T. Colonius, and R. M. Murray, "Model reduction for compressible flows using POD and Galerkin projection," Physica D 189, 115 (2004).
+[230] K. Carlberg, M. Barone, and H. Antil, "Galerkin v. least-squares Petrov–Galerkin projection in nonlinear model reduction," J. Comput. Phys. 330, 693 (2017).
+[231] Editors, "Georgii Ivanovich Petrov (on his 100th birthday)," Fluid Dyn. 47, 289 (2012).
+[232] M. J. Gander and G. Wanner, "From Euler, Ritz, and Galerkin to modern computing," SIAM Rev. 54, 627 (2012).
+[233] Y. Saad, Iterative methods for sparse linear systems (SIAM, Philadelphia, 2003).
+[234] H. R. Wilson and J. D. Cowan, "Excitatory and Inhibitory Interactions in Localized Populations of Model Neurons," Biophys. J. 12, 1 (1972).
+[235] A. Destexhe and T. J. Sejnowski, "The wilson–cowan model, 36 years later," Biol. Cybern. 101, 1 (2009).
+[236] C. C. Chow and Y. Karimipanah, "Before and beyond the wilson–cowan equations," J. Neurophysiol. 123, 1645 (2020).
+[237] V. Painchaud, N. Doyon, and P. Desrosiers, "Beyond Wilson-Cowan dynamics: oscillations and chaos without inhibition," Biol. Cybern. 116, in press (2022).
+[238] G. B. Ermentrout and D. H. Terman, Mathematical Foundations of Neuroscience (Springer, 2010).
+[239] J. Grilli, G. Barabás, M. J. Michalska-Smith, and S. Allesina, "Higher-order interactions stabilize dynamics in competitive network models," Nature 548, 210 (2017).
+[240] J. M. Levine, J. Bascompte, P. B. Adler, and S. Allesina, "Beyond pairwise mechanisms of species coexistence in complex communities," Nature 546, 56 (2017).
+[241] R. Lambiotte, M. Rosvall, and I. Scholtes, "From networks to optimal higher-order models of complex systems," Nat. Phys. 15, 313 (2019).
+[242] C. W. Gardiner, Handbook of Stochastic Methods, 3rd ed. (Springer, 2004).
+[243] G. St-Onge, Processus de contagion sur réseaux complexes au-delà des interactions dyadiques, Ph.D. thesis, Université Laval (2022).
+[244] G. St-Onge, Dynamique de propagation sur réseaux aléatoires: Caractérisation de la transition de phase, Master's thesis, Université Laval (2017).
+[245] J. D. Cowan, "Stochastic neurodynamics," in Adv. Neural Inf. Process. Syst., Vol. 3 (1990) p. 62.
+[246] R. J. Glauber, "Time-Dependent Statistics of the Ising Model," J. Math. Phys. 4, 294 (1963).
+[247] C. Murphy, V. Thibeault, A. Allard, and P. Desrosiers, "Duality between predictability and reconstructability in complex systems," arXiv:2206.04000 (2022).
+[248] R. H. R. Hahnloser and H. S. Seung, "Permitted and forbidden sets in symmetric threshold-linear networks," in Adv. Neural Inf. Process. Syst. (2000).
+[249] C. Parmelee, J. L. Alvarez, C. Curto, and K. Morrison, "Sequential attractors in combinatorial threshold-linear networks," SIAM J. Appl. Dyn. Syst. 21, 1597 (2022).
+[250] F. Morone, G. D. Ferraro, and H. A. Makse, "The k-core as a predictor of structural collapse in mutualistic ecosystems," Nat. Phys. 15, 95 (2019).
+[251] G. Li, "A lumping analysis in mono- or/and bimolecular reaction systems," Chem. Eng. Sci. 39, 1261 (1984).
+[252] P. W. Milonni and J. H. Eberly, Lasers (Wiley, 1988).
+[253] A. J. Lotka, "Contribution to the theory of periodic reactions," J. Phys. Chem. 14, 271 (1910).
+[254] V. Volterra, "Fluctuations in the abundance of a species considered mathematically," Nature 118, 558 (1926).
+[255] W. C. Allee and E. S. Bowen, "Studies in animal aggregations: Mass protection against colloidal silver among goldfishes," J. Exp. Zool. 61, 185 (1932).
+[256] J. Gao, B. Barzel, and A.-L. Barabási, "Universal resilience patterns in complex networks," Nature 530, 307 (2016).
+[257] Y. Kuramoto, "Self-entrainment of a population of coupled non-linear oscillators," in International Symposium on Mathematical Problems in Theoretical Physics (1975) p. 420.
+[258] H. Sakaguchi and Y. Kuramoto, "A soluble active rotator model showing phase transitions via mutual entrainment," Prog. Theor. Phys. 76, 576 (1986).
+[259] B. Pietras and A. Daffertshofer, "Network dynamics of coupled oscillators and phase reduction techniques," Phys. Rep. 819, 1 (2019).
+[260] K. Wiesenfeld, P. Colet, and S. H. Strogatz, "Synchronization transitions in a disordered Josephson series array," Phys. Rev. Lett. 76, 404 (1996).
+[261] E. M. Izhikevich, Dynamical Systems in Neuroscience (MIT Press, 2007).
+[262] A. T. Winfree, "Biological rhythms and the behavior of populations of coupled oscillators," J. Theoret. Biol. 16, 15 (1967).
+[263] G. B. Ermentrout and N. Kopell, "Parabolic bursting in an excitable system coupled with a slow oscillation," SIAM J. Appl. Math. 46, 233 (1986).
+[264] R. D. Beer, "The dynamics of adaptive behavior: A research program," Robot. Auton. Syst. 20, 257 (1997).
+[265] M. A. Cohen and S. Grossberg, "Absolute stability of global pattern formation and parallel memory storage by competitive neural networks," IEEE Trans. Syst. Man Cybern. SMC-13, 815 (1983).
+[266] S. Grossberg, "Nonlinear neural networks: Principles, mechanisms, and architectures," Neural Netw. 1, 17 (1988).
+[267] J. J. Hopfield, "Neurons with graded response have collective computational properties like those of two-state neurons," Proc. Natl. Acad. Sci. U.S.A. 81, 3088 (1984).
+[268] M. W. Hirsch, "Convergent activation dynamics in continuous time networks," Neural Netw. 2, 331 (1989).
+[269] R. Kim, Y. Li, and T. J. Sejnowski, "Simple framework for constructing functional spiking recurrent neural networks," Proc. Natl. Acad. Sci. U.S.A. 116, 22811 (2019).
+[270] R. Kim and T. J. Sejnowski, "Strong inhibitory signaling underlies stable temporal dynamics and working memory in spiking neural networks," Nat. Neurosci. 24, 129 (2021).
+[271] J. Hanson and M. Raginsky, "Universal simulation of stable dynamical systems by recurrent neural nets," Proc. Mach. Learn. Res. 120, 1 (2020).
+[272] C. Berge, Hypergraphs (North-Holland, 1989).
+[273] R. Mulas, C. Kuehn, and J. Jost, "Coupled dynamics on hypergraphs: Master stability of steady states and synchronization," Phys. Rev. E 101, 062313 (2020).
+[274] P. Ashwin and A. Rodrigues, "Hopf normal form with SN symmetry and reduction to systems of nonlinearly coupled phase oscillators," Physica 325, 14 (2016).
+[275] I. León and D. Pazó, "Phase reduction beyond the first order: The case of the mean-field complex Ginzburg-Landau equation," Phys. Rev. E 100, 012211 (2019).
+[276] E. Laurence, N. Doyon, L. J. Dubé, and P. Desrosiers, "Spectral dimension reduction of complex dynamical networks," Phys. Rev. X 9, 011042 (2019).
+[277] P. Kundu, H. Kori, and N. Masuda, "Accuracy of a one-dimensional reduction of dynamical systems on networks," Phys. Rev. E 105, 024305 (2022).
+[278] C. Tu, J. Grilli, F. Schuessler, and S. Suweis, "Collapse of resilience patterns in generalized Lotka-Volterra dynamics and beyond," Phys. Rev. E 95, 062307 (2017).
+[279] J. Jiang, Z.-G. Huang, T. P. Seager, W. Lin, C. Grebogi, A. Hastings, and Y.-C. Lai, "Predicting tipping points in mutualistic networks through dimension reduction," Proc. Natl. Acad. Sci. U.S.A. 115, E639 (2018).
+[280] M. Vegué, V. Thibeault, P. Desrosiers, and A. Allard, "Dimension reduction of dynamics on modular and heterogeneous directed networks," PNAS Nexus, pgad150 (2023).
+[281] D. Hadjiabadi, M. Lovett-Barron, I. G. Raikov, F. T. Sparks, Z. Liao, S. C. Baraban, J. Leskovec, A. Losonczy, K. Deisseroth, and I. Soltesz, "Maximally selective single-cell target for circuit control in epilepsy models," Neuron 109, 2556 (2021).
+[282] R. Lim, J. J. T. Cabatbat, T. L. P. Martin, H. Kim, S. Kim, J. Sung, C. M. Ghim, and P. J. Kim, "Large-scale metabolic interaction network of the mouse and human gut microbiota," Sci. Data 7, 1 (2020).
+[283] C. Ding, T. Li, and M. I. Jordan, "Convex and semi-nonnegative matrix factorizations," IEEE Trans. Pattern Anal. Mach. Intell. 32, 45 (2010).
+[284] B. G. Fenyves, G. S. Szilágyi, Z. Vassy, C. Söti, and P. Csermely, "Synaptic polarity and sign-balance prediction using gene expression data in the Caenorhabditis elegans chemical synapse neuronal connectome network," PLOS Comput. Biol. 16, e1007974 (2020).
+[285] K. Ryan, Z. Lu, and I. A. Meinertzhagen, "The CNS connectome of a tadpole larva of Ciona intestinalis (L.) highlights sidedness in the brain of a chordate sibling," eLife 5, 1 (2016).
+[286] C. Verasztó, S. Jasek, M. Gühmann, R. Shahidi, N. Ueda, J. D. Beard, S. Mendes, K. Heinz, L. A. Bezares-Calderón, E. Williams, and G. Jékely, "Whole-animal connectome and cell-type complement of the three-segmented Platynereis dumerilii larva," bioRxiv (2020).
+[287] S. Jasek, C. Verasztó, E. Brodrick, R. Shahidi, T. Kazimiers, and G. Jékely, "Desmosomal connectomics of all somatic muscles in an annelid larva," eLife 11, e71231 (2022).
+[288] S. W. Oh et al., "A mesoscale connectome of the mouse brain," Nature 508, 207 (2014).
+[289] L. Coletta, M. Pagani, J. D. Whitesell, J. A. Harris, B. Bernhardt, and A. Gozzi, "Network structure of the mouse brain connectome with voxel resolution," Sci. Adv. 6, eabb7187 (2020).
+[290] J. Wachs, M. Fazekas, and J. Kertész, "Corruption risk in contracting markets: a network science perspective," Int. J. Data Sci. Anal. 12, 45 (2021).
+[291] S. Ranganathan, M. Kivelä, and J. Kanniainen, "Dynamics of investor spanning trees around dot-com bubble," PLOS ONE 13, e0198807 (2018).
+参考文献可上下滑动查看
+线性代数：一名合格科研人的筑基课
+在科研世界中，无论你研究的是人工智能、生物信息、网络科学，还是物理与工程，几乎所有复杂系统的建模与推理都指向同一种底层语言——线性代数。它不仅是计算公式的集合，更是一名科研人理解“结构”、刻画“变换”、判断“稳定性”、提取“信息”的基本思维框架。本课程以系统科学的视角重新解构线性代数，带你越过技巧、直达本质，在跨学科的真实问题中建立起科研必备的数学基石。集智学园联合清华大学数学博士诸葛昌靖老师推出「线性代数：一名合格科研人的筑基课」，并邀请武汉大学数学与统计学院周进教授于1月20日、1月27日就特征值与特征向量在复杂网络中的应用做特别加餐分享。课程已于12月20日开启，欢迎加入社群交流。
+[图]
+详情请见：线性代数：一名合格科研人的筑基课丨新课上线
+[图][图][图][图]
+推荐阅读
+1. 奇异值分解（SVD）｜集智百科
+2. 机器学习框架NIS+：通过最大化有效信息识别“因果涌现”｜集智百科
+3. 全网最全总结！因果涌现核心指标“有效信息”｜集智百科
+4. 张江：第三代人工智能技术基础——从可微分编程到因果推理 | 集智学园全新课程
+5. 系统科学前沿十讲：探究复杂世界演变背后的规则（二）
+6. 集智学园精品课程免费开放，解锁系统科学与 AI 新世界
+7. 高考分数只是张入场券，你的科研冒险在这里启航！
+8. 加入集智字幕组：成为复杂科学知识社区的“织网人”
+[图]
+点击“阅读原文”，报名课程
