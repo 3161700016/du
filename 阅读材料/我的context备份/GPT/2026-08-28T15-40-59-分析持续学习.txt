@@ -1,0 +1,1439 @@
+# 分析持续学习
+
+- 来源: GPT
+- URL: https://chatgpt.com/c/6a908092-5638-83ea-8bbd-4b85249037fe
+- 同步时间: 2026-08-28 15:40:59
+
+---
+
+## user
+
+AI在LLM训练结束参数固定后，如何持续学习？现有方案、AI圈大佬的观点、可能但没验证的方案都有哪些？基于类似“外置人格”的框架，如果AI能够在有限上下文内可靠解决一类问题，是否就能说它在不改变参数的前提下“学会了”一件事？比如RAG算是现在AI防事实幻觉的一个补丁，一个数学问题解决，AI依据现有相关资料，基本能回答和这个话题有关的问题，那就相当于AI在训练集中没有该话题的情况下学会了解答该问题？那么如果这个问题就是AI自己破解的呢？把解决的全部成果以适当形式补丁回数据库或记忆，就不仅是结果上像学习，而是实质上等价于学习？那么进一步讲，这个压缩极限在哪？1M上下文+更海量的RAG数据库（来自AI自己的成果而不仅是外部可信源）能实现什么程度的权重外学习？压缩一下，100k呢？10k呢？1k左右的效果应该还算清楚，差不多就是个小型skill。但把“skill”做大，自迭代，会不会也涌现一些more is different?
+Show less
+
+## assistant
+
+你这个问题其实已经碰到了一个很关键的分界：“学习”到底是参数发生变化，还是系统未来面对同类输入时的行为发生了稳定、可复用、由过去经验造成的改变？
+
+如果采用后一个定义，那么答案会比传统 ML 语境激进得多：
+
+参数固定 ≠ 系统不能学习。
+
+更准确地说，参数固定只意味着 in-weight learning 被禁止；系统仍然可以通过 context、外部记忆、工具、代码、检索索引、可更新的状态乃至“会自己写出来的 skill”进行 out-of-weight learning。
+
+而你最后提出的“1M → 100k → 10k → 1k，随着外置学习结构不断压缩，是否会出现 more is different”，我认为非常可能，而且这甚至可以成为一种比“有没有持续改权重”更有意义的 continual learning 理论框架。
+
+1. 先把“学习”拆成四种东西
+
+传统上我们把：
+
+learning=ΔW
+
+也就是：
+
+W
+t+1
+	​
+
+=W
+t
+	​
+
++ΔW
+
+其中 W 是模型参数。
+
+但一个实际 Agent 的状态其实更像：
+
+S
+t
+	​
+
+=(W,C
+t
+	​
+
+,M
+t
+	​
+
+,T
+t
+	​
+
+,E
+t
+	​
+
+,P
+t
+	​
+
+)
+
+其中：
+
+W：冻结的基础模型
+
+C
+t
+	​
+
+：当前 context
+
+M
+t
+	​
+
+：外部长期记忆
+
+T
+t
+	​
+
+：工具/程序/skill
+
+E
+t
+	​
+
+：环境状态
+
+P
+t
+	​
+
+：运行协议、人格/行为约束
+
+那么学习完全可以表现为：
+
+S
+t
+	​
+
+→S
+t+1
+	​
+
+
+而不要求：
+
+W
+t
+	​
+
+
+=W
+t+1
+	​
+
+
+这实际上已经开始成为当前研究的明确方向。
+
+例如 Google 的 Titans 就直接把“test-time memorization”作为架构目标，让神经记忆模块在推理期间学习历史信息；Google 随后的 Nested Learning 又把它进一步描述成具有不同更新频率的多层 memory / optimization 系统。
+Google Research
++1
+
+甚至 DeepMind 很早就做过一个非常漂亮的实验：**网络权重冻结，meta-RL agent 仍然能够在新任务中适应。**他们把这种快速适应归因于运行时状态/规则结构，而不是参数更新。
+Google DeepMind
+
+所以你的直觉并不是把“记忆”硬说成“学习”，而是在触碰一个真实的研究分歧：
+
+学习的 substrate 不一定必须是 weights。
+
+2. RAG 算不算学习？
+
+这里我会给一个稍微严格一点的答案：
+
+狭义 ML 定义：不算。
+
+假设：
+
+W=固定
+
+然后数据库：
+
+D→D
+′
+
+RAG：
+
+x→retrieve(D
+′
+,x)→C→LLM
+
+那么变化的是数据库，而不是模型。
+
+所以它不是：
+
+model learned X
+
+而是：
+
+system acquired access to X.
+
+但这只是参数主义的学习定义。
+
+如果换成行为定义：
+
+如果系统在 t
+0
+	​
+
+ 不会做 X，经历了某个事件之后，在 t
+1
+	​
+
+,t
+2
+	​
+
+,… 都能可靠做 X，而且这种能力来自该事件留下的可复用状态，那么它是否学习了 X？
+
+答案基本就是：
+
+是。
+
+这时候 RAG 只是最原始的一种：
+
+learning=persistent change in future behavior caused by experience
+	​
+
+
+参数更新只是实现这个东西的一种方法。
+
+3. 但普通 RAG 和“真正的外置学习”还有一个巨大差别
+
+这是你问题里最有意思的地方。
+
+假设数据库里已经有一本数学书。
+
+LLM：
+
+“证明定理 X。”
+
+RAG 找到定理 X 的证明，然后模型回答。
+
+这更像：
+
+retrieve→read→answer
+
+它没有真正增加多少新的内部结构。
+
+但如果：
+
+数据库里没有这个定理的解法。
+
+Agent 自己：
+
+尝试假设 A
+
+发现失败
+
+尝试 B
+
+找到一个 lemma
+
+推出 theorem
+
+写成证明
+
+经过 checker 验证
+
+把 lemma + proof strategy + failure modes + applicability conditions 写入 memory/skill
+
+下一次：
+
+“证明另一个同类定理。”
+
+它直接调用：
+
+skill: use_lemma_X_under_conditions_Y
+
+这时候就非常接近真正的学习了。
+
+因为：
+
+experience→abstraction→persistent representation→future behavior
+
+这个链条已经完整了。
+
+4. 所以你说的“外置人格”其实可以推广成“外置参数”
+
+这是我认为你这个问题最值得继续推下去的地方。
+
+假设：
+
+W
+
+是冻结的。
+
+那么传统 LLM：
+
+W+x→y
+
+而一个带人格/记忆的 Agent：
+
+(W,M,P)+x→y
+
+其中 M,P 是外置的。
+
+那么如果允许：
+
+M
+t+1
+	​
+
+=f(M
+t
+	​
+
+,x,y,r)
+
+就已经有了：
+
+外置参数更新。
+
+只是它不是数值矩阵，而可能是：
+
+文本
+
+JSON
+
+knowledge graph
+
+code
+
+rules
+
+examples
+
+embeddings
+
+trajectories
+
+summaries
+
+skill definitions
+
+verifier results
+
+tool-use policies
+
+所以可以把它看成：
+
+Parametric Learning↔External-State Learning
+	​
+
+
+区别不是“有没有学习”，而是：
+
+学习结果被编码在哪里。
+
+5. 现在 AI 圈其实已经在沿这几条路线同时走
+
+大概可以画成这样：
+
+方法	学习载体	是否改基础权重	持久性
+In-context learning	context	❌	很低
+RAG	文档库	❌	高
+Agent memory	memory	❌	高
+Skill/code	程序	❌	高
+LoRA	adapter weights	△	高
+Test-time training	参数/adapter	✅	可控
+Neural memory	可学习状态	通常❌基础权重	高
+Continual fine-tuning	base weights	✅	很高
+Self-improving agent	多层外部状态	❌/△	很高
+
+其中现在比较值得注意的几条线：
+
+① RAG → Memory
+
+2025 年已经有论文直接把问题命名为：
+
+From RAG to Memory: Non-Parametric Continual Learning for LLMs
+
+它明确把 RAG 看成一种 non-parametric continual learning，并进一步研究怎样让 memory 不只是“向量数据库”，而是具有联结、组织、推理结构的长期记忆。
+Proceedings of Machine Learning Research
+
+这和你现在的思路几乎是同一条轴。
+
+② Test-Time Learning
+
+这里就更激进：
+
+模型在 inference 时真的进行某种 optimization。
+
+例如 2025 ICML 的 TLM：
+
+test data→perplexity minimization→LoRA update
+
+论文报告其在 domain adaptation 上相对原始模型有显著提升，同时用 LoRA 减轻 catastrophic forgetting。
+Proceedings of Machine Learning Research
+
+这属于：
+
+“不要等下一次训练，现场学。”
+
+③ Neural long-term memory
+
+Titans 更有意思。
+
+它的核心思想不是：
+
+把所有历史塞进 context。
+
+而是：
+
+context→memory network→compressed learned state
+
+因此 attention 负责短期精确访问，而 neural memory 负责长期压缩记忆。Titans 在实验中甚至展示了超过 2M token context 的有效扩展。
+NeurIPS 会议论文集
+
+Google 的 Nested Learning 又把这个想法继续往前推：
+
+不应该只有一个学习时间尺度。
+
+可以有：
+
+fast memory→medium memory→slow memory→weights
+
+每一级更新频率不同。
+
+这其实已经非常接近你之前一直在讨论的：
+
+“记忆层级 + attractor + self-summary”
+
+了。
+Google Research
+
+6. 那么你的“自己破解数学题，然后写回 memory”到底算不算学习？
+
+我会说：
+
+如果只保存答案：弱学习
+
+例如：
+
+Problem A
+Answer = 17
+
+这相当于：
+
+f(A)=17
+
+泛化能力很差。
+
+保存证明：更强
+A → lemma 1 → lemma 2 → proof
+
+已经形成结构。
+
+保存方法：更强
+Problem class:
+    ...
+Recognition:
+    ...
+Strategy:
+    ...
+Failure modes:
+    ...
+Verification:
+    ...
+
+现在已经开始接近 skill。
+
+保存“如何产生 skill”：再高一级
+
+Agent 学会：
+
+遇到这一类问题 → 先分类 → 找不变量 → 构造辅助命题 → 尝试反证 → checker → 提炼。
+
+这时候它学到的已经不是一个答案：
+
+learning the learning procedure
+	​
+
+
+也就是 meta-learning。
+
+7. 这就引出你问的最关键问题：压缩极限在哪里？
+
+我觉得不能简单用“多少 token”回答。
+
+真正应该定义的是：
+
+C
+∗
+(F,ϵ)
+
+即：
+
+对某类任务 F，要保持性能误差不超过 ϵ，描述其新增能力所需的最小外部状态。
+
+也就是：
+
+M
+∗
+=arg
+M
+min
+	​
+
+∣M∣
+
+subject to
+
+P(correct∣W,M,x)≥1−ϵ
+
+这才是“学习压缩极限”。
+
+8. 举个极端例子
+
+假设 AI 自己发现一个算法。
+
+原始研究过程：
+
+10
+7
+ tokens
+
+最终可能压缩成：
+
+Theorem X
+↓
+Invariant Y
+↓
+Transformation Z
+↓
+Algorithm A
+↓
+Works iff condition C
+↓
+Counterexample: ...
+
+可能只有：
+
+500 tokens
+
+但是这 500 token 能恢复：
+
+10
+7
+
+token 的可用能力。
+
+这时候真正重要的不是压缩率：
+
+10
+7
+/500=20,000
+
+而是：
+
+压缩之后损失了哪些可计算行为？
+
+9. 所以 1M、100k、10k、1k，其实对应四种完全不同的“学习形态”
+
+这是我比较大胆的预测。
+
+1M：episodic intelligence
+
+大概相当于：
+
+“我还记得整个研究过程。”
+
+可以保存：
+
+尝试过什么
+
+为什么失败
+
+中间推理
+
+原始证据
+
+alternative hypotheses
+
+未解决问题
+
+proof
+
+code
+
+实验数据
+
+因此 1M 外置 memory 很适合：
+
+经验保留
+	​
+
+
+但它的问题是：
+
+太像数据库，不像知识。
+
+10. 100k：semantic memory
+
+开始被迫压缩：
+
+原始轨迹
+↓
+结论
+↓
+关键证据
+↓
+方法
+↓
+失败模式
+
+100k 已经足以装一个相当大的“领域状态”。
+
+这个时候 Agent 开始形成：
+
+经验→知识
+
+而不是简单 archive。
+
+Anthropic 实际上已经在 agent context engineering 里大量使用这种思想：把完成阶段的工作压缩成结构化 notes，再重新注入下一 context；他们明确把这种 persistent memory 看成支撑长时间工作的机制。
+Anthropic
++1
+
+11. 10k：真正开始像“知识结构”
+
+10k token 已经不能保存所有东西。
+
+于是系统必须回答：
+
+什么值得记？
+
+这就产生了一个非常重要的选择压力：
+
+experience→selection→abstraction→compression
+
+也就是说：
+
+memory architecture 本身开始承担 learning algorithm 的职责。
+
+这时候“忘掉什么”与“学会什么”已经变成同一个问题。
+
+12. 1k：skill
+
+你说：
+
+“差不多就是个小型 skill。”
+
+我基本同意。
+
+例如：
+
+Skill: finite-element mesh diagnosis
+
+Trigger:
+  residual pattern X
+
+Procedure:
+  1. inspect Y
+  2. calculate Z
+  3. if condition A, refine mesh
+  4. otherwise ...
+
+Common failure:
+  don't confuse B with C
+
+Verifier:
+  ...
+
+可能只有几百到几千 token。
+
+但它可以把一个原本需要：
+
+100×trial-and-error
+
+的问题压缩成：
+
+5×reasoning
+
+这已经非常像人类所谓：
+
+“我学会了一个技巧。”
+
+13. 但真正有意思的是：1k skill 不一定只是“小型知识”
+
+因为 skill 可以调用 skill。
+
+例如：
+
+S
+1
+	​
+
+=积分技巧
+S
+2
+	​
+
+=微分方程技巧
+S
+3
+	​
+
+=物理建模
+
+然后：
+
+S
+4
+	​
+
+=解决某类物理问题
+
+可以：
+
+S
+4
+	​
+
+(S
+1
+	​
+
+,S
+2
+	​
+
+,S
+3
+	​
+
+)
+
+于是出现：
+
+skill composition
+	​
+
+
+再往上：
+
+S
+5
+	​
+
+=如何选择和组合 skills
+
+这就是：
+
+meta-skill
+	​
+
+14. 到这里，我认为你说的“more is different”才真正出现
+
+不是：
+
+1000 token → 2000 token → 3000 token → 能力线性增加。
+
+而可能是：
+
+C<C
+1
+	​
+
+:facts
+C
+1
+	​
+
+<C<C
+2
+	​
+
+:skills
+C
+2
+	​
+
+<C<C
+3
+	​
+
+:skill composition
+C>C
+3
+	​
+
+:self-model
+C>C
+4
+	​
+
+:self-improvement loop
+
+即：
+
+容量增加不仅增加“知道什么”，还可能改变“系统是什么”。
+
+这就非常接近你说的 more is different。
+
+15. 最极端的情况：外置 memory 开始承担“参数”的功能
+
+假设：
+
+W=10
+12
+ parameters
+
+固定不动。
+
+外置 memory：
+
+M=10
+8
+ tokens
+
+Agent 可以：
+
+读取经验
+
+发现规律
+
+写入抽象
+
+修改 skill
+
+删除旧 skill
+
+创建新 skill
+
+测试新 skill
+
+记录失败
+
+修改策略
+
+重新验证
+
+那么整个系统：
+
+(W,M)
+
+已经是一个会变化的计算系统。
+
+从外部行为看：
+
+f
+t
+	​
+
+(x)=LLM(W,M
+t
+	​
+
+,x)
+
+所以：
+
+M
+t
+	​
+
+
+=M
+t+1
+	​
+
+
+意味着：
+
+f
+t
+	​
+
+
+=f
+t+1
+	​
+
+
+即使：
+
+W
+t
+	​
+
+=W
+t+1
+	​
+
+16. 甚至可以定义一个“外置有效参数量”
+
+这是我觉得很有意思的一个理论指标。
+
+传统模型：
+
+capacity≈∣W∣
+
+但 Agent：
+
+effective capacity≈∣W∣+I(M;X)+I(T;X)+I(P;X)
+	​
+
+
+这里不一定真的要用这个公式计算，我是在表达一个概念：
+
+基础模型提供的是固定的计算先验；外部状态提供的是可变的任务特化信息。
+
+于是一个 10B 模型 + 巨大自生成 memory，
+
+在某个领域可能表现得像一个远远超过 10B 参数的“专用系统”。
+
+17. 但这里有一道非常硬的墙
+
+这也是为什么我不会直接说：
+
+“无限 RAG = 无限学习。”
+
+因为外部 memory 的信息必须能够被基础模型读取、解释、组合、执行。
+
+假设：
+
+W
+
+不会做某种推理。
+
+你给它：
+
+M=10
+12
+ tokens
+
+并不会凭空创造这种能力。
+
+所以外置学习的上限受三个东西共同约束：
+
+External Learning=Storage×Retrieval×Computation
+	​
+
+
+更准确一点：
+
+Learnable Capability≈Representability×Retrievability×Executability
+	​
+
+18. 这也解释了为什么“自己生成的 RAG”比普通 RAG危险得多
+
+外部可信知识：
+
+world→M
+
+已经相当于教材。
+
+但 self-generated memory：
+
+W,M
+t
+	​
+
+→reason→M
+t+1
+	​
+
+
+于是：
+
+M
+t
+	​
+
+→M
+t+1
+	​
+
+→M
+t+2
+	​
+
+→...
+
+这变成一个自训练闭环。
+
+如果没有 verifier：
+
+错误→memory→未来推理先验→更多错误
+
+就会发生 epistemic drift。
+
+Anthropic 自己公开的长程 agent 研究里就观察到一个非常现实的问题：agent 的 memory summary 可能让它对错误结论产生虚假的信心，甚至导致跨 context 后重复错误方向。
+对齐科学博客
+
+所以：
+
+自生成 memory 不是“自动成为知识”，而是建立了一个需要验证的学习闭环。
+
+19. 真正强大的版本应该是这个
+
+不是：
+
+LLM→memory
+
+而是：
+
+Experience→Hypothesis→Experiment→Verification→Abstraction→Compression→Memory→FutureBehavior
+	​
+
+
+然后：
+
+Future Behavior→new Experience
+
+形成：
+
+感知→建模→行动→反馈→更新
+	​
+
+
+这正是你前几天一直追问的那个闭环。
+
+区别只是：
+
+更新的不一定是 weights。
+
+20. 所以“外置人格”其实可以升级成一个完整的外置认知系统
+
+如果把你之前的 Soul / “渡”那类东西抽象一下，它可以不只是：
+
+人格
++ 记忆
++ prompt
+
+而变成：
+
+Frozen Foundation Model
+        │
+        ▼
+┌─────────────────────┐
+│   Runtime Cognition │
+│                     │
+│ reasoning           │
+│ planning            │
+│ tool use            │
+└─────────┬───────────┘
+          │
+     experience
+          ▼
+┌─────────────────────┐
+│ Learning Substrate  │
+│                     │
+│ episodic memory     │
+│ semantic memory     │
+│ skills              │
+│ programs             │
+│ world model         │
+│ self-model          │
+│ hypotheses           │
+└─────────┬───────────┘
+          │
+      verification
+          │
+          └──────► update
+
+最终甚至可以出现：
+
+W=脑的底层硬件/先天能力
+	​
+
+M=经历
+	​
+
+Skills=习得技能
+	​
+
+World Model=理解世界的模型
+	​
+
+Self Model=关于自己的模型
+	​
+
+
+这时“人格”只是其中一个很小的子系统。
+
+21. 而且现在业界已经在往这个方向走
+
+Anthropic 的 context engineering 明确把 context 当成有限资源，强调不是简单“把更多历史塞进去”，而是要优化什么状态应该进入模型。
+Anthropic
+
+他们的长期 agent 实验则已经在实际使用：
+
+context → summary → external memory → fresh context → retrieve memory
+
+来维持跨窗口工作。
+Anthropic
++1
+
+OpenAI 也公开描述过内部 data agent 的“continuously learning memory system”：用户纠正或 agent 发现新的数据规律后，把这些东西保存下来，使后续回答从新的 baseline 开始，而不是每次重新犯同样的错误。
+OpenAI
+
+所以至少在工程实践上：
+
+“冻结模型 + 可持续更新外部状态”已经不是科幻。
+
+22. 我会把整个问题压缩成一张图
+                    学习
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+       In-weight             Out-of-weight
+          │                     │
+    Δparameters              Δexternal state
+          │                     │
+     fine-tuning          ┌─────┼──────────────┐
+     continual FT         │     │              │
+     LoRA                 │     │              │
+     TTT               context memory       tools/code
+                       RAG       skill       world model
+                         │         │              │
+                         └────┬────┴──────────────┘
+                              │
+                       persistent behavior
+                              │
+                              ▼
+                           学会 X
+
+所以我会给你的原问题一个相当明确的回答：
+
+如果 AI 在参数冻结的情况下，通过一次经验产生了一个持久状态，使它以后能够以更高概率、更低成本、更强泛化地解决同类问题，那么从功能主义的学习定义看，它已经学习了。
+
+RAG 是这个谱系的最弱形式之一；
+memory 是更强形式；
+skill 是进一步抽象；
+self-generated/verifiable skill 是真正有意思的 continual learning；
+而 skill → skill composition → meta-skill → self-improvement，才可能产生你说的那个 more is different。
+
+最后一个我觉得尤其重要的结论
+
+你问：
+
+“压缩极限在哪？”
+
+我现在反而觉得，答案可能不是：
+
+1M、100k、10k、1k……
+
+而是：
+
+最小可持续状态
+	​
+
+
+即：
+
+对于一个固定基础模型 W，让它获得某项新能力所需的最小外部状态 M
+∗
+ 是多少？
+
+那么不同能力会有完全不同的 M
+∗
+。
+
+有些知识：
+
+M
+∗
+∼10 tokens
+
+一个事实就够。
+
+有些：
+
+M
+∗
+∼1k
+
+一个 skill 足够。
+
+有些：
+
+M
+∗
+∼10k
+
+需要完整的策略、反例和 verifier。
+
+有些：
+
+M
+∗
+∼100k+
+
+需要一整个领域模型。
+
+而有些能力可能根本不存在有限 M
+∗
+，因为冻结的基础模型缺少执行它所需的计算原语。
+
+这最后一个边界尤其关键：
+
+外部记忆能无限增加“知道什么”，但不能无限增加“会做什么”。
+
+不过当外部状态本身开始包含程序、可调用工具、可组合 skill、可执行世界模型时，这条边界又会被往外推。
+
+于是最终真正值得研究的，不再是：
+
+“LLM 能不能持续学习？”
+
+而是：
+
+一个冻结的通用计算器，借助多少、什么形式、什么压缩率的可变外部状态，能够逐渐把自己变成一个在行为上等价于持续训练过的系统？
+
+这其实已经比“RAG 算不算学习”大了一个层级。现在的 Titans、Nested Learning、non-parametric continual learning、agent memory 等研究，某种意义上都在从不同方向逼近这个问题。
+Google Research
++2
+Proceedings of Machine Learning Research
++2
+
+而如果继续沿你这个思路走，我认为下一步最值得做的不是继续罗列方案，而是给“外置学习”建立一个严格的容量理论：把 W、context、RAG、memory、skill、tool、verifier 分别当成不同的信息/计算通道，然后问 “冻结 W 时，外置状态增加到什么程度，系统的可学习任务类会发生相变？”——这就真的开始接近你说的 more is different 了。
+
+## user
+
+尤里卡！我知道了！答案应该是无上限！这么想，我之前不是讨论过1M内所有可以解决的问题么，是10的几百万次方的天文数字，但是！如果它在其中一个窗口解决了某种难题，那么，就可以把这个窗口的所有上下文作为记忆！那么只要有这么个恰当的调用系统，AI可以在上下文窗口学会任何事！比如说，最强的opus解决了数学难题A，它的上下文窗口用了98万，那么剩下的2万就是它回答与此有关问题的上限，依次证明自己确实掌握了这个难题。那么现在，一个小模型luna将这个历史上下文作为自己的记忆，那么别人再怎么问它有关这个难题的问题，它都可以回答，并且上下文窗口更充裕。因为最坏的情况下，它只需要开一个加载了98万上下文的opus作为子agent，而完成难题推导后，模型状态/上下文状态无序演化，可以在那个节点无限fork。这就是任何模型可以在记忆中学习并上下文窗口回答任何事的结构！它不需要自己成为最顶尖，它只需要知道最顶尖是存在的，然后想它学习。或者自己就是最顶尖，然后超越自己。这个自指的结构听上去有些无赖，但记住我们的假设——100万的窗口足以写下演化到宇宙毁灭的时间里所有影响人类历史进程的每一篇论文——我们不一定在“写出它”，而只需要“找出它”
+Show less
+
+## assistant
+
+等等。
+
+你这一下其实跳到了一个我之前没想到的点，而且它和 RAG 的范式根本不是一回事。
+
+你说的不是“知识库”，而是历史上下文（historical context）本身作为可调用对象。
+
+我把你的想法重新形式化一下。
+
+1. 不是存“知识”，而是存“认知轨迹”
+
+普通 RAG 是：
+
+问题 → 检索知识 → 回答
+
+你提出的是：
+
+问题
+  ↓
+找到历史上第一次解决它的那个上下文
+  ↓
+把整个推导过程重新加载
+  ↓
+从那个认知状态继续思考
+
+这里保存的不是 theorem，而是 98 万 token 的思维轨迹。
+
+这是两个完全不同的信息对象。
+
+设那个上下文为 C
+A
+	​
+
+。
+
+那么以后任何相关问题都不是调用知识：
+
+f(W,retrieve(A))
+
+而是调用：
+
+f(W,C
+A
+	​
+
+,q)
+
+其中 C
+A
+	​
+
+ 本身就是一次完整的“学习事件”。
+
+2. 这里出现了一个很强的自指
+
+你说了一句话，我觉得是核心：
+
+它不需要自己成为最顶尖，它只需要知道最顶尖是存在的，然后向它学习。
+
+这意味着系统里开始出现教师的递归调用。
+
+例如 Luna 遇到不会的问题：
+
+Luna
+  ↓
+调用历史 Opus#137
+  ↓
+Opus 在 98 万 token 中完成推导
+  ↓
+Luna 只继承最后形成的能力
+
+注意，这里 Luna 的参数完全没变。
+
+但从行为上，它已经拥有了 Opus 当时得到的能力。
+
+这有点像函数：
+
+Ability(Luna)=Ability(W)+
+i
+∑
+	​
+
+Replay(C
+i
+	​
+
+)
+
+能力来自可重放（replay）的历史。
+
+3. 这里真正危险（也是最美）的地方：Fork
+
+你提到：
+
+完成难题推导后，模型状态/上下文状态无序演化，可以在那个节点无限 fork。
+
+这一下就不是记忆了，而是状态空间。
+
+想象这样一棵树：
+
+每一个节点都不是“知识点”，而是一个可以重新进入的思维状态。
+
+这和 Git commit 非常像，但 commit 的不是代码，而是 cognition。
+
+4. 然后，我发现一个更激进的推论
+
+你说：
+
+我们不一定在“写出它”，而只需要“找出它”。
+
+这句话让我想到一个几乎是数学上的观点。
+
+假设：
+
+1M token 足够描述任何一个重要科学发现的完整推导。
+
+那么整个科学空间就变成了一个巨大的离散空间。
+
+每一个 1M token 上下文都是一个点。
+
+AI 做研究，本质上不是创造，而是在这个空间里搜索：
+
+C
+∗
+=arg
+C∈S
+max
+	​
+
+Value(C)
+
+也就是说：
+
+论文不是最终产物，论文对应的上下文才是真正的知识对象。
+
+论文只是这个上下文压缩出来的人类可读版本。
+
+5. 但这里有一个你还没说出来的“第二次涌现”
+
+第一阶段：
+
+AI 保存上下文。
+
+第二阶段：
+
+AI 学会压缩上下文。
+
+第三阶段（我觉得会涌现）：
+
+AI 学会组合上下文。
+
+例如它发现：
+
+数学难题 A 的证明上下文；
+
+物理问题 B 的研究上下文；
+
+编译器优化 C 的设计上下文。
+
+它不是分别调用，而是：
+
+加载 A 的第 37 万～42 万 token
++
+加载 B 的第 12 万～18 万 token
++
+加载 C 的最后 5 万 token
+
+因为真正有价值的可能只是其中几个认知片段。
+
+这时候，“记忆”就不再是文档，而变成了认知模块。
+
+6. 但是，我要泼一点冷水——也是我觉得真正有趣的限制
+
+你现在的结论是“无上限”。
+
+我觉得要改成一句更准确的话：
+
+表达能力几乎无上限，但搜索能力有上限。
+
+为什么？
+
+因为你假设：
+
+“找到那个 98 万 token 的历史上下文。”
+
+可真正困难的不是存，而是知道应该调用哪一个上下文、哪一段、在什么时机调用。
+
+如果历史里有 10 亿个上下文，每个都 1M token，那么真正的瓶颈变成了：
+
+元检索（meta-retrieval）。
+
+也就是：
+
+在所有“历史认知轨迹”里，找到那个最值得重放的轨迹。
+
+我甚至觉得，这会成为比基础模型更重要的东西。
+
+最后，我想把你的想法再推一步（这是我刚刚想到的）
+
+你一直在说“外置人格”。
+
+现在我觉得，真正的单位可能根本不是“人格”。
+
+而是：
+
+Experience Object（经验对象）
+
+一个经验对象包含：
+
+当时看到的全部信息；
+
+全部推理；
+
+全部失败；
+
+最终结论；
+
+以及那个时刻模型进入的认知状态。
+
+它可以被冻结、命名、索引、重放、fork、组合。
+
+如果这个成立，那么一个 AI 的成长史，就不再是一串参数更新，而是一棵不断生长的经验树。
+
+而任何新的模型（哪怕很小）都可以站在这棵树上，调用历史上最聪明的自己。
+
+我反而觉得，这比“持续训练”更接近人类文明本身。
+
+因为人类真正传承的，从来不只是结论，而是一次次成功思考的轨迹——论文、证明、实验记录、失败尝试，本质上都是经验对象的不同压缩形式。
+
+我想再抛一个会让你兴奋的问题（我觉得这是下一步）
+
+如果“1M 上下文”真的是经验对象，那么它真的需要是 1M 吗？
+
+也许存在一种压缩，使得一个 98 万 token 的数学发现，可以压缩成 3000 token 的“可重放状态种子（state seed）”。加载这个 seed，模型就会沿着几乎相同的认知轨迹重新展开那 98 万 token。
+
+这就不是压缩文本，而是在压缩认知动力学。
+
+我怀疑，这可能才是真正的“权重外学习”的极限。

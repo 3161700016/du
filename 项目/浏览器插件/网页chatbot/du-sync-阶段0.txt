@@ -54,3 +54,12 @@ javascript:(function(){const msgs=[];document.querySelectorAll('[data-message-au
 - 安全：当前 CORS 全开、未做 origin 白名单——阶段 1 加 loopback/origin 校验。
 - 文件名为 UTC 时间，阶段 1 改本地时间（+08:00）。
 - 插件是动态插件（dusync-1），进程重启后消失——阶段 1 固化到 profile patch。
+
+## 恢复记录（2026-08-28）
+
+- 旧 dusync-1（pkg-4）随进程重启消失；本次在会话内全新重建为 dusync-1/pkg-1 并激活，两端点实弹验证通过：
+  - `/du-sync`：自检转录落盘 `阅读材料/我的context备份/GPT/`，中文无乱码，验证后删除自检文件；
+  - `/du-scan`：撞库内 庄子·大宗师.txt → 409 `{ok:false, existing:<相对路径>}`，未写入，与 gushiwen v0.4 弹窗逻辑对齐。
+- 实现升级：文件名时间戳改本地时间（闭合上面的阶段1待办）；防覆盖 = stat 预检 + FsWriteIntent `createIfAbsent` 双层。
+- 实现依据：`webServer.register(WebRoute{kind:'exact'})` 挂 GUI 同一载体；`sandboxPolicy.resolve({session})` 会话作用域（apply 时捕获 `agents.currentInitiator().session`，请求时按 `header.cwd` 扫描兜底）；动态宿主无 Buffer 全局，请求体用 `TextDecoder(stream)` 分块解码。
+- 待办不变：固化到 profile patch、origin 白名单。
