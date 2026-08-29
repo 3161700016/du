@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T165216+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【composition 完成。mount-validate du preset——这是决定性检验。】

@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162739+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【gushiwen v0.5 落盘完成。重建 du-sync 前，最后确认 webServer.register 的 disposer 语义，避免生命周期双重归属。】

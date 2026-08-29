@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162446+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【搜索未直达古文岛页面。改用直接取证：抓古文岛古文目录页定位《文心雕龙》书页与章节页结构。同时读 du-sync 恢复记录。】

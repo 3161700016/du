@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T163118+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【README 三处已更新。追加 du-sync-阶段0 恢复记录 + 写今日日志。】

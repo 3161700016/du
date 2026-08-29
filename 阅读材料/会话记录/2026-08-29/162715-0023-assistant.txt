@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162715+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【决定性证据到手：章节页 `document.title` = "文心雕龙·原道第一_古文岛_原古诗文网"——书名可直接从 title 按 `·` 分割锚定；页内唯一的 `book_` 链接文本为"目录”（不可用作书名，仅旁证）。修复方案定稿：书名证据链 = title 解析 → h1 兜底章节名 → prompt 兜底书名，目录与文件名随书名走。写入 v0.5。】

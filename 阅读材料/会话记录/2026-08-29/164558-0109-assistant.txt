@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164558+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【roster 确认：四个 system preset，用户根暂空。复制 standard → du。】

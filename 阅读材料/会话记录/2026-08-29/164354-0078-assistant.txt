@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164354+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【mount.ts 第 86 行显示 `.` 开头的 name 走原生解析——可能支持相对路径包引用。读 mount.ts 关键段确认 baseUrl 机制。】

@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T165020+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【机制全解：`llm/stream` 的 carrier 是裸 LlmRuntime（无 filter 符号）→ dispatch 无过滤，preset scope 的监听与动态插件同机制全局可达；`webServer`/`fs` 按宿主 registry 解析；prompt section 挂 preset scope 对加入会话可见。三条链路全部成立。看 copy 产物现状后写文件。】

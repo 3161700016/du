@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T165147+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【四文件落盘。向 agent.cordis.yml 追加 du 组 rows。】

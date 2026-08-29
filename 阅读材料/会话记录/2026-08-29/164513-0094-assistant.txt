@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164513+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【参数校验：`required: false` 不被接受。name 改必填（本来就传）。定义新包修复。】

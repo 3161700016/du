@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164324+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【技能已加载。路径清晰：copy standard → 编辑副本 → standingKeyFor 验证。先并行探查两件事：shipped `standard` composition 的 row 格式（三个 JS 插件如何内联/引用），以及 Host Builtin 里 harness 的签名（探针插件要用）。】

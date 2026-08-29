@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162923+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【三重验证全通过：GET 自检 200 ✓、POST /du-sync 落盘+绝对路径回显 ✓、/du-scan 撞库 409 拦截 ✓。du-archive 亦实弹工作（34 文件增量差分落盘）。抽查中文编码后清理自检文件。】

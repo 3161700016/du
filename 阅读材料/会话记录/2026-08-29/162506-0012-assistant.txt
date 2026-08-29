@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162506+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【取证进展：古文岛书目录页结构已实证（书页 = `/guwen/book_<hash>.aspx`，链接文本=书名，文心雕龙=`book_5b87255cd674`）；du-sync 恢复要点已读（08-28 重建要点在手，代码本体需重写）。继续：抓文心雕龙书页验证章节页 DOM 中的书名链接；查 WebRoute 契约准备重建 du-sync。】

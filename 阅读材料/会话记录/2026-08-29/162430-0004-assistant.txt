@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162430+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【bug 定位清晰：`gushiwen.user.js` v0.4 整体为庄子定制——第 66 行 `filename: '庄子·' + inner + '.txt'` 硬编码书名、第 87 行 `target: '阅读材料/庄子'` 硬编码目录。扒《文心雕龙·体性》时推导出 inner=“体性”后被硬拼成“庄子·体性”。修复需书名锚定——按毋意，先取证古文岛页面真实 DOM 结构（找书名链接），不猜选择器。同时读 du-sync 恢复记录准备重建。】

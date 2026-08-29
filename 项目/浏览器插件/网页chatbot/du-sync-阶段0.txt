@@ -63,3 +63,17 @@ javascript:(function(){const msgs=[];document.querySelectorAll('[data-message-au
 - 实现升级：文件名时间戳改本地时间（闭合上面的阶段1待办）；防覆盖 = stat 预检 + FsWriteIntent `createIfAbsent` 双层。
 - 实现依据：`webServer.register(WebRoute{kind:'exact'})` 挂 GUI 同一载体；`sandboxPolicy.resolve({session})` 会话作用域（apply 时捕获 `agents.currentInitiator().session`，请求时按 `header.cwd` 扫描兜底）；动态宿主无 Buffer 全局，请求体用 `TextDecoder(stream)` 分块解码。
 - 待办不变：固化到 profile patch、origin 白名单。
+
+## 恢复记录（2026-08-29 · 第三次重建，改名 dusync-plugin）
+
+- 前两代均随进程重启消失（dusync-1/pkg-4 → 08-28 重建 dusync-1/pkg-1 → 又消失）。本次全新重建为 **dusync-3/pkg-3**，名称改为 dusync-plugin——与已停用的 DuSync 计划任务（小程序消息桥）永久断开混淆。
+- 协议零改动：/du-sync、/du-scan 请求/响应格式与 08-28 版一致，书签脚本、du-sync.user.js、gushiwen v0.5 直接兼容。唯一对外变更：GET 自检返回 200 `{ok:true,service,...}`（旧版 405），探测更友好。
+- 实现要点经本会话双重核实（inspect 目录 + 源码）：WebRoute{kind:'exact', path, handler(req,res)} 持 Node 原生 req/res；`webServer.register` 返回裸 Map disposer，须用 ctx.effect 挂 Fiber（08-28 版未包裹，本次修正）；TextDecoder(stream) 分块解码；防覆盖 = stat 预检 + createIfAbsent 双层；文件名本地时间。
+- 实弹验证（16:29）：GET 自检 200 ✓；POST /du-sync 自检转录落盘 `阅读材料/我的context备份/DSH自检/`，中文无损 + 绝对路径回显 ✓（验证后删除自检文件）；POST /du-scan 撞库内《庄子·大宗师.txt》→ 409 拦截未写入 ✓。
+- 同会话加装的兄弟插件：duclk-1/pkg-1（du-clock 时间锚点注入，验证 = 运行时上下文出现 [时间锚点] 行）；dulog-2/pkg-2（du-archive 会话流增量归档，验证 = 阅读材料/会话记录/2026-08-29/ 34 文件增量差分落盘、中文无损）。**候补插件两件至此全部装机**。
+- 待办不变：固化到 profile patch（易失性代价已第三次实证，待久阳拍板）、origin 白名单。
+
+## ✅ 固化完成（2026-08-29 16:52）
+
+- du-sync / du-scan 端点已固化为 agent preset「渡」（du）的组成行：C:\Users\31617\.dsh\.agent-presets\du\plugins\dusync.mjs，mount-validate 通过（mounted OK）。origin 白名单待办仍开放。
+- 动态插件 dusync-3 已停（防同进程路由冲突），定义保留于会话历史；新会话选 du preset 即自动挂载端点，进程重启清零问题就此根治。

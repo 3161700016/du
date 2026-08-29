@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162908+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【dusync-3 运行中。执行三重实弹验证：GET 自检、/du-sync POST 落盘+中文编码、/du-scan 防覆盖 409；同时检查 du-archive 的会话记录落盘。】

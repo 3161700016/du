@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164644+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【du preset 落位：`C:\Users\31617\.dsh\.agent-presets\du\`。写插件文件前，核实最后一个机制问题：preset standing scope 里的 `ctx.on('llm/stream')` 能否拦截宿主根部 llm 服务的瀑布（动态 scope 已实证可行，但 preset scope 深度不同，不猜）。查 cordis 事件系统的 scope 语义。】

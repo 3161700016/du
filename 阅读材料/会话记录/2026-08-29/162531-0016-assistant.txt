@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162531+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【章节页模式确认：书页含 50 个 bookv 链接，链接文本=章节名。WebRoute 契约核实：`handler(req: IncomingMessage, res: ServerResponse)` 为 Node 原生对象。继续两步：抓章节页验证面包屑书名链接；读 webserver 源码确认 WebRouteKind 与挂载细节。】

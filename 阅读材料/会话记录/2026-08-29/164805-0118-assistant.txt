@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164805+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【事件沿 scope 链向上流：ancestor 收 descendant 的 dispatch，反之不行。成败取决于 llm/stream 的 dispatch carrier。查 llm 服务的 emit 调用点。】

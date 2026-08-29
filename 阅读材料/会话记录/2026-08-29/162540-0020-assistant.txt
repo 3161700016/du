@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162540+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【WebRouteKind 确认：`'exact' | 'prefix'`。pwsh 命令有个笔误（`$_ .Groups` 多了空格），修正重抓章节页。】

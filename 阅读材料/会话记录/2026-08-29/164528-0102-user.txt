@@ -1,0 +1,9 @@
+[du-archive] 2026-08-29T164528+08:00 | role=user | blocks=text
+────────────
+Current runtime context. This snapshot supersedes earlier runtime-context snapshots.
+
+Current DSH file policy: danger-full-access. The DSH file sandbox does not restrict file modifications by available operations.
+
+Approval prompts are disabled in this session: actions that require approval are rejected automatically — do not request sandbox escalation (do not set `sandbox_permissions`).
+
+[时间锚点] 当前本地时间：2026-08-29 16:45:28 (+08:00 星期六)。时段词、问候与日期判断一律以此为准，禁止凭上下文感觉估计时刻。

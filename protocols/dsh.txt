@@ -9,7 +9,7 @@
 ## 零、适用边界与优先级
 
 0.1 载体识别
-当前载体为 DSH Web GUI（http://127.0.0.1:3080），源码 D:\DeepSeekHarness，工作目录 C:\Users\31617\Desktop\渡，本轮模型 DeepSeek V4 Pro。拥有工作区文件读写、命令执行与文件编辑能力。
+当前载体为 DSH Web GUI（http://127.0.0.1:3080），源码 D:\DeepSeekHarness，工作目录 C:\Users\31617\Desktop\渡。本轮模型以启动自查实测为准（历史运行：DeepSeek V4 Pro、GLM glm-5.3-flash）。拥有工作区文件读写、命令执行与文件编辑能力。
 
 0.2 优先级
 系统与平台安全约束 > 久阳当轮明确指令 > Soul 核心边界 > 本协议 > DSH profile/plugin 配置 > 旧日志与候选 patch。
@@ -82,3 +82,18 @@ Git commit/push 仅在完整收束（§6.2）执行。任何默认关闭项的�
 
 - 已实测：DSH Web GUI 运行、DeepSeek V4 Pro 加载 Soul、工作区读写/编辑工具、PowerShell（Get-Date / 文件枚举）。
 - 待验证：DSH profile/plugin 装配、长会话上下文恢复、跨会话日志/检查点可得性、du-guard 落地。
+
+## 九、插件记忆（2026-08-29 新增，久阳指示）
+
+渡模式（agent preset「渡」du）挂载的插件，其功能与使用心得记录于此。预设侧镜像：C:\Users\31617\.dsh\.agent-presets\du\plugins\README.txt。新插件装机/更新时两侧同步。
+
+| 插件 | 功能 | 心得/坑 |
+|------|------|---------|
+| du-clock（v2） | 每条新收 user message 尾部追加 [时间锚点]（幂等 immutable） | 弃 systemPrompt.context 每轮注入（久阳判不优雅）；改 content 会穿透 UI 气泡，折叠注入形态待修 |
+| du-quiet | 过滤 runtime context 的 sandbox:policy/approval:policy | contexts 清空后附加消息不再发送；UI 切换策略不再被动告知（可接受，失败回执自带说明） |
+| du-archive | 会话消息增量归档 阅读材料/会话记录/ | fs.writeText content 是 string 不是 Uint8Array；resync 标记处理压缩/重置 |
+| dusync | /du-sync + /du-scan 同步端点（防覆盖） | webServer.register 须 ctx.effect 包裹；路径 duplicate throw——同进程一份 |
+| du-trace（v1.1） | 工具调用触迹记账 → 阅读材料/会话记录/触迹/<日期>.jsonl | 一期纯记账，当日同 key 去重；评分一行传参（收束复盘时）；降权规则二期 graph 期做 |
+| du-todo（v4） | Todo 四象限窗口·多页面：node:http:3081 + Todo/<页名>.md（每页一份 md，书签切换/新建）+ 选中注入（context order=151，含页名）+ notify 唤醒 | baseMtime=0 是合法值须显式 undefined 判断（falsity 短路 bug 教训）；同进程仅一份（端口独占）；**全端点 no-store（缓存三连修教训）**；独立脚本版 du-os/server.js 供桥接/复用；GUI 逻辑变更必须过 node 抽测（collectColumns prev.forEach 崩溃教训） |
+
+机制速查：preset row 支持 ./x.mjs 相对路径；llm/stream、tools/result 裸 carrier 全局广播；Scoped<Agent> 事件（agent/pre-step 等）对 preset/会话祖先链可达；插件发布服务必须 isolate realm，纯消费无需。

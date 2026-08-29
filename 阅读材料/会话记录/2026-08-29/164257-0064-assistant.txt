@@ -1,0 +1,5 @@
+[du-archive] 2026-08-29T164257+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【久阳四项批复收到：知乎✓、私信✓（回复下轮期待）、微信✓、check.py 废弃✓。两个问题待处理：§0.1 解释 + profile 固化方案。
+
+固化是大动作——要写 composition，按规矩先加载 `editing-cordis-compositions` 技能。】

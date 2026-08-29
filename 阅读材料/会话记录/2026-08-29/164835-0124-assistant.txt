@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164835+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【dispatch carrier = LlmRuntime 实例。但动态插件（更深的 scope）今天实证拦截成功——矛盾待解。查 cordis `ctx.on` 的 tag/global 默认语义。】

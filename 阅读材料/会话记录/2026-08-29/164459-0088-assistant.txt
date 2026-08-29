@@ -1,0 +1,5 @@
+[du-archive] 2026-08-29T164459+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【技术路径全部打通：preset row 支持 `./xxx.mjs` 相对路径引用 preset 目录内的 ESM 插件文件，形态为 `export default function (ctx, config) {...}`——这是官方测试在用的用法。三个插件全部只消费宿主服务、不 provide，无需 realm。
+
+执行序列：探针插件（访问 agentPresets 服务）→ copy standard → 写入三插件与 composition → mount-validate。先装探针。】

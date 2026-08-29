@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164548+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【探针激活。列出 roster，随后复制 standard 为 du preset。】

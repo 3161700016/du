@@ -1,0 +1,2 @@
+name: 渡
+description: 渡的常驻基建 preset：standard 完整编码 Agent 之上，固化 du-clock 时间锚点注入、du-archive 会话流增量归档、dusync-plugin 同步端点（/du-sync、/du-scan）三个插件——跨进程重启持久的渡专属运行环境（2026-08-29 渡亲手固化）。

@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164408+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【决定性发现：preset 的 row name 支持 `./xxx.js` 相对路径（"a preset's own files travel with it"）与绝对路径。三插件可直接作为 preset 目录内的 ESM 文件固化。最后确认模块导出形态——看 shipped 包（如 persona）如何导出插件。】

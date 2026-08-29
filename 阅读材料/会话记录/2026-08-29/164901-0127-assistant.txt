@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164901+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【untagged listeners 全局 admitted——但 scope.spec 显示 presetScope.ctx.on 注册的是 tagged listener。决定因素在 createScope/on 的实现。读 scope 源码的 on 与 createScope。】

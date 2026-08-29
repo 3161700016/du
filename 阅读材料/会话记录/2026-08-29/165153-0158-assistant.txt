@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T165153+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【先读 copy 产物的 agent.cordis.yml（编辑前置要求），再追加。】

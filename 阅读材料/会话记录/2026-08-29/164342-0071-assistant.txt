@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164342+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【standard composition 全部 rows 均为 npm 包引用，未见内联 code；`!!js` 表达式可用；harness 签名确认。关键未决问题：三个 JS 插件如何进 composition——需要看 preset loader 对 row name 的解析机制是否支持本地路径或内联代码。查 agentPresets 服务实现。】

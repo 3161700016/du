@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162934+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+【中文编码两处抽查均无损。清理自检文件，读爬取工具 README 准备同步 v0.5 记录。】

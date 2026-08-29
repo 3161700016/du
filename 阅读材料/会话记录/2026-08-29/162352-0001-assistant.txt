@@ -1,0 +1,5 @@
+[du-archive] 2026-08-29T162352+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【✅ du-clock 时间锚点已实弹验证生效——本轮运行时上下文已出现 `[时间锚点] 2026-08-29 16:23:20` 注入（非仅启动成功）。du-archive 同步运行中，稍后以落盘文件验证。
+
+继续移交清单待办：①gushiwen 标题锚定 bug（修 v0.4 归一化逻辑）；②du-sync 插件重建+改名 dusync-plugin。先读源文件。】

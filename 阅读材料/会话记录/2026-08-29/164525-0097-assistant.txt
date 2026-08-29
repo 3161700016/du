@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164525+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【oneOf 分支混入了多余字段（existing 分支只收 kind+pluginId）。修正重定义。】

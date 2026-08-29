@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T163034+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+【清理完成。现在同步文档链：README v0.5 记录 → du-sync-阶段0 恢复记录 → 今日日志 → 目录索引。】

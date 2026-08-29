@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T164658+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【scope.spec 213-219 行恰好在测 preset scope 的事件分发。读该测试段确认语义。】

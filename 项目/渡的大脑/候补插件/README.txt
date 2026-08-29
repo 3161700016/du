@@ -1,5 +1,10 @@
 # 候补插件说明 · 2026-08-27
 
+> ✅ **2026-08-29 固化完成**：两件插件已装入 agent preset「渡」（du）——
+> C:\Users\31617\.dsh\.agent-presets\du\plugins\{du-clock.mjs, du-archive.mjs}，
+> mount-validate 通过。新会话选 du preset 即自动挂载，本目录转为历史档案
+> （安装条件与教训记录仍具参考价值；du-archive 装机时修正了 writeText content 参数类型）。
+
 两份文件为「时间锚点」与「会话流归档器」的设计定稿。因当日 cordis_define 工具在父会话持续损坏，未能当场安装。
 
 ## 安装条件

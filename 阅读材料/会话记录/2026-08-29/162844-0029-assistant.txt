@@ -1,0 +1,3 @@
+[du-archive] 2026-08-29T162844+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+【register 的 disposer 是裸 Map 删除，须由 ctx.effect 挂 Fiber。契约全部就绪，定义 dusync-plugin（与 DuSync 计划任务断开混淆的新名，浏览器侧零改动兼容）。】
