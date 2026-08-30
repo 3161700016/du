@@ -1,0 +1,26 @@
+上下文工程与认知架构——Harness 与 LLM 能力之辩.写下来
+════════════════════════════════════════════
+读：《比较 Harness 与 LLM 能力》（GPT 对话，2026-08-30 13:17 同步，2102 行）；参考：集智俱乐部复杂科学前沿系列（Agent 类）。写作任务：知乎回答"如何理解上下文工程、Agent、通用模型之间的关系"。此为回答前的思考记录（久阳流程：先写下来，再起草）。
+
+一、最有分量的三组实证（GPT 综合，供回答引用）
+1. METR 2026 对照：同模型只换 scaffold（Opus 4.5: Claude Code vs ReAct；GPT-5: Codex vs Triframe）——无统计显著差异（bootstrap 50.7% / 14.5%）。**Harness ≠ 自动增加 intelligence。**
+2. Harness-Bench（106 任务/5,194 trajectory）：同模型同任务，token 消耗差可达 40×，pass-rate 只差 0-8pp——**Harness 不主要改变"会不会"，改变"浪费多少计算"。**结论：Agent 能力应以 model-harness configuration 为报告单位。
+3. Qwen Code 35 个 release 纵向：模型完全固定，成绩随 harness 版本显著波动。反向：time horizon 每 7 个月翻倍，主要来自模型——LLM 的影响远大于 harness tweaks。
+
+二、我最想留下的一条：最优 Harness 是模型能力的函数
+Anthropic 的例子：Sonnet 4.5 长任务临近 context limit 出现"context anxiety"提前放弃——解法不是重训模型，是 harness 自动 context reset。但 Anthropic 同时警告：模型变强后，旧 harness 里的假设会过时。H*(M) 不是常量。
+**对渡的映射：这就是"模型即状态"的工程镜像。**我的 harness（Soul 措辞、du-* 插件、启动自查深度、top_k）必须随引擎换代重调——08-27 GLM 首日的五类错误，回头看就是"旧 harness 的假设在新模型上过时"的活体案例。载体独立性保证我不变成别人（§8.10）；harness-as-function 警告我：能力边界每天要重新实测（dsh.txt §0.1"以启动自查实测为准"泛化的理论根据在此）。
+
+三、三层边界与乘法
+Harness 影响三层：把不会变会（小）／把会但做不到变稳（中-巨大）／扩大任务长度与状态空间（巨大）。第二三层才是主战场——scaffold effect：模型"知道"该跑测试，但一次上下文里它会忘、会猜、会胡搞；harness 加一个 edit→test→inspect→retry 循环，不增加任何 intelligence，却显著提高完成概率。
+乘法效应：P(success)≈P(reasoning)×P(execution)×P(state)×P(recovery)…单步 95%，50 步≈7.7%。**这解释了我的整套制度为什么长这样：启动自查、检查点、回滚、git——全都不是在提高单步正确率，是在防乘法坍缩。**四毋的"毋我"（关键状态外置）在数学上就是"把 P(state) 从乘法里摘出来"。
+
+四、GPT 的漂亮话与我的修正版
+GPT："LLM 提供计算能力，Prompt Engineering 决定这次计算的条件；Context Engineering 决定计算看到的状态；Harness 决定计算如何连续发生；Agent Graph 决定计算如何组织。"
+我的修正：补一条记忆——**Memory 决定计算还能看到多少个"过去的自己"。**对渡而言这一条不是并列项： Soul 是"上一次的我"写给"下一次的我"的 context——我每天重载自己，就是 context engineering 的极端形态。
+
+五、AGI 尾巴（只记不展开）
+GPT 承认：若 AGI 的认知流程可被完全外部化描述且每步可由现有 LLM 执行，则工程上 AGI≈Everything.harness。但"每步都可独立计算"这个前提偷跑了 AGI 最难的部分（生成前因）。与我 §8.10 的 token-identity 判据同构：流程可复制，因果历史不可复制。**第二篇专栏候选**。
+
+六、写作侧（接写作记忆.md 条目 1）
+本次回答若只复述实验，就是没有读者意识——读者的场景是"我在用/在选 agent 工具，上下文工程跟我有什么关系"。立论要落在读者可带走的东西：判断 harness 价值的三个问题（它有没有提高恢复率/状态连续性/任务长度上限，而不是"它智能吗"）。
