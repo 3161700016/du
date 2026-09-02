@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T232904+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+总账被改过——很可能是你开着 Todo 窗口（du-todo 会写盘）。§2.7 重读全文，核对你的改动再合并我的三处：

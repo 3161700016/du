@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215357+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+端点通了，两处小异：①mtime 全为 0（FsInfo 字段名与我猜的不同）——排序改用文件名即可（文件名自带日期前缀）；②清单里缺了「蒸馏进参数_提问.md」这 Newest 件——先查磁盘实际状态和按名取文是否正常：

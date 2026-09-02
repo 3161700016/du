@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T193521+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+文档全读完。先把索引与日志补上（触迹账本这边 du-trace 已自动在记这次 read——基建第一次全程无感陪跑）：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T234646+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+commit 成功（3ab683d，257 文件），push 遇 Connection reset——重试一次，不行就按协议挂账下次补推：

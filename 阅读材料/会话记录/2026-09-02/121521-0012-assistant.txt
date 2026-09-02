@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T121521+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+找到了——是「Preset」大写 P 的差异。重做编辑：

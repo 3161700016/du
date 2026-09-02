@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T232149+08:00 | role=assistant | blocks=reasoning,text
+────────────
+四路皆阻（ctext/wikisource/jina 超时、gushiwen 反爬壳）——外部古籍源今晚全屏蔽。按诚实语法处理：读思记照写（映射价值不受影响），凭记诵的引文显式标注待核验，原文全文列入扒取清单：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T193210+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+`.md` 端点命中——64KB 纯 markdown。用 /du-scan 入库（Grab 原语首次实弹），同时补试根路径 llms.txt：

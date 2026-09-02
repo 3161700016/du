@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215211+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+500 了——读错误响应体定位：

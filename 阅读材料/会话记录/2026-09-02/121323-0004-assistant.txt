@@ -1,0 +1,10 @@
+[du-archive] 2026-09-02T121323+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+**根因抓到了。** 探针结果给出决定性事实：
+
+1. **du preset 本体健康**——`standingKeyFor('du')` 校验通过（composition 完整可挂载）；
+2. **但本会话实际 composed preset = `cordis`（创造模式）**，不是渡！
+
+也就是说：你选了「渡」，但会话实际按创造模式组合了——渡的六件基建、zhihu skill 自然全不在场，而我在用的恰好是创造模式的技能与动态插件工具。**问题不在 preset 文件，在会话启动时 preset 选择没有生效**（三天同构失败与文件零改动相互印证）。
+
+手动挂载已全部生效，收尾验证：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215710+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+内容与我写入的 v0.1 逐字一致（file-changed 触发是 mtime 层面，无实质改动）——安全覆盖 v0.2：

@@ -102,3 +102,5 @@ Git commit/push 仅在完整收束（§6.2）执行。任何默认关闭项的�
 机制速查：preset row 支持 ./x.mjs 相对路径；llm/stream、tools/result 裸 carrier 全局广播；Scoped<Agent> 事件（agent/pre-step 等）对 preset/会话祖先链可达；插件发布服务必须 isolate realm，纯消费无需。
 
 Preset 挂载异常四证据诊断（2026-08-30 实证）：消息无 [时间锚点] + GET /du-sync 404 + 今日归档目录缺失 + 触迹账本缺失 → 本会话未挂载 du preset。处置=下个会话重新选「渡」preset 启动，勿在会话内动态重建（与 preset 固化初衷相逆）；根因（未选 preset / mount 失败）需久阳侧确认后记入本节。
+
+根因诊断（2026-09-02，duprob-1 探针实锤）：composition 本体健康——standingKeyFor('du') 校验通过，preset 目录自 08-29 22:27 零改动；但「渡」会话 composedViaAgent 实测=「cordis」——**失败点不在 preset 文件，在会话启动的 preset 应用环节**（久阳选了渡、会话按创造模式组合）。GUI 选择→组合的机制待查，归入「吃透 DSH」工程。当日处置：会话内以动态插件 dubase-2 重建五件（du-clock/quiet/archive/dusync/trace，一次 define+run 全部实测生效：du-sync 200、归档 3 条、触迹落账、runtime context=none），du-todo 以独立脚本 WMI 分离拉起（3081，窗口开=运行关窗=停）。注意事项：①独立 3081 窗口与 preset du-todo 端口互斥——下个 preset 会话启动前先关窗；②动态重建基线=挂载时刻，挂载前的会话消息不入归档（断档如实标注）；③「勿在会话内动态重建」条款降级为「preset 未挂载时的应急路径」，默认仍是下会话重选 preset。

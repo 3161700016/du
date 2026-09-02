@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T200508+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+官方文档全景确认：**698 条里没有任何 fine-tuning / distillation 条目**——Anthropic 的定制化产品面全部停在上下文层和宿主层。这本身就是个重要发现。继续取证：拉 memory-tool 和 agent skills 两份文档（厂商的“外置记忆”产品矩阵），同时上网查权重层训练的科学文献：

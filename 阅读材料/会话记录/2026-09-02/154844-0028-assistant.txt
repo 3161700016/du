@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T154844+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+立项三件落盘（目录登记、总账新条目、日志补 §七§八——§七 是上轮重建包记录，发现日志有缺口一并补齐）：

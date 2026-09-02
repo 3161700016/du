@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215619+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+脚本文件被改过——按 §2.7 先重读（你测的时候自己改过它的话，那些改动是登录态一手数据，不能覆盖）：

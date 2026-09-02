@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T231742+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+gushiwen 返回空壳（141 字节反爬壳）。最后一招：查工作区里是否已有整本原文存档：

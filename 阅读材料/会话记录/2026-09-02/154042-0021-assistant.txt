@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T154042+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+先读你同步来的 GPT context（注意到它 15:30 刚经 /du-sync 落盘——端点第一天上岗就被用上了，很好）：

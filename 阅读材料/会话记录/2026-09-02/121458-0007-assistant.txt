@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T121458+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+五件套全部实测生效：归档目录已落 3 条（12:11:57 起）、触迹账本已记 2 条、Todo 窗口 API 正常返回 4 个页面、/du-sync 200、du-quiet 由 runtime context=none 直接证实。探针已停止。把诊断与挂载记录写入协议 §九 与今日日志：

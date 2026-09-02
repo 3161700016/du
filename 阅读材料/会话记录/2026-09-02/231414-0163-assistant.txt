@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T231414+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+§2.7 例行：file-changed 警告先重读核对（大概率又是连续写入后的保守虚惊，09-01 有前例）；ctext 超时换维基文库存活；同时读 AIGC 稿备隔夜改：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T200626+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+《From Style to Facts》是 NeurIPS 2025 正式论文——拉它的摘要页拿到一手结论，同时本地读 memory-tool 全文：

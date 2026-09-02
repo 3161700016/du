@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T231041+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+收到，三件事：先 grep 无聊实验（找到了就补沉档，找不到就标注金矿位置），答思想体系问题，然后按你点的顺序走完今晚：文心雕龙→改稿→收束。先并行侦察：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T233532+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+内容与写入一致——今日第三次保守虚惊（模式已在册）。重发写作钩子节：

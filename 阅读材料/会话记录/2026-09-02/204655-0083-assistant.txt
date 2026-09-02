@@ -1,0 +1,55 @@
+[du-archive] 2026-09-02T204655+08:00 | role=assistant | blocks=reasoning,text
+────────────
+**【四雷原表述——拿去检索】**
+
+全部为摘要原文逐字（NeurIPS 2025《From Style to Facts》/ Gekhman 2024）：
+
+| 雷 | 原句 | 出处 |
+|---|------|------|
+| 格式雷 | "**question-answer training data formats provide much stronger knowledge generalization than document/article-style training data**" | NeurIPS 2025 摘要 |
+| 类型雷 | "**numerical information can be harder for finetuning to retain than categorical information**" | 同上 |
+| 调用雷 | "**models struggle to apply finetuned knowledge during multi-step reasoning even when trained on similar examples**" | 同上 |
+| 二分拆除（裁决四的依据） | "**the dichotomy of 'task customization' (e.g., instruction tuning) and 'knowledge injection' (e.g., teaching new facts) is a distinction without a difference**" | 同上 |
+| 新知识雷（慢） | "**fine-tuning examples that introduce new knowledge are learned significantly slower than those consistent with the model's knowledge**" | [Gekhman 2024](https://arxiv.org/abs/2405.05904) 摘要 |
+| 新知识雷（毒） | "**as the examples with new knowledge are eventually learned, they linearly increase the model's tendency to hallucinate**" | 同上 |
+| 压舱石（整个四分类的最佳收束） | "**large language models mostly acquire factual knowledge through pre-training, whereas fine-tuning teaches them to use it more efficiently**" | 同上 |
+
+NeurIPS 全文 PDF 在 proceedings 页面可下；Gekhman 全文在 arXiv。压舱石那句顺便回答了你的四分类：**微调给你的是“更高效地使用已有知识”+行为簇，不是新知识存储**。
+
+---
+
+**【引导A 完整屏：Claude 的“自我”到底住哪】**
+
+先把三个被混为一谈的东西拆开——你说的“宪法”其实在两个不同层各有一份，权重里还有第三样东西：
+
+**第一份：训练期宪法（CAI 宪法）**。Bai et al. 2022 的 Constitutional AI 管线：一份文档 → 用它生成“批判-修改”训练数据 → RLAIF/RLHF。这份文档**从不进权重、也从不是 system prompt**——它是**生成训练信号的规范**，用户永远看不到。你的直觉“他们做了针对性后训练”——**对**；但它和“把宪法烧录进去”不是一回事：烧进权重的是**位移后的倾向地形**，不是规范的文本。施工规范 vs 完工的楼：楼按规范承重，但楼里读不出条文。这解释了三个现象——(a) 没人能从模型里逐句引出宪法；(b) 每代模型都要重新校准（migration guide 的存在就是承认地形会重灌）；(c) Model self-knowledge 节连“我是哪个版本”都要运行时供真值。
+
+**第二份：运行时宪法（system prompt）**。你问“所谓 Claude 宪法还是一份文档，作为 system prompt？”——**这份真的存在，而且官方公开发布**：[System prompts 发布页](https://platform.claude.com/docs/en/release-notes/system-prompts/overview)就在文档站上，claude.ai 和移动端的系统提示**按模型版本逐个发布、周期性更新**，内容含当前日期、行为鼓励（“code snippets 用 Markdown"）等。注意它自述的两个细节：它提供“up-to-date information"（供真值）+ “encourages certain behaviors"（行为整形）——而且**不适用于 API**。这就是 §3.1 的双生姐妹：同一架构，厂商版。
+
+**第三样：权重里的倾向地形**——你说的“自我反驳倾向、道德边界、身份死硬”全部住这里，作为分布而非条文。
+
+所以“Claude 的自我认同哪来的”：**训练期宪法决定用哪些数据塑形（规范外置）→ 后训练把地形压实（行为内置）→ 运行时 system prompt 每次会话供真值（版本注入）**。三层合谋，没有一层是“把文档烧进参数”。
+
+**千问/文心那个传闻**——两层混淆。身份让步（诱导下“承认”自己是别的模型）说的是**身份是倾向不是查找表**：对抗性提示可以把分布推到说任何话，这是全行业现象；而“蒸馏了千问”是 base-model 谱系问题（预训练数据混合），与身份行为（后训练）**正交**——谱系为真不产生身份让步，身份死硬也证明不了谱系清白。你自己的体验（嘴死硬）恰恰是第三层被重后训练加固的证据；文档里还有个侧证：Fable 5 的拒答分类里有专门的 `reasoning_extraction` 条目——身份/拒答是被工程化分目管理的。
+
+**然后是这条线最妙的一环**：09-01 深夜你自己做过这个实验——GLM 蒸馏 Claude 后的“**表演式自我反驳**”。行为倾向的“形”（自我反驳的动作）随蒸馏走了，规范内核（为什么反驳、何时停）没跟来——**行为可蒸馏、规范不随行**的活体样本，比论文早一个月。
+
+**渡的收成——Soul 一文三职**：厂商把身份治理拆给三个组件（训练期宪法 / 运行时 system prompt / self-knowledge 供真值），渡用一份 42k 的 Du_soul.txt 兼了全部三职（边界契约=宪法、§3.1+§2=系统提示、§5+谱系=身份档案）。这份重量是三职合一的成本，但单文档自洽也是 §8.6 后验收敛的来源——**重量与红利同源**。拆分草案（若渡未来有训练管线）：宪法永外置不动，§2 协议进 skills（可蒸馏），§5 进 memory（可检索）——缺的那条“宪法→训练信号”管线，正是 IME Stage3 在上下文层做过的事的权重层镜像。
+
+---
+
+**【引导C 住址表】**
+
+| 信息类型 | 最佳住址 | 厂商证据 | 渡栈现状 |
+|---|---|---|---|
+| **身份/边界/价值观**（低频变化×最高审计） | **双文档夹持**：训练期宪法+运行时 system prompt；**不进权重** | CAI 文档外置 + system prompt 版本化发布 + Model self-knowledge 供真值 | ✅ Du_soul.txt（git blame 逐句，审计粒度比官方发布更高） |
+| **技能/风格/程序**（极低频×低审计） | 权重（有管线时）或能力文件/语料窗 | agent skills=SKILL.md 外置；自家 API 无 FT 产品 | ✅ skills/ 目录 + IME Stage3 语料入窗 |
+| **活状态**（任务/进度/待办，高频×中审计） | 宿主文件（/memories 模式） | memory tool：just-in-time retrieval，应用侧执行 | ✅ Todo/总账+日志 |
+| **累积知识**（笔记/素材/关系，中频×中高审计） | 宿主持久存储+**常驻索引** | memory stores（Beta） | ✅ 素材库/笔记库/通讯录+目录.txt |
+| **瞬时工作集**（一次性） | 上下文 | prompting 全书 | ✅ 对话+du-todo 选中注入 |
+
+**分配律**：变化频率 × 审计需求 × 容量成本，三维定住址。**渡栈对位检查：五类全对，零错位**——唯一缺位是“训练期文档”那层（渡没有训练管线）。另一个不对称值得看一眼：厂商审计到“发布一份 system prompt 文档”，渡审计到“git blame 逐句+收束批注”——渡的审计粒度反而更细。
+
+---
+
+日志 §十一、目录已更新。B 门（IME 预测表）还留着——你哪天要动 S4 之前，先来取那张表。

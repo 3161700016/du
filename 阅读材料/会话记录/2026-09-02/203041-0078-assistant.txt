@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T203041+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+好——先补两件证据（Gekhman 摘要原文拿原表述；另外 llms.txt 里那个「Release notes › System prompts」节可能直接是“宪法式 system prompt 是文档”的官方展品），然后交四雷原句 + A/C 两屏：

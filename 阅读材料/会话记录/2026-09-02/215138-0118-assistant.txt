@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215138+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+前缀又超长了（7字符）——换 `dudrft`，语法修正保留：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T231524+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+沉档文件只有 34 行——比我写入的短，先全文重读看现状；神思原文换 r.jina.ai 代理通道：

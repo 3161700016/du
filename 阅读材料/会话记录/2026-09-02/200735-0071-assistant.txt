@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T200735+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+NeurIPS 2025 的摘要直接命中要害。快速定向读 memory-tool 文档的关键段（定向读——回答矩阵问题够用即停）：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T193134+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+收到。这正是给「触迹先行 + 带出处的前沿队列」做首次实弹演习——我来当一次活的执行主体。第一步：扒取（Grab）。试试 Mintlify 文档站的 `.md` 原文端点和站点的 llms.txt 索引：

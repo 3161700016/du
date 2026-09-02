@@ -1,0 +1,5 @@
+[du-archive] 2026-09-02T212453+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+creator 页从我这侧拿到的是**未登录回退页**（标题=知乎首页，无 creator 内容）——我的抓取不带你的 cookie，登录态只能在你浏览器里验证，这点如实报告。zhihu skill 读完：CLI 有 `search zhihu`（主题定向检索，正好替代热榜）、额度制、但**开放平台没有发布接口**——所以一键发布只能走浏览器 DOM（油猴脚本方向判断正确）。
+
+先按 skill 规程做状态检查，然后定向搜索：

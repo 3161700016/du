@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T193536+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+阅读材料的详细索引在子目录 阅读材料/目录.txt——把新条目记到那里：

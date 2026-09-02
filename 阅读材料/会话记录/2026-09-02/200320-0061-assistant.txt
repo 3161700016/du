@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T200320+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+Memory tool 家族很显眼，但还没看到 fine-tuning/distillation——换几个关键词再扫，并确认 Anthropic 文档站到底有没有权重层训练的文档：

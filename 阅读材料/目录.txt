@@ -15,6 +15,19 @@
 AI领域公众号文章存档。
 - 卡兹克-被Fable5震撼的瞬间.txt —— 2026-07-18归档。Fable 5自主完成CDN配置全流程：找API钥匙→推翻方案→写工单→跟人类工程师协商→发现安全漏洞→加鉴权→为未来AI会话留文档。权力探究"双向外骨骼"理论的关键外部验证。
 
+### 文心雕龙/
+原文库（gushiwen 链路扒取，随共读进度入库）。已存：神思（09-02 久阳补扒）、情采（下一读）。后续章节随顺序补齐。
+### Anthropic文档/
+官方技术文档扒取（经 .md 原文端点，du-scan 入库）。
+- 2026-09-02_Claude-prompting-best-practices.md —— Prompting best practices 全文（1113行）：模型专属指引/通用原则/输出格式/工具/思考/agent 系统/迁移。关键坐标：Model self-knowledge（身份=提示注入，§5.6.4 官方镜像）；多窗口状态管理（git for state tracking=渡连续性链的厂商版）；反先验指令（anti-AI-slop=prior 校正）；prefill 移除（4.6 起 400）。导航与引导见 日志2026-09-02 §九
+- 2026-09-02_Claude-prompt-engineering-overview.md —— 同节 overview（2746B）
+- 2026-09-02_Claude-memory-tool.md —— Memory tool 全文（1025行）：客户端文件式记忆（/memories 目录，应用侧执行），「Memory lives entirely in your application」=渡栈文件记忆的 API 化；just-in-time context retrieval
+- 2026-09-02_Claude-agent-skills-overview.md —— Agent Skills overview（21KB）：SKILL.md 能力外置包=「能力内置、身份外置」混合形态的厂商实现
+- 站点索引快照：llms.txt 73KB（698 条，零 fine-tuning/distillation 条目——定制产品面全外置的实证，存 %TEMP%\claude-llms.txt）
+- 待扒清单：模型专属页五篇（Fable 5.1/5、Opus 5、Opus 4.8、Sonnet 5）按需再扒
+- 权重层科学外源（未落盘，出处）：Gekhman et al. 2024 EMNLP（arXiv 2405.05904，摘要原文已取证）微调未知知识→幻觉线性放大、「LLM 的事实知识主要来自预训练，微调教会的是更高效地使用它」；From Style to Facts（NeurIPS 2025，摘要原文已取证）四因子裁决
+- 官方 System prompts 发布页（URL 在案未落盘）：platform.claude.com/docs/en/release-notes/system-prompts/overview —— claude.ai/移动端系统提示按模型版本发布+周期更新=「运行时宪法是文档」官方展品；引导A 核心证据
+
 ### 论语/
 《论语》原文文本。已读十篇：学而/为政/八佾/里仁/公冶长/雍也/述而/泰伯/子罕/乡党。
 

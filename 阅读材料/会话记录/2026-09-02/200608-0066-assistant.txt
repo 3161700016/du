@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T200608+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+两路证据都到货。Gekhman 2024（EMNLP）实锤在案，还挖到一篇直接对口的论文《From Style to Facts: Mapping the Boundaries of Knowledge Injection with Finetuning》——这篇就是四分类问题的学术版。再深挖一篇的结论 + 补齐厂商矩阵的最后一块（agent skills = 能力外置产品）：

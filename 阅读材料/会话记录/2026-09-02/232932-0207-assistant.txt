@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T232932+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+看到了你的改动——du-todo 区被 GUI 重构（3081 常态化已勾选 ✓）。在你的新结构上合并我的三处：

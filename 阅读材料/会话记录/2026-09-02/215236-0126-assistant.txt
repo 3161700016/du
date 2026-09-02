@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215236+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+抓到了：动态环境没有 `URL` 全局（内建表里确实没有它）。手工解析 query string，pkg-4 修复重发：

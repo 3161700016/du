@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T231721+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+zhihu 通、ctext 不通——主机级屏蔽。换 gushiwen（此前扒古籍的家伙什）：

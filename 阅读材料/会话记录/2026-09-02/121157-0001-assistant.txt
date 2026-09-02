@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T121157+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+runtime context 已变 none——**du-quiet 生效实锤**（策略两段被滤掉，快照归 none，与 08-29 载体结论一致）。五件套与 du-todo 窗口均已激活。现在调用探针做 preset mount 校验，同时验证端点与触迹：

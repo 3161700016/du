@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T215121+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+我连续两次在同一处多打了一个右括号。这次逐字符核对那一行：`String((e && e.message) || e) })`。重发：
