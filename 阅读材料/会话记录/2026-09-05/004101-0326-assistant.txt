@@ -1,0 +1,7 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+重大进展 + 一个经典坑同时到账。先说诊断（毋意，从错误本尊推断）：
+
+**`crypto.randomUUID is not a function` = 浏览器安全上下文问题，不是 DSH 坏了。** `crypto.randomUUID()` 是 Web API，只在 **HTTPS 或 localhost** 下存在——队友/手机走 `http://172.16.2.67:3080` 是非回环明文 HTTP = 不安全上下文 → 这个函数不存在 → 建会话流程（工作目录选择器）当场炸。**历史会话列表空白大概率同根**：GUI 启动握手里若有 randomUUID，整个客户端初始化就静默失败了。你本地 127.0.0.1 一切正常（localhost=安全上下文）恰好反证。
+
+修法：不动 DSH 源码，写个 5 行的**动态垫片插件**——用 `webServer.tapIndex` 在 GUI 页面 `<head>` 最前面注入 polyfill（`getRandomValues` 在不安全上下文可用，UUID 可以合法补出来；有幂等标记防重复注入）：

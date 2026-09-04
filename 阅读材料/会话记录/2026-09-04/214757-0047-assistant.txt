@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T214757+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+**虚拟网卡在位：172.16.2.67（OrayBoxVpnEnt）**——而且这基本确认你手机今晚走的就是蒲公英路径。现在三步走：patch 追加 webserver 改绑块 → 防火墙加"虚拟 IP 白名单+其余 3080 一律拒"的双规则（GUI 无口令，不能裸奔到校园网）→ 引信升级版（带重启后自检）：

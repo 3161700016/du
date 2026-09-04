@@ -1,0 +1,11 @@
+{
+  "name": "du-base",
+  "version": "1.0.1",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "description": "渡的常驻基建六件（du-clock v2 / du-quiet / du-archive / dusync / du-trace v1.1 / duwebp）——由动态重建（dubase-2/3/4/5）固化为 profile 级插件，2026-09-04 久阳批复。导出契约=命名导出（name/inject/apply），v1.0.0 误用 default 工厂致加载器静默跳过，v1.0.1 改正"
+}

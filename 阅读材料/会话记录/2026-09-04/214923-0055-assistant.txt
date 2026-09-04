@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T214923+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+组合验证 ✓（host: 0.0.0.0 已进组合，mobile-remote 完好，exit 0）。netsh 是 PATH 问题——用绝对路径重试防火墙规则：

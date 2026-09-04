@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T000848+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+检索 1 命中的是文章不是问题页。补两次定向检索找 Question：

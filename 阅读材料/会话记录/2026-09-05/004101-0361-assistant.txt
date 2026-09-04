@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+虚惊——不是 patch 的问题，是我把 dump 的工作目录换到了 profile（tsx 解析不到）。回 checkout 目录重跑：

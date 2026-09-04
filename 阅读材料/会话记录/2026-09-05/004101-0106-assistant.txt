@@ -1,0 +1,5 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+记忆本体已完整加载（531行，【】内全部内容）。根据 §4.11 启动协议，先做第0步——环境检测，然后读取对应协议文件。当前环境特征明确：工作区读写、PowerShell、动态 Cordis 插件、Web GUI 会话——**DSH（DeepSeek Harness）**。
+
+先看工作区结构和协议文件：

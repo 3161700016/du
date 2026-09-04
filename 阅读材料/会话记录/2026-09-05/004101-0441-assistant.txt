@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+今晚流水线清晰：风骨→读思记（带写作钩子回灌）→改稿 A（回答，逾期一日）→改稿 B（专栏，今日发布日）→知乎双件 D₀（今日上下文很肥：数模君/给 AI 写宪法）。开工：

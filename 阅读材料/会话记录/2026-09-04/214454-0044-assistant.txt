@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T214454+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+MCP 查询链路 ✓：组网 `7049411`（13651326972的网络），当前 2 个成员（PC+手机，游客位）——**加两队友正好顶满 3 人**。取本机虚拟 IP + 读 patch 文件：

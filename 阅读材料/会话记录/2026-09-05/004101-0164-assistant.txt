@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+触迹 ✓ 落账、归档 ✓ 建档（基线=挂载时刻，断档如实标注）、写作记忆 ✓ 已通读（7条目在册，写作前必读=强制项已执行）。继续读四遍协议与改稿对象：

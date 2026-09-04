@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+✅ **du-sync 200（version: dubase-3 dynamic）**——证据②翻阳为阴。server.js 读取命令参数冲突，重试：

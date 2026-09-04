@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T011429+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+收束流水线启动。先落数模 flash 草案文档 + 总账 Q1/Q3 记账：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T203558+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+依赖安装成功（+37 包，3.6s）。验证安装产物 + 尝试 dump-config 预检 + 关 3081 窗口（preset 回归前的既定准备）：

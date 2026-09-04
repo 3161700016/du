@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T213033+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+两件事都接住：①蒲公英 MCP 存 skill（凭据入 DSH_HOME，不进 git 仓库——这是核心层纪律）；②数学建模共享 harness 的架构判定。先抓文档+实测 MCP 端点（毋意：验证后再写 skill）：

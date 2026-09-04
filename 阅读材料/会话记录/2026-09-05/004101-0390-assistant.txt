@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+四探针定性：**du-base 整体没加载**（404+无垫片），但 **mobile-remote 正常（3090 在听）**、**du-base 模块本体独立加载 OK**（`default = function`）、node_modules 里是实体拷贝。动态垫片先救急（同代码今晚验证过），再对照修包：

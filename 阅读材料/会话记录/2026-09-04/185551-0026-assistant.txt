@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T185551+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+连续两次未命中——停止猜测（毋固），直接读当前 目录.txt L40-46 实际字节：

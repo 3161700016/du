@@ -1,0 +1,6 @@
+[du-archive] 2026-09-04T214019+08:00 | role=user | blocks=text,text
+────────────
+好，现在就试试， webserver 行改绑。应该不会影响我正常的启动方式吧？我启动是PS C:\Users\31617> Set-Location D:\DeepSeekHarness                                                                      PS D:\DeepSeekHarness> $env:PATH = "$PWD\.tools;$env:PATH"                                                              PS D:\DeepSeekHarness> & "$PWD\.tools\pnpm.cmd" dsh web --no-open
+$ node --import tsx/esm apps/cli/src/bin.ts "web" "--no-open"
+dsh web: http://127.0.0.1:3080，只要这个别改坏就行
+[时间锚点] 当前本地时间：2026-09-04 21:40:19 (+08:00 星期五)

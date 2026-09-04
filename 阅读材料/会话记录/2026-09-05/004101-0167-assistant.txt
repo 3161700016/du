@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+改稿备料完成（四遍协议：意图→结构→表达→表面 + 修改链留存；D₀ 全文在案）。现在执行锚点修复的收尾——先读回 dubase-1 源码（既验证定义，又作为 runbook 快照的忠实来源）：

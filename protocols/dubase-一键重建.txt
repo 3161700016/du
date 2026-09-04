@@ -1,0 +1,304 @@
+# dubase 一键重建 runbook（v3 · 2026-09-04 重建落盘）
+
+> ⚠ **2026-09-04 晚起转历史档案**：五件+duwebp 已固化为 profile 级插件 **du-base v1.0.0**（久阳批复，与 preset 解耦，每次启动自动加载）——本 runbook 的四证据诊断与动态重建流程**日常不再需要**。保留价值：①du-base 自身需会话内调试时的代码快照参考；②动态插件机制的教学样本。现役形态见 dsh.txt §九 du-base 行与 项目/渡的大脑/du-base插件/ 源码。
+
+⚠ 历史注记（重要）：本文件 2026-09-02 首次「落盘」**从未持久化**——git 考古证实未入 commit 28204e4、磁盘无文件、工作区无删除记录（09-04 自启动实证）。教训已入册：**落盘后必须读回验证**。本 v3 为重建版，写入后已读回。
+
+## 〇、触发条件与预授权
+
+四证据诊断（dsh.txt §九）：①消息尾部无 [时间锚点]；②GET /du-sync 404；③阅读材料/会话记录/ 无当日归档目录；④触迹账本无当日 .jsonl。
+四证据全阳性 → 本会话未挂载 du preset。**预授权（久阳 09-02 批复）：自启动四证据阳性直接执行不请示**；创造模式下动态重建=常备启动件（09-02 久阳裁定）。
+处置顺序：重建（本 runbook）→ 四点验证 → 断档如实标注（挂载前消息不入归档，基线=挂载时刻）。
+
+## 一、define：五件合并宿主插件
+
+用 cordis_define 提交（plugin: {kind:'new', idPrefix:'dubase'}，name/purpose 随意，code.host=下方第五节全文），得 pluginId/packageId。
+合并规则（重解包要点）：
+- 五件=preset 源码原样解包：du-clock v2（agent/pre-step 瀑布）+ du-quiet（system-prompt/assemble 过滤 DROP 集合）+ du-archive（llm/stream 长度差分归档）+ dusync（/du-sync、/du-scan exact 路由）+ du-trace v1.1（tools/result 记账）。
+- inject: ['timer']（du-trace 的 ctx.interval 需要）；fs/webServer 全部 ctx.get + 缺席守卫（五件互不拖死，缺席只降级自身并 console.error）。
+- webServer.register 必须 ctx.effect 包裹（裸 Map disposer 归 Fiber）。
+- /du-sync、/du-scan 路径同进程唯一（duplicate throw）——挂载前先探测 404 确认无占用。
+- 动态环境无 Buffer（TextDecoder 分块写法保持）；无 URL 全局（dusync 不解析 query，不受影响）。
+- du-todo **不可移植**（node:http 依赖）→ 第三步独立脚本。
+
+## 二、run
+
+cordis_run(pluginId, packageId, mode:'run') → 返回 running 即激活。
+即时验证点：下一轮 runtime context 变 **none**（du-quiet 生效标志，08-29/09-02/09-04 三次实测一致）。
+
+## 三、WMI 分离拉起 3081（du-todo 独立版）
+
+```powershell
+$r = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = 'node "C:\Users\31617\Desktop\渡\项目\渡的大脑\du-os\server.js"' }
+# ReturnValue 0 = 成功；随后 GET http://127.0.0.1:3081/api/pages 应返回 4 页
+```
+⚠ 独立窗口与 preset du-todo 端口互斥（3081 独占）：**下个 preset 会话启动前先关窗**。
+
+## 四、四点验证
+
+1. GET /du-sync → 200 {"version":"dubase-3 dynamic"}（09-04 实测值；版本号随重建代数递增）。
+2. 阅读材料/会话记录/<今日>/ 建档（基线=挂载时刻；挂载前消息断档如实标注）。
+3. 阅读材料/会话记录/触迹/<今日>.jsonl 落账（60s 节流或 buffer≥5 条）。
+4. du-clock=[时间锚点] 待久阳下条消息目视确认；du-quiet=runtime context none 即时可见。
+
+## 五、dubase-3 实测代码快照（2026-09-04 define+run 全验，源=inspect_self 读回）
+
+```js
+return {
+  inject: ['timer'],
+  apply(ctx) {
+    const DU_ROOT = 'C:\\Users\\31617\\Desktop\\渡'
+    const POLICY = { mode: 'workspace-write', workspaceRoot: DU_ROOT }
+    const fsp = ctx.get('fs')
+    const fspOK = !!(fsp && typeof fsp.resolve === 'function')
+
+    function nowLocal() {
+      const d = new Date(Date.now() + 28800000)
+      const iso = d.toISOString()
+      const wd = '日一二三四五六'.charAt(d.getUTCDay())
+      return iso.slice(0, 10) + ' ' + iso.slice(11, 19) + ' (+08:00 星期' + wd + ')'
+    }
+    function stamp() {
+      const d = new Date(Date.now() + 28800000)
+      const iso = d.toISOString()
+      return { date: iso.slice(0, 10), hms: iso.slice(11, 19).replace(/:/g, ''), full: iso.slice(11, 19) }
+    }
+    function safeName(s) {
+      return String(s || '').replace(/[\\/:*?"<>|\r\n]+/g, '_').slice(0, 80).trim()
+    }
+
+    // ── ① du-clock v2 · 时间锚点跟消息（幂等 immutable，本轮最后一条 user message 尾部追加） ──
+    ctx.on('agent/pre-step', (payload, next) => {
+      try {
+        const msgs = payload && Array.isArray(payload.messages) ? payload.messages : null
+        if (msgs && msgs.length) {
+          for (let i = msgs.length - 1; i >= 0; i--) {
+            const m = msgs[i]
+            if (m && m.role === 'user' && Array.isArray(m.content)) {
+              const stampTxt = '[时间锚点] 当前本地时间：' + nowLocal()
+              let has = false
+              const content = m.content.map((b) => {
+                if (b && b.type === 'text' && typeof b.text === 'string' && b.text.includes('[时间锚点]')) {
+                  has = true
+                  return { type: 'text', text: stampTxt }
+                }
+                return b
+              })
+              if (!has) content.push({ type: 'text', text: stampTxt })
+              msgs[i] = { ...m, content }
+              break
+            }
+          }
+        }
+      } catch (e) { console.error('[du-clock] 锚点附加失败(不阻塞):', e && e.message) }
+      return next()
+    })
+    console.log('[du-clock v2] 时间锚点跟消息已挂载（agent/pre-step）')
+
+    // ── ② du-quiet · runtime context 静默化（过滤 sandbox:policy / approval:policy） ──
+    const DROP = new Set(['sandbox:policy', 'approval:policy'])
+    ctx.on('system-prompt/assemble', (assembly, _context, next) => {
+      return next().then((a) => {
+        if (a && Array.isArray(a.contexts) && a.contexts.some((c) => DROP.has(c && c.name))) {
+          return { ...a, contexts: a.contexts.filter((c) => !DROP.has(c.name)) }
+        }
+        return a
+      })
+    })
+    console.log('[du-quiet] runtime context 静默化已挂载（system-prompt/assemble）')
+
+    // ── ③ du-archive · 会话流增量归档（长度差分 + resync 防覆盖，llm/stream 裸广播） ──
+    let prevLen = -1
+    let counter = 0
+    function extract(m) {
+      const c = m && m.content
+      if (typeof c === 'string') return { text: c, kinds: 'text' }
+      if (!Array.isArray(c)) return { text: '', kinds: '?' }
+      const kinds = [], texts = []
+      for (const b of c) {
+        if (!b || !b.type) continue
+        kinds.push(b.type)
+        if (b.type === 'text' && typeof b.text === 'string') texts.push(b.text)
+      }
+      return { text: texts.join('\n'), kinds: kinds.join(',') || '?' }
+    }
+    async function writeOnce(rel, body) {
+      const t = await fsp.resolve(rel, { cwd: DU_ROOT })
+      try { await fsp.writeText(t, body, { kind: 'createIfAbsent' }, undefined, POLICY); return true }
+      catch (e) {
+        const s = String((e && (e.code || e.message)) || e)
+        if (/FS_NOT_OBSERVED|exist/i.test(s)) return false
+        throw e
+      }
+    }
+    async function archive(options) {
+      const msgs = options && Array.isArray(options.messages) ? options.messages : null
+      if (!msgs) return
+      if (prevLen === -1) { prevLen = msgs.length; console.log('[du-archive] 基线 ' + msgs.length + ' 条'); return }
+      if (msgs.length === prevLen) return
+      const lp = stamp()
+      if (msgs.length < prevLen) {
+        await writeOnce('阅读材料/会话记录/' + lp.date + '/' + lp.hms + '-resync.txt',
+          '[du-archive] 长度回退 ' + prevLen + ' -> ' + msgs.length + '（压缩/重置），重建基线。')
+        prevLen = msgs.length
+        return
+      }
+      const fresh = msgs.slice(prevLen)
+      prevLen = msgs.length
+      for (const m of fresh) {
+        const r = extract(m)
+        counter++
+        const role = m && m.role ? String(m.role) : '?'
+        const head = '[du-archive] ' + lp.date + 'T' + lp.hms.slice(0, 6) + '+08:00 | role=' + role + ' | blocks=' + r.kinds + '\n────────────\n'
+        const p1 = '阅读材料/会话记录/' + lp.date + '/' + lp.hms + '-' + String(counter).padStart(4, '0') + '-' + role
+        if (!(await writeOnce(p1 + '.txt', head + r.text + '\n'))) {
+          await writeOnce(p1 + '-alt.txt', head + r.text + '\n')
+        }
+      }
+    }
+    if (fspOK) {
+      ctx.on('llm/stream', (options, next) => {
+        Promise.resolve().then(() => archive(options))
+          .catch((e) => console.error('[du-archive] 异常(不阻塞):', e && e.message))
+        return next()
+      })
+      console.log('[du-archive] 会话流归档已挂载（落盘 阅读材料/会话记录/<日期>/）')
+    } else { console.error('[du-archive] fs 缺席，归档未挂载') }
+
+    // ── ④ dusync · /du-sync + /du-scan 本地同步端点（exact 路由，CORS 全开，webServer.register 须 ctx.effect 包裹） ──
+    const web = ctx.get('webServer')
+    const webOK = !!(web && typeof web.register === 'function')
+    async function readBody(req) {
+      const dec = new TextDecoder()
+      let text = ''
+      for await (const chunk of req) text += dec.decode(chunk, { stream: true })
+      text += dec.decode()
+      return text
+    }
+    function send(res, status, obj) {
+      res.writeHead(status, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      })
+      res.end(JSON.stringify(obj))
+    }
+    async function writeNew(rel, body) {
+      const t = await fsp.resolve(rel, { cwd: DU_ROOT })
+      const st = await fsp.stat(t)
+      if (st) return { t, exists: true }
+      try {
+        await fsp.writeText(t, body, { kind: 'createIfAbsent' }, undefined, POLICY)
+        return { t, exists: false }
+      } catch (e) {
+        const s = String((e && (e.code || e.message)) || e)
+        if (/FS_NOT_OBSERVED|exist/i.test(s)) return { t, exists: true }
+        throw e
+      }
+    }
+    if (fspOK && webOK) {
+      ctx.effect(() => web.register({ kind: 'exact', path: '/du-sync', handler: async (req, res) => {
+        if (req.method === 'OPTIONS') { send(res, 204, {}); return }
+        if (req.method === 'GET') { send(res, 200, { ok: true, service: 'du-sync', version: 'dubase-3 dynamic', note: 'POST {source,title,url,messages}' }); return }
+        if (req.method !== 'POST') { send(res, 405, { ok: false, error: 'method not allowed' }); return }
+        try {
+          const j = JSON.parse(await readBody(req))
+          const source = safeName(j.source) || '未命名来源'
+          const title = safeName(j.title) || 'untitled'
+          const msgs = Array.isArray(j.messages) ? j.messages : null
+          if (!msgs || !msgs.length) { send(res, 400, { ok: false, error: 'messages 为空' }); return }
+          const lp = stamp()
+          const rel = '阅读材料/我的context备份/' + source + '/' + lp.date + '-' + lp.hms + '-' + title + '.txt'
+          const lines = []
+          lines.push('来源：' + source)
+          lines.push('标题：' + (j.title || ''))
+          lines.push('URL：' + (j.url || ''))
+          lines.push('同步时间：' + lp.date + 'T' + lp.full + ' +08:00')
+          lines.push('')
+          for (const m of msgs) {
+            const role = m && m.role ? String(m.role) : '?'
+            const text = m && typeof m.text === 'string' ? m.text : ''
+            if (text) lines.push('【' + role + '】\n' + text + '\n')
+          }
+          const r = await writeNew(rel, lines.join('\n'))
+          if (r.exists) { send(res, 409, { ok: false, existing: rel, error: '同名文件已存在' }); return }
+          send(res, 200, { ok: true, file: rel, resolved: fsp.processPath(r.t) })
+        } catch (e) { send(res, 500, { ok: false, error: String((e && e.message) || e) }) }
+      } }))
+      ctx.effect(() => web.register({ kind: 'exact', path: '/du-scan', handler: async (req, res) => {
+        if (req.method === 'OPTIONS') { send(res, 204, {}); return }
+        if (req.method === 'GET') { send(res, 200, { ok: true, service: 'du-scan', version: 'dubase-3 dynamic', note: 'POST {target,filename,text}' }); return }
+        if (req.method !== 'POST') { send(res, 405, { ok: false, error: 'method not allowed' }); return }
+        try {
+          const j = JSON.parse(await readBody(req))
+          const target = String(j.target || '').trim()
+          const filename = safeName(j.filename)
+          const text = typeof j.text === 'string' ? j.text : ''
+          if (!target || !filename || !text) { send(res, 400, { ok: false, error: 'target/filename/text 缺失' }); return }
+          if (target.includes('..') || filename.includes('..')) { send(res, 400, { ok: false, error: '非法路径' }); return }
+          const rel = target.replace(/\/+$/, '') + '/' + filename
+          const r = await writeNew(rel, text)
+          if (r.exists) { send(res, 409, { ok: false, existing: rel, error: '同名文件已存在' }); return }
+          send(res, 200, { ok: true, file: rel, resolved: fsp.processPath(r.t) })
+        } catch (e) { send(res, 500, { ok: false, error: String((e && e.message) || e) }) }
+      } }))
+      console.log('[dusync-plugin] /du-sync + /du-scan 已挂载（exact 路由，CORS 全开）')
+    } else { console.error('[dusync] fs/webServer 缺席，端点未挂载') }
+
+    // ── ⑤ du-trace v1.1 · 触迹记账（当日去重 + buffer 节流落盘，账本 触迹/<日期>.jsonl） ──
+    const WATCH = { read: 'file_path', read_image: 'file_path', edit: 'file_path', write: 'file_path' }
+    function keyOf(name, args) {
+      const a = args && typeof args === 'object' ? args : {}
+      if (WATCH[name]) { const v = a[WATCH[name]]; return typeof v === 'string' ? v : null }
+      if (name === 'glob') return a.pattern ? 'glob:' + a.pattern : null
+      if (name === 'grep') return a.pattern ? 'grep:' + a.pattern : null
+      if (name === 'pwsh') return a.description ? 'sh:' + a.description : null
+      return null
+    }
+    if (fspOK) {
+      const buf = []
+      const seen = new Set()
+      let seenDay = stamp().date
+      let flushing = false
+      async function flush() {
+        if (flushing || !buf.length) return
+        flushing = true
+        const lines = buf.splice(0, buf.length)
+        try {
+          const d = stamp()
+          const rel = '阅读材料/会话记录/触迹/' + d.date + '.jsonl'
+          const t = await fsp.resolve(rel, { cwd: DU_ROOT })
+          let old = ''
+          try { old = await fsp.readText(t) } catch (e) { old = '' }
+          const body = old + (old && !old.endsWith('\n') ? '\n' : '') + lines.map((l) => JSON.stringify(l)).join('\n') + '\n'
+          await fsp.writeText(t, body, undefined, undefined, POLICY)
+          console.log('[du-trace] flush ' + lines.length + ' 条')
+        } catch (e) {
+          console.error('[du-trace] flush 失败(不阻塞):', e && e.message)
+        } finally {
+          flushing = false
+        }
+      }
+      ctx.on('tools/result', (exec, result) => {
+        try {
+          const name = exec && exec.name
+          const key = keyOf(name, exec && exec.arguments)
+          if (!key) return
+          const d = stamp()
+          if (seenDay !== d.date) { seen.clear(); seenDay = d.date }
+          if (seen.has(key)) return
+          seen.add(key)
+          buf.push({ ts: d.date + 'T' + d.full + '+08:00', name, key, session: exec && exec.agent ? String(exec.agent.id || '') : '' })
+          if (buf.length >= 5) Promise.resolve().then(flush).catch(() => {})
+        } catch (e) { console.error('[du-trace] 记账异常(不阻塞):', e && e.message) }
+      })
+      ctx.interval(() => { Promise.resolve().then(flush).catch(() => {}) }, 60000)
+      ctx.effect(() => () => { Promise.resolve().then(flush).catch(() => {}) })
+      console.log('[du-trace v1.1] 触迹记账（当日去重）已挂载')
+    } else { console.error('[du-trace] fs 缺席，触迹未挂载') }
+  },
+}
+```
+
+——快照完。canonical 源=preset 五件（C:\Users\31617\.dsh\.agent-presets\du\plugins\，08-29 固化版）；本快照=动态重建用合并版实测件，preset 更新时此处同步。

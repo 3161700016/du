@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T184925+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+server.js 数据目录为绝对路径（`C:\Users\31617\Desktop\渡\Todo`），cwd 无关。WMI 分离拉起 3081：

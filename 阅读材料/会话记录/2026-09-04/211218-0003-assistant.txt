@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T211218+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+基建五件全部复位（dubase-4 dynamic / 3081 四页面 / du-quiet 即时生效）。收尾落盘：

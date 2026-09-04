@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+五件源码全部到手（preset 挂载态实测代码，08-29 固化版）。合并策略沿 dubase-2 前例：五件合一 define+run，du-todo 因 node:http 不可移植改独立脚本拉起。按规程先加载插件开发 Skill：

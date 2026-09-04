@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+进程重启把编辑器的已读缓存也清了——补读后重试：

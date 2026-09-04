@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+协议已读。按 §三 启动自查执行——第0步时间校准 + 预设挂载诊断（四证据）并行，同时读索引与近期日志：

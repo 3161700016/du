@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+端点活了：**贝锐蒲公英云 MCP 服务器 v1.2.0**，session 已发。完成握手 + 枚举工具清单：

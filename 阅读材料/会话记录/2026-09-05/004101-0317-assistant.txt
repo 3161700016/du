@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+**全部就绪——可以 Ctrl+C 了。** 收尾落盘一行日志后给你操作单：

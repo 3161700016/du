@@ -19,6 +19,9 @@ desktop.ini
 # 服务器运行时数据
 项目/乱云飞渡/server/sessions/
 
+# 嵌套 git 仓库（上游克隆，源=GitHub；项目摘要在工作区自管理）
+项目/dsh-mobile-remote/
+
 # 依赖
 node_modules/
 

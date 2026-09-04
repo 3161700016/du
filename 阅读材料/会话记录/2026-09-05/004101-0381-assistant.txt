@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+发现文件尾部挂着一条**过期行**（「MCP 待验证」——实际已验证，之前插行时被挤到了末尾）。一并清理+上 §十一：

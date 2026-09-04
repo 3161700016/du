@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+v1.0.1 落盘。重装刷新拷贝 + 验证命名导出可加载：

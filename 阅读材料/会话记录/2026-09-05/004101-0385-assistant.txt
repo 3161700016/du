@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+收到——**复发本身就是关键证据**：这条消息尾部没有 [时间锚点] → 重启后 du-clock 没在跑 → **du-base 大概率整个没加载**（不止垫片）。两线并进：先探明服务器侧状态+对照 mobile-remote 的包结构（它今晚装载成功过，是最可靠的对照组），同时我会先挂动态垫片救急：

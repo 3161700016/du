@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T213230+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+13 个工具全部枚举成功——而且工具集正对症：`get_sdwan_network`（组网查询）、`manage_sdwan_network_member`（成员增删——比赛部署直接能用）。服务端还内建了两段式确认协议（删除/移除类 AI 禁止自动确认），与渡栈默认关闭项完全同构。落盘凭据（DSH_HOME，git 不可达）+ 技能文件：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call,tool-call,tool-call
+────────────
+三处锚点齐了。执行固化收尾——preset 摘五行、双侧镜像同步、runbook 转历史：

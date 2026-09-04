@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+接口全部确认（四个事件签名、fs/webServer/timer 服务签名与 preset 代码完全一致）。现在定义合并插件 **dubase**（五件合一，纯 Host）：

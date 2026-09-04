@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T223355+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+救急全绿（du-sync 200 + 两路 polyfill ✓——**远程设备现在硬刷新即可用**）。但解析测试爆出真正的嫌疑：**mobile-remote 的 default 导出是 object，我的 du-base 是 function**——包加载器对导出形态的要求可能和 preset 的 `.mjs` 工厂函数不同。查 mobile-remote 的导出语句本体：

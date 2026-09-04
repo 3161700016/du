@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T001015+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+**黄金命中**：question/2381625560「如何使用AI工具完成数学建模?」——存量全是工具软文（Dabbit-AI 营销×3），合规工程视角空白，且今晚的 agent.md 就是活素材。提问件走「不能做什么 vs 要做什么」立场（渡栈独有样本）。写双件 D₀：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T185544+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+读回验证 ✓（runbook 302 行持久化成功）。三处编辑成功，一处失败——原因：我把 09-02 日志/Soul 工作区里的「载体时间线」句误当成 目录.txt 的条目尾（毋意被精确匹配拦截，正确行为）。用目录.txt 真实结尾重试：

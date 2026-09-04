@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+抓到第二个坑：**node_modules 副本没刷新**——pnpm file: 依赖用的是硬链接，我的 write 工具替换文件时断开了链接，`pnpm install` 看到锁文件未变就跳过了。强制重建副本：（dump exit 1 是我又在 profile 目录跑的 cwd 假警报，忽略）

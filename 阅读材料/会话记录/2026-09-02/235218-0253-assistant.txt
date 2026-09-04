@@ -1,0 +1,3 @@
+[du-archive] 2026-09-02T235218+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+状态核对完毕（§二十已在，(e) 行还是旧的）。补上 push 终态修正：

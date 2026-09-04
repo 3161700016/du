@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004216+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+取证结果本身就是今晚最好的答案素材——先做两个立即修复，再正式回答你。

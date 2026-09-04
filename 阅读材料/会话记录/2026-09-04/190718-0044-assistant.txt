@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T190718+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+架构（LAN 桥只转发 `/m/api`、口令强制、Host 校验、审批桥与内核同通道）与安全模型（威胁分级、通路分级、公网裸奔禁止）都清楚了。关键还剩部署细节与版本兼容——读 06/09 文档 + 查我方 DSH 版本：

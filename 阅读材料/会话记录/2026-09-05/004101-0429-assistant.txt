@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+规则红线是蒸馏好的节选——**AI 规定直接塑造 agent 架构**（逐项核验→数字可追溯是合规要求不是审美；还要自动生成"AI 工具使用详情"素材）。读原题+两篇范例的结构与摘要（策略性读，不全文）：

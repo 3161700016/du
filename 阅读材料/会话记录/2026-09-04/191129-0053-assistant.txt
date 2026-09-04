@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T191129+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+四件全部落盘。补日志第七节（含 du-clock 六件闭环验证——你这条消息的 [时间锚点] 就是实证）：

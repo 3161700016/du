@@ -1,0 +1,5 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+远程 GUI 全通 + 固化请求收到——这个判断完全正确：基建属于环境（profile 层），不该绑在 preset 的 mount 玄学上。**固化后连「四证据-重建」这套舞都不用跳了**：每次打开 DSH 六件全在，预设失败也裸跑不了。方案：做成一个 profile 级本地包 `du-base`（六件合一：五件套+垫片），源码放工作区走 git，profile 用 file: 依赖引用——和 dsh-mobile-remote 完全同构。
+
+先写包本体：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T223528+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+**抓到根因了。** mobile-remote 根本没有 default 导出——它用的是**命名导出**：`export const name` / `export const inject` / `export function apply(ctx, config)`（Cordis 包插件的加载契约）。我的 du-base 用了 preset `.mjs` 的工厂函数风格（`export default`）——**profile 包加载器找不到 `apply` 命名导出，静默跳过**。这就是为什么模块能加载、组合行存在、却六件全无。重写为命名导出：

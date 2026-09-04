@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call,tool-call
+────────────
+自查数据齐了。**发现一处锚点异常**：dsh.txt §七记录的 `protocols/dubase-一键重建.txt` 读取失败（not found）——这正是 Soul §2.7-补充描述的「锚点与磁盘冲突」场景，先枚举 protocols/ 交叉验证再定性。同时补完目录全量（09-02 浅读漏检教训）、总账剩余部分、git 未提交明细：

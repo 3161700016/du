@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+实际文本为「隔夜改 AIGC+**无聊实验出处定位**+天数计数勘误」——我引用时漏了中间段。以真实锚点重试：

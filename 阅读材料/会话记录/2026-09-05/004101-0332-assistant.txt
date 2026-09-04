@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+三路全绿：**回环 ✓ 注入、虚拟 IP ✓ 注入、3090 桥 401 门禁完好**。改绑+垫片都落在真实服务路径上了。收尾落盘：

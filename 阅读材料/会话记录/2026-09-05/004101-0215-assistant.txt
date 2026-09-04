@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+侦察关键结果：**本进程 = checkout 源码跑的 `dsh web`**（`node --import tsx/esm apps/cli/src/bin.ts web --no-open`，cwd=D:\DeepSeekHarness），**profile = `C:\Users\31617\.dsh\profiles\web`**，重启命令已捕获。查看 profile 内部与插件依赖声明：

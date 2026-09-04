@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+垫片已挂。验证它真的落在服务出来的页面里（回环+虚拟 IP 双探）：

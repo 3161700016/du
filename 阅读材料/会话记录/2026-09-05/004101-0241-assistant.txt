@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+落盘全部完成。点火——WMI 分离执行重启脚本（25 秒延时，消息先送达再断电）：

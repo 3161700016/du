@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+收到三件事：AIGC 稿撤稿（原因也对上了——所以已发布里没有它）、**dsh-mobile-remote 项目调研**（拉本地不安装+校园网隔离可行性确认）、日程管理接手。另外 [时间锚点] 已现身——**du-clock 四点验证全部通过** ✓

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T185521+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call,tool-call,tool-call
+────────────
+两文件落盘。现在执行读回验证 + 索引/协议三处维护（目录新增日志条目、修复 L194 过期锚点、更新 L219 runbook 条目；dsh.txt §九补 dubase 行与丢失教训）：

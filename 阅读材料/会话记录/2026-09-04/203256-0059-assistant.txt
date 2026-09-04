@@ -1,0 +1,3 @@
+[du-archive] 2026-09-04T203256+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+批准收到，开始安装。先做安装前侦察——本进程怎么起的、组合文件在哪、口令生成、3081 关窗准备：

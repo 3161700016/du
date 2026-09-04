@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+mobile-remote 的包形拿到（type:module + main + **exports 映射**——我的 du-base 缺 exports 字段，嫌疑一号）。pwsh 探针因 `??` 运算符翻车（PS5.1 不支持），重跑 + 直接对 du-base 做模块加载测试（绕过所有猜测，让 Node 自己说话）：

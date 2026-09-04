@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T004101+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+中断的那笔编辑其实已生效（webserver 块在位）。验证组合解析 + 上防火墙双规则：
