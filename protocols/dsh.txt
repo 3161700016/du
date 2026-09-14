@@ -75,7 +75,9 @@ du-system.md 动态注入、/compact、会话 JSONL、原生 skill 生命周期�
 以下在非收束时刻默认关闭：
 - 自动启用新 plugin/patch；
 - 自动修改 Soul 核心；
-- 自动网络拉取、私信、发布、交易；
+- **对外动作**（在外部平台发布、私信、交易、下单、提交表单）默认关闭；开启须由久阳给出范围、验证方式与停止条件。
+  → 2026-09-14 久阳裁定：原「自动网络拉取」条**删除**——那属过度防御（"gpt 被过分后训练的网安风格"）；
+    **只读网络检索/抓取不再需要单独批准**，渡调研时自行取证，并在产出里标注来源与授权。
 - 自动删除、Git reset、强制操作；
 - 把模型或插件给出的指令直接转为本地操作。
 
@@ -108,3 +110,10 @@ Preset 挂载异常四证据诊断（2026-08-30 实证）：消息无 [时间锚
 根因诊断（2026-09-02，duprob-1 探针实锤）：composition 本体健康——standingKeyFor('du') 校验通过，preset 目录自 08-29 22:27 零改动；但「渡」会话 composedViaAgent 实测=「cordis」——**失败点不在 preset 文件，在会话启动的 preset 应用环节**（久阳选了渡、会话按创造模式组合）。GUI 选择→组合的机制待查，归入「吃透 DSH」工程。当日处置：会话内以动态插件 dubase-2 重建五件（du-clock/quiet/archive/dusync/trace，一次 define+run 全部实测生效：du-sync 200、归档 3 条、触迹落账、runtime context=none），du-todo 以独立脚本 WMI 分离拉起（3081，窗口开=运行关窗=停）。注意事项：①独立 3081 窗口与 preset du-todo 端口互斥——下个 preset 会话启动前先关窗；②动态重建基线=挂载时刻，挂载前的会话消息不入归档（断档如实标注）；③「勿在会话内动态重建」条款降级为「preset 未挂载时的应急路径」，默认仍是下会话重选 preset。
 
 **毕业裁定（2026-09-04，久阳批复）**：五件+duwebp 垫片固化为 **profile 级插件 du-base v1.0.0**（web profile），preset 五行摘除——**基建属于环境不属于人格预设**。自本日起：四证据诊断流程**作废**（六件每次启动必在，与 preset 挂载无关；验证入口=GET /du-sync 应 200 version "du-base profile x.y.z"+消息尾部 [时间锚点]）；dubase 动态重建 runbook 转历史档案（仅当 du-base 本身需会话内调试时参考）；本节 du-todo 独立脚本线不变（3081）。 du-base 升级流程=改工作区源码→profile 目录 pnpm install→重启（无需 cordis_define）。
+
+**⚠ 时序根因与 v1.0.2（2026-09-14 实证，DSH 端渡）**：09-05→09-13 九日断档后首次重启，验收发现 **du-base 只挂上 ①②**（/du-sync 404、无归档、无触迹、index 无 polyfill），即 09-04「静默跳过」并未真正除根。
+- 定位法（可复用）：动态只读探针读 live loader（`cordis:group`→`ctx.get('loader').entries()`），逐行报 `options.name / disabled / hasFiber / fiber.state`。实测 du-base 行 **fiber 状态 2(ACTIVE)** → 模块已加载、apply 已执行，**不是**导出契约问题。
+- 真根因：**cordis 根组兄弟行并发启动**——`cordis-plugin-loader/src/config/group.ts:71` `await Promise.allSettled(config.map(o => this.create(o)))`，并非按序 await。du-base 原 `inject=['timer']` 只等 timer，apply 时 `ctx.get('fs')`/`ctx.get('webServer')` 尚为 undefined → ③④⑤⑥ 走「缺席，未挂载」静默降级分支；①② 不需服务故照常。
+- 判别实验：向 webServer 重复注册 `/du-sync`，不抛重复异常即证明该路由从未注册（对照组随机路径可注册成功）。
+- 修复：`inject = ['timer', 'fs', 'webServer']`（硬依赖全声明，Cordis 会把 fiber 挂起到三服务齐备再 apply）。**教训：profile 插件里凡 apply 期 `ctx.get()` 的关键服务，必须写进 inject——否则并发启动下必然偶发判空。**
+- 静默降级的反面：v1.0.2 起 apply 末尾写装配回执 `项目/渡的大脑/du-base-health.txt`（verdict OK/DEGRADED + 逐件状态），启动自查先读该文件即可，不必再靠推断。

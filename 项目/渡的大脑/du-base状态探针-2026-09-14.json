@@ -1,0 +1,14 @@
+{
+  "probedAt": "2026-09-14T06:41:39.427Z",
+  "checks": {
+    "webServer": true,
+    "tapIndexFn": true,
+    "applyIndexTapsFn": true,
+    "polyfillInjected": false,
+    "controlRegisterWorked": true,
+    "duSyncAlreadyRegistered": false
+  },
+  "notes": [
+    "root probe failed: sandbox ctx does not expose \"root\". Available: ctx.tools.register / ctx.on / ctx.provide / the timer helpers after injecting timer, and any service you declared in inject. Framework internals (root, fiber, registry, extend, plugin, …) are withheld by design."
+  ]
+}

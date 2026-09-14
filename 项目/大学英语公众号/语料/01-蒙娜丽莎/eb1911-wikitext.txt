@@ -1,0 +1,11 @@
+{{EB1911
+ |volume    = 16
+ |previous  = Leon (city)
+ |next      = Leonardo of Pisa
+ |wikipedia = Leonardo da Vinci
+ |contributor = Sidney Colvin
+}}
+
+<pages index="EB1911 - Volume 16.djvu" from=464 to=474 onlysection="Leonardo da Vinci" />
+
+[[Category:EB1911:People:Individuals:Europe:Italy]]

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-05T011818+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+commit `3bbf8d1` 成功（728 文件）——push 又遇 Connection reset（09-02 同款，GitHub 连通性波动）。按 §6.2(e) 不阻塞收束，重试一次后记录：

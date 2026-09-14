@@ -1,0 +1,19 @@
+{{header
+ | title      = Monograph on Leonardo da Vinci's Mona Lisa
+ | author     = John R. Eyre
+ | translator = 
+ | section    = 
+ | previous   = 
+ | next       = 
+ | year       = 1915
+ | notes      = }}
+
+<pages index="Monograph on Leonardo da Vinci's Mona Lisa (1915).pdf" from=1 to=10  />
+
+<pages index="Monograph on Leonardo da Vinci's Mona Lisa (1915).pdf" from=12 to=63 />
+
+<pages index="Monograph on Leonardo da Vinci's Mona Lisa (1915).pdf" from=64 to=72 />
+
+{{rule}}
+{{smallrefs}}
+{{PD-US}}

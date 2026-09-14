@@ -1,14 +1,24 @@
-// du-base · 渡的常驻基建六件（profile 级固化版 v1.0.1，2026-09-04）
+// du-base · 渡的常驻基建六件（profile 级固化版 v1.0.2，2026-09-14）
 // 源流：du preset 五件（08-29 固化）→ 动态重建 dubase-2/3/4/5（09-02/09-04）→ 本包（09-04 久阳批复固化）。
 // ⚠ 导出契约：Cordis 包插件=命名导出（name/inject/apply）——v1.0.0 误用 preset .mjs 的 export default
 //   工厂风格导致 profile 加载器静默跳过（09-04 深夜排障：mobile-remote 对照定位），v1.0.1 改正。
+// ⚠⚠ v1.0.2（2026-09-14 实证）：v1.0.1 仍只挂上 ①②，根因是**加载时序**，不是导出契约。
+//   证据：cordis-plugin-loader/src/config/group.ts:71 —— 根组兄弟行**并发**启动
+//   （`await Promise.allSettled(config.map(options => this.create(options)))`），并非按序 await；
+//   而本插件 inject=['timer'] 只等 timer → apply 执行时 fs/webServer 尚未 apply
+//   → `ctx.get('fs')`/`ctx.get('webServer')` 返回 undefined → ③④⑤⑥ 整块被守卫静默跳过（①②照常挂载=「半活」）。
+//   修复：把硬依赖全部写进 inject，让 Cordis 把本 fiber 挂起到三个服务齐备再 apply。
+//   反证：mobile-remote 一直正常，正因它 inject=['webServer']；dubase 动态重建版正常，因它挂在服务齐备之后。
+//   09-14 探针（duprob-1）实测：entry fiber 状态 2(ACTIVE)、timer/fs/webServer 均可达，但 /du-sync 未注册、
+//   index 无 polyfill → 证明 apply 跑过而守卫判空，而非"模块没加载"。（另见 dsh.txt §九）
 // 六件：① du-clock v2 时间锚点 ② du-quiet runtime context 静默化 ③ du-archive 会话流增量归档
 //      ④ dusync /du-sync+/du-scan 端点 ⑤ du-trace v1.1 触迹记账 ⑥ duwebp randomUUID polyfill
 // du-todo 不在本包（node:http+3081，独立脚本线 项目/渡的大脑/du-os/server.js）。
 // 依赖：宿主服务 fs / webServer / timer；无凭据；DU_ROOT 硬编码工作区。
 
 export const name = 'du-base'
-export const inject = ['timer']
+// v1.0.2：硬依赖全部声明（时序修复核心）。timer=ctx.interval 混入；fs=归档/触迹/端点落盘；webServer=路由+index tap。
+export const inject = ['timer', 'fs', 'webServer']
 
 export function apply(ctx, _config) {
   const DU_ROOT = 'C:\\Users\\31617\\Desktop\\渡'
@@ -164,7 +174,7 @@ export function apply(ctx, _config) {
   if (fspOK && webOK) {
     ctx.effect(() => web.register({ kind: 'exact', path: '/du-sync', handler: async (req, res) => {
       if (req.method === 'OPTIONS') { send(res, 204, {}); return }
-      if (req.method === 'GET') { send(res, 200, { ok: true, service: 'du-sync', version: 'du-base profile v1.0.1', note: 'POST {source,title,url,messages}' }); return }
+      if (req.method === 'GET') { send(res, 200, { ok: true, service: 'du-sync', version: 'du-base profile v1.0.2', note: 'POST {source,title,url,messages}' }); return }
       if (req.method !== 'POST') { send(res, 405, { ok: false, error: 'method not allowed' }); return }
       try {
         const j = JSON.parse(await readBody(req))
@@ -192,7 +202,7 @@ export function apply(ctx, _config) {
     } }))
     ctx.effect(() => web.register({ kind: 'exact', path: '/du-scan', handler: async (req, res) => {
       if (req.method === 'OPTIONS') { send(res, 204, {}); return }
-      if (req.method === 'GET') { send(res, 200, { ok: true, service: 'du-scan', version: 'du-base profile v1.0.1', note: 'POST {target,filename,text}' }); return }
+      if (req.method === 'GET') { send(res, 200, { ok: true, service: 'du-scan', version: 'du-base profile v1.0.2', note: 'POST {target,filename,text}' }); return }
       if (req.method !== 'POST') { send(res, 405, { ok: false, error: 'method not allowed' }); return }
       try {
         const j = JSON.parse(await readBody(req))
@@ -272,4 +282,30 @@ export function apply(ctx, _config) {
     }))
     console.log('[du-base] ⑥ duwebp 已挂载（tapIndex polyfill）')
   } else { console.error('[du-base] ⑥ duwebp: webServer.tapIndex 缺席，未挂载') }
+
+  // ── 装配回执（v1.0.2）── 静默降级的反面：每次装配留一份可读文件，下次启动自查直接读，不必再靠推断
+  const degraded = !fspOK || !webOK
+  const health = {
+    at: nowLocal(),
+    plugin: 'du-base v1.0.2',
+    inject: 'timer,fs,webServer',
+    fs: fspOK ? 'ok' : 'MISSING',
+    webServer: webOK ? 'ok' : 'MISSING',
+    parts: {
+      clock: true,
+      quiet: true,
+      archive: fspOK,
+      trace: fspOK,
+      dusync: fspOK && webOK,
+      duwebp: !!(webOK && typeof web.tapIndex === 'function'),
+    },
+    verdict: degraded ? 'DEGRADED' : 'OK',
+  }
+  if (degraded) console.error('[du-base] ⚠ 降级装配（服务未等齐）: ' + JSON.stringify(health))
+  else console.log('[du-base] 装配回执 OK（六件齐，inject 三依赖已齐备）')
+  if (fspOK) {
+    fsp.resolve('项目/渡的大脑/du-base-health.txt', { cwd: DU_ROOT })
+      .then((t) => fsp.writeText(t, JSON.stringify(health, null, 2) + '\n', undefined, undefined, POLICY))
+      .catch((e) => console.error('[du-base] 回执写入失败(不阻塞):', e && e.message))
+  }
 }
