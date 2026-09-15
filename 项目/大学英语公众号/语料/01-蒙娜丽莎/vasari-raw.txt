@@ -1,1 +1,0 @@
-<pages index='Vasari_-_Lives_of_the_Most_Excellent_Painters,_Sculptors,_and_Architects,_volume_2.djvu' from='374' to='402' tosection='s1' header='1' />
