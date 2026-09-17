@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W14 中文补齐（国铁集团官网一手稿）——素材 15 期齐 14，W06 塞罕坝三派在途。开工 W02 制茶申遗：完整文稿落 md → 直填。

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T221236+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W01 通过、文心雕龙今夜跳过（古典线进度不变，下一读仍是情采/知音）——执行完整收束。先查目录.txt 日志区段的收尾行，确定 (a) 步插入锚点：

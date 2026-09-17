@@ -1,0 +1,13 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text,text
+────────────
+Background subagent a23ad14a-3338-4677-a6af-4a99955f8043 finished and will do no further work unless you send it more.
+Its closing message:
+W04 三星堆考古新发现 · 素材采集完成
+
+- 主题：三星堆遗址 2021-2022 新一轮祭祀坑发掘（7、8 号坑文物、青铜器/金面罩、联合考古多学科研究）
+- 中文来源：新华社（新华网刊发）《三星堆上新：为中华文明多元一体再添新证》2022-06-14，news.cn/culture/20220614/3c80ad81025a49da9ca783297bb8fe5f/c.html
+- 英文来源：新华社 Xinhua "New Sanxingdui findings tell story of exchange, integration in Chinese culture" 2022-06-13，english.news.cn/20220613/7e39e5b386ab419c8472ca34f55a08d9/c.html
+- 对齐性：同事件两稿（均为新华社 2022-06-13 发布会报道，核心事实与专家引语一致，非逐句互译）
+- 英文可选段数：6 个自然段，共 483 词（原文未改动），符合 6-10 段 / 300-500 词要求
+- 敏感检查：通过——仅含考古发现、器物之美、科技考古与文物保护角度；无文明起源争论政治化、无中外对比民族主义叙事
+- 素材文件：C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W04-三星堆\素材.md

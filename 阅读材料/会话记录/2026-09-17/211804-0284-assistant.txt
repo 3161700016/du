@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+补齐逻辑反着补了一个（组件区先于祖先闭合被切——多出 1 个 `</section>`，会提前关掉我的绿色外框）。去掉末尾多余闭合重生成，同时给中转站页面加 no-referrer（解预览防盗链黑图）。

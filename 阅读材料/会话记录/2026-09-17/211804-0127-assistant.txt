@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+核查完毕（Cotte 2007 扫描说有 BBC 等多源可引；1914 犹他州报纸原文确认在膛——"Two Paintings and a Sketch…"）。开写第一件：选题文档落地。

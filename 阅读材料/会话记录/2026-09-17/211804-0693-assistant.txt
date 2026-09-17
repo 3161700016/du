@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W06 素材到库（绿色长城口径，敏感段已剔）——**素材 15/15 齐了**。继续直填流水线：W02 制茶申遗。

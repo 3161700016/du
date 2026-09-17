@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214047+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+IPv4 通道在沙箱里不通（curl -4 也失败）——这项留给你一键搞定（浏览器开 ifconfig.me 抄第一个 IPv4 即可，宽带 IP 会漂移，说明里也建议按 IP 段填）。收尾入日志：

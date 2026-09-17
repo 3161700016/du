@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214219+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+错误信息被 `Select-Object -Last 3` 截掉了，看不到抛的是哪一条。完整看：

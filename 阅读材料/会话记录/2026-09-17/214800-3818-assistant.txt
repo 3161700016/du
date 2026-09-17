@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214800+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+龙井茶园航拍（杭州，中国茶主题完美契合）。取 936×608 裁切、验证、接入 W02：

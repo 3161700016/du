@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W14 中文补齐（素材 15/15 只差 W06 在途）。趁 W06 代理在跑，开工 W02 制茶申遗。

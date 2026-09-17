@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+词数实测 384（连字符拆计），按空格计约 370——标 355 不准，按“数字保鲜”纪律当场改准。统一三处为 ~380 词＋写日志。

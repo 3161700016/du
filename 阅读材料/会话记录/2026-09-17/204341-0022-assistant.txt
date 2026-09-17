@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T204341+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+[PASS]。给日志补上本节（即写即存），然后交报告：

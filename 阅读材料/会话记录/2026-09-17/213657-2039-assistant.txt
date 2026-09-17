@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213657+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+两处都收到：插图手机端塌缩（`width:auto` + flex 的槽位在手机渲染器里不被信任，图片按自然尺寸缩到右边——需要给容器显式宽度），组5解析残余是三段式解析我只换了第一段（「landmark Convention」「urge all countries」两段漏网）。先看草稿箱接入说明，同时提取插图槽完整包装结构定位修复点：

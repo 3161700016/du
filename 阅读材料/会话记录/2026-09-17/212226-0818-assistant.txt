@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+去向找到了：**`C:\Users\31617\Desktop\大学英语公众号`** ——整库迁出到 Desktop，与渡工作区平级。09-15 的三份关键产出（定势写下来/日复盘/卡片库）都在库里。灯已点：专注 [OK]（物理待确认）。现在核查新库结构与扩展名核销项的可行性，并定位目录.txt 的补录位置：

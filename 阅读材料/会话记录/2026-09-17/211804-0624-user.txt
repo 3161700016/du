@@ -1,0 +1,103 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text
+────────────
+你看看你写的啥。。。【
+style="box-sizing: border-box;">1.protection
+
+n..保护
+
+音标：[prəˈtekʃn]
+
+英英释义：Protection is the act of protecting someone or something from being harmed, damaged or attacked.
+
+词根词源助记：pro-（在前）+ tegere（遮盖），“提前遮住”即保护；同根词 detect（揭开→察觉）。
+
+style="box-sizing: border-box;">2.flagship
+
+n..旗舰；王牌
+
+音标：[ˈflæɡʃɪp]
+
+英英释义：A flagship is the most important ship in a fleet of ships, especially the one on which the commander of the fleet is sailing.
+
+词根词源助记：flag（旗）+ ship（船），舰队中司令官所在的指挥舰，引申为同类中最重要的一个。
+
+style="box-sizing: border-box;">3.downgrade
+
+v..使降级；下调
+
+音标：[ˌdaʊnˈɡreɪd]
+
+英英释义：If someone or something is downgraded, they are given a lower rank or position than before.
+
+例句：The species was downgraded from "endangered" to "vulnerable".
+
+style="box-sizing: border-box;">4.vulnerable
+
+adj..易受伤害的
+
+音标：[ˈvʌlnərəbl]
+
+英英释义：A person, animal or place that is vulnerable is easily hurt or harmed physically, mentally or emotionally.
+
+辨析：近义 at risk / exposed，反义 invulnerable；辨析：endangered 强调“种群濒临灭绝”，vulnerable 只说“易受伤害”——从 endangered 降为 vulnerable，程度减轻。
+
+style="box-sizing: border-box;">5.testimony
+
+n..明证；见证
+
+音标：[ˈtestɪməni]
+
+英英释义：If one thing is a testimony to another, it shows clearly that the other thing exists or is true.
+
+词根词源助记：拉丁语 testis（证人），同根词 testify（作证）、attest（证明）。
+
+style="box-sizing: border-box;">6.undertake
+
+v..承担；着手做
+
+音标：[ˌʌndəˈteɪk]
+
+英英释义：When you undertake a task or job, you start doing it and accept responsibility for it.
+
+例句：Over the years, China has undertaken a raft of measures to protect wild animals.
+
+style="box-sizing: border-box;">7.habitat
+
+n..栖息地
+
+音标：[ˈhæbɪtæt]
+
+英英释义：The habitat of an animal or plant is the natural environment in which it normally lives or grows.
+
+词根词源助记：拉丁语 habitare（居住），同根词 inhabit（居住于）。
+
+style="box-sizing: border-box;">8.recognition
+
+n..认可；赞誉
+
+音标：[ˌrekəɡˈnɪʃn]
+
+英英释义：If something is given recognition, people accept that it is important or valuable.
+
+词根词源助记：re-（再）+ gnoscere（知道），同根词 cognition（认知）、diagnose（诊断）。
+
+style="box-sizing: border-box;">9.strengthen
+
+v..加强
+
+音标：[ˈstreŋθn]
+
+英英释义：If you strengthen something, you make it stronger or more effective.
+
+例句：Continued efforts will be made to strengthen the protection of giant pandas.
+
+style="box-sizing: border-box;">10.raft
+
+n..木排；大量
+
+音标：[rɑːft]
+
+英英释义：A raft of something is a large number or amount of it.
+
+词根词源助记：古诺尔斯语 raptr（原木），a raft of 由“扎成排的木头”比喻“一大批”。】你直接把完整文稿落到md，然后手动往模板里填试试，毕竟一共就这么几个框。。。我需要生成的文章15篇加起来也不到一万词，你这为了批处理写代码花的token都10w+了...另外，图片位置还是不对，现在你把图片插到了标题”贝壳英语“的框旁边，实际上第二个图片才是插图（它好像是个左文右图的结构，右边才是图），其他都是贴纸。我以为你可以看贴图的分辨率判断哪个是大图的。。。
+[时间锚点] 当前本地时间：2026-09-15 20:17:00 (+08:00 星期二)

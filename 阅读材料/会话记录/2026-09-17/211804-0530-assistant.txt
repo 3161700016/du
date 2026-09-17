@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+定位了：extract4 把 v1 的 header/block-unit 覆盖成了兄弟层版本（混版本状态）。恢复 v1 件＋补平衡闭合，三步走。

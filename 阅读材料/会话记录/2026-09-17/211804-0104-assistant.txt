@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+清单藏在 8513-8517 行带。钟表稿尾的三个「待久阳裁定」问题（语料双轨？系列名？互动问？）应该也在 session 里有答案。提取清单全文。

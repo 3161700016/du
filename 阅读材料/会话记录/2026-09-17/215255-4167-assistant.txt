@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215255+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+补丁完成。现在写四期 content.json 的构建脚本（每条 EN/CN 逐字片段先对素材做子串断言，防转录错字形），一次性生成四个 content.json：

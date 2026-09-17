@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+低级错：在模板里找 `images.pexels.com`——但模板原槽里是 mmbiz 示例图，pexels URL 是我注入后才存在的。改回用模板示例图键定位：

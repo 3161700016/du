@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+接口清楚了（ARTICLES 规格 + L1 按名取图制度）。先做图源侦察：查 Pexels key、预占 3082 端口、Wikimedia Commons 定位四张历史公版图的直链。

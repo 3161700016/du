@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212716+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W06 `_raw` 数据证实了 `素材.md` 的准确性。W07 材料已准备就绪（包括三个信源，且有明确标注的 CN↔EN 对齐段落）。现在处理 W08：

@@ -1,0 +1,19 @@
+[du-archive] 2026-09-17T221132+08:00 | role=user | blocks=text,text,reasoning,text,text
+────────────
+Background subagent 43b58cad-2963-489a-85a9-aac98fc55dc9 finished and will do no further work unless you send it more.
+Its closing message:
+四期生产完成，汇报如下：
+
+- **W12 PASS** ｜ 一粒种子的全球远征 ｜ 无硬缺口；中英两稿同日互补采写非逐句对译，“近70国 vs more than 60 countries”口径差异已如实写入该组解析
+- **W13 PASS** ｜ 湿地保护的“武汉之约” ｜ 无缺口（致辞中英逐段对应）
+- **W14 PASS** ｜ 复兴号“焕新”记 ｜ 无缺口（官方中文由补件补齐：国铁集团发布会稿＋新华社图片稿，与英文稿按主题配对）
+- **W15 PASS** ｜ 一顶凤冠“出圈”记 ｜ China Daily 文创英文稿无官方中文对照版，各组中文取自新华视点同主题稿（非逐句对照），仅“搜索量增长近3倍↔nearly tripled”数据同口径已在解析注明
+
+产线备注：
+1. **修复 fill-generic.mjs 一处必然 FAIL 的边界 bug**——残留检查把“第十三周”列为残留锚点，与 W13 week 必填值重合；已改为排除 J.week 自身（`expect[J.week]===1` 兜底仍在，其余周行为不变）。当时该文件正被并行修改（新增插图参数化），我的改动仅此一行。
+2. 四期均带 `[fill][WARN]`：未提供 illustration，按管线设计回退默认熊猫占位图，**发布前需替换当期主题图**（不在 content 生产范围内）。
+
+质量口径：EN/CN 官方文本逐字（构建时逐片段对素材做子串断言，未命中即抛错；W14 补件弯引号逐字保留）；EN 每组 40–80 词；words 各 10 词且词性分工、柯林斯全句释义、音标齐备；导语无 AI 感词、无相对时间词；无结语。临时构建脚本已清理。
+
+主要产出：`讲中国故事素材/W12-杂交水稻/content.json`、`W13-湿地保护/content.json`、`W14-高铁/content.json`、`W15-博物馆热/content.json`，及 `成品/讲中国故事/W12-杂交水稻.html`～`W15-博物馆热.html` 与同名 md 稿件四套。
+[时间锚点] 当前本地时间：2026-09-17 21:58:29 (+08:00 星期四)

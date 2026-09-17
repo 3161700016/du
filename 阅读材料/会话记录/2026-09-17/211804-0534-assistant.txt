@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+真相大白：我恢复时拷错了文件——block1.html（212 字符的徽章内层）覆盖了正确版本。正确的 block-unit（4153 字符，含全部锚点）用 extract2 的数字锚点逻辑直接重建。

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+收到——先给每份粘贴件做“体检档案”（结构/色系/图片/首句文本），据此聚类分套，再入库。

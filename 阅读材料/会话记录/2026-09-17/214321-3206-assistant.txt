@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214321+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+锚点修正完毕，重跑注入 + 落盘读回复验：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214219+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+37 件核销项数据齐了——清单里 306 条 {local, url, set}，而那 37 件正是「URL 无 wx_fmt」的探测盲区，扩展名只能靠**文件头魔数**判定（PNG/JPEG/GIF/WEBP）。这是 09-15 挂账给「下次启动自查」的任务，现在执行：

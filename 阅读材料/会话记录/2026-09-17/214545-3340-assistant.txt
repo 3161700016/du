@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214545+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W06/W07 读回校验无误（大小、单周标签、无残留）。对于 W08，搜索显示存在官方独立版本（如 CGTN、CAS、Global Times、Ecns），但代码片段无法证实原文逐字准确性 —— 需要页面全文。正在尝试直接获取：

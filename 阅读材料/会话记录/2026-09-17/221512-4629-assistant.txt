@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T221512+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+长锚点没对上（可能有不可见字符差异），换短锚点重试：

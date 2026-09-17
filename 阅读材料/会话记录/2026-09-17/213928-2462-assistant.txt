@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213928+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+脚本是在我生产期间被产线更新的（09-17 21:4x 增加插图参数化），`illustration` 缺省回退熊猫占位图并告警——三期均走了占位图。确认成品文件均已落盘：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+新库结构完整但**无 .git 保护**——这条要重点提示（蓝屏吃过一次亏）。图片本体直查只有 1 个文件，需要递归再看（09-15 记录是 306 张）。同时读取目录.txt 三个待补录区段：

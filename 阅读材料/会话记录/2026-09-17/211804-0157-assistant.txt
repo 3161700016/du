@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+三线任务收到：经典一句立为固定栏目 + English Corner 造双关 + 排版与中转站拉起（图源走公开图库）。先读排版器接口与图片策略。

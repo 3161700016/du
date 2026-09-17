@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T221132+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+抓到自己一个 bug：`--emit-md` 参数里我用了 PowerShell 字符串拼接表达式，实际被拆成了多个独立参数——三期 md 全写到了同一个无扩展名文件 `稿件\讲中国故事_`（HTML 没受影响）。重跑三期修正 md 路径：

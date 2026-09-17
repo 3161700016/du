@@ -1,0 +1,14 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text,text,text
+────────────
+Background subagent b8c35389-c3ae-4668-b1ae-4edd5b9cb050 finished and will do no further work unless you send it more.
+Its closing message:
+已入库，未空手：
+
+- **中文来源**：国家林草局三北局《鏖战荒漠沙海 筑牢绿色长城——"三北"工程攻坚战交出亮眼答卷》，forestry.gov.cn，2026-01-20
+- **英文来源**：新华社英文专稿 "From surviving to thriving amidst sands, Chinese city fortifies 'green Great Wall'"，english.scio.gov.cn 转载，2024-06-17
+- **对齐性**：同口径非同源——同属"三北防护林＝绿色长城"（TSFP），英文 "green Great Wall" 与中文标题完全对位；但英文案例是宁夏中卫·腾格里沙漠草方格，英文全文未提塞罕坝、中文仅 1 处提及（浑善达克南缘与塞罕坝林场相连的绿色生态廊道），故为"绿色长城"口径替代稿而非塞罕坝专稿（China Daily 2017 塞罕坝中文稿抓取 404，已如实标注缺口）
+- **英文段数**：22 段正文（图注已略）；中文节选 9 段（生态数据＋规划目标）
+- **敏感检查**：英文稿无敏感内容；中文稿的"习近平生态文明思想"、领导人讲话、中央八项规定、干部人事等段落已整段剔除，留存部分可直接用于公众号，须保留官方署名、不作政治性引申
+- **抓取**：3 次额度用尽（1 成功英文 / 1 次 404 / 1 成功中文），原始 HTML 留在同目录 `_raw\` 备查
+- **文件路径**：`C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W06-塞罕坝\素材.md`
+[时间锚点] 当前本地时间：2026-09-15 20:45:53 (+08:00 星期二)

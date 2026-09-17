@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+收到，指令清晰：搁置项不再查、协议落笔、三件服务拉起并立为自启动默认。先做一轮只读探测——找到 du-todo 独立脚本与 node、确认 3080/3081/3082/3090 四个端口的当前监听状态、蒲公英进程与防火墙规则、du-base profile 的启用准备度：

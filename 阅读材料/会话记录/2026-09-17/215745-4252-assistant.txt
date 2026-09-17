@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215745+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+管线就绪、语法过、体检模式正常跑（公网 IP 探测这个域名没通——换说明文件里推荐的 ifconfig.me 再试一次）：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215217+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+注入器新增了插图参数化（无 `illustration` 字段时回退默认熊猫图并 WARN 提示发布前替换）——我的四期按规范不含该字段，跑批时会带 WARN（非 FAIL），汇报里说明。残留检查行仍是旧逻辑，现在打上 W13 兼容的最小补丁：

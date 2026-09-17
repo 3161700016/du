@@ -1,0 +1,5 @@
+[du-archive] 2026-09-17T214219+08:00 | role=user | blocks=text,text
+────────────
+"C:\Users\31617\Desktop\大学英语公众号\秀米模板\原始\讲中国故事通用模板-修正.html"
+"C:\Users\31617\Desktop\大学英语公众号\秀米模板\原始\讲中国故事通用模板-修正.txt"新存了一版模板，这个应该是直接用程序注入不会有bug了。其中这张【https://mmbiz.qpic.cn/sz_mmbiz_png/A29coPECmbIRJLj1MUtE6cFaOr4VaRLLgFAxnFJKtuPxTZQVLHLRPecfaia7HZuVicv3G8Xcnj7HnLSX8hzUSrMJ3yTVUnFZxLSy9xF4XLERA/0?wx_fmt=png&from=appmsg】才是插图，其余都是贴纸，不要再弄错了。注意图片分辨率，新插入图片的分辨率宽度都要调整至和这个类似（固定分辨率还是可以按比例设置你自己调整），因为主要需要显式在手机（约2200左右*1080竖屏），所以需要插图占3/4屏幕宽度以便视觉观感良好。中国故事15期都要先写好md文稿再排版。先把第一期大熊猫调整好再说。有不确定的可以问我，不要光闷头干
+[时间锚点] 当前本地时间：2026-09-17 20:14:05 (+08:00 星期四)

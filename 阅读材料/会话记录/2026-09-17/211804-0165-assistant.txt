@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+两处修正重试：Wikimedia 需要 UA 头（429 是限流），数组展开是笔误。stolen-1911 的元数据描述恰好证实内容（"vacant place in the Salon Carré after having been stolen in 1911"——④ 号位完美命中）。

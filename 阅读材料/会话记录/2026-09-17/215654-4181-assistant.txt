@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215654+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+四期全部 PASS。抽查一份成品 md（W14，中文来源最复杂的一期）确认渲染质量，并核对落盘文件：

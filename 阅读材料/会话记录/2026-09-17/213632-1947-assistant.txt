@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213632+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+HTML 残留扫描全零（联合国/儿童/旧模板残留均为 0），「第二周」恰好 1 次，正文关键词齐全（hook 不入 HTML、仅入 md，与注入器设计一致）。看一眼 md 尾部确认词汇区与无结语：

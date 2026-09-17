@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215153+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+注入器正被产线另一端并行修改（新增了 ILLO 插图机制，行数 165→169）。先通读当前版本再动手，避免冲突。

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+中转站四项自检全过（脚本解析 OK／往返一致 True）。收尾三线：清自检产物+补 02 图+URL 验活，同步把「经典一句/Muse News」回写 D₁ 与制度文档。

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+抓到一个自己埋的雷：`-EncodedCommand` 要求 UTF-16LE 编码，我给了 UTF-8——worker 解出来是乱码，直接哑火（日志都没建）。改用干净方案：普通 .ps1 脚本文件 + pwsh 启动（对 UTF-8 无 BOM 友好），先清掉走错的进程。

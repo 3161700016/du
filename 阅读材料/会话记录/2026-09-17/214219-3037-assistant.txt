@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214219+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+组1–3 全过，卡在组4解析锚点「更有画面感」——.txt 文本层与 HTML 原文有出入。直接看模板原文里这段的真实字符：

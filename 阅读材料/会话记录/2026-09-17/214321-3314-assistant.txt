@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214321+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W02 定版（龙井茶园图 + 全绿）。趁 B/C/E 还在跑，把 13 期的配图先搜好验证好、存成映射表——等他们交稿即可即时套用：

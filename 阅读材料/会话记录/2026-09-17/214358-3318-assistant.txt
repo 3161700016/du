@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214358+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+写完了，但我发现 W05 里有两处引号笔误（字符串内出现未转义的直引号会炸 JSON），先修掉再跑。

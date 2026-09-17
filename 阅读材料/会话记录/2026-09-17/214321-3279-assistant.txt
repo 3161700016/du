@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214321+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+回归测试：把 W01 内容转成 JSON，通用注入器重产一遍，必须与已通过版本**逐字节一致**。先统一 IMG 属性顺序（与 v2 完全一致），再写 W01 的 content.json：

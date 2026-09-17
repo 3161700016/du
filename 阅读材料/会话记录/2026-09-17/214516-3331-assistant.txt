@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214516+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+直接整文件重写 W05，统一所有中文引号为弯引号（直引号只保留在 EN 原文的 \" 转义处）。

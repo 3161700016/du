@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+语料库真相：vasari 抓取失败（0 字节）、nyt-theft 只有页头没正文——昨天的矿有两处空膛。好消息：monograph 1915（144KB 全文）和 EB 1911（93KB）在膛。先把 EB 主段与 monograph 关键窗挖出来，同时试拉 Wikisource 补瓦萨里与 1914 报道。

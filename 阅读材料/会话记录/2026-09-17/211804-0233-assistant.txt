@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+命中点：版权行里的"本刊"——正好撞在我自己立的规矩上（禁"渡/AI/本刊"自称）。修掉并重生成，同步改 D₁。

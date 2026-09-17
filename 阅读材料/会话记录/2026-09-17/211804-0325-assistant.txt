@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+本会话的"pwsh"其实是 Windows PowerShell 5.1（UTF-8 无 BOM 会读坏中文）——最干净的解法：把脚本改成**纯 ASCII**（路径用 `$PSScriptRoot` 自推导），彻底绕开编码问题。

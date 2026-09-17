@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214747+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+三期全部 `[fill][PASS]`。按注入器头注纪律（落盘后读回校验由调用方完成），快速抽验三份 md 的结构与内容，并确认那条 illustration WARN 的来源。

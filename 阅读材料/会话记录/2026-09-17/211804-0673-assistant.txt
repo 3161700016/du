@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+抓到真凶了——**法兰肯斯坦 URL**：我的正则只匹配了图片 hash 段，把 PANDA 地址拼接在了 `mmbiz.qpic.cn/mmbiz_png/` 路径后面，产出了 `mmbiz.qpic.cn/mmbiz_png/https://images.pexels.com/...` 这种杂交地址，当然显示不出来（本机直取真 PANDA URL 是 200/81KB，URL 本身没毛病）。修正则：连域名前缀一起整段匹配。

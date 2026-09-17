@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+根因实锤：**winnat 动态圈地 3081-3180**——同时解释 3081（du-todo EACCES）与 3090（mobile-remote 桥静默失败）两个异常；3080 有 administered 排除项所以无恙。当前 shell 有管理员权限，且有 08-28「winnat 圈地解除」先例。执行修复：清圈地 + 给 3081/3090 加持久排除防复发 + 重拉 du-todo。

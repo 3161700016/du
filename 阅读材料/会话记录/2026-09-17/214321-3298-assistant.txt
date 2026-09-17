@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214321+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+W02 报捷，但子代理点了一个**真问题**：插图硬编码——14 期现在都会嵌熊猫图，茶园文章配熊猫显然不行。立即参数化（B–E 还在跑，schema 向后兼容不影响它们），并查 W02 旧茶园图与各期素材里的图源线索：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+收到——三线任务：①写作记忆载入 ②session.jsonl 选择性考古 ③重写蒙娜丽莎（GLM 态）＋落地选题文档。先并行取锚。

@@ -1,0 +1,10 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text
+────────────
+Background subagent 7c442590-b046-406c-90c0-248320f3b183 reported:
+W14 中国高铁素材采集完成（4/4 抓取额度用尽，1 成功）：
+- 来源·英文：Xinhua《New generation of intelligent high-speed trains put into operation》(2021-06-26)，经 english.ce.cn 存档抓取成功
+- 来源·中文：未采集到——gov.cn 中文稿 404、xinhuanet 403、appen.media.gov.cn 仅 JS 壳，按纪律如实标注单语
+- 对齐性：仅英文到手，无官方中文对照稿
+- 英文段数：7 段（符合 6–10 段要求，复兴号智能动车组，2021-06-25 上线）
+- 敏感检查：纯技术成就/出行服务内容，无政治领土涉领导表述，安全
+- 文件：C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W14-高铁\素材.md（含后续中文线索备查）

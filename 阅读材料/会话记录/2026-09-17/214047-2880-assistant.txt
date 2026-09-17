@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214047+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+定位完毕：残余就那两段（《公约》×3 全在第一段里）；插图槽的病根确认——容器 `width:auto; flex:100 100 0%`（flex-basis 0）在微信手机渲染器里塌缩，图片掉回自然尺寸靠 `align-self:flex-end` 缩到右边。修法：容器改 `display:block; width:75%; margin:0 auto`——不依赖 flex 的居中 3/4 宽，任何渲染器都稳。三处修改一次到位：

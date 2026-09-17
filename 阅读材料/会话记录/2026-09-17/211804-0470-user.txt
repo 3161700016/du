@@ -1,0 +1,4 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text,reasoning,tool-call
+────────────
+Background subagent 33fc9916-421e-4bb3-8f05-1cb9ba679c84 failed before it finished.
+Its closing message:

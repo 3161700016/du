@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+EB 主段、1915 Eyre 专著（其实是一本论证「 Isleworth 另一幅蒙娜丽莎」的书！）、可拉的 Vasari 章节与 1914 报道都定位了。执行只读抓取（已获批）+ 核一处 EB 奇点（"Zanobi del Giocondo"）。

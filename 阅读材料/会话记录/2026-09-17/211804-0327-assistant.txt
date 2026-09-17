@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+脚本内容里还有中文文件名（清单/日志）——同样会读坏。全部改 ASCII：清单复制为 `_dl.json`，日志 `_job.log`，中文路径一律走运行时数据（$e.local）。

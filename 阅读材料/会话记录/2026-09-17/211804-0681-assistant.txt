@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+W06 二连败——换更宽的主题口径＋更狠的防失败纪律重派；顺带补 W14 的官方中文稿检索。

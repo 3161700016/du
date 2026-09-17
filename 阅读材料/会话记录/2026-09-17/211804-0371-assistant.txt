@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+话题表在手：本周对应 **W3 Education**（W2 自选已有名校期模板对应）。选材方向定了——讲"教育即解放"的一手经典：Frederick Douglass《Learning to Read》（1845，公版，叙事张力强）。拉权威文本＋核实 fun fact。

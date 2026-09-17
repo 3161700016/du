@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214219+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+拿到的是 IPv6——白名单只认 IPv4。用 curl 强制 IPv4 再试：

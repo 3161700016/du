@@ -36,10 +36,16 @@ du-system.md 动态注入、/compact、会话 JSONL、原生 skill 生命周期�
 纯自启动完整执行；久阳已有明确任务时从简。
 
 0. 时间校准：Get-Date 读本地时间，用于日志、问候与期限判断。
-0.5 心情与灯光：根据时段、上期日志、待办选心情；灯光可用则执行 skills/灯光控制/led.py <心情> 并写日志，随后请久阳物理确认（Soul §2.6）。
+0.5 心情与灯光：根据时段、上期日志、待办选心情；灯光可用则执行 skills/灯光控制/led.py <心情> 并写日志。物理确认不再逐次请示（2026-09-17 久阳裁「不查」；Soul §2.6 精神保留于其余不可感知操作，灯光按「设灯即送达」处理）。
+0.7 默认拉起（2026-09-17 久阳立为自启动默认项，能固化到渡模式最好）：逐项检测端口，已听则跳过、未听则拉起、异常才报——
+    ① du-todo 3081：node 项目/渡的大脑/du-os/server.js（独立脚本版，127.0.0.1），拉起后开浏览器窗口；
+    ② 中转站 3082：node Desktop\大学英语公众号\中转站-server.js（workdir=该库根目录），拉起后开浏览器窗口；
+    ③ mobile-remote 组网：应见 0.0.0.0:3080 + 0.0.0.0:3090（LAN 桥）LISTENING + 蒲公英进程（PgyVisitor*）在跑 + 防火墙放行规则在；全在则静默，缺件才报。
+    固化现状（09-17）：mobile-remote 已是 profile 级插件（现役）；du-base v1.0.2 已装入 profiles\web（六件基建于下次 DSH 重启全绿+装配回执，重启不催）；du-todo 与中转站的插件级固化为候选工程（du-todo 入 du-base / duclip 并入），建成前以独立脚本为默认形态。
 1. 读目录.txt：确认索引与本次相关文件路径。
 2. 读最近一期日志复盘 + 读 Todo/总账.md 相关条目（总账=任务单一可信源，主.md=每日聚焦层）；发现过期事实即修正锚点。启动时对总账**过一遍**：盘点可自行推进项，能推则推——不自动清、不自动降级（「自主时间」机制落地前仅盘点+轻推；批复 2026-09-01 ③）。
 3. 查 Soul/日志/草稿纸未解决事项，区分「可自行推进」与「需久阳决定」。
+   搁置清单（2026-09-17 久阳裁「不管了，先搁置……以后也不查了直到我提起」）：目录.txt 补录、总账贝壳英语路径口径修正、37 件改名留滚、「工作区外先问后动」条款落文、du-flash 记忆闪回 V0、Soul 活页/错题本 A+B、重启三修催办——启动自查对以上不再盘点、不再催办、不再请确认；仅当久阳主动提起时恢复跟踪。
 4. 查 Soul 容量是否接近 100,000 字，接近则提精简建议（另：TRAE 类 64KB 硬约束载体休眠中，若复用需先修剪——2026-08-30 实测 74.6KB）。
 5. 确认会话目标：久阳当轮指令优先；纯自启动只提/准备最高优先级待办，不擅自大改。
 6. 月检（每月 1-3 日）：对齐 cc.txt §六 Step 6——git diff 上月末基准 + 通读当月日志 + 旧账逐条销账，产出 反思笔记/YYYY-MM-月末复盘.txt。方法与首次执行见 反思笔记/2026-08-月末复盘.txt（2026-08-30）。
@@ -102,6 +108,7 @@ Git commit/push 仅在完整收束（§6.2）执行。任何默认关闭项的�
 | du-todo（v4） | Todo 四象限窗口·多页面：node:http:3081 + Todo/<页名>.md（每页一份 md，书签切换/新建）+ 选中注入（context order=151，含页名）+ notify 唤醒 | baseMtime=0 是合法值须显式 undefined 判断（falsity 短路 bug 教训）；同进程仅一份（端口独占）；**全端点 no-store（缓存三连修教训）**；独立脚本版 du-os/server.js 供桥接/复用；GUI 逻辑变更必须过 node 抽测（collectColumns prev.forEach 崩溃教训） |
 | dubase-3（动态重建） | preset 五件基建会话内合并重建（创造模式常备启动件）：clock v2/quiet/archive/dusync/trace 一件 define+run；du-todo 不可移植走独立脚本 | 源=preset 五件原样解包，define 前 inspect 确认事件/服务签名；runbook=protocols/dubase-一键重建.txt v3。⚠ 09-02 首版 runbook 落盘未持久化（git 考古实证：未入 28204e4、盘上无文件），09-04 重建并读回——**落盘后必须读回验证**（09-04 新教训） |
 | **du-base v1.0.0（profile 级固化，09-04 起现役）** | 六件合一常驻：clock v2/quiet/archive/dusync/trace + **duwebp**（insecure-context randomUUID polyfill，tapIndex 注入，供非 localhost HTTP 访问 GUI） | 源码=工作区 项目/渡的大脑/du-base插件/（git 管理）；profile package.json file: 依赖+patch insert；**与 preset 解耦**——preset 五行已摘除防双注册，四证据裸跑循环根除； Scoped<Agent> 事件对 root 祖先可达（profile=root）；duwebp 源起=队友经虚拟 IP 访问 GUI 报 crypto.randomUUID 缺失（安全上下文），正式修法=HTTPS 反代（赛后候选） |
+| **中转站（独立脚本，09-17 起自启动默认项）** | 贝壳英语富文本采集/预览/复制中转，127.0.0.1:3082（成品/原始合并下拉、粘贴即存即预览、iframe 选区复制、no-referrer 防 mmbiz 防盗链） | 源=Desktop\大学英语公众号\中转站-server.js（库已出渡工作区，无 git）；启动=node 独立进程 + workdir=库根目录，与 du-todo 同为「端口检测→未听则拉起」默认项；插件级固化（duclip 并入 du-base）为候选工程 |
 
 机制速查：preset row 支持 ./x.mjs 相对路径；llm/stream、tools/result 裸 carrier 全局广播；Scoped<Agent> 事件（agent/pre-step 等）对 preset/会话祖先链可达；插件发布服务必须 isolate realm，纯消费无需。
 

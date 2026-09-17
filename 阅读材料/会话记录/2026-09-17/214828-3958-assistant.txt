@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214828+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call,tool-call,tool-call
+────────────
+**回归通过——通用注入器与已通过管线逐字节一致**。兵分五路，14 期并行开工：

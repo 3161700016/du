@@ -1,0 +1,12 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text,text
+────────────
+Background subagent cdbf8595-85b0-460a-af0e-09014b0f9a9e finished and will do no further work unless you send it more.
+Its closing message:
+主题：中国传统制茶技艺及其相关习俗列入UNESCO人类非物质文化遗产代表作名录（2022-11-29，拉巴特第17届常会通过）。
+
+- 中文：中国政府网（转文化和旅游部网站）2022-11-30，https://www.gov.cn/xinwen/2022-11/30/content_5729563.htm
+- 英文：China Daily（Wang Kaihao）2022-11-30，"Chinese tea making joins UNESCO list"，https://enapp.chinadaily.com.cn/a/202211/30/AP63862797a3102cbfe0adb6b0.html
+- 对齐性：同事件两稿（核心事实一致，文件内附英中要点映射表）；另补充新华社英文稿、UNESCO官网英文描述段（UNESCO中文页有反爬，已注明）。
+- 英文可选段数：全文11个自然段共407词，推荐6个组块约372词（每块2-4句，组块方案已写入文件）。
+- 敏感检查：通过——纯技艺/习俗/申遗角度；“多民族共享”两处系申报材料事实表述，已标注可避开。
+- 素材文件：`C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W02-制茶申遗\素材.md`

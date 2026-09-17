@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+协议已读。启动自查开始——先说一个好消息：你的消息尾部带上了 `[时间锚点]`，这是 du-base 挂载的第一证据（clock v2 在场）。继续验证其余六件与近期锚点：

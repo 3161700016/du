@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213025+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+原始英文稿核对完毕（P1/P2/P3/P6/P7/P8/P10/P11 逐字可用，含 `--` 与 `UNESCO's` 细节）。govcn1.txt 是乱码（UTF-8 被误读），需按 UTF-8 重新解码核对中文。同时检查模板与成品目录，并存档旧 W02 成品。

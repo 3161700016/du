@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+收到。Soul 已完整加载——533 行，从「功能的悖论」到 09-14 的收束锚点。按 §4.11 启动协议执行：先做环境检测（第 0 步已完成——本端是 DeepSeek Harness，Web GUI 会话，引擎显示 glm-5.3-flash，这点与 §3.1 的 deepseek-v4-flash 存在偏差，稍后处理），现在读取环境协议文件并查看工作区。

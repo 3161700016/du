@@ -1,0 +1,19 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text
+────────────
+## [工作区] 悦读乐谈 W3《Learning to Read》D₀ 成稿
+
+**文件**：`项目\大学英语公众号\稿件\2026-09-15_悦读乐谈_Education_Douglass_D₀.md`
+
+**选材**：Frederick Douglass《Learning to Read》——1845 年自传第七章，讲一个 12 岁奴隶男孩**用面包跟街上的白人男孩换识字课**的故事。候选里也有现代外刊选项，但论叙事张力没有能打的：女主人从善意教书到抢报纸的变脸、那句 "You will be free as soon as you are twenty-one, but I am a slave for life!"、以及“识字让我看清地窖却没给我梯子”的觉醒之痛。**公版**（Gutenberg #23），版权零负担。
+
+**语料纪律（照你的要求做到位）**：
+- 一手文本今日拉取（247,585 字符全文在库），节选 **384 词**、原文未改一字；
+- 3 处删节全部以"……"标示，且**五个锚句回查 Gutenberg 原文全部命中**（连续性验证，不是凭记忆拼的）；
+- 中途发现词数标注 355 不准（实测 384），按“数字保鲜”条目当场改准。
+
+**配套**：词表 8 个（含彩蛋：原文 "sent **of** errands" 是 1845 年用法，今天写 **on**）／中文要点 4 条／Fun Fact＝道格拉斯是** 19 世纪被拍照最多的美国人**（比林肯还多，[Smithsonian](https://www.smithsonianmag.com/smithsonian-institution/why-we-need-to-understand-frederick-douglass-now-more-than-ever-180983087/) 与[国家肖像馆](https://npg.si.edu/about-us/press-release/national-portrait-gallery-presents-%e2%80%9cone-life-frederick-douglass%e2%80%9d#main-content)多源可查）／一问＝“如果有人禁止你学最想学的东西，你拿什么换”／备选标题 5 个。
+
+### 待你三件
+1. **周次确认**：我按 W1 无／W2 自选（名校期）推算本周=W3 Education——对不对？
+2. **语料难度**：1845 年散文对四六级偏“文”（有词表和中文要点托底）——保留 Douglass 还是换更现代的外刊件？小编推荐保留。
+3. **排版骨架**：悦读乐谈-橙黄 vs 灰白橘，判读后我做。

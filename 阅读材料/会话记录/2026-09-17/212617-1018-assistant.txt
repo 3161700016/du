@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212617+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+W06 材料已阅读 —— 其中公开指出了一个遗漏（无赛罕坝特定双语；EN 是新华社关于三北“绿色长城”的报道，主题为宁夏中卫）。在构建之前，让我先核实 `_raw` 段落并阅读 W07/W08 的材料。

@@ -1,0 +1,9 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=text
+────────────
+## [工作区] 插图修好——法兰肯斯坦 URL 破案
+
+**根因**：我的替换正则只匹配了图片 hash 段，PANDA 地址被拼接在 `mmbiz.qpic.cn/mmbiz_png/` 路径后面，产出了 `mmbiz.qpic.cn/mmbiz_png/https://images.pexels.com/...` 的杂交地址——本机直取真 URL 是 200/81KB（图没问题），是标签里的地址坏了。教训已记：**URL 替换必须连域名路径整段匹配，hash-only 会留前缀杂交**。
+
+**修正后复核**：插图标签 src/data-src 均为纯 PANDA URL（200, image/jpeg, 81KB）、无拼接残留、159/159 与模板同构、72 对替换全中。
+
+**刷新中转站 → W01-大熊猫.html → 这次插图应该亮了**（预览里能看到粉色灯海…啊不，熊猫）→ 复制 → 草稿箱。如果微信侧图片仍不显示，那就是腾讯服务器取 Pexels 的网络问题，我切备用图源（Commons 熊猫照）再试——但先看这版。

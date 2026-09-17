@@ -1,0 +1,11 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text,reasoning,text,text
+────────────
+Background subagent 054d8bb0-3562-48d6-82f6-d31249b56d62 finished and will do no further work unless you send it more.
+Its closing message:
+- 来源（中文）：新华社电讯《“春节——中国人庆祝传统新年的社会实践”列入人类非物质文化遗产代表作名录》2024-12-04（news.cn 官方全文）
+- 来源（英文）：China Daily《UNESCO inscribes Spring Festival on intangible cultural heritage list》2024-12-04；另附 China Daily《每日一词·春节》双语对照页（2024-12-12）作年俗补充
+- 对齐性：同一事件官方各自成稿、主题对应非逐句直译——英文[1][9]≈中文第1段（申遗成功/44项），[2]–[5]、[6]–[8] 对应中文第3段前后半；中文第2段为中文稿特有，逐段已标注
+- 英文段数：9 段全部收录（符合 6–10 段）；中文 3 段全文＋2 条图注；抓取 4 次全部成功，无失败项
+- 敏感检查：申遗事件＋年俗＋官方意义表述，无领土/主权等敏感点，可直接用于大学英语公众号
+- 文件：`C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W10-春节申遗\素材.md`
+[时间锚点] 当前本地时间：2026-09-15 18:54:21 (+08:00 星期二)

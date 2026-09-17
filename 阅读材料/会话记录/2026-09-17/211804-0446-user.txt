@@ -1,0 +1,10 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text
+────────────
+Background subagent 14d1711b-40b1-4171-a6d4-20cbd7f430a8 reported:
+W01 大熊猫素材采集完成，已写入 C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W01-大熊猫\素材.md
+- 来源：中文=新华社/新华网两篇（2021-10-10 海报时评 c_1127942648；2021-08-10 转载经济日报评论 c_1127746320）；英文=CGTN 2021-07-11（文末标注源自新华社）news.cgtn.com/.../Giant-panda-protection-remains-the-same-despite-status-downgrade-11NSWHGewtG
+- 对齐性：同事件两稿（"濒危降易危、保护不减"官方发布），非逐段对照；中文稿已按段标注 [对应英文第N段]
+- 英文段数：7 段（符合 6-10 段）
+- 抓取情况：4 次预算用完——新华社英文站 news.cn/english 原稿 403 失败（已在文件备注原稿 URL），其余 3 次成功
+- 敏感检查：仅生态保护成就与官方数据，无敏感内容
+- 全部素材 2020 年后、仅生态保护角度，均官方来源

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214533+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+三个 content.json 就绪。跑注入器（三条独立命令）。

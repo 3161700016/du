@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214747+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+md 结构与金标准同构。最后抽验组数与文尾（确认无结语段）。

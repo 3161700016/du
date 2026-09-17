@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214800+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+三处成功，§九 的行插入锚点没对上（行尾格式与我记的有出入）。重读该区域拿精确文本：

@@ -1,0 +1,11 @@
+[du-archive] 2026-09-17T213903+08:00 | role=user | blocks=text,text,text,text
+────────────
+Background subagent cb51ba37-e3de-4e3e-a8ab-d716051af4da finished and will do no further work unless you send it more.
+Its closing message:
+W02 PASS ｜ hook：一片叶子的世界之旅 ｜ 素材缺口：无
+
+- 成品：`成品\讲中国故事\W02-制茶申遗.html`（[fill][PASS]）＋ `稿件\讲中国故事_W02_制茶申遗.md`；内容源 `讲中国故事素材\W02-制茶申遗\content.json`，附复跑校验脚本 `verify-content.mjs`；旧模板产物已存档为 `W02-制茶申遗_旧模板存档-0915.html`。
+- 语料源自 fill-w02.js 已验证文本，与素材.md 及 _raw 原始稿逐字双核对（EN 按句命中 China Daily、CN 逐字命中 gov.cn，EN 词数 50/43/45/77/80，10 词条名5/动2/形3 分工达标）。
+- 两处修正：①gov.cn 中①含「联合国」被注入器残留校验禁止，中文侧按要点映射改用中②③④⑤逐字选段；②旧直填两处句读截断延伸至官方句号、vocational 词条改「辨析：」。
+- 提请维护者决策：fill-generic.mjs 硬编码 W01 熊猫插图，W02 成品当前为熊猫图而非旧版茶园图，建议后续把插图参数化进 content.json。
+[时间锚点] 当前本地时间：2026-09-17 21:38:35 (+08:00 星期四)

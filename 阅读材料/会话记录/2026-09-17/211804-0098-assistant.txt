@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+写作记忆 8 条已载入。发现昨夜新增线索：`稿件/2026-09-14_文史哲艺_钟表_D0.md`（日志里没有——正是 session 里未存档的工作）。先校准 session 考古关键词，同时读钟表稿头看已商定的成稿格式（不碰蒙娜丽莎 D₀）。

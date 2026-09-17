@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T212226+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call,tool-call
+────────────
+探测结果关键项：蒲公英**在跑**（PgyVisitorEntSvr/Safe）、mobile-remote 插件**本场次活着**（activity 文件 19:56:15 刚更新过）、du-os 独立脚本在 `项目/渡的大脑/du-os/server.js` ✓、profile 里 du-base 仍是 **v1.0.1**（`inject=['timer']` 旧代码，v1.0.2 待装）。netstat/netsh 不在 PATH（沙箱裁剪），用全路径重试；同时读两个服务脚本头与 profile 依赖声明：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213935+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W02 茶园图找到了（Pexels 23042 茶园梯田），W03–W15 素材里都没有现成图源——那 13 期的插图等 B–E 交稿后用 Pexels API 统一配图（强制裁切 936×608，data-ratio 全期统一）。先把 W02 的茶园图接上：

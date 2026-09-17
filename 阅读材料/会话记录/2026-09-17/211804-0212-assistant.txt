@@ -1,0 +1,21 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text
+────────────
+## [工作区] Rebel Heart D₀ 成稿 ＋ Pexels 接线方案
+
+### ① 稿件：`项目\大学英语公众号\稿件\2026-09-15_你点我播_RebelHeart_D₀.md`
+
+**脊柱**：一张叫《叛逆之心》的专辑，发行前先被互联网偷走——她把六首成品直接提前发行反杀（“圣诞礼物提前拆吧”），三年后泄露者获刑 14 个月。**歌名在现实里被实况演了一遍。**
+
+史实全部自查核实、多源可查：12 月泄露→IG 愤怒发言后为比喻道歉→[Billboard 实证专辑空降亚军、被《嘻哈帝国》原声带挡在冠军外](https://www.billboard.com/pro/empire-soundtrack-number-one-madonna-number-two/)→[泄露者被判 14 个月](https://www.billboard.com/pro/madonna-hacker-sentenced-14-months-prison/)。彩蛋沿袭蒙娜丽莎那期的词源路数：**她真名就叫 Madonna**（意语“我的夫人”）——连艺名都懒得取。
+
+**版权红线（在世艺人，主动从严）**：专辑封面❌、人像❌、歌词不整段引用——歌词区全意译＋0 原文，规模留了裁定项；Avicii 署名标了“转引，发布前以专辑内页核对”。
+
+**待你**：① **投稿同学的一句话**（本栏目的“人味”来源，稿里留了槽位）② 歌词规模裁定 ③ “阅读原文”指向哪家电台。
+
+### ② Pexels：怎么用、key 怎么给
+
+**用法**（我这边全包）：`GET https://api.pexels.com/v1/search?query=xxx&per_page=8&orientation=landscape`，请求头带 `Authorization: 你的key`；返回 JSON 里 `photos[].src.large` 就是直链。免费额度 200 次/小时、20,000 次/月，够用。视频另有 `/videos/search`。
+
+**key 给我（推荐方式）**：把 key 存成文件 `C:\Users\31617\.dsh\pexels-key.txt`（.dsh 在仓库外，**永不进 git**——和蒲公英凭据同规矩），然后只跟我说一声“放好了”。嫌麻烦直接贴在对话里也行，我立刻转存到那个路径。我的纪律：key 不进 git、不进日志正文、不进成品 HTML（成品只用 Pexels 的 CDN 图片直链，不含 key），每次取图在出处分层标“图源 Pexels（Pexels License，可商用免署名）”。
+
+key 一到，我就给 Rebel Heart 四个图位各出一排候选缩略图（关键词已写好在稿里：演唱会灯海粉紫／舞台麦克风／霓虹夜纽约／红心剪影），你点一下就进排版——和蒙娜丽莎那期一样的点选流程。

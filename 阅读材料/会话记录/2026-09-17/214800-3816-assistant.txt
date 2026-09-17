@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214800+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+旧茶园图 404——老照片 ID 不支持新裁切参数。试原参数，不行就直接走 Pexels API 重配（顺带验证 API key 还活着，这也是后续 13 期配图的通路预演）：

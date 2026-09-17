@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213441+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+写入逐字校验脚本（EN/CN 对原始官方文件做子串级核对 + 词根语料核对 + 禁词扫描）：

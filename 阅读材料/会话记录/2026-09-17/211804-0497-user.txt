@@ -1,0 +1,10 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text
+────────────
+Background subagent 4f241749-0e84-45e8-a26c-03c66e7b29c7 reported:
+主题：W05 良渚古城遗址（世界遗产／城市水利系统与玉文化，仅考古·水利·遗产保护角度）
+中文来源：中国日报网 2024-09-06《良渚先民的治水之道》 https://cn.chinadaily.com.cn/a/202409/06/WS66de5db9a310a792b3abb0b4.html
+英文来源：China Daily 2023-09-09 "The flow of ingenuity"（Zhao Xu，4页连读） https://www.chinadaily.com.cn/a/202309/09/WS64fb98c1a310d2dce4bb4c7c.html
+对齐性：同事件两稿（中国日报同记者同一水利专题报道中英版本，核心事实与王宁远引语对应，非逐字对译；已在文件"对齐性"中给出★段↔中文段映射及水库数据口径提示）
+英文可选段：★10段（各2-4句），选6-8段合计约350-480词，均有中文对应段
+敏感检查：通过——无文明起源政治化、无民族主义对比叙事，可整段选用
+素材文件：C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W05-良渚\素材.md（含备用组：中国日报玉文化中英同记者稿《良渚玉器：何以中国》/"A tradition set in stone"）

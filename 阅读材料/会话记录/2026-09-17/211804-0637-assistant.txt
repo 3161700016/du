@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+**70 对替换全中、159/159 与模板同构**——直填路线一次跑通。记账后交验证。

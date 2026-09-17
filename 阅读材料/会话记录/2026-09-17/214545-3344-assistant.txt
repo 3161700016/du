@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214545+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+已在实时官方页面上逐字核对所有 W08 摘录（9/9 EN + 5/5 CN 键值）。现在正在保存原始来源以供审计，并提取 CGTN 第 5 组段落的精确原始文本：

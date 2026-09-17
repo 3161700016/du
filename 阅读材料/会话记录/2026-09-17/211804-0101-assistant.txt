@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+钟表稿证实了成稿模板（主标题/引语/导语/双语语料/术语簇注释）。读完后半模板，同时定位 session 里 16 期清单的位置。

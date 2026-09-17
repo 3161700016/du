@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+歌词 API 一发入魂（1380 字符全量到手，开头就是父亲那句 "Why can't you be like the other girls?"——整首歌的根）。取全文落盘存档。

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215634+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+W12 PASS（插图 WARN 为预期行为——管线定义的占位图机制）。继续 W13：

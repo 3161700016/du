@@ -1,0 +1,11 @@
+[du-archive] 2026-09-17T211804+08:00 | role=user | blocks=text,text,text
+────────────
+Background subagent 46671c58-28bd-46d5-aa67-0370e5532ebf reported:
+- 来源（中文）：新华社《新华鲜报丨1426头！长江江豚新数据见证长江十年禁渔新成效》2026-01-30（ah.xinhua.org 全文28段）
+- 来源（英文）：Xinhua "Update: Yangtze finless porpoise population increases in China" 2026-01-30（english.news.cn，9段全文）；另附 China Daily "Fishing ban revives Yangtze finless porpoises" 2026-01-31（16段，补充备选）
+- 对齐性：同一场国新办发布会官方双语报道，数据一致（1426头/+177/351种鱼）但非逐段直译、无官方对照页；中文已逐段标 [对应英文第N段]（编辑标注）
+- 英文段数：核心选段 9 段（符合 6-10 段要求），China Daily 16 段为备选不计入
+- 敏感检查：纯生态保护+渔业转型民生角度，官方原文照录；中文稿含一句领导人常规引述，无其他涉政敏感
+- 抓取纪律：3 次抓取全部成功（预算 4 次，未动用备用）
+- 文件：C:\Users\31617\Desktop\渡\项目\大学英语公众号\讲中国故事素材\W07-长江禁渔\素材.md
+[时间锚点] 当前本地时间：2026-09-15 18:49:59 (+08:00 星期二)

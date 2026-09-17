@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+四张全部命中（含 `Mona_Lisa_stolen-1911.jpg`——1911 年失窃照真在 Commons）。Pexels 无 key（需注册，本期用不上——四图全是历史公版件，Commons 正好）。取直链 + 验内容描述 + 落地存档。

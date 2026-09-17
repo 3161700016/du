@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T213657+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+诊断明确：3 处 MISS 均因我的组 EN 由两个自然段拼接、而 txt 里两段分处两行（html 空白折叠核对已全部命中，说明文本本身逐字无误）；另外发现 vocational（adj.）的 extra 沿用了旧直填的「词根词源助记」，违反形→辨析分工。修两处：

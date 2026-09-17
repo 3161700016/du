@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214828+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+B 路（W03–05）归队全 PASS。立即套配图映射并重产三期：

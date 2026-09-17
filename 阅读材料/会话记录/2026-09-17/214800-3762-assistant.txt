@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214800+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+明白：草稿箱搁置（文件留着，哪天有公网再说）；插图**弃用原容器**，整体迁到红色分割线之下、「学习语料」之上，全宽正常比例，不再折腾。改注入器：

@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+预览不显示的机制先破案：我的 HEAD 探针不带 Referer（200），浏览器 iframe 却带 `Referer: 127.0.0.1:3082`——mmbiz 对外部 Referer 有防盗链，所以**预览黑、粘回微信好**，你的观察完全吻合（给中转站页面加 no-referrer 可解）。先干正事：定位牙医组件区、盘点用色，做绿色主题改稿。

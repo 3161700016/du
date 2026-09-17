@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215707+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+md 渲染正确（W14 中文补件的弯引号「瑞龙智行」也逐字保留）。文件清单的空结果是 `-Filter` 不支持 `[...]` 区间语法所致，换 Where-Object 重查：

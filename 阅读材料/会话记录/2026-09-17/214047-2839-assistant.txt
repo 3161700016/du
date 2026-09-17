@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T214047+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+PANDA 图 URL 拿到了（09-15 你已验证的那张：pexels 33501926）；旧 W01 的 img 写法、标签惯例（词根词源×6／例句×3／辨析×1、无「指导」前缀）全部确认。导语是纯文本 span（无渐变字），周标签是 `<strong><span>第十三周</span></strong>`。最后一轮结构提取——语料组的段落包装和词汇模块的完整行级 markup：

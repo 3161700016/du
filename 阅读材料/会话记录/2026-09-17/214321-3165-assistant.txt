@@ -1,0 +1,5 @@
+[du-archive] 2026-09-17T214321+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+两件独立服务**已拉起并验证**：3081 du-todo（200，29.6KB 窗口页）、3082 中转站（200，5.4KB），两个浏览器窗口已开。（末尾 Block 规则复查空返回 exit 1——block-all 在位与否未证实，组网访问本身不受影响，如实记录。）
+
+现在做固化准备：把 profile 里的 du-base 从 v1.0.1 换装为工作区已就绪的 v1.0.2（inject 三依赖修复版）——**只装不重启**，下次 DSH 重启自然生效，六件基建届时全绿：

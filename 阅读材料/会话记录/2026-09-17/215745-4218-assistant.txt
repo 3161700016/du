@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T215745+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+破案——不是 .txt 与 HTML 有漂移，是**我又拿错了素材**：组4/组5 的解析锚点（更有画面感/典型的中文四字格）其实是 W01 文稿指导栏里的词，模板示例里根本没有。模板真实的组4/组5解析是 "express my support / celebrate the 30th anniversary" 那两句。验证后修正这两个锚点：

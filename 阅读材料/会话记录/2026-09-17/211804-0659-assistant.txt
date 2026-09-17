@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+目标 URL 的 & 符号在 HTML 源码里是 `&amp;`（编码态），字面匹配失败——改正则按图片 hash 匹配（对 &amp;/& 免疫）。

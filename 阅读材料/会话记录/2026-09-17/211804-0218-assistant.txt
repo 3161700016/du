@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T211804+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+歌词到手，而且副歌藏着一枚公版彩蛋——"took the road less travelled by" 直通弗罗斯特《未选择的路》（1916，公版，可整句引用）。轻量版结构定了：导语＋全量中英歌词（Verse/Chorus/Outro）＋短结语。先补 Pexels 竖图候选 + 读项目摘要准备存规格。
