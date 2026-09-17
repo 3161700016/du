@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T221557+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+总账回写完成（长锚点果然有不可见字符差异，短锚点过了）。(e) Git 收束：

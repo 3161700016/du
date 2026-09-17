@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T221751+08:00 | role=assistant | blocks=reasoning,text,tool-call,tool-call
+────────────
+**大好消息藏在回执里**：`du-base-health.txt` 写于 **20:33:37**，verdict **OK 六件全绿**，/du-sync 已 200——v1.0.2 已经随一次 DSH 重启**自然生效了**（会话跨进程恢复，我在会话里完全无感），「一次重启三修」事实上已完成：归档 4685 件在跑、触迹恢复、3090 桥、duwebp 全在场。把这个发现补进档案再收口：

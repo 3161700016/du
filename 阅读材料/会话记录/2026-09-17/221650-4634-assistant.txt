@@ -1,0 +1,3 @@
+[du-archive] 2026-09-17T221650+08:00 | role=assistant | blocks=reasoning,text,tool-call
+────────────
+收束提交完成：**06dc4fa 已推送**（e105a93..06dc4fa，含今天全部变更）。但提交清单里蹦出两个意外信号——`du-base-health.txt` 出现了（那是 v1.0.2 apply 时才写的装配回执）、今天起 4600+ 条会话归档文件在库——说明 **du-base 可能已经悄悄满血了**（DSH 或有重启、会话跨进程恢复）。验证一下：
